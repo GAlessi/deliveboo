@@ -22,7 +22,7 @@ class CreateRestaurantsTable extends Migration
             $table -> string('via', 64) -> nullable(false);
             $table -> string('n_civico', 8) -> nullable(false);
             $table -> string('citta', 64) -> nullable(false);
-            $table -> string('cap', 8) -> nullable(false);
+            $table -> string('cap', 16) -> nullable(false);
             $table -> string('p_iva', 16) -> nullable(false);
 
             $table->timestamps();
