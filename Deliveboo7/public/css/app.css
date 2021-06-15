@@ -10943,7 +10943,11 @@ a.text-dark:focus {
 }
 
 body {
-  background-color: purple;
+  background-color: black;
   color: white;
+}
+
+body #homeTitle {
+  color: yellow;
 }
 
