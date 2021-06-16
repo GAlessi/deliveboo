@@ -21,6 +21,9 @@ class CreateDishesTable extends Migration
             $table -> integer('prezzo_cent') -> nullable(false);
             $table -> boolean('visibilita') -> nullable(false);
 
+            //one to many
+            $table -> bigInteger('restaurant_id') -> unsigned() -> index(); 
+
             $table->timestamps();
         });
     }
