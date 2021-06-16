@@ -20,12 +20,6 @@ class AddForeignKeys extends Migration
         -> on('restaurants');
       });
 
-      //One to Many    Restaurant to Orders
-      Schema::table('orders', function (Blueprint $table) {
-        $table -> foreign('restaurant_id', 'orderrestaurant')
-        -> references('id')
-        -> on('restaurants');
-      });
 
       //Many to Many  Restaurants to Types
       Schema::table('restaurant_type', function (Blueprint $table) {
@@ -37,6 +31,19 @@ class AddForeignKeys extends Migration
         $table -> foreign('type_id', 'typerestaurant')
         -> references('id')
         -> on('types');
+      });
+
+
+      //Many to Many   Dishes to Orders
+      Schema::table('dish_order', function (Blueprint $table) {
+
+        $table -> foreign('dish_id', 'dishorder')
+        -> references('id')
+        -> on('dishes');
+
+        $table -> foreign('order_id', 'orderdish')
+        -> references('id')
+        -> on('orders');
       });
     }
 
@@ -52,15 +59,18 @@ class AddForeignKeys extends Migration
         $table -> dropForeign('dishrestaurant');
       });
 
-      //One to Many    Restaurant to Orders
-      Schema::table('orders', function (Blueprint $table) {
-        $table -> dropForeign('orderrestaurant');
-      });
 
       //Many to Many   Restaurants to Types
       Schema::table('restaurant_type', function (Blueprint $table) {
         $table -> dropForeign('restauranttype');
         $table -> dropForeign('typerestaurant');
+      });
+
+
+      //Many to Many  Dishes to Order
+      Schema::table('dish_order', function (Blueprint $table) {
+        $table -> dropForeign('dishorder');
+        $table -> dropForeign('orderdish');
       });
 
     }

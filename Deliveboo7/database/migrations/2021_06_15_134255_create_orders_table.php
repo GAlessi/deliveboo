@@ -13,25 +13,24 @@ class CreateOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
-            $table->id();
+      Schema::create('orders', function (Blueprint $table) {
+        $table->id();
 
-            $table -> string('nome_cliente', 32) -> nullable(false);
-            $table -> string('cognome_cliente', 32) -> nullable(false);
-            $table -> string('via', 64) -> nullable(false);
-            $table -> string('n_civico', 8) -> nullable(false);
-            $table -> string('citta', 64) -> nullable(false);
-            $table -> string('cap', 16) -> nullable(false);
-            $table -> string('telefono', 32) -> nullable(false);
-            $table -> string('n_carta', 16) -> nullable(false);
-            $table -> string('note', 255) -> nullable();
+        $table -> string('nome_cliente', 32) -> nullable(false);
+        $table -> string('cognome_cliente', 32) -> nullable(false);
+        $table -> string('via', 64) -> nullable(false);
+        $table -> string('n_civico', 8) -> nullable(false);
+        $table -> string('citta', 64) -> nullable(false);
+        $table -> string('cap', 16) -> nullable(false);
+        $table -> string('telefono', 32) -> nullable(false);
+        $table -> string('n_carta', 16) -> nullable(false);
+        $table -> string('note', 255) -> nullable();
 
 
-            //one to many      Restaurant to Orders
-            $table -> bigInteger('restaurant_id') -> unsigned() -> index();
 
-            $table->timestamps();
-        });
+
+        $table->timestamps();
+      });
     }
 
     /**

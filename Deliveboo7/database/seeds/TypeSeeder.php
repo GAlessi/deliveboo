@@ -15,14 +15,5 @@ class TypeSeeder extends Seeder
   {
     factory(Type::class, 10) -> create();
 
-    // factory(Type::class, 10) -> create()
-    // -> each(function($type) {
-    //
-    //   $restaurants = Restaurant::inRandomOrder()
-    //   -> limit(rand(2, 5))
-    //   -> get();
-    //   $type -> restaurants() -> attach($restaurants);
-    //   $type -> save();
-    // });
   }
 }

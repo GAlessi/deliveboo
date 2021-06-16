@@ -14,6 +14,7 @@ class Dish extends Model
     'prezzo_cent',
     'visibilita',
     'restaurant_id',
+
   ];
 
 
@@ -21,5 +22,11 @@ class Dish extends Model
   public function restaurant()
   {
     return $this -> belongsTo(Restaurant::class);
+  }
+
+  //Many to Many  Dishes to orders
+  public function orders() {
+
+    return $this -> belongsToMany(Order::class);
   }
 }

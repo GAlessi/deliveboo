@@ -17,11 +17,16 @@ class Order extends Model
     'telefono',
     'n_carta',
     'note',
-    'restaurant_id',
   ];
 
-  public function restaurant()
-  {
+  //One to Many   Restaurant to Orders
+  public function restaurant(){
     return $this -> belongsTo(Restaurant::class);
+  }
+
+  //Many to Many  Dishes to orders
+  public function dishes() {
+
+    return $this -> belongsToMany(Dish::class);
   }
 }

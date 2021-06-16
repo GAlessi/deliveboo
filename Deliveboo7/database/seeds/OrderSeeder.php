@@ -2,7 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use App\Order;
-use App\Restaurant;
+use App\Dish;
+
 class OrderSeeder extends Seeder
 {
   /**
@@ -12,11 +13,18 @@ class OrderSeeder extends Seeder
   */
   public function run()
   {
-    //One to Many  Restaurant to Orders
-    factory(Order::class, 50) -> make() -> each(function($order) {
-      $restaurant = Restaurant::inRandomOrder() -> first();
-      $order -> restaurant() -> associate($restaurant);
-      $order -> save();
+
+    //Many to Many  Dishes to Orders
+    factory(Order::class, 100) -> create()
+           -> each(function($order) {
+
+            $dishes = Dish::all();
+
+            $dishes = Dish::where('restaurant_id', "=", rand(1,50))
+            -> get();
+
+            $order-> dishes() -> attach($dishes);
+            $order-> save();
     });
   }
 }

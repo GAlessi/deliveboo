@@ -13,8 +13,7 @@ class RestaurantSeeder extends Seeder
      */
     public function run()
     {
-      //factory(Restaurant::class, 50) -> create();
-
+      //Many to Many  Restaurants to Types
       factory(Restaurant::class, 50) -> create()
       -> each(function($restaurant) {
 
