@@ -6,16 +6,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    protected $fillable = [
+  protected $fillable = [
 
-        'nome_cliente',
-        'cognome_cliente',
-        'via',
-        'n_civico',
-        'citta',
-        'cap',
-        'telefono',
-        'n_carta',
-        'note',
-    ];
+    'nome_cliente',
+    'cognome_cliente',
+    'via',
+    'n_civico',
+    'citta',
+    'cap',
+    'telefono',
+    'n_carta',
+    'note',
+    'restaurant_id',
+  ];
+
+  public function restaurant()
+  {
+    return $this -> belongsTo(Restaurant::class);
+  }
 }

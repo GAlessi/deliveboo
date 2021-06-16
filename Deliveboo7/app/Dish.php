@@ -16,6 +16,8 @@ class Dish extends Model
     'restaurant_id',
   ];
 
+
+  //One to Many    Restaurant to Dishes
   public function restaurant()
   {
     return $this -> belongsTo(Restaurant::class);

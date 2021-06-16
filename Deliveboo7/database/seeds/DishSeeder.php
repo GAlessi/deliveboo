@@ -12,6 +12,7 @@ class DishSeeder extends Seeder
   */
   public function run()
   {
+    //One to Many  Restaurant to Dishes
     factory(Dish::class, 50) -> make() -> each(function($dish) {
       $restaurant = Restaurant::inRandomOrder() -> first();
       $dish-> restaurant() -> associate($restaurant);

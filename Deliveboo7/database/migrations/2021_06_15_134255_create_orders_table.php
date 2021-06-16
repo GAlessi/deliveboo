@@ -27,6 +27,8 @@ class CreateOrdersTable extends Migration
             $table -> string('note', 255) -> nullable();
 
 
+            //one to many      Restaurant to Orders
+            $table -> bigInteger('restaurant_id') -> unsigned() -> index();
 
             $table->timestamps();
         });
