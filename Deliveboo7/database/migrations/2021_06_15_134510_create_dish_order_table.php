@@ -13,10 +13,15 @@ class CreateDishOrderTable extends Migration
      */
     public function up()
     {
-        Schema::create('dish_order', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+      Schema::create('dish_order', function (Blueprint $table) {
+        $table->id();
+
+        //Many to Many   Dishes to Orders
+        $table -> bigInteger('dish_id') -> unsigned() -> index();
+        $table -> bigInteger('order_id') -> unsigned() -> index();
+        
+        $table->timestamps();
+      });
     }
 
     /**

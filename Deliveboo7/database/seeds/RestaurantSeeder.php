@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Restaurant;
+use App\Type;
 
 class RestaurantSeeder extends Seeder
 {
@@ -12,6 +13,15 @@ class RestaurantSeeder extends Seeder
      */
     public function run()
     {
-        factory(Restaurant::class, 20) -> create();
+      //Many to Many  Restaurants to Types
+      factory(Restaurant::class, 50) -> create()
+      -> each(function($restaurant) {
+
+        $types = Type::inRandomOrder()
+        -> limit(rand(1, 2))
+        -> get();
+        $restaurant -> types() -> attach($types);
+        $restaurant -> save();
+      });
     }
 }

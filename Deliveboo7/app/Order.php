@@ -6,16 +6,27 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    protected $fillable = [
+  protected $fillable = [
 
-        'nome_cliente',
-        'cognome_cliente',
-        'via',
-        'n_civico',
-        'citta',
-        'cap',
-        'telefono',
-        'n_carta',
-        'note',
-    ];
+    'nome_cliente',
+    'cognome_cliente',
+    'via',
+    'n_civico',
+    'citta',
+    'cap',
+    'telefono',
+    'n_carta',
+    'note',
+  ];
+
+  //One to Many   Restaurant to Orders
+  public function restaurant(){
+    return $this -> belongsTo(Restaurant::class);
+  }
+
+  //Many to Many  Dishes to orders
+  public function dishes() {
+
+    return $this -> belongsToMany(Dish::class);
+  }
 }

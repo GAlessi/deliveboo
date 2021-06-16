@@ -6,26 +6,31 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateRestaurantTypeTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('restaurant_type', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
-    }
+  /**
+  * Run the migrations.
+  *
+  * @return void
+  */
+  public function up()
+  {
+    Schema::create('restaurant_type', function (Blueprint $table) {
+      $table->id();
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('restaurant_type');
-    }
+      // Many to Many  Restaurants to Types
+      $table -> bigInteger('restaurant_id') -> unsigned() -> index();
+      $table -> bigInteger('type_id') -> unsigned() -> index();
+
+      $table->timestamps();
+    });
+  }
+
+  /**
+  * Reverse the migrations.
+  *
+  * @return void
+  */
+  public function down()
+  {
+    Schema::dropIfExists('restaurant_type');
+  }
 }
