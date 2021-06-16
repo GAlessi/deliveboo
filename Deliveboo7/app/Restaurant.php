@@ -30,4 +30,11 @@ class Restaurant extends Model
   {
     return $this -> hasMany(Order::class);
   }
+
+
+  //Many to Many  Restaurants to Types
+  public function types() {
+
+    return $this -> belongsToMany(Type::class);
+  }
 }

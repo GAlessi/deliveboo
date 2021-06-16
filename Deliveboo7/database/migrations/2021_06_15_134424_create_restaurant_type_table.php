@@ -15,6 +15,11 @@ class CreateRestaurantTypeTable extends Migration
   {
     Schema::create('restaurant_type', function (Blueprint $table) {
       $table->id();
+
+      // Many to Many  Restaurants to Types
+      $table -> bigInteger('restaurant_id') -> unsigned() -> index();
+      $table -> bigInteger('type_id') -> unsigned() -> index();
+
       $table->timestamps();
     });
   }
