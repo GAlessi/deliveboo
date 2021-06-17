@@ -23,11 +23,8 @@ class CreateOrdersTable extends Migration
         $table -> string('citta', 64) -> nullable(false);
         $table -> string('cap', 16) -> nullable(false);
         $table -> string('telefono', 32) -> nullable(false);
-        $table -> string('n_carta', 16) -> nullable(false);
         $table -> string('note', 255) -> nullable();
-
-
-
+        $table -> string('status', 16) -> nullable(false);
 
         $table->timestamps();
       });
