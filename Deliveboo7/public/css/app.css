@@ -10942,12 +10942,103 @@ a.text-dark:focus {
   }
 }
 
-body {
-  background-color: black;
-  color: white;
+/* regole flex */
+
+.flex {
+  display: flex;
 }
 
-body #homeTitle {
-  color: yellow;
+.flex_wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex_col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex_col_rev {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.just_start {
+  justify-content: flex-start;
+}
+
+.just_cen {
+  justify-content: center;
+}
+
+.just_around {
+  justify-content: space-around;
+}
+
+.just_end {
+  justify-content: flex-end;
+}
+
+.space_bet {
+  justify-content: space-between;
+}
+
+.align_start {
+  align-items: flex-starte poi;
+}
+
+.align_cen {
+  align-items: center;
+}
+
+.align_end {
+  align-items: flex-end;
+}
+
+header {
+  color: black;
+  background-color: yellow;
+}
+
+footer {
+  color: black;
+  background-color: red;
+}
+
+body * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body .container {
+  margin: auto;
+}
+
+body ul li {
+  list-style: none;
+}
+
+body a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body input:focus {
+  outline: none;
+}
+
+body .relative {
+  position: relative;
+}
+
+body .absolute {
+  position: absolute;
 }
 
