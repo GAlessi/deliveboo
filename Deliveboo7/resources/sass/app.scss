@@ -1,20 +1,18 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+//@import url('https://fonts.googleapis.com/css?family=Nunito');
 
 // Variables
-@import 'variables';
+//@import 'variables';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-//my file
+//my files
 @import "partials/flex.scss";
+@import "partials/style.scss";
 @import "partials/header.scss";
-//@import "partials/main.scss";
+@import "partials/section_tipologie.scss";
 @import "partials/footer.scss";
-
-body{
-
 
 //common rules
 * {
@@ -23,9 +21,9 @@ body{
   box-sizing: border-box;
 }
 
-.container {
-    //width: 80%;
-    //max-width: 1000px;
+.mycontainer {
+    width: 80%;
+    max-width: 1000px;
     margin: auto;
 }
 
@@ -36,6 +34,11 @@ ul li {
 a {
   text-decoration: none;
   color: inherit;
+  transition: 0.5s;
+
+  &:hover {
+      color: inherit;
+  }
 }
 
 input:focus {
@@ -49,4 +52,7 @@ input:focus {
 .absolute {
   position: absolute;
 }
+
+.hidden {
+    display: none;
 }
