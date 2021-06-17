@@ -15,12 +15,12 @@ class OrderSeeder extends Seeder
   {
 
     //Many to Many  Dishes to Orders
-    factory(Order::class, 100) -> create()
+    factory(Order::class, 20) -> create()
            -> each(function($order) {
 
             $dishes = Dish::all();
 
-            $dishes = Dish::where('restaurant_id', "=", rand(1,50))
+            $dishes = Dish::where('restaurant_id', "=", rand(1,10))
             -> get();
 
             $order-> dishes() -> attach($dishes);
