@@ -7,12 +7,46 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+//my file
+@import "partials/flex.scss";
+@import "partials/header.scss";
+//@import "partials/main.scss";
+@import "partials/footer.scss";
+
 body{
-    background-color: black;
 
-    color: white;
 
-    #homeTitle{
-        color: yellow;
-    }
+//common rules
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+    //width: 80%;
+    //max-width: 1000px;
+    margin: auto;
+}
+
+ul li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input:focus {
+  outline: none;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
 }
