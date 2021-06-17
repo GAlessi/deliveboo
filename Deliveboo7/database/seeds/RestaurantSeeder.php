@@ -16,11 +16,11 @@ class RestaurantSeeder extends Seeder
 
     //Many to Many  Restaurants to Types
 
-    factory(Restaurant::class, 9) -> create()
+    factory(Restaurant::class, 10) -> create()
     -> each(function($restaurant)
     {
       $types = Type::inRandomOrder()
-      -> limit(rand(1, 2))
+      -> limit(rand(1, 3))
       -> get();
       $restaurant -> types() -> attach($types);
       $restaurant -> save();
