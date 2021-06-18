@@ -6,6 +6,14 @@ use App\Order;
 use Faker\Generator as Faker;
 
 $factory->define(Order::class, function (Faker $faker) {
+
+    $status = [
+        'pagato', 'in esecuzione', 'rifiutato'
+    ];
+
+    $index = $faker -> numberBetween(0, 2);
+    $stato = $status[$index];
+
     return [
 
         'nome_cliente' => $faker -> firstname,
@@ -15,7 +23,7 @@ $factory->define(Order::class, function (Faker $faker) {
         'citta' => $faker -> city,
         'cap' => $faker -> postcode,
         'telefono' => $faker -> phoneNumber,
-        'n_carta' => $faker -> creditCardNumber,
         'note' => $faker -> text,
+        'status' => $stato,
     ];
 });

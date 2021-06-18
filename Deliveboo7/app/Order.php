@@ -15,8 +15,8 @@ class Order extends Model
     'citta',
     'cap',
     'telefono',
-    'n_carta',
     'note',
+    'status',
   ];
 
   //One to Many   Restaurant to Orders
