@@ -34,12 +34,19 @@
     {{-- my style --}}
     <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
 
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
+
+
 </head>
 
 <body>
-    @include('components.header')
-    @yield('content')
-    @include('components.footer')
+    <div id="app">
+        @include('components.header')
+        @yield('content')
+        @include('components.footer')
+    </div>
 </body>
 
 </html>
