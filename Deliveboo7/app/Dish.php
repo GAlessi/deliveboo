@@ -13,14 +13,14 @@ class Dish extends Model
     'descrizione',
     'prezzo_cent',
     'visibilita',
-    'restaurant_id',
+    'user_id',
   ];
 
 
   //One to Many    Restaurant to Dishes
-  public function restaurant()
+  public function user()
   {
-    return $this -> belongsTo(Restaurant::class);
+    return $this -> belongsTo(User::class);
   }
 
   //Many to Many  Dishes to orders

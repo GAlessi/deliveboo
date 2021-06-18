@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Type;
-//use App\Restaurant;
+
 
 class TypeSeeder extends Seeder
 {

@@ -11,8 +11,8 @@ class Type extends Model
   ];
 
   //Many to Many  Restaurants to Types
-  public function restaurants() {
+  public function users() {
 
-    return $this -> belongsToMany(Restaurant::class);
+    return $this -> belongsToMany(User::class);
   }
 }

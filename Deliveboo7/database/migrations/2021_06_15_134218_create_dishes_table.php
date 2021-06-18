@@ -22,7 +22,7 @@ class CreateDishesTable extends Migration
             $table -> boolean('visibilita') -> nullable(false);
 
             //one to many   Restaurant to Dishes
-            $table -> bigInteger('restaurant_id') -> unsigned() -> index();
+            $table -> bigInteger('user_id') -> unsigned() -> index();
 
             $table->timestamps();
         });
