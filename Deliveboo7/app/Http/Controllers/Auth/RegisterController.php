@@ -53,6 +53,12 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'nome_attivita'=>['required','string','max:64'],
+            'via'=>['required','string','max:64'],
+            'n_civico'=>['required','string','max:8'],
+            'citta'=>['required','string','max:64'],
+            'cap'=>['required','string','max:16'],
+            'p_iva'=>['required','string','max:16'],
         ]);
     }
 
@@ -62,12 +68,18 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
-    }
+     protected function create(array $data)
+     {
+       return User::create([
+         'name' => $data['name'],
+         'email' => $data['email'],
+         'password' => Hash::make($data['password']),
+         'nome_attivita'=>$data['nome_attivita'],
+         'via'=>$data['via'],
+         'n_civico'=>$data['n_civico'],
+         'citta'=>$data['citta'],
+         'cap'=>$data['cap'],
+         'p_iva'=>$data['p_iva'],
+       ]);
+     }
 }
