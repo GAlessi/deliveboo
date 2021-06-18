@@ -55,3 +55,8 @@
 .align_end {
   align-items: flex-end;
 }
+
+* {
+  flex-grow: 0;
+  flex-shrink: 0;
+}
