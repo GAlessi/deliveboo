@@ -11002,8 +11002,72 @@ a.text-dark:focus {
 }
 
 header {
-  color: black;
-  background-color: yellow;
+  min-height: 600px;
+  background: #2a9d8f;
+  background: linear-gradient(0deg, #2a9d8f 0%, #f4a261 37%, #e9c46a 69%);
+}
+
+header .mycontainer {
+  position: relative;
+}
+
+header nav {
+  align-items: center;
+  padding: 5px 0;
+}
+
+header nav .nav_logo a {
+  font-size: 20px;
+}
+
+header nav .nav_buttons {
+  color: #636b6f;
+  font-family: "Nunito", sans-serif;
+  font-weight: 200;
+  font-size: 20px;
+}
+
+header nav .nav_buttons .top-right.links a {
+  margin-left: 20px;
+}
+
+header .jumbo {
+  position: relative;
+  top: 200px;
+}
+
+header .jumbo p {
+  font-size: 25px;
+}
+
+header .jumbo input {
+  margin: none;
+  padding: 10px;
+  font-size: 18px;
+}
+
+header .jumbo button {
+  margin: none;
+  padding: 10px 15px;
+  font-size: 18px;
+}
+
+header #boy-img {
+  width: 350px;
+  height: auto;
+  position: absolute;
+  right: 10px;
+  bottom: -230px;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+}
+
+header #casa {
+  width: 500px;
+  height: auto;
+  position: absolute;
+  right: 150px;
+  bottom: -140px;
 }
 
 footer {
@@ -11017,7 +11081,14 @@ body * {
   box-sizing: border-box;
 }
 
-body .container {
+body .main-bg {
+  background: #2a9d8f;
+  background: linear-gradient(0deg, #2a9d8f 0%, #f4a261 37%, #e9c46a 69%);
+}
+
+body .mycontainer {
+  width: 80%;
+  max-width: 1000px;
   margin: auto;
 }
 
