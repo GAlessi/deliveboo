@@ -13,14 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', 'MainController@main')
+       ->name('main');;
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/showRestaurant/{id}', 'MainController@restaurant') -> name('show');
 
 //MAIN
-Route::get('main', 'MainController@main')
-       ->name('main');
+// Route::get('main', 'MainController@main')
+//        ->name('main');

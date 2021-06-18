@@ -49869,7 +49869,23 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
  */
 
 var app = new Vue({
-  el: '#app'
+  el: '#app',
+  data: {
+    selected: [],
+    prezzi: [],
+    tot: 0
+  },
+  methods: {
+    prova: function prova() {
+      console.log('ciao');
+    },
+    addDishToCart: function addDishToCart(context, dish) {
+      if (!checked) {//push dish into cart
+      } else {// incrementDishQuantyty
+        }
+    },
+    getPrice: function getPrice() {}
+  }
 });
 
 /***/ }),
@@ -50006,8 +50022,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\esercizi_laravel\project-final\Deliveboo7\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\esercizi_laravel\project-final\Deliveboo7\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\dev\github\project-final\Deliveboo7\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\dev\github\project-final\Deliveboo7\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

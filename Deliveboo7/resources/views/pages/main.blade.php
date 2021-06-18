@@ -13,7 +13,20 @@
                     <div class="autoplay">
 
                         {{-- card tiplogia --}}
-                        <div class="type_card relative">
+
+                        @foreach ($users as $user)
+                                <div class="type_card relative">
+                                    <a href="{{ route('show', $user -> id )}}">
+                                        <img src="{{ asset('/storage/images/copertina_jappo.jpg') }}" alt="immagine tiplogia">
+                                        <h3 class="absolute">{{$user -> nome_attivita}}</h3>
+                                    </a>
+                                </div>
+                        @endforeach
+
+
+
+
+                        {{-- <div class="type_card relative">
                             <img src="{{ asset('/storage/images/copertina_jappo.jpg') }}" alt="immagine tiplogia">
                             <h3 class="absolute">Tipologia</h3>
                         </div>
@@ -32,35 +45,31 @@
                         <div class="type_card relative">
                             <img src="{{ asset('/storage/images/copertina_jappo.jpg') }}" alt="immagine tiplogia">
                             <h3 class="absolute">Tipologia</h3>
-                        </div>
-                        <div class="type_card relative">
-                            <img src="{{ asset('/storage/images/copertina_jappo.jpg') }}" alt="immagine tiplogia">
-                            <h3 class="absolute">Tipologia</h3>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
 
-                
+
             </div>
-            
+
             {{-- fine secrtion tipologie --}}
         </section>
-        
+
         {{-- section ristoranti --}}
         <section id="ristoranti">
-            <div class="lista_nascosta hidden">
+            <div class="lista_nascosta ">
                 <ul>
-                    <li>ciao</li>
-                    <li>ciao</li>
-                    <li>ciao</li>
-                    <li>ciao</li>
-                    <li>ciao</li>
-                    <li>ciao</li>
-    
+                    @foreach ($users as $user)
+                        <li>
+                            {{ $user -> nome_attivita }}
+                        </li>
+                    @endforeach
+
                 </ul>
             </div>
 
         </section>
+
     </main>
 
 

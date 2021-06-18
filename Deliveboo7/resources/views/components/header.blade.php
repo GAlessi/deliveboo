@@ -10,7 +10,7 @@
         <nav class="flex space_bet">
 
             <div class="nav_logo">
-                <a href="#">DELIVEBOO</a>
+                <a href={{route('main')}}>DELIVEBOO</a>
             </div>
 
             <div class="nav_buttons">

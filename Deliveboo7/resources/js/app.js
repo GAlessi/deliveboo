@@ -29,4 +29,38 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
+
+    data:{
+
+        selected: [],
+
+        prezzi: [],
+
+        tot: 0,
+
+    },
+
+    methods:{
+
+        prova: function(){
+            console.log('ciao');
+        },
+
+        addDishToCart: function(context, dish){
+
+            if(!checked){
+
+                //push dish into cart
+            } else{
+
+                // incrementDishQuantyty
+            }
+        },
+
+        getPrice: function(){
+
+
+        },
+
+    },
 });
