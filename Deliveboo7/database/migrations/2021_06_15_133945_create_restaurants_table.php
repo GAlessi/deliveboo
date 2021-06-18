@@ -13,21 +13,21 @@ class CreateRestaurantsTable extends Migration
      */
     public function up()
     {
-      Schema::create('restaurants', function (Blueprint $table) {
-          
-        $table->id();
-
-
-        $table -> string('nome_attivita', 64) -> nullable(false);
-        $table -> string('via', 64) -> nullable(false);
-        $table -> string('n_civico', 8) -> nullable(false);
-        $table -> string('citta', 64) -> nullable(false);
-        $table -> string('cap', 16) -> nullable(false);
-        $table -> string('p_iva', 16) -> nullable(false);
-
-
-        $table->timestamps();
-      });
+      // Schema::create('restaurants', function (Blueprint $table) {
+      //
+      //   $table->id();
+      //
+      //
+      //   // $table -> string('nome_attivita', 64) -> nullable(false);
+      //   // $table -> string('via', 64) -> nullable(false);
+      //   // $table -> string('n_civico', 8) -> nullable(false);
+      //   // $table -> string('citta', 64) -> nullable(false);
+      //   // $table -> string('cap', 16) -> nullable(false);
+      //   // $table -> string('p_iva', 16) -> nullable(false);
+      //
+      //
+      //   $table->timestamps();
+      // });
     }
 
     /**
@@ -37,6 +37,6 @@ class CreateRestaurantsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('restaurants');
+      //  Schema::dropIfExists('restaurants');
     }
 }

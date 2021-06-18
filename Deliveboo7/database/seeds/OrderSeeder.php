@@ -20,7 +20,7 @@ class OrderSeeder extends Seeder
 
             $dishes = Dish::all();
 
-            $dishes = Dish::where('restaurant_id', "=", rand(1,10))
+            $dishes = Dish::where('user_id', "=", rand(1,10))
             -> get();
 
             $order-> dishes() -> attach($dishes);

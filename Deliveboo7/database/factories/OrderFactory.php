@@ -2,9 +2,8 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Order;
 use Faker\Generator as Faker;
-
+use App\Order;
 
 $autoIncrement = autoIncrement();
 
@@ -125,7 +124,7 @@ $factory->define(Order::class, function (Faker $faker) use ($autoIncrement) {
 
     ];
 
-    $index = $autoIncrement->current();
+    $index = $autoIncrement -> current();
     $order = $orders[$index];
     // dd($index);
     return [
@@ -144,7 +143,7 @@ $factory->define(Order::class, function (Faker $faker) use ($autoIncrement) {
 
 function autoIncrement()
 {
-    for ($i = -1; $i <= 10; $i++) {
-        yield $i;
-    }
+  for ($i = -1; $i <= 10; $i++) {
+    yield $i;
+  }
 }
