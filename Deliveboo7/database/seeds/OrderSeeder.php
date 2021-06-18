@@ -15,7 +15,7 @@ class OrderSeeder extends Seeder
   {
 
     //Many to Many  Dishes to Orders
-    factory(Order::class, 20) -> create()
+    factory(Order::class, 10) -> create()
            -> each(function($order) {
 
             $dishes = Dish::all();
