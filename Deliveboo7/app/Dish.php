@@ -14,7 +14,6 @@ class Dish extends Model
     'prezzo_cent',
     'visibilita',
     'restaurant_id',
-
   ];
 
 

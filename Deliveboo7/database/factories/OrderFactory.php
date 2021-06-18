@@ -5,25 +5,146 @@
 use App\Order;
 use Faker\Generator as Faker;
 
-$factory->define(Order::class, function (Faker $faker) {
 
-    $status = [
-        'pagato', 'in esecuzione', 'rifiutato'
+$autoIncrement = autoIncrement();
+
+$factory->define(Order::class, function (Faker $faker) use ($autoIncrement) {
+    $autoIncrement->next();
+
+    $orders = [
+        [
+            'nome_cliente' => 'Ajeje1',
+            'cognome_cliente' => 'Brazorf',
+            'via' => 'Via dei matti',
+            'n_civico' => '0',
+            'citta' => 'Roma',
+            'cap' => '00014',
+            'telefono' => '3333333333',
+            'note' => 'non suonare',
+            'status' => 'pagato',
+        ],
+        [
+            'nome_cliente' => 'Ajeje2',
+            'cognome_cliente' => 'Brazorf',
+            'via' => 'Via dei matti',
+            'n_civico' => '0',
+            'citta' => 'Roma',
+            'cap' => '00014',
+            'telefono' => '3333333333',
+            'note' => 'non suonare',
+            'status' => 'pagato',
+        ],
+        [
+            'nome_cliente' => 'Ajeje3',
+            'cognome_cliente' => 'Brazorf',
+            'via' => 'Via dei matti',
+            'n_civico' => '0',
+            'citta' => 'Roma',
+            'cap' => '00014',
+            'telefono' => '3333333333',
+            'note' => 'non suonare',
+            'status' => 'pagato',
+        ],
+        [
+            'nome_cliente' => 'Ajeje4',
+            'cognome_cliente' => 'Brazorf',
+            'via' => 'Via dei matti',
+            'n_civico' => '0',
+            'citta' => 'Roma',
+            'cap' => '00014',
+            'telefono' => '3333333333',
+            'note' => 'non suonare',
+            'status' => 'pagato',
+        ],
+        [
+            'nome_cliente' => 'Ajeje5',
+            'cognome_cliente' => 'Brazorf',
+            'via' => 'Via dei matti',
+            'n_civico' => '0',
+            'citta' => 'Roma',
+            'cap' => '00014',
+            'telefono' => '3333333333',
+            'note' => 'non suonare',
+            'status' => 'pagato',
+        ],
+        [
+            'nome_cliente' => 'Ajeje6',
+            'cognome_cliente' => 'Brazorf',
+            'via' => 'Via dei matti',
+            'n_civico' => '0',
+            'citta' => 'Roma',
+            'cap' => '00014',
+            'telefono' => '3333333333',
+            'note' => 'non suonare',
+            'status' => 'pagato',
+        ],
+        [
+            'nome_cliente' => 'Ajeje7',
+            'cognome_cliente' => 'Brazorf',
+            'via' => 'Via dei matti',
+            'n_civico' => '0',
+            'citta' => 'Roma',
+            'cap' => '00014',
+            'telefono' => '3333333333',
+            'note' => 'non suonare',
+            'status' => 'pagato',
+        ],
+        [
+            'nome_cliente' => 'Ajeje8',
+            'cognome_cliente' => 'Brazorf',
+            'via' => 'Via dei matti',
+            'n_civico' => '0',
+            'citta' => 'Roma',
+            'cap' => '00014',
+            'telefono' => '3333333333',
+            'note' => 'non suonare',
+            'status' => 'pagato',
+        ],
+        [
+            'nome_cliente' => 'Ajeje9',
+            'cognome_cliente' => 'Brazorf',
+            'via' => 'Via dei matti',
+            'n_civico' => '0',
+            'citta' => 'Roma',
+            'cap' => '00014',
+            'telefono' => '3333333333',
+            'note' => 'non suonare',
+            'status' => 'pagato',
+        ],
+        [
+            'nome_cliente' => 'Ajeje10',
+            'cognome_cliente' => 'Brazorf',
+            'via' => 'Via dei matti',
+            'n_civico' => '0',
+            'citta' => 'Roma',
+            'cap' => '00014',
+            'telefono' => '3333333333',
+            'note' => 'non suonare',
+            'status' => 'pagato',
+        ],
+
     ];
 
-    $index = $faker -> numberBetween(0, 2);
-    $stato = $status[$index];
-
+    $index = $autoIncrement->current();
+    $order = $orders[$index];
+    // dd($index);
     return [
 
-        'nome_cliente' => $faker -> firstname,
-        'cognome_cliente' => $faker -> lastname,
-        'via' => $faker -> streetName,
-        'n_civico' => $faker -> buildingNumber,
-        'citta' => $faker -> city,
-        'cap' => $faker -> postcode,
-        'telefono' => $faker -> phoneNumber,
-        'note' => $faker -> text,
-        'status' => $stato,
+        'nome_cliente' => $order['nome_cliente'],
+        'cognome_cliente' => $order['cognome_cliente'],
+        'via' => $order['via'],
+        'n_civico' => $order['n_civico'],
+        'citta' => $order['citta'],
+        'cap' => $order['cap'],
+        'telefono' => $order['telefono'],
+        'note' => $order['note'],
+        'status' => $order['status'],
     ];
 });
+
+function autoIncrement()
+{
+    for ($i = -1; $i <= 10; $i++) {
+        yield $i;
+    }
+}

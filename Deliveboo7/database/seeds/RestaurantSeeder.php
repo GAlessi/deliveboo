@@ -15,7 +15,6 @@ class RestaurantSeeder extends Seeder
   {
 
     //Many to Many  Restaurants to Types
-
     factory(Restaurant::class, 10) -> create()
     -> each(function($restaurant)
     {
