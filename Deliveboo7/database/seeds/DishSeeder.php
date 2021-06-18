@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Dish;
-use App\Restaurant;
+use App\User;
 class DishSeeder extends Seeder
 {
   /**
@@ -13,9 +13,11 @@ class DishSeeder extends Seeder
   public function run()
   {
     //One to Many  Restaurant to Dishes
-    factory(Dish::class, 50) -> make() -> each(function($dish) {
-      $restaurant = Restaurant::inRandomOrder() -> first();
-      $dish-> restaurant() -> associate($restaurant);
+    factory(Dish::class, 30) -> make()
+    -> each(function($dish)
+    {
+      $user = User::inRandomOrder() -> first();
+      $dish-> user() -> associate($user);
       $dish -> save();
     });
   }

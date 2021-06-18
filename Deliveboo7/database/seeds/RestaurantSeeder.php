@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Restaurant;
-use App\Type;
+// use App\Restaurant;
+// use App\Type;
 
 class RestaurantSeeder extends Seeder
 {
@@ -14,17 +14,16 @@ class RestaurantSeeder extends Seeder
   public function run()
   {
 
-    //Many to Many  Restaurants to Types
-
-    factory(Restaurant::class, 10) -> create()
-    -> each(function($restaurant)
-    {
-      $types = Type::inRandomOrder()
-      -> limit(rand(1, 3))
-      -> get();
-      $restaurant -> types() -> attach($types);
-      $restaurant -> save();
-    });
+    // //Many to Many  Restaurants to Types
+    // factory(Restaurant::class, 10) -> create()
+    // -> each(function($restaurant)
+    // {
+    //   $types = Type::inRandomOrder()
+    //   -> limit(rand(1, 3))
+    //   -> get();
+    //   $restaurant -> types() -> attach($types);
+    //   $restaurant -> save();
+    // });
 
   }
 }
