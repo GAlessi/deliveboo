@@ -11,7 +11,7 @@
 @import "partials/flex.scss";
 @import "partials/style.scss";
 @import "partials/header.scss";
-@import "partials/section_tipologie.scss";
+@import "partials/main.scss";
 @import "partials/footer.scss";
 
 //common rules
@@ -27,9 +27,9 @@
     margin: auto;
 }
 
-    ul li {
-      list-style: none;
-    }
+ul li {
+  list-style: none;
+}
 
 a {
   text-decoration: none;
@@ -41,20 +41,20 @@ a {
   }
 }
 
-    input:focus {
-      outline: none;
-    }
+input:focus {
+  outline: none;
+}
 
-    .relative {
-      position: relative;
-    }
+.relative {
+  position: relative;
+}
 
-    .absolute {
-      position: absolute;
-    }
-
+.absolute {
+  position: absolute;
 }
 
 .hidden {
     display: none;
 }
+
+
