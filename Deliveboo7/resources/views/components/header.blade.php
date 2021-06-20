@@ -1,16 +1,16 @@
 <header>
+    <div class="mycontainer flex_center">
 
-
-    <div class="mycontainer">
-
+        {{-- nav --}}
         <nav class="flex space_bet align_cen">
 
+            {{-- nav_left --}}
             <div class="nav_left flex align_cen">
 
                 {{-- logo --}}
                 <div class="nav_logo">
                     <a href={{ route('main') }} id="logo_home" title="Home">
-                        <img src="{{ asset('/storage/images/boy.png') }}" alt="">
+                        <img src="{{ asset('/storage/images/boy.png') }}" alt="logo home">
                     </a>
                 </div>
 
@@ -18,7 +18,7 @@
                 <div class="nav_search">
                     <input type="text" placeholder="Cerca un ristorante">
                 </div>
-
+                {{-- fine nav_left --}}
             </div>
 
             {{-- nav_right --}}
@@ -26,7 +26,7 @@
 
                 {{-- carrello --}}
                 <div class="cart relative">
-                    <img src="{{ asset('/storage/images/shopping-cart.png') }}" alt="png carrello">
+                    <img src="{{ asset('/storage/images/shopping-cart.png') }}" alt="carrello">
                     {{-- aggiungere bollino in absolute con count() di elementi nel carrello --}}
                 </div>
 
@@ -54,7 +54,7 @@
 
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                               document.getElementById('logout-form').submit();">
+                                                                   document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
                                         </a>
 
@@ -70,33 +70,8 @@
                 </div>
                 {{-- fine nav_right --}}
             </div>
+            {{-- fine nav --}}
         </nav>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        {{-- <div class="jumbo">
-            <p id="jumbo_text">
-                I piatti che ami, a domicilio.
-            </p>
-            <img id="casa" src="{{ asset('/storage/images/casa.png') }}" alt="">
-            <img class="animate__fadeInRight" id="boy-img" src="{{ asset('/storage/images/boy.png') }}">
-            <input type="text" name="" placeholder='Cerca un ristorante'>
-            <button type="button" name="button">cerca</button>
-        </div> --}}
+        {{-- fine mycontainer --}}
     </div>
 </header>

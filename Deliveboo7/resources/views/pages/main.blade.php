@@ -6,22 +6,37 @@
 
         {{-- sezione jumbotron --}}
         <section id="myjumbotron">
-            <div class="mycontainer relative flex_wrap">
+            <div class="mycontainer flex_wrap">
 
                 {{-- title --}}
                 <div class="title">
                     <h1>Deliveboo!</h1>
+                    <h3>i piatti che ami, a domicilio.</h3>
                 </div>
 
-                
+                <div class="jumbotron_container flex align_cen">
 
-                {{-- <p id="jumbo_text">
-                    I piatti che ami, a domicilio.
-                </p>
-                <img id="casa" src="{{ asset('/storage/images/casa.png') }}" alt="">
-                <img class="animate__fadeInRight" id="boy-img" src="{{ asset('/storage/images/boy.png') }}">
-                <input type="text" name="" placeholder='Cerca un ristorante'>
-                <button type="button" name="button">cerca</button> --}}
+                    {{-- filtro ricerca --}}
+                    <div class="jumbotron_search flex_col align_cen">
+                        <input type="text" placeholder="Cerca un ristorante">
+
+                        <label for="citta">Scegli una città</label>
+                        <select name="citta" id="citta"></select>
+
+                        <label for="tipologia">Scegli una tipologia</label>
+                        <select name="tipologia" id="tipologia"></select>
+
+                        {{-- button --}}
+                        <button>Cerca!</button>
+                    </div>
+
+                    {{-- immagine --}}
+                    <div class="picture relative">
+                        <img class="jumbotron_casa absolute" src="{{ asset('/storage/images/casa.png') }}" alt="">
+                        <img class="jumbotron_moto absolute animate__fadeInRight" id="boy-img"
+                            src="{{ asset('/storage/images/boy.png') }}">
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -45,31 +60,8 @@
                                 </a>
                             </div>
                         @endforeach
-
-
-
-
-                        {{-- <div class="type_card relative">
-                            <img src="{{ asset('/storage/images/copertina_jappo.jpg') }}" alt="immagine tiplogia">
-                            <h3 class="absolute">Tipologia</h3>
-                        </div>
-                        <div class="type_card relative">
-                            <img src="{{ asset('/storage/images/copertina_jappo.jpg') }}" alt="immagine tiplogia">
-                            <h3 class="absolute">Tipologia</h3>
-                        </div>
-                        <div class="type_card relative">
-                            <img src="{{ asset('/storage/images/copertina_jappo.jpg') }}" alt="immagine tiplogia">
-                            <h3 class="absolute">Tipologia</h3>
-                        </div>
-                        <div class="type_card relative">
-                            <img src="{{ asset('/storage/images/copertina_jappo.jpg') }}" alt="immagine tiplogia">
-                            <h3 class="absolute">Tipologia</h3>
-                        </div>
-                        <div class="type_card relative">
-                            <img src="{{ asset('/storage/images/copertina_jappo.jpg') }}" alt="immagine tiplogia">
-                            <h3 class="absolute">Tipologia</h3>
-                        </div> --}}
                     </div>
+                    {{-- fine carousel --}}
                 </div>
             </div>
 

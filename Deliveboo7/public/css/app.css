@@ -11046,13 +11046,23 @@ h6 {
 }
 
 header {
-  background: #2a9d8f;
-  background: linear-gradient(0deg, #2a9d8f 0%, #f4a261 37%, #e9c46a 69%);
+  position: fixed;
+  height: 85px;
+  width: 100%;
+  top: 0;
+  background-color: #2a9d8f;
+  box-shadow: 0px 2px 2px 0px rgba(50, 50, 50, 0.75);
+  z-index: 999;
+}
+
+header .mycontainer {
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
 }
 
 header .mycontainer nav {
-  align-items: center;
-  padding: 5px 0;
+  width: 100%;
 }
 
 header .mycontainer nav .nav_left .nav_logo {
@@ -11072,8 +11082,8 @@ header .mycontainer nav .nav_left .nav_search input {
   padding: 5px 10px;
   width: 200px;
   background-image: url("/storage/images/search.png");
-  background-position: 160px 3px;
-  background-size: 30px 31px;
+  background-position: 160px 6px;
+  background-size: 25px 25px;
   background-repeat: no-repeat;
   border: none;
   border-radius: 15px;
@@ -11098,6 +11108,14 @@ header .mycontainer nav .nav_right .nav_buttons .navbar-nav {
 
 header .mycontainer nav .nav_right .nav_buttons .navbar-nav li.nav-item {
   margin-left: 15px;
+}
+
+header .mycontainer nav .nav_right .nav_buttons .navbar-nav li.nav-item a {
+  font-size: 24px;
+}
+
+header .mycontainer nav .nav_right .nav_buttons .navbar-nav li.nav-item a:hover {
+  text-decoration: underline;
 }
 
 footer {
@@ -11127,55 +11145,90 @@ footer .column .footer_list:last-of-type i:hover {
 }
 
 main {
+  margin-top: 85px;
   text-align: center;
   background-color: #e9c46a;
 }
 
 main #myjumbotron {
+  padding-top: 30px;
   background: #2a9d8f;
   background: linear-gradient(0deg, #2a9d8f 0%, #f4a261 37%, #e9c46a 69%);
 }
 
 main #myjumbotron .mycontainer .title {
+  margin-bottom: 30px;
   width: 100%;
 }
 
-main #myjumbotron .mycontainer .title h1 {
-  text-align: center;
+main #myjumbotron .mycontainer .jumbotron_container {
+  width: 100%;
 }
 
-main #myjumbotron .mycontainer p {
-  font-size: 25px;
+main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search {
+  margin: 5px;
+  padding: 15px;
+  width: 30%;
+  background-color: #264653;
+  border-radius: 10px;
+  box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
 }
 
-main #myjumbotron .mycontainer input {
-  margin: none;
+main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search input {
   padding: 10px;
-  font-size: 18px;
+  font-size: 24px;
+  border: solid 2px white;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
 }
 
-main #myjumbotron .mycontainer button {
-  margin: none;
+main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search input:focus {
+  border: solid 2px #e76f51;
+}
+
+main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search label {
+  margin-top: 15px;
+  color: #DCDCDC;
+}
+
+main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search select {
+  width: 100%;
+}
+
+main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search button {
+  margin-top: 25px;
   padding: 10px 15px;
-  font-size: 18px;
+  width: 50%;
+  font-size: 24px;
+  background-color: #e9c46a;
+  border: solid 2px #e76f51;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
 }
 
-main #myjumbotron #boy-img {
-  width: 350px;
-  height: auto;
-  position: absolute;
-  right: 10px;
-  bottom: -230px;
+main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search button:hover {
+  background-color: #e76f51;
+  border: solid 2px #e9c46a;
+}
+
+main #myjumbotron .mycontainer .jumbotron_container .picture {
+  margin-left: 30px;
+  height: 400px;
+  width: 70%;
+}
+
+main #myjumbotron .mycontainer .jumbotron_container .picture .jumbotron_casa {
+  width: 500px;
+  top: 0;
+  left: 10%;
+}
+
+main #myjumbotron .mycontainer .jumbotron_container .picture .jumbotron_moto {
+  width: 270px;
+  left: 40%;
+  bottom: 0;
   -webkit-animation-duration: 2s;
           animation-duration: 2s;
-}
-
-main #myjumbotron #casa {
-  width: 500px;
-  height: auto;
-  position: absolute;
-  right: 150px;
-  bottom: -140px;
 }
 
 main #ristoranti {
@@ -11210,6 +11263,7 @@ main #ristoranti .restaurant_card h4 {
 }
 
 #showRestaurant {
+  margin-top: 85px;
   padding: 30px 0;
   background-color: #e76f51;
 }

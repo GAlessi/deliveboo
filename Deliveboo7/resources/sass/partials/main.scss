@@ -1,58 +1,95 @@
 main {
+    margin-top: 85px;
     text-align: center;
     background-color: $yellow;
 
     #myjumbotron {
-        //min-height: 600px;
+        padding-top: 30px;
         background: rgb(42,157,143);
         background: linear-gradient(0deg, rgba(42,157,143,1) 0%, rgba(244,162,97,1) 37%, rgba(233,196,106,1) 69%);
 
         .mycontainer {
 
             .title {
+                margin-bottom: 30px;
                 width: 100%;
-                
-                h1 {
-                    text-align: center;
+            }
+
+            .jumbotron_container {
+                width: 100%;
+
+                .jumbotron_search {
+                    margin: 5px;
+                    padding: 15px;
+                    width: 30%;
+                    background-color: $blue;
+                    border-radius: 10px;
+                    -webkit-box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+                    -moz-box-shadow:    4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+                    box-shadow:         4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+     
+                    input {
+                     padding: 10px;
+                     font-size: $text_big;
+                     border: solid 2px white;
+                     border-radius: 10px;
+                     -webkit-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+                    -moz-box-shadow:    2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+                    box-shadow:         2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+
+                     &:focus {
+                         border: solid 2px $red;
+                     }
+                    }
+     
+                    label {
+                        margin-top: 15px;
+                        color: $light;
+                    }
+
+                    select {
+                        width: 100%;
+                    }
+
+                    button {
+                        margin-top: 25px;
+                        padding: 10px 15px;
+                        width: 50%;
+                        font-size: $text_big;
+                        background-color: $yellow;
+                        border: solid 2px $red;
+                        border-radius: 10px;
+                        -webkit-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+                        -moz-box-shadow:    2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+                        box-shadow:         2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+
+                        &:hover {
+                            background-color: $red;
+                            border: solid 2px $yellow;
+                        }
+                    }   
+                } // fine jumbotron_search
+
+                .picture {
+                    margin-left: 30px;
+                    height: 400px;
+                    width: 70%;
+
+                    .jumbotron_casa {
+                        width: 500px;
+                        top: 0;
+                        left: 10%;
+                    }
+
+                    .jumbotron_moto {
+                        width: 270px;
+                        left: 40%;
+                        bottom:0;
+                        animation-duration: 2s;
+                    }
                 }
             }
-    
-            p {
-                font-size: 25px;
-            }
-    
-            input {
-                margin: none;
-                padding: 10px;
-                font-size: 18px;
-            }
-    
-            button {
-                margin: none;
-                padding: 10px 15px;
-                font-size: 18px;
-            }
-    
-        }
-    
-        #boy-img {
-            width: 350px;
-            height: auto;
-            position: absolute;
-            right:10px;
-            bottom:-230px;
-            animation-duration: 2s;
-        }
-    
-        #casa {
-    
-            width: 500px;
-            height: auto;
-            position: absolute;
-            right:150px;
-            bottom:-140px;
-    
-        }
+        }        
     } //fine section myjumbotron
 
     //sezione ristoranti
