@@ -17,8 +17,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', 'MainController@main')
-       ->name('main');;
+// Route::get('/', 'MainController@main')
+//        ->name('main');;
 
 Auth::routes();
 
@@ -33,3 +33,11 @@ Route::get('/', 'MainController@main')
 // //MAIN
 // Route::get('main', 'MainController@main')
 //        ->name('main');
+
+
+//Creazione nuovo piatto
+Route::get('/createDish', 'HomeController@createDish')
+        ->name('createDish');
+
+Route::post('/store', 'HomeController@storeDish')
+        -> name('storeDish');

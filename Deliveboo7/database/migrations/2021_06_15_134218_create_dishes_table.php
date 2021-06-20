@@ -18,7 +18,7 @@ class CreateDishesTable extends Migration
 
             $table -> string('nome', 64) -> nullable(false);
             $table -> text('descrizione') -> nullable(false);
-            $table -> integer('prezzo_cent') -> nullable(false);
+            $table -> integer('prezzo') -> nullable(false);
             $table -> boolean('visibilita') -> nullable(false);
 
             //one to many   Restaurant to Dishes

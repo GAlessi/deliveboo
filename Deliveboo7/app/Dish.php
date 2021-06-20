@@ -11,7 +11,7 @@ class Dish extends Model
 
     'nome',
     'descrizione',
-    'prezzo_cent',
+    'prezzo',
     'visibilita',
     'user_id',
   ];
