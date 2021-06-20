@@ -17,7 +17,10 @@
                 {{-- ricerca --}}
                 <div class="nav_search">
                     <input type="text" placeholder="Cerca un ristorante">
+
+                    <button><i class="fas fa-play"></i></button>
                 </div>
+
                 {{-- fine nav_left --}}
             </div>
 

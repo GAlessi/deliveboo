@@ -11079,15 +11079,30 @@ header .mycontainer nav .nav_left .nav_logo img:hover {
 }
 
 header .mycontainer nav .nav_left .nav_search input {
-  padding: 5px 10px;
+  padding: 5px 35px 5px 5px;
   width: 200px;
   background-image: url("/storage/images/search.png");
-  background-position: 160px 6px;
+  background-position: 170px 6px;
   background-size: 25px 25px;
   background-repeat: no-repeat;
   border: none;
   border-radius: 15px;
   box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+}
+
+header .mycontainer nav .nav_left .nav_search button {
+  margin-left: 5px;
+  height: 40px;
+  width: 40px;
+  background-color: #e9c46a;
+  border: solid 2px #e76f51;
+  border-radius: 50%;
+  box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+}
+
+header .mycontainer nav .nav_left .nav_search button:hover {
+  background-color: #e76f51;
+  border: solid 2px #e9c46a;
 }
 
 header .mycontainer nav .nav_right .cart {

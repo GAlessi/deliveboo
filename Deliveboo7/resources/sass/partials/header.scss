@@ -35,10 +35,10 @@ header {
                 .nav_search {
                     
                     input {
-                        padding: 5px 10px;
+                        padding: 5px 35px 5px 5px;
                         width: 200px;
                         background-image: url("/storage/images/search.png");
-                        background-position: 160px 6px;
+                        background-position: 170px 6px;
                         background-size: 25px 25px;
                         background-repeat: no-repeat;
                         border: none;
@@ -46,6 +46,23 @@ header {
                         -webkit-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
                         -moz-box-shadow:    2px 2px 2px 0px rgba(50, 50, 50, 0.91);
                         box-shadow:         2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+                    }
+
+                    button {
+                        margin-left: 5px;
+                        height: 40px;
+                        width: 40px;
+                        background-color: $yellow;
+                        border: solid 2px $red;
+                        border-radius: 50%;
+                        -webkit-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+                        -moz-box-shadow:    2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+                        box-shadow:         2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+
+                        &:hover {
+                            background-color: $red;
+                            border: solid 2px $yellow;
+                        }
                     }
                 }
             } //fine nav_left
