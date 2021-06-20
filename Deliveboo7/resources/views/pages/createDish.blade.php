@@ -45,7 +45,7 @@
                                     <option value=1 selected>
                                         Si
                                     </option>
-                                    <option value=0 >
+                                    <option value=0>
                                         No
                                     </option>
                                 </select>
