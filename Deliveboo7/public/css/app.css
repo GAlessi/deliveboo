@@ -11046,112 +11046,58 @@ h6 {
 }
 
 header {
-  min-height: 600px;
   background: #2a9d8f;
   background: linear-gradient(0deg, #2a9d8f 0%, #f4a261 37%, #e9c46a 69%);
 }
 
-header .mycontainer {
-  position: relative;
-}
-
-header nav {
+header .mycontainer nav {
   align-items: center;
   padding: 5px 0;
 }
 
-header nav .nav_logo a {
-  font-size: 20px;
+header .mycontainer nav .nav_left .nav_logo {
+  margin-right: 15px;
+  font-size: 24px;
 }
 
-header nav .nav_buttons {
-  color: #636b6f;
-  font-family: "Nunito", sans-serif;
-  font-weight: 200;
-  font-size: 20px;
+header .mycontainer nav .nav_left .nav_logo img {
+  width: 80px;
 }
 
-header nav .nav_buttons .top-right.links a {
-  margin-left: 20px;
+header .mycontainer nav .nav_left .nav_logo img:hover {
+  scale: 1.1;
 }
 
-header .jumbo {
-  position: relative;
-  top: 200px;
-}
-
-header .jumbo p {
-  font-size: 25px;
-}
-
-header .jumbo input {
-  margin: none;
-  padding: 10px;
-  font-size: 18px;
-}
-
-header .jumbo button {
-  margin: none;
-  padding: 10px 15px;
-  font-size: 18px;
-}
-
-header #boy-img {
-  width: 350px;
-  height: auto;
-  position: absolute;
-  right: 10px;
-  bottom: -230px;
-  -webkit-animation-duration: 2s;
-          animation-duration: 2s;
-}
-
-header #casa {
-  width: 500px;
-  height: auto;
-  position: absolute;
-  right: 150px;
-  bottom: -140px;
-}
-
-main {
-  text-align: center;
-  background-color: #e9c46a;
-}
-
-main #tipologie {
-  padding: 30px 0;
-}
-
-main #tipologie .type_card {
-  margin: 10px;
-  background-color: #fff;
-  height: 200px;
+header .mycontainer nav .nav_left .nav_search input {
+  padding: 5px 10px;
   width: 200px;
-  border-radius: 20px;
-  box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+  background-image: url("/storage/images/search.png");
+  background-position: 160px 3px;
+  background-size: 30px 31px;
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+}
+
+header .mycontainer nav .nav_right .cart {
   cursor: pointer;
 }
 
-main #tipologie .type_card img {
-  height: 100%;
-  width: 100%;
-  border-radius: 20px;
+header .mycontainer nav .nav_right .cart img {
+  width: 25px;
 }
 
-main #tipologie .type_card h3 {
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  padding: 0 5px;
-  color: #2a9d8f;
-  background-color: #e9c46a;
-  border-radius: 10px;
+header .mycontainer nav .nav_right .nav_buttons {
+  color: #264653;
 }
 
-main #ristoranti {
-  height: 200px;
-  background-color: #f4a261;
+header .mycontainer nav .nav_right .nav_buttons .navbar-nav {
+  flex-direction: row;
+}
+
+header .mycontainer nav .nav_right .nav_buttons .navbar-nav li.nav-item {
+  margin-left: 15px;
 }
 
 footer {
@@ -11178,6 +11124,130 @@ footer .column .footer_list a:hover {
 
 footer .column .footer_list:last-of-type i:hover {
   color: #e9c46a;
+}
+
+main {
+  text-align: center;
+  background-color: #e9c46a;
+}
+
+main #myjumbotron {
+  background: #2a9d8f;
+  background: linear-gradient(0deg, #2a9d8f 0%, #f4a261 37%, #e9c46a 69%);
+}
+
+main #myjumbotron .mycontainer .title {
+  width: 100%;
+}
+
+main #myjumbotron .mycontainer .title h1 {
+  text-align: center;
+}
+
+main #myjumbotron .mycontainer p {
+  font-size: 25px;
+}
+
+main #myjumbotron .mycontainer input {
+  margin: none;
+  padding: 10px;
+  font-size: 18px;
+}
+
+main #myjumbotron .mycontainer button {
+  margin: none;
+  padding: 10px 15px;
+  font-size: 18px;
+}
+
+main #myjumbotron #boy-img {
+  width: 350px;
+  height: auto;
+  position: absolute;
+  right: 10px;
+  bottom: -230px;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+}
+
+main #myjumbotron #casa {
+  width: 500px;
+  height: auto;
+  position: absolute;
+  right: 150px;
+  bottom: -140px;
+}
+
+main #ristoranti {
+  padding: 30px 0;
+}
+
+main #ristoranti .restaurant_card {
+  margin: 10px;
+  background-color: #fff;
+  height: 200px;
+  width: 200px;
+  border-radius: 20px;
+  box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+  cursor: pointer;
+}
+
+main #ristoranti .restaurant_card img {
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+}
+
+main #ristoranti .restaurant_card h4 {
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  padding: 0 5px;
+  color: #2a9d8f;
+  text-shadow: 1px 1px 1px #264653;
+  background-color: #e9c46a;
+  border-radius: 10px;
+}
+
+#showRestaurant {
+  padding: 30px 0;
+  background-color: #e76f51;
+}
+
+#showRestaurant .restaurant_name {
+  text-align: center;
+}
+
+#showRestaurant .restaurant_name h2 {
+  color: #e9c46a;
+  text-shadow: 2px 2px 2px #264653;
+}
+
+#showRestaurant ul {
+  width: 100%;
+}
+
+#showRestaurant ul li {
+  width: calc(100% / 3);
+}
+
+#showRestaurant .dish_card {
+  margin: 10px;
+  padding: 5px;
+  background-color: #e9c46a;
+  border: solid 1px #264653;
+  border-radius: 10px;
+  box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+  cursor: pointer;
+}
+
+#showRestaurant .dish_card:hover {
+  background-color: #264653;
+}
+
+#showRestaurant .dish_card:hover p,
+#showRestaurant .dish_card:hover h6 {
+  color: #DCDCDC;
 }
 
 * {

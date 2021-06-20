@@ -2,16 +2,64 @@ main {
     text-align: center;
     background-color: $yellow;
 
+    #myjumbotron {
+        //min-height: 600px;
+        background: rgb(42,157,143);
+        background: linear-gradient(0deg, rgba(42,157,143,1) 0%, rgba(244,162,97,1) 37%, rgba(233,196,106,1) 69%);
 
-    #tipologie {
+        .mycontainer {
+
+            .title {
+                width: 100%;
+                
+                h1 {
+                    text-align: center;
+                }
+            }
+    
+            p {
+                font-size: 25px;
+            }
+    
+            input {
+                margin: none;
+                padding: 10px;
+                font-size: 18px;
+            }
+    
+            button {
+                margin: none;
+                padding: 10px 15px;
+                font-size: 18px;
+            }
+    
+        }
+    
+        #boy-img {
+            width: 350px;
+            height: auto;
+            position: absolute;
+            right:10px;
+            bottom:-230px;
+            animation-duration: 2s;
+        }
+    
+        #casa {
+    
+            width: 500px;
+            height: auto;
+            position: absolute;
+            right:150px;
+            bottom:-140px;
+    
+        }
+    } //fine section myjumbotron
+
+    //sezione ristoranti
+    #ristoranti {
         padding: 30px 0;
 
-
-        // background: rgb(42,157,143);
-        // background: linear-gradient(180deg, rgba(42,157,143,1) 0%, rgba(194,161,109,1) 10%, rgba(244,162,97,1) 22%, rgba(233,196,106,1) 39%, rgba(233,196,106,1) 85%);
-
-
-        .type_card {
+        .restaurant_card {
             margin: 10px;
             background-color: #fff;
             height: 200px;
@@ -28,23 +76,22 @@ main {
                 border-radius: 20px;
             }
 
-            h3 {
+            h4 {
                 left: 50%;
                 bottom: 0;
                 transform: translateX(-50%);
                 padding: 0 5px;
                 color: $green;
+                text-shadow: 1px 1px 1px #264653;
                 background-color: $yellow;
                 border-radius: 10px;
             }
         }
-    } //fine tiplogie
+    } //fine sezione ristoranti
 
-    #ristoranti {
+    // #ristoranti {
 
-        height: 200px;
-        background-color: $orange;
-    }
-
-    
+    //     height: 200px;
+    //     background-color: $orange;
+    // }
 }

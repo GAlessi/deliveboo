@@ -1,74 +1,68 @@
 header {
-    // color: black;
-    min-height: 600px;
     background: rgb(42,157,143);
     background: linear-gradient(0deg, rgba(42,157,143,1) 0%, rgba(244,162,97,1) 37%, rgba(233,196,106,1) 69%);
 
+    .mycontainer {
 
-    .mycontainer{
-        position: relative;
-    }
+        nav {
+            align-items: center;
+            padding: 5px 0;
+    
+            .nav_left {
 
-    nav{
-        align-items: center;
-        padding: 5px 0;
+                .nav_logo {
+                    margin-right: 15px;
+                    font-size: $text_big;
+                    
+                    img {
+                        width: 80px;
+    
+                        &:hover {
+                            scale: 1.1;
+                        }
+                    }
+                } 
 
-        .nav_logo a{
-            font-size: 20px;
-        }
+                .nav_search {
+                    
+                    input {
+                        padding: 5px 10px;
+                        width: 200px;
+                        background-image: url("/storage/images/search.png");
+                        background-position: 160px 3px;
+                        background-size: 30px 31px;
+                        background-repeat: no-repeat;
+                        border: none;
+                        border-radius: 15px;
+                        -webkit-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+                        -moz-box-shadow:    2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+                        box-shadow:         2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+                    }
+                }
+            } //fine nav_left
 
-        .nav_buttons{
-            color: #636b6f;
-            font-family: 'Nunito', sans-serif;
-            font-weight: 200;
-            font-size: 20px;
+            .nav_right {
 
-            .top-right.links a{
-                margin-left: 20px;
-            }
-        }
+                .cart {
+                    cursor: pointer;
+                    
+                    img {
+                        width: 25px;
+                    }
+                }
 
-
-    }
-
-    .jumbo {
-
-        position: relative;
-        top: 200px;
-        p{
-            font-size: 25px;
-        }
-
-        input{
-            margin: none;
-            padding: 10px;
-            font-size: 18px;
-        }
-
-        button{
-            margin: none;
-            padding: 10px 15px;
-            font-size: 18px;
-        }
-
-    }
-
-    #boy-img{
-        width: 350px;
-        height: auto;
-        position: absolute;
-        right:10px;
-        bottom:-230px;
-        animation-duration: 2s;
-    }
-
-    #casa{
-
-        width: 500px;
-        height: auto;
-        position: absolute;
-        right:150px;
-        bottom:-140px;
-
-    }
-}
+                .nav_buttons {
+                    color: $blue;
+    
+                    .navbar-nav {
+                        flex-direction: row;
+    
+                        li.nav-item {
+                            margin-left: 15px;
+                        }
+                    }
+                }
+            } //fine nav_right
+        } //fine nav
+    } //fine mycontainer
+} //finer header
