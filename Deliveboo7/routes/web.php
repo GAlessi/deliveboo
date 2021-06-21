@@ -41,3 +41,12 @@ Route::get('/createDish', 'HomeController@createDish')
 
 Route::post('/store', 'HomeController@storeDish')
         -> name('storeDish');
+
+
+//Login/Logout/Register
+Route::get('login', 'AuthController@index');
+Route::post('post-login', 'AuthController@postLogin');
+Route::get('registration', 'AuthController@registration');
+Route::post('post-registration', 'AuthController@postRegistration');
+Route::get('dashboard', 'AuthController@dashboard');
+Route::get('logout', 'AuthController@logout');
