@@ -1,74 +1,103 @@
 header {
-    // color: black;
-    min-height: 600px;
-    background: rgb(42,157,143);
-    background: linear-gradient(0deg, rgba(42,157,143,1) 0%, rgba(244,162,97,1) 37%, rgba(233,196,106,1) 69%);
+    position: fixed;
+    height: 85px;
+    width: 100%;
+    top: 0;
+    background-color: $green;
+    -webkit-box-shadow: 0px 2px 2px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    0px 2px 2px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         0px 2px 2px 0px rgba(50, 50, 50, 0.75);
+    z-index: 999;
 
+    .mycontainer {
+        flex-direction: row;
+        height: 100%;
+        width: 100%;
 
-    .mycontainer{
-        position: relative;
-    }
+        nav {
+            width: 100%;
+    
+            .nav_left {
 
-    nav{
-        align-items: center;
-        padding: 5px 0;
+                .nav_logo {
+                    margin-right: 15px;
+                    font-size: $text_big;
+                    
+                    img {
+                        width: 80px;
+    
+                        &:hover {
+                            scale: 1.1;
+                        }
+                    }
+                } 
 
-        .nav_logo a{
-            font-size: 20px;
-        }
+                .nav_search {
+                    
+                    input {
+                        padding: 5px 35px 5px 5px;
+                        width: 200px;
+                        background-image: url("/storage/images/search.png");
+                        background-position: 170px 6px;
+                        background-size: 25px 25px;
+                        background-repeat: no-repeat;
+                        border: none;
+                        border-radius: 15px;
+                        -webkit-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+                        -moz-box-shadow:    2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+                        box-shadow:         2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+                    }
 
-        .nav_buttons{
-            color: #636b6f;
-            font-family: 'Nunito', sans-serif;
-            font-weight: 200;
-            font-size: 20px;
+                    button {
+                        margin-left: 5px;
+                        height: 40px;
+                        width: 40px;
+                        background-color: $yellow;
+                        border: solid 2px $red;
+                        border-radius: 50%;
+                        -webkit-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+                        -moz-box-shadow:    2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+                        box-shadow:         2px 2px 2px 0px rgba(50, 50, 50, 0.91);
 
-            .top-right.links a{
-                margin-left: 20px;
-            }
-        }
+                        &:hover {
+                            background-color: $red;
+                            border: solid 2px $yellow;
+                        }
+                    }
+                }
+            } //fine nav_left
 
+            .nav_right {
 
-    }
+                .cart {
+                    cursor: pointer;
+                    
+                    img {
+                        width: 25px;
+                    }
+                }
 
-    .jumbo {
+                .nav_buttons {
+                    color: $blue;
+    
+                    .navbar-nav {
+                        flex-direction: row;
+    
+                        li.nav-item {
+                            margin-left: 15px;
+                            
+                            
+                            a {
+                                font-size: $text_big;
 
-        position: relative;
-        top: 200px;
-        p{
-            font-size: 25px;
-        }
-
-        input{
-            margin: none;
-            padding: 10px;
-            font-size: 18px;
-        }
-
-        button{
-            margin: none;
-            padding: 10px 15px;
-            font-size: 18px;
-        }
-
-    }
-
-    #boy-img{
-        width: 350px;
-        height: auto;
-        position: absolute;
-        right:10px;
-        bottom:-230px;
-        animation-duration: 2s;
-    }
-
-    #casa{
-
-        width: 500px;
-        height: auto;
-        position: absolute;
-        right:150px;
-        bottom:-140px;
-
-    }
-}
+                                &:hover {
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
+                    }
+                }
+            } //fine nav_right
+        } //fine nav
+    } //fine mycontainer
+} //finer header

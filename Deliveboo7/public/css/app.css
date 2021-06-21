@@ -11046,112 +11046,91 @@ h6 {
 }
 
 header {
-  min-height: 600px;
-  background: #2a9d8f;
-  background: linear-gradient(0deg, #2a9d8f 0%, #f4a261 37%, #e9c46a 69%);
+  position: fixed;
+  height: 85px;
+  width: 100%;
+  top: 0;
+  background-color: #2a9d8f;
+  box-shadow: 0px 2px 2px 0px rgba(50, 50, 50, 0.75);
+  z-index: 999;
 }
 
 header .mycontainer {
-  position: relative;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
 }
 
-header nav {
-  align-items: center;
-  padding: 5px 0;
+header .mycontainer nav {
+  width: 100%;
 }
 
-header nav .nav_logo a {
-  font-size: 20px;
+header .mycontainer nav .nav_left .nav_logo {
+  margin-right: 15px;
+  font-size: 24px;
 }
 
-header nav .nav_buttons {
-  color: #636b6f;
-  font-family: "Nunito", sans-serif;
-  font-weight: 200;
-  font-size: 20px;
+header .mycontainer nav .nav_left .nav_logo img {
+  width: 80px;
 }
 
-header nav .nav_buttons .top-right.links a {
-  margin-left: 20px;
+header .mycontainer nav .nav_left .nav_logo img:hover {
+  scale: 1.1;
 }
 
-header .jumbo {
-  position: relative;
-  top: 200px;
-}
-
-header .jumbo p {
-  font-size: 25px;
-}
-
-header .jumbo input {
-  margin: none;
-  padding: 10px;
-  font-size: 18px;
-}
-
-header .jumbo button {
-  margin: none;
-  padding: 10px 15px;
-  font-size: 18px;
-}
-
-header #boy-img {
-  width: 350px;
-  height: auto;
-  position: absolute;
-  right: 10px;
-  bottom: -230px;
-  -webkit-animation-duration: 2s;
-          animation-duration: 2s;
-}
-
-header #casa {
-  width: 500px;
-  height: auto;
-  position: absolute;
-  right: 150px;
-  bottom: -140px;
-}
-
-main {
-  text-align: center;
-  background-color: #e9c46a;
-}
-
-main #tipologie {
-  padding: 30px 0;
-}
-
-main #tipologie .type_card {
-  margin: 10px;
-  background-color: #fff;
-  height: 200px;
+header .mycontainer nav .nav_left .nav_search input {
+  padding: 5px 35px 5px 5px;
   width: 200px;
-  border-radius: 20px;
-  box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+  background-image: url("/storage/images/search.png");
+  background-position: 170px 6px;
+  background-size: 25px 25px;
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+}
+
+header .mycontainer nav .nav_left .nav_search button {
+  margin-left: 5px;
+  height: 40px;
+  width: 40px;
+  background-color: #e9c46a;
+  border: solid 2px #e76f51;
+  border-radius: 50%;
+  box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+}
+
+header .mycontainer nav .nav_left .nav_search button:hover {
+  background-color: #e76f51;
+  border: solid 2px #e9c46a;
+}
+
+header .mycontainer nav .nav_right .cart {
   cursor: pointer;
 }
 
-main #tipologie .type_card img {
-  height: 100%;
-  width: 100%;
-  border-radius: 20px;
+header .mycontainer nav .nav_right .cart img {
+  width: 25px;
 }
 
-main #tipologie .type_card h3 {
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  padding: 0 5px;
-  color: #2a9d8f;
-  background-color: #e9c46a;
-  border-radius: 10px;
+header .mycontainer nav .nav_right .nav_buttons {
+  color: #264653;
 }
 
-main #ristoranti {
-  height: 200px;
-  background-color: #f4a261;
+header .mycontainer nav .nav_right .nav_buttons .navbar-nav {
+  flex-direction: row;
+}
+
+header .mycontainer nav .nav_right .nav_buttons .navbar-nav li.nav-item {
+  margin-left: 15px;
+}
+
+header .mycontainer nav .nav_right .nav_buttons .navbar-nav li.nav-item a {
+  font-size: 24px;
+}
+
+header .mycontainer nav .nav_right .nav_buttons .navbar-nav li.nav-item a:hover {
+  text-decoration: underline;
 }
 
 footer {
@@ -11178,6 +11157,166 @@ footer .column .footer_list a:hover {
 
 footer .column .footer_list:last-of-type i:hover {
   color: #e9c46a;
+}
+
+main {
+  margin-top: 85px;
+  text-align: center;
+  background-color: #e9c46a;
+}
+
+main #myjumbotron {
+  padding-top: 30px;
+  background: #2a9d8f;
+  background: linear-gradient(0deg, #2a9d8f 0%, #f4a261 37%, #e9c46a 69%);
+}
+
+main #myjumbotron .mycontainer .title {
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+main #myjumbotron .mycontainer .jumbotron_container {
+  width: 100%;
+}
+
+main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search {
+  margin: 5px;
+  padding: 15px;
+  width: 30%;
+  background-color: #264653;
+  border-radius: 10px;
+  box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+}
+
+main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search input {
+  padding: 10px;
+  font-size: 24px;
+  border: solid 2px white;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+}
+
+main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search input:focus {
+  border: solid 2px #e76f51;
+}
+
+main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search label {
+  margin-top: 15px;
+  color: #DCDCDC;
+}
+
+main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search select {
+  width: 100%;
+}
+
+main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search button {
+  margin-top: 25px;
+  padding: 10px 15px;
+  width: 50%;
+  font-size: 24px;
+  background-color: #e9c46a;
+  border: solid 2px #e76f51;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+}
+
+main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search button:hover {
+  background-color: #e76f51;
+  border: solid 2px #e9c46a;
+}
+
+main #myjumbotron .mycontainer .jumbotron_container .picture {
+  margin-left: 30px;
+  height: 400px;
+  width: 70%;
+}
+
+main #myjumbotron .mycontainer .jumbotron_container .picture .jumbotron_casa {
+  width: 500px;
+  top: 0;
+  left: 10%;
+}
+
+main #myjumbotron .mycontainer .jumbotron_container .picture .jumbotron_moto {
+  width: 270px;
+  left: 40%;
+  bottom: 0;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+}
+
+main #ristoranti {
+  padding: 30px 0;
+}
+
+main #ristoranti .restaurant_card {
+  margin: 10px;
+  background-color: #fff;
+  height: 200px;
+  width: 200px;
+  border-radius: 20px;
+  box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+  cursor: pointer;
+}
+
+main #ristoranti .restaurant_card img {
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+}
+
+main #ristoranti .restaurant_card h4 {
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  padding: 0 5px;
+  color: #2a9d8f;
+  text-shadow: 1px 1px 1px #264653;
+  background-color: #e9c46a;
+  border-radius: 10px;
+}
+
+#showRestaurant {
+  margin-top: 85px;
+  padding: 30px 0;
+  background-color: #e76f51;
+}
+
+#showRestaurant .restaurant_name {
+  text-align: center;
+}
+
+#showRestaurant .restaurant_name h2 {
+  color: #e9c46a;
+  text-shadow: 2px 2px 2px #264653;
+}
+
+#showRestaurant ul {
+  width: 100%;
+}
+
+#showRestaurant ul li {
+  width: calc(100% / 3);
+}
+
+#showRestaurant .dish_card {
+  margin: 10px;
+  padding: 5px;
+  background-color: #e9c46a;
+  border: solid 1px #264653;
+  border-radius: 10px;
+  box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+  cursor: pointer;
+}
+
+#showRestaurant .dish_card:hover {
+  background-color: #264653;
+}
+
+#showRestaurant .dish_card:hover p,
+#showRestaurant .dish_card:hover h6 {
+  color: #DCDCDC;
 }
 
 * {
