@@ -41,3 +41,14 @@ Route::get('/createDish', 'HomeController@createDish')
 
 Route::post('/store', 'HomeController@storeDish')
         -> name('storeDish');
+
+
+
+
+
+
+
+
+//prova rotte
+Route::get('registration', 'AuthController@registration')-> name('getRegistration');
+Route::post('post-registration', 'AuthController@postRegistration')-> name('postRegistration');
