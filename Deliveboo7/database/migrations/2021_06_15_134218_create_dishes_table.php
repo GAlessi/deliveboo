@@ -17,7 +17,8 @@ class CreateDishesTable extends Migration
             $table->id();
 
             $table -> string('nome', 64) -> nullable(false);
-            $table -> text('descrizione') -> nullable(false);
+            $table -> text('ingredienti') -> nullable(false);
+            $table -> text('descrizione') -> nullable();
             $table -> integer('prezzo') -> nullable(false);
             $table -> boolean('visibilita') -> nullable(false);
 
