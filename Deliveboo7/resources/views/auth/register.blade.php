@@ -119,6 +119,25 @@
                                             </div>
                                         </div>
 
+                                        {{-- Checkbox --}}
+                                        <div class="form-group row">
+                                          <div class="form-check">
+                                            <label class="form-check-label">
+                                              <input type="checkbox" class="form-check-input" value="">Option 1
+                                            </label>
+                                          </div>
+                                          <div class="form-check">
+                                            <label class="form-check-label">
+                                              <input type="checkbox" class="form-check-input" value="">Option 2
+                                            </label>
+                                          </div>
+                                          <div class="form-check">
+                                            <label class="form-check-label">
+                                              <input type="checkbox" class="form-check-input" value="" disabled>Option 3
+                                            </label>
+                                          </div>
+                                        </div>
+
                                         <div class="form-group row mb-0">
                                             <div class="col-md-6 offset-md-4">
                                                 <button type="submit" class="btn btn-primary">
