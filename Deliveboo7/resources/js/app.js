@@ -38,29 +38,19 @@ const app = new Vue({
 
         tot: 0,
 
+        vueRestaurants: [],
+
     },
+
 
     methods:{
 
         prova: function(){
-            console.log('ciao');
+            console.log('ciao', this.restaurant);
         },
 
-        addDishToCart: function(context, dish){
-
-            if(!checked){
-
-                //push dish into cart
-            } else{
-
-                // incrementDishQuantyty
-            }
-        },
-
-        getPrice: function(){
-
-
-        },
 
     },
+
+
 });

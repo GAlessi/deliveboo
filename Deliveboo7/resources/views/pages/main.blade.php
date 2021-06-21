@@ -65,7 +65,7 @@
                 </div>
             </div>
 
-            {{-- fine secrtion tipologie --}}
+            {{-- fine secrtion bestRestaurant --}}
         </section>
 
         {{-- section ristoranti --}}
@@ -78,7 +78,26 @@
                         </li>
                     @endforeach
 
-                </ul>
+                <div class="selection">
+                    <h4>
+                        Categorie
+                    </h4>
+                    <ul id="type_list">
+
+                        @foreach ($types as $type)
+                            <li @click='prova()' >
+                                <label for="tipologia">{{ $type -> nome }}</label>
+                                <input type="checkbox" name="tipologia" value="{{ $type -> id }}">
+                            </li>
+                        @endforeach
+
+                    </ul>
+                </div>
+
+                <div class="showSelection">
+                    
+                </div>
+
             </div>
 
         </section> --}}

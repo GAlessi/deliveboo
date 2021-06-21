@@ -49873,18 +49873,13 @@ var app = new Vue({
   data: {
     selected: [],
     prezzi: [],
-    tot: 0
+    tot: 0,
+    vueRestaurants: []
   },
   methods: {
     prova: function prova() {
-      console.log('ciao');
-    },
-    addDishToCart: function addDishToCart(context, dish) {
-      if (!checked) {//push dish into cart
-      } else {// incrementDishQuantyty
-        }
-    },
-    getPrice: function getPrice() {}
+      console.log('ciao', this.restaurant);
+    }
   }
 });
 
