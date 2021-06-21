@@ -3,16 +3,41 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Type;
-use App\User;
 use Validator,Redirect,Response;
+Use App\User;
+use App\Type;
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Session;
 
 class AuthController extends Controller
 {
+
+    public function index()
+    {
+        return view('auth.login');
+    }
+
     public function registration()
     {
         $types = Type::all();
         return view('auth.register', compact('types'));
+    }
+
+    public function postLogin(Request $request)
+    {
+        request()->validate([
+        'email' => 'required',
+        'password' => 'required',
+        ]);
+
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt($credentials)) {
+            // Authentication passed...
+            return redirect()->intended('/');
+        }
+        return Redirect::to("login")->withSuccess('Oppes! You have entered invalid credentials');
     }
 
 
@@ -20,11 +45,11 @@ class AuthController extends Controller
     {
         // dd($request -> all());
 
-        $validated = $request -> validate([
+        request()->validate([
         'name' => 'required',
         'email' => 'required|email|unique:users',
         'password' => 'required|min:6',
-        'nome_attivita'=>['required','string','max:64'],
+        'nome_attivita'=>'required','string','max:64',
         'via'=>['required','string','max:64'],
         'n_civico'=>['required','string','max:8'],
         'citta'=>['required','string','max:64'],
@@ -35,13 +60,30 @@ class AuthController extends Controller
         ]);
 
         // dd($validated)
-        $restaurant = User::make($validated);
-        $restaurant -> save();
+        $data = $request->all();
+        $check = $this -> create($data);
+        $check -> save();
 
-        $restaurant -> types() -> attach($request -> get('types_id'));
+        $check -> types() -> attach($request -> get('types_id'));
 
-        $restaurant -> save();
+        $check -> save();
+        // return redirect() -> route('main');
+        return redirect() -> route('getLogin');
 
-        return Redirect::to("/")->withSuccess('Great! You have Successfully loggedin');
+    }
+
+    public function create(array $data)
+    {
+        return User::create([
+          'name' => $data['name'],
+          'email' => $data['email'],
+          'password' => Hash::make($data['password']),
+          'nome_attivita'=>$data['nome_attivita'],
+          'via'=>$data['via'],
+          'n_civico'=>$data['n_civico'],
+          'citta'=>$data['citta'],
+          'cap'=>$data['cap'],
+          'p_iva'=>$data['p_iva'],
+        ]);
     }
 }
