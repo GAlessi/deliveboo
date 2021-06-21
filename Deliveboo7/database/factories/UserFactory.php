@@ -21,14 +21,14 @@ $factory->define(User::class, function (Faker $faker) {
   $restaurants = [
     [
       'nome_attivita' =>'Mattarallo',
-      'via' =>'Via del grano',
-      'n_civico' =>'300',
+      'via' =>'Via le mani dal naso',
+      'n_civico' =>'30',
       'citta' =>'Roma',
       'cap' =>'00014',
       'p_iva'=>'0126641452',
-      'name'=>'GuyBrush',
-      'email'=>'ciao@gmail.com',
-      'password'=>'cuiciicoco'
+      'name'=>'Guybrush',
+      'email'=>'guybrush@gmail.com',
+      'password'=>'123456789'
 
     ],
     [
@@ -38,97 +38,97 @@ $factory->define(User::class, function (Faker $faker) {
       'citta' =>'Roma',
       'cap' =>'00014',
       'p_iva'=>'0126641452',
-      'name'=>'GuyBrush',
-      'email'=>'ciao@gmail.com',
-      'password'=>'cuiciicoco'
+      'name'=>'Gabbo',
+      'email'=>'gabbo@gmail.com',
+      'password'=>'123456789'
     ],
     [
       'nome_attivita' =>'Da Mirko',
-      'via' =>'Via del grano',
-      'n_civico' =>'300',
+      'via' =>'Via del pero',
+      'n_civico' =>'500',
       'citta' =>'Roma',
       'cap' =>'00014',
       'p_iva'=>'0126641452',
-      'name'=>'GuyBrush',
-      'email'=>'ciao@gmail.com',
-      'password'=>'cuiciicoco'
+      'name'=>'Mirko',
+      'email'=>'mirko@gmail.com',
+      'password'=>'123456789'
     ],
     [
       'nome_attivita' =>'Da Natale',
-      'via' =>'Via del grano',
-      'n_civico' =>'300',
+      'via' =>'Via del melograno',
+      'n_civico' =>'20',
       'citta' =>'Roma',
       'cap' =>'00014',
       'p_iva'=>'0126641452',
-      'name'=>'GuyBrush',
-      'email'=>'ciao@gmail.com',
-      'password'=>'cuiciicoco'
+      'name'=>'Natale',
+      'email'=>'natale@gmail.com',
+      'password'=>'123456789'
     ],
     [
       'nome_attivita' =>'Da Vale & Figlia',
-      'via' =>'Via del grano',
-      'n_civico' =>'300',
+      'via' =>'Via del pesco',
+      'n_civico' =>'33',
       'citta' =>'Roma',
       'cap' =>'00014',
       'p_iva'=>'0126641452',
-      'name'=>'GuyBrush',
-      'email'=>'ciao@gmail.com',
-      'password'=>'cuiciicoco'
+      'name'=>'Vale',
+      'email'=>'vale@gmail.com',
+      'password'=>'123456789'
     ],
     [
       'nome_attivita' =>'Bella Roma',
-      'via' =>'Via del grano',
-      'n_civico' =>'300',
+      'via' =>'Via della pila',
+      'n_civico' =>'1',
       'citta' =>'Roma',
       'cap' =>'00014',
       'p_iva'=>'0126641452',
-      'name'=>'GuyBrush',
-      'email'=>'ciao@gmail.com',
-      'password'=>'cuiciicoco'
+      'name'=>'Totti',
+      'email'=>'totti@gmail.com',
+      'password'=>'123456789'
     ],
     [
       'nome_attivita' =>'Cho Tutto',
-      'via' =>'Via del grano',
-      'n_civico' =>'300',
+      'via' =>'Via del riso',
+      'n_civico' =>'3',
       'citta' =>'Roma',
       'cap' =>'00014',
       'p_iva'=>'0126641452',
-      'name'=>'GuyBrush',
-      'email'=>'ciao@gmail.com',
-      'password'=>'cuiciicoco'
+      'name'=>'Mulan',
+      'email'=>'mulan@gmail.com',
+      'password'=>'123456789'
     ],
     [
       'nome_attivita' =>'El Pepe',
-      'via' =>'Via del grano',
-      'n_civico' =>'300',
+      'via' =>'Via del piccante',
+      'n_civico' =>'753',
       'citta' =>'Roma',
       'cap' =>'00014',
       'p_iva'=>'0126641452',
-      'name'=>'GuyBrush',
-      'email'=>'ciao@gmail.com',
-      'password'=>'cuiciicoco'
+      'name'=>'Consuelo',
+      'email'=>'consuelo@gmail.com',
+      'password'=>'123456789'
     ],
     [
       'nome_attivita' =>'Pizza Pazza',
-      'via' =>'Via del grano',
-      'n_civico' =>'300',
+      'via' =>'Via della farina',
+      'n_civico' =>'78',
       'citta' =>'Roma',
       'cap' =>'00014',
       'p_iva'=>'0126641452',
-      'name'=>'GuyBrush',
-      'email'=>'ciao@gmail.com',
-      'password'=>'cuiciicoco'
+      'name'=>'Gennaro',
+      'email'=>'gennaro@gmail.com',
+      'password'=>'123456789'
     ],
     [
-      'nome_attivita' =>'Gelato Gelati',
-      'via' =>'Via del grano',
-      'n_civico' =>'300',
+      'nome_attivita' =>'Gelati gelati',
+      'via' =>'Via del nord',
+      'n_civico' =>'13',
       'citta' =>'Roma',
       'cap' =>'00014',
       'p_iva'=>'0126641452',
-      'name'=>'GuyBrush',
-      'email'=>'ciao@gmail.com',
-      'password'=>'cuiciicoco'
+      'name'=>'John',
+      'email'=>'john@gmail.com',
+      'password'=>'123456789'
     ]
 
   ];
@@ -138,10 +138,10 @@ $factory->define(User::class, function (Faker $faker) {
 
 
   return [
-    'name' => $faker->name,
-    'email' => $faker->unique()->safeEmail,
+    'name' => $restaurant['name'],
+    'email' => $restaurant['email'],
     'email_verified_at' => now(),
-    'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+    'password' => $restaurant['password'],
     'remember_token' => Str::random(10),
     'nome_attivita' => $restaurant['nome_attivita'],
     'via' => $restaurant['via'],
