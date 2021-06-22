@@ -11165,6 +11165,16 @@ main {
   background-color: #e9c46a;
 }
 
+main #myrestaurant {
+  padding: 15x;
+  background-color: #f4a261;
+  border-bottom: 2px solid #264653;
+}
+
+main #myrestaurant i {
+  font-size: inherit;
+}
+
 main #myjumbotron {
   padding-top: 30px;
   background: #2a9d8f;
@@ -11292,15 +11302,53 @@ main #ristoranti .restaurant_card h4 {
   text-shadow: 2px 2px 2px #264653;
 }
 
-#showRestaurant ul {
+#showRestaurant .menu_container .restaurant_options {
+  margin-bottom: 20px;
+  width: 100%;
+  background-color: #2a9d8f;
+  border-radius: 10px;
+  box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+}
+
+#showRestaurant .menu_container .restaurant_options h6 {
+  margin: 0;
+  padding: 0;
+}
+
+#showRestaurant .menu_container .restaurant_options .option_card {
+  width: 30%;
+  margin: 10px;
+  padding: 10px;
+  background-color: #e9c46a;
+  border: solid 1px #264653;
+  border-radius: 10px;
+  box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+  cursor: pointer;
+}
+
+#showRestaurant .menu_container .restaurant_options .option_card:hover {
+  background-color: #264653;
+}
+
+#showRestaurant .menu_container .restaurant_options .option_card:hover i,
+#showRestaurant .menu_container .restaurant_options .option_card:hover h6 {
+  color: #DCDCDC;
+}
+
+#showRestaurant .menu_container .restaurant_options .option_card i:hover {
+  color: #f4a261;
+  scale: 1.5;
+}
+
+#showRestaurant .menu_container ul {
   width: 100%;
 }
 
-#showRestaurant ul li {
-  width: calc(100% / 3);
+#showRestaurant .menu_container ul li {
+  width: 30%;
 }
 
-#showRestaurant .dish_card {
+#showRestaurant .menu_container .dish_card {
   margin: 10px;
   padding: 5px;
   background-color: #e9c46a;
@@ -11310,13 +11358,98 @@ main #ristoranti .restaurant_card h4 {
   cursor: pointer;
 }
 
-#showRestaurant .dish_card:hover {
+#showRestaurant .menu_container .dish_card p,
+#showRestaurant .menu_container .dish_card i {
+  margin: 5px;
+}
+
+#showRestaurant .menu_container .dish_card .edit_row {
+  margin-bottom: 5px;
+}
+
+#showRestaurant .menu_container .dish_card div[class*=row] {
+  border-radius: 5px;
+}
+
+#showRestaurant .menu_container .dish_card div[class*=row] i:hover {
+  scale: 1.4;
+}
+
+#showRestaurant .menu_container .dish_card:hover {
   background-color: #264653;
 }
 
-#showRestaurant .dish_card:hover p,
-#showRestaurant .dish_card:hover h6 {
+#showRestaurant .menu_container .dish_card:hover > p,
+#showRestaurant .menu_container .dish_card:hover > h6 {
   color: #DCDCDC;
+}
+
+#showRestaurant .menu_container .dish_card:hover .edit_row {
+  color: #264653;
+  background-color: #e9c46a;
+}
+
+#showRestaurant .menu_container .dish_card:hover .delete_row {
+  color: #DCDCDC;
+  background-color: #e76f51;
+}
+
+#createDish {
+  margin-top: 85px;
+  padding: 30px 0;
+  background-color: #2a9d8f;
+}
+
+#createDish h2 {
+  text-align: center;
+  color: #e9c46a;
+  text-shadow: 2px 2px 2px #264653;
+}
+
+#createDish .create_container {
+  margin: auto;
+  padding: 10px;
+  width: 60%;
+  background-color: #e9c46a;
+  border-radius: 20px;
+  box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+}
+
+#createDish .create_container label {
+  font-size: 24px;
+}
+
+#createDish .create_container input {
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 80%;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+}
+
+#createDish .create_container input#prezzo {
+  background-image: url("/storage/images/euro.png");
+  background-position: 95% 50%;
+  background-size: 5% 70%;
+  background-repeat: no-repeat;
+}
+
+#createDish .create_container button {
+  margin-top: 25px;
+  padding: 10px 15px;
+  width: 50%;
+  color: #DCDCDC;
+  background-color: #264653;
+  border: solid 2px #e76f51;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+}
+
+#createDish .create_container button:hover {
+  color: #264653;
+  background-color: #e76f51;
+  border: solid 2px #264653;
 }
 
 * {

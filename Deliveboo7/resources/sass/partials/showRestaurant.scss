@@ -12,32 +12,106 @@
         }
     }
 
-    ul {
-        width: 100%;
+    .menu_container {
 
-        li {
-            width: calc(100% / 3);
+        .restaurant_options {
+            margin-bottom: 20px;
+            width: 100%;
+            background-color: $green;
+            border-radius: 10px;
+            -webkit-box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+            -moz-box-shadow:    4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+            box-shadow:         4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+
+            h6 {
+                margin: 0;
+                padding: 0;
+            }
+
+
+            .option_card {
+                width: 30%;
+                margin: 10px;
+                padding: 10px;
+                background-color: $yellow;
+                border: solid 1px $blue;
+                border-radius: 10px;
+                -webkit-box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+                -moz-box-shadow:    4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+                box-shadow:         4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+                cursor: pointer;
+    
+                &:hover {
+                    background-color: $blue;
+                }
+    
+                &:hover i,
+                &:hover h6 {
+                    color: $light;
+                }
+
+                i:hover {
+                    color: $orange;
+                    scale: 1.5;
+                }
+            }
+        }
+    
+
+        ul {
+            width: 100%;
+    
+            li {
+                width: 30%;
+            }
+        }
+    
+        .dish_card {
+            margin: 10px;
+            padding: 5px;
+            background-color: $yellow;
+            border: solid 1px $blue;
+            border-radius: 10px;
+            -webkit-box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+            -moz-box-shadow:    4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+            box-shadow:         4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+            cursor: pointer;
+
+            p, i {
+                margin: 5px;
+            }
+
+            .edit_row {
+                margin-bottom: 5px;
+            }
+
+            div[class*="row"] {
+                border-radius: 5px;
+
+                i:hover {
+                    scale: 1.4;
+                }
+            }
+    
+            &:hover {
+                background-color: $blue;
+            }
+    
+            &:hover>p,
+            &:hover>h6 {
+                color: $light;
+            }
+
+            &:hover .edit_row  {
+                color: $blue;
+                background-color: $yellow;
+            }
+
+            &:hover .delete_row {
+                color: $light;
+                background-color: $red;
+            }
         }
     }
 
-    .dish_card {
-        margin: 10px;
-        padding: 5px;
-        background-color: $yellow;
-        border: solid 1px $blue;
-        border-radius: 10px;
-        -webkit-box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
-        -moz-box-shadow:    4px 4px 6px 0px rgba(50, 50, 50, 0.91);
-        box-shadow:         4px 4px 6px 0px rgba(50, 50, 50, 0.91);
-        cursor: pointer;
-
-        &:hover {
-            background-color: $blue;
-        }
-
-        &:hover p,
-        &:hover h6 {
-            color: $light;
-        }
-    }
 }
