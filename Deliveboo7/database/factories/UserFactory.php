@@ -141,7 +141,7 @@ $factory->define(User::class, function (Faker $faker) {
     'name' => $restaurant['name'],
     'email' => $restaurant['email'],
     'email_verified_at' => now(),
-    'password' => $restaurant['password'],
+    'password' =>  Hash::make($restaurant['password']),
     'remember_token' => Str::random(10),
     'nome_attivita' => $restaurant['nome_attivita'],
     'via' => $restaurant['via'],
