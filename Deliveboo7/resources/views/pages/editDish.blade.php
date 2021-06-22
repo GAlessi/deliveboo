@@ -10,31 +10,40 @@
             <div class="create_container">
 
                 {{-- form --}}
-                <form method="POST" action="{{ route('storeDish') }}" class="flex_col align_cen">
+                <form method="POST" action="{{ route('updateDish', $dish->id) }}" class="flex_col align_cen">
 
                     @csrf
                     @method('POST')
 
                     <label for="nome">Nome</label>
-                    <input id="nome" type="text" name="nome" value="{{ old('nome') }}"
-                        placeholder="Inserisci qui il nome del nuovo elemento" required autofocus>
+                    <input id="nome" type="text" name="nome" value="{{$dish -> nome}}"
+                        required>
 
                     <label for="descrizione">Descrizione</label>
-                    <input id="descrizione" type="text" name="descrizione" value="{{ old('descrizione') }}"
-                        placeholder="Inserisci la descrizione" required>
+                    <input id="descrizione" type="text" name="descrizione" value="{{$dish -> descrizione}}"
+                        required>
 
                     <label for="ingredienti">Ingredienti</label>
-                    <input id="ingredienti" type="text" name="ingredienti" value="{{ old('ingredienti') }}"
-                        placeholder="Inserisci qui gli ingredienti" required>
+                    <input id="ingredienti" type="text" name="ingredienti" value="{{$dish -> ingredienti}}"
+                        required>
 
                     <label for="">Prezzo</label>
-                    <input id="prezzo" type="integer" name="prezzo" value="{{ old('prezzo') }}"
-                        placeholder="Inserisci qui il prezzo" required>
+                    <input id="prezzo" type="integer" name="prezzo" value="{{$dish -> prezzo}}"
+                        required>
 
                     <label for="visibilita">Desideri che sia subito visibile nel tuo Menu?</label>
                     <select id="visibilita" name="visibilita" required>
-                        <option value=1 selected>Si</option>
-                        <option value=0>No</option>
+
+                        <option value="1"
+
+                                @if ($dish -> visibilita)
+                                    selected
+                                @endif
+
+                        >Si</option>
+
+                        <option value=0
+                        >No</option>
                     </select>
 
                     <button type="submit">

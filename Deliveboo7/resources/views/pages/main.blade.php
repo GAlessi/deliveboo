@@ -3,9 +3,7 @@
 @section('content')
 
     <main>
-        @foreach ($users as $user)
-        @endforeach
-
+        
         @if (Auth::check())
 
             {{-- sezione myrestaurant --}}

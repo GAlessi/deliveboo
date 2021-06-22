@@ -22,6 +22,9 @@ class CreateDishesTable extends Migration
             $table -> integer('prezzo') -> nullable(false);
             $table -> boolean('visibilita') -> nullable(false);
 
+            //cancella piatto
+            $table -> boolean('deleted') -> default(false);
+            
             //one to many   Restaurant to Dishes
             $table -> bigInteger('user_id') -> unsigned() -> index();
 
