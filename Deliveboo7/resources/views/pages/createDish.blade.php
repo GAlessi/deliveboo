@@ -105,9 +105,13 @@
                     <input id="nome" type="text" name="nome" value="{{ old('nome') }}"
                         placeholder="Inserisci qui il nome del nuovo elemento" required autofocus>
 
-                    <label for="descrizione">Ingredienti - Descrizione</label>
+                    <label for="descrizione">Descrizione</label>
                     <input id="descrizione" type="text" name="descrizione" value="{{ old('descrizione') }}"
-                        placeholder="Inserisci qui gli ingredienti e/o una descrizione" required>
+                        placeholder="Inserisci la descrizione" required>
+
+                    <label for="ingredienti">Ingredienti</label>
+                    <input id="ingredienti" type="text" name="ingredienti" value="{{ old('ingredienti') }}"
+                        placeholder="Inserisci qui gli ingredienti" required>
 
                     <label for="">Prezzo</label>
                     <input id="prezzo" type="integer" name="prezzo" value="{{ old('prezzo') }}"

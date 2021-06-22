@@ -18,11 +18,15 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
+
+//creazione nuovo piatto
     public function createDish()
     {
         return view('pages.createDish');
     }
 
+
+    //salvataggio in DB
     public function storeDish(Request $request) {
         // dd($request -> all());
 
@@ -43,10 +47,22 @@ class HomeController extends Controller
         $dish -> user() -> associate($user);
         $dish -> save();
 
-        return redirect() -> route('main');
+        return redirect() -> route('show', $user);
     }
 
+//eliminazione Piatto
+public function destroy($id, $userid) {
+    // dd($id, $userid);
+    $dish = Dish::findOrFail($id);
+    //$dish -> delete();
 
+    $user = $userid;
+    $dish -> deleted = true;
+    $dish -> save();
+
+
+    return redirect() -> route('show', $user);
+  }
 
     /**
     * Show the application dashboard.

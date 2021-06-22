@@ -44,7 +44,12 @@
                 <h4>Menu</h4>
 
                 <ul class="flex_wrap">
+
                     @foreach ($user->dishes as $dish)
+
+                        @if (!$dish->deleted)
+
+
                         <li>
                             {{-- card piatto --}}
                             <div class="dish_card" title="Aggiungi {{ $dish->nome }} al carrello">
@@ -65,7 +70,7 @@
                                     {{-- delete --}}
                                     <div class="delete_row flex space_bet align_cen" title="Elimina prodotto">
                                         <p>Elimina Prodotto</p>
-                                        <a href="">
+                                        <a href="{{route('destroy', [$dish->id, $user->id] )}}">
                                             <i class="far fa-trash-alt"></i>
                                         </a>
                                     </div>
@@ -73,6 +78,7 @@
                                 @endif
                             </div>
                         </li>
+                        @endif
                     @endforeach
                 </ul>
             </div>

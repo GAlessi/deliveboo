@@ -19,7 +19,10 @@ Route::get('/createDish', 'HomeController@createDish')
 Route::post('/store', 'HomeController@storeDish')
     -> name('storeDish');
 
-    
+//eliminazione Piatto
+Route::get('destroy/{id}/{userid}', 'HomeController@destroy')
+    -> name('destroy');
+
 //LOGIN
 Route::get('/testlogin', 'AuthController@index')
     -> name('getLogin');
