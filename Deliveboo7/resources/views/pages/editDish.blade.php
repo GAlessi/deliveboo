@@ -1,13 +1,13 @@
 @extends('layouts.main-layout')
 @section('content')
 
-    <div id="createDish">
+    <div id="editDish">
         <div class="mycontainer">
 
-            <h2>Aggiungi nuovo elemento al tuo menu</h2>
+            <h2>Modifica prodotto</h2>
 
-            {{-- create_container --}}
-            <div class="create_container">
+            {{-- edit_container --}}
+            <div class="edit_container">
 
                 {{-- form --}}
                 <form method="POST" action="{{ route('updateDish', $dish->id) }}" class="flex_col align_cen">
@@ -15,35 +15,29 @@
                     @csrf
                     @method('POST')
 
+                    {{-- nome --}}
                     <label for="nome">Nome</label>
-                    <input id="nome" type="text" name="nome" value="{{$dish -> nome}}"
-                        required>
+                    <input id="nome" type="text" name="nome" value="{{ $dish->nome }}" required>
 
+                    {{-- descrizione --}}
                     <label for="descrizione">Descrizione</label>
-                    <input id="descrizione" type="text" name="descrizione" value="{{$dish -> descrizione}}"
-                        required>
+                    <input id="descrizione" type="text" name="descrizione" value="{{ $dish->descrizione }}" required>
 
+                    {{-- ingredienti --}}
                     <label for="ingredienti">Ingredienti</label>
-                    <input id="ingredienti" type="text" name="ingredienti" value="{{$dish -> ingredienti}}"
-                        required>
+                    <input id="ingredienti" type="text" name="ingredienti" value="{{ $dish->ingredienti }}" required>
 
+                    {{-- prezzo --}}
                     <label for="">Prezzo</label>
-                    <input id="prezzo" type="integer" name="prezzo" value="{{$dish -> prezzo}}"
-                        required>
+                    <input id="prezzo" type="integer" name="prezzo" value="{{ $dish->prezzo }}" required>
 
+                    {{-- visibilità --}}
                     <label for="visibilita">Desideri che sia subito visibile nel tuo Menu?</label>
                     <select id="visibilita" name="visibilita" required>
 
-                        <option value="1"
+                        <option value="1" @if ($dish->visibilita) selected @endif>Si</option>
 
-                                @if ($dish -> visibilita)
-                                    selected
-                                @endif
-
-                        >Si</option>
-
-                        <option value=0
-                        >No</option>
+                        <option value=0>No</option>
                     </select>
 
                     <button type="submit">
@@ -62,12 +56,10 @@
                     @endif
 
                 </form>
-
-
-                {{-- fine create_container --}}
+                {{-- fine edit_container --}}
             </div>
             {{-- fine mycontainer --}}
         </div>
-        {{-- fine create_dish --}}
+        {{-- fine edit_dish --}}
     </div>
 @endsection

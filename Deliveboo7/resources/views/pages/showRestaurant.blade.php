@@ -5,8 +5,16 @@
     <div id="showRestaurant">
         <div class="mycontainer">
 
+            {{-- nome --}}
             <div class="restaurant_name">
                 <h2>{{ $user->nome_attivita }}</h2>
+
+                <p>Tipi di cucina</p>
+
+                @foreach ($user->types as $type)
+                    <h6>{{ $loop->last ? $type->nome : $type->nome . ', ' }}</h6>
+                    
+                @endforeach
                 {{-- immagine ristorante --}}
             </div>
 
@@ -41,7 +49,7 @@
 
                 @endif
 
-                <h4>Menu</h4>
+                <h3>Menu</h3>
 
                 <ul class="flex_wrap">
 

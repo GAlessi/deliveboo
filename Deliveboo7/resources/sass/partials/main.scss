@@ -39,11 +39,12 @@ main {
                     box-shadow:         4px 4px 6px 0px rgba(50, 50, 50, 0.91);
      
                     input {
-                     padding: 10px;
-                     font-size: $text_big;
-                     border: solid 2px white;
-                     border-radius: 10px;
-                     -webkit-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+                    padding: 10px;
+                    width: 95%;
+                    font-size: $text_big;
+                    border: solid 2px white;
+                    border-radius: 10px;
+                    -webkit-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
                     -moz-box-shadow:    2px 2px 2px 0px rgba(50, 50, 50, 0.91);
                     box-shadow:         2px 2px 2px 0px rgba(50, 50, 50, 0.91);
 

@@ -11245,6 +11245,18 @@ footer .column .footer_list:last-of-type i:hover {
   box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
 }
 
+#register .register_container .chekbox_container li {
+  width: 100px;
+  margin: 5px;
+}
+
+#register .register_container .chekbox_container input {
+  margin: 0;
+  margin-right: 10px;
+  width: auto;
+  box-shadow: none;
+}
+
 #register .register_container button {
   margin-top: 25px;
   padding: 10px 15px;
@@ -11304,6 +11316,7 @@ main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search {
 
 main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search input {
   padding: 10px;
+  width: 95%;
   font-size: 24px;
   border: solid 2px white;
   border-radius: 10px;
@@ -11400,9 +11413,14 @@ main #ristoranti .restaurant_card h4 {
   text-align: center;
 }
 
-#showRestaurant .restaurant_name h2 {
+#showRestaurant .restaurant_name h2,
+#showRestaurant .restaurant_name h6 {
   color: #e9c46a;
   text-shadow: 2px 2px 2px #264653;
+}
+
+#showRestaurant .restaurant_name h6 {
+  display: inline-block;
 }
 
 #showRestaurant .menu_container .restaurant_options {
@@ -11550,6 +11568,64 @@ main #ristoranti .restaurant_card h4 {
 }
 
 #createDish .create_container button:hover {
+  color: #264653;
+  background-color: #e76f51;
+  border: solid 2px #264653;
+}
+
+#editDish {
+  margin-top: 85px;
+  padding: 30px 0;
+  background-color: #e9c46a;
+}
+
+#editDish h2 {
+  text-align: center;
+  color: #e76f51;
+  text-shadow: 2px 2px 2px #264653;
+}
+
+#editDish .edit_container {
+  margin: auto;
+  padding: 10px;
+  width: 60%;
+  background-color: #2a9d8f;
+  border-radius: 20px;
+  box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+}
+
+#editDish .edit_container label {
+  font-size: 24px;
+}
+
+#editDish .edit_container input {
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 80%;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+}
+
+#editDish .edit_container input#prezzo {
+  background-image: url("/storage/images/euro.png");
+  background-position: 95% 50%;
+  background-size: 5% 70%;
+  background-repeat: no-repeat;
+}
+
+#editDish .edit_container button {
+  margin-top: 25px;
+  padding: 10px 15px;
+  width: 50%;
+  color: #DCDCDC;
+  background-color: #264653;
+  border: solid 2px #e76f51;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+}
+
+#editDish .edit_container button:hover {
   color: #264653;
   background-color: #e76f51;
   border: solid 2px #264653;
