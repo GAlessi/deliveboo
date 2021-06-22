@@ -62,7 +62,7 @@
                                     {{-- edit --}}
                                     <div class="edit_row flex space_bet align_cen" title="Modifica prodotto">
                                         <p>Modifica</p>
-                                        <a href="">
+                                        <a href="{{route('editDish',$dish->id )}}">
                                             <i class="far fa-edit"></i>
                                         </a>
                                     </div>
