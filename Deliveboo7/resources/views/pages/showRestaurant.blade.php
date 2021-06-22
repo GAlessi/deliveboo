@@ -12,7 +12,7 @@
 
             <div class="menu_container flex_col align_cen">
 
-                @if (Auth::check())
+                @if (Auth::check()&&(Auth::user()->id == $user->id))
 
                     <div class="restaurant_options flex space_bet">
 
@@ -57,7 +57,7 @@
                                 <p>{{ $dish->descrizione }}</p>
                                 <h6>{{ $dish->prezzo }} €</h6>
 
-                                @if (Auth::check())
+                                @if (Auth::check()&& (Auth::user()->id == $user->id))
 
                                     {{-- edit --}}
                                     <div class="edit_row flex space_bet align_cen" title="Modifica prodotto">
