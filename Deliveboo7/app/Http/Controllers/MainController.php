@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 use App\Type;
 use App\User;
 
@@ -12,8 +14,9 @@ class MainController extends Controller
 
     $types = Type::all();
     $users = User::all();
+    $user = Auth::user();
 
-    return view('pages.main', compact('types', 'users'));
+    return view('pages.main', compact('types','users', 'user'));
   }
 
   public function restaurant($id){
