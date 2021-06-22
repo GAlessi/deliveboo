@@ -12,11 +12,13 @@
     @endif
 
     <div id="register">
+
         <div class="mycontainer">
 
             <h2>Registrati</h2>
             <div class="register_container">
 
+                {{-- form --}}
                 <form class="flex_col align_cen" method="POST" action="{{ route('postRegistration') }}">
                     @csrf
 
@@ -103,5 +105,6 @@
                 </form>
             </div>
         </div>
+    </div>
 
-    @endsection
+@endsection

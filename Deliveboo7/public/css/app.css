@@ -11372,11 +11372,11 @@ main #myjumbotron .mycontainer .jumbotron_container .picture .jumbotron_moto {
           animation-duration: 2s;
 }
 
-main #ristoranti {
+main #restaurants {
   padding: 30px 0;
 }
 
-main #ristoranti .restaurant_card {
+main #restaurants .restaurant_card {
   margin: 10px;
   background-color: #fff;
   height: 200px;
@@ -11386,13 +11386,13 @@ main #ristoranti .restaurant_card {
   cursor: pointer;
 }
 
-main #ristoranti .restaurant_card img {
+main #restaurants .restaurant_card img {
   height: 100%;
   width: 100%;
   border-radius: 20px;
 }
 
-main #ristoranti .restaurant_card h4 {
+main #restaurants .restaurant_card h4 {
   left: 50%;
   bottom: 0;
   transform: translateX(-50%);
@@ -11466,7 +11466,7 @@ main #ristoranti .restaurant_card h4 {
 }
 
 #showRestaurant .menu_container ul li {
-  width: 30%;
+  width: calc(100% / 3);
 }
 
 #showRestaurant .menu_container .dish_card {
@@ -11650,7 +11650,6 @@ ul li {
 a {
   text-decoration: none;
   color: inherit;
-  transition: 0.5s;
 }
 
 a:hover {
