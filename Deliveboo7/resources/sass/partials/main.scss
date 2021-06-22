@@ -3,6 +3,16 @@ main {
     text-align: center;
     background-color: $yellow;
 
+    #myrestaurant {
+        padding: 15x;
+        background-color: $orange;
+        border-bottom: 2px solid $blue;
+        
+        i {
+            font-size: inherit;
+        }
+    }
+
     #myjumbotron {
         padding-top: 30px;
         background: rgb(42,157,143);
@@ -125,10 +135,4 @@ main {
             }
         }
     } //fine sezione ristoranti
-
-    // #ristoranti {
-
-    //     height: 200px;
-    //     background-color: $orange;
-    // }
 }

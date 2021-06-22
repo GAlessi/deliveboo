@@ -3,6 +3,23 @@
 @section('content')
 
     <main>
+        @foreach ($users as $user)
+        @endforeach
+
+        @if (Auth::check())
+
+            {{-- sezione myrestaurant --}}
+            <div id="myrestaurant">
+
+                <h2>Bentornato {{ $user->name }}</h2>
+
+                {{-- link al mio ristorante --}}
+                <a href="{{ route('show', $user->id) }}">
+                    <h3>Vai al tuo ristorante <i class="fas fa-angle-double-right"></i></h3>
+                </a>
+
+            </div>
+        @endif
 
         {{-- sezione jumbotron --}}
         <section id="myjumbotron">
@@ -20,10 +37,10 @@
                     <div class="jumbotron_search flex_col align_cen">
                         <input type="text" placeholder="Cerca un ristorante">
 
-                        <label for="citta">Scegli una città</label>
-                        <select name="citta" id="citta"></select>
+                        {{-- <label for="citta">Scegli una città</label>
+                        <select name="citta" id="citta"></select> --}}
 
-                        <label for="tipologia">Scegli una tipologia</label>
+                        <label for="tipologia">Seleziona una o più tipologie</label>
                         <select name="tipologia" id="tipologia"></select>
 
                         {{-- button --}}
@@ -40,7 +57,7 @@
             </div>
         </section>
 
-        {{-- sezione tiplogie --}}
+        {{-- sezione ristoranti --}}
         <section id="ristoranti">
             <div class="mycontainer">
 
@@ -67,40 +84,6 @@
 
             {{-- fine secrtion bestRestaurant --}}
         </section>
-
-        {{-- section ristoranti --}}
-        {{-- <section id="ristoranti">
-            <div class="lista_nascosta ">
-                <ul>
-                    @foreach ($users as $user)
-                        <li>
-                            {{ $user->nome_attivita }}
-                        </li>
-                    @endforeach
-
-                <div class="selection">
-                    <h4>
-                        Categorie
-                    </h4>
-                    <ul id="type_list">
-
-                        @foreach ($types as $type)
-                            <li @click='prova()' >
-                                <label for="tipologia">{{ $type -> nome }}</label>
-                                <input type="checkbox" name="tipologia" value="{{ $type -> id }}">
-                            </li>
-                        @endforeach
-
-                    </ul>
-                </div>
-
-                <div class="showSelection">
-                    
-                </div>
-
-            </div>
-
-        </section> --}}
 
     </main>
 
