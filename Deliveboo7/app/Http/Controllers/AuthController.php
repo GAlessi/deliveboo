@@ -67,8 +67,9 @@ class AuthController extends Controller
         $check -> types() -> attach($request -> get('types_id'));
 
         $check -> save();
-        // return redirect() -> route('main');
-        return redirect() -> route('getLogin');
+        Auth::login($check);
+        return redirect() -> route('main');
+        // return redirect() -> route('getLogin');
 
     }
 
