@@ -3,7 +3,7 @@
 @section('content')
 
     <main>
-        
+
         @if (Auth::check())
 
             {{-- sezione myrestaurant --}}
@@ -42,7 +42,7 @@
                         <select name="tipologia" id="tipologia"></select>
 
                         {{-- button --}}
-                        <button>Cerca!</button>
+                        <button @click='searchRestaurants()'>Cerca!</button>
                     </div>
 
                     {{-- immagine --}}
@@ -81,6 +81,14 @@
             </div>
 
             {{-- fine secrtion bestRestaurant --}}
+        </section>
+
+        {{-- prova axios --}}
+        <section>
+            <search-component
+            :types="{{ json_encode($types) }}"
+            >
+            </search-component>
         </section>
 
     </main>

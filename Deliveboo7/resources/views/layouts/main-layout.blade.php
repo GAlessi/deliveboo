@@ -34,7 +34,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         {{-- axios --}}
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js)">    
+        {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js)">     --}}
 
     <title>My Layout Test - Blade</title>
 

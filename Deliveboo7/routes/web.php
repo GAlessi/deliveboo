@@ -45,3 +45,9 @@ Route::get('/registration', 'AuthController@registration')
     -> name('getRegistration');
 Route::post('/post-registration', 'AuthController@postRegistration')
     -> name('postRegistration');
+
+
+
+// route per la ricerca in homepage
+Route::post('/search', 'MainController@Search')
+    -> name('search');
