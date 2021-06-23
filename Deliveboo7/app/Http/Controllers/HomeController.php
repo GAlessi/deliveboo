@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Dish;
 use App\User;
+use App\Order;
 
 class HomeController extends Controller
 {
@@ -77,7 +79,7 @@ class HomeController extends Controller
 
         $dish -> save();
         $user = User::findOrFail($request->user()->id);
-        
+
         return redirect() -> route('show', $user);
     }
 
@@ -95,6 +97,35 @@ class HomeController extends Controller
         return redirect() -> route('show', $user);
     }
 
+
+    //mostra ordini
+    public function showOrders($id)
+    {
+        $user = User::findOrFail($id);
+        $orders = Order::all();
+
+        $ordersId = array();
+        $restaurantOrders = array();
+
+        //pusha in array i piatti di un ristorante
+        foreach ($user -> dishes as $dish) {
+            foreach ($dish -> orders as $order){
+                if (!in_array($order->id, $ordersId)) {
+                    array_push($ordersId, $order->id);
+                }
+            }
+        }
+
+        //pusha in array gli di un ristorante
+        foreach ($orders as $order) {
+            if (in_array($order->id, $ordersId)) {
+                array_push($restaurantOrders, $order);
+            }
+        }
+
+
+        return view('pages.showOrders', compact('user', 'restaurantOrders'));
+    }
     /**
     * Show the application dashboard.
     *

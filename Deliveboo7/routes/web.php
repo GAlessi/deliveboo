@@ -30,6 +30,10 @@ Route::post('/updateDish/{id}', 'HomeController@updateDish')
 Route::get('destroy/{id}/{userid}', 'HomeController@destroy')
     -> name('destroy');
 
+//mostra ordini
+Route::get('/showOrders/{id}', 'HomeController@showOrders')
+    -> name('showOrders');
+
 //LOGIN
 Route::get('/testlogin', 'AuthController@index')
     -> name('getLogin');

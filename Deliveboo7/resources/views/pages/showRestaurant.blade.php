@@ -26,7 +26,7 @@
 
                         <div class="option_card flex space_bet" title="Guarda gli ordini ricevuti">
                             <h6>Ordini Ricevuti</h6>
-                            <a href="">
+                            <a href="{{ route('showOrders', $user->id) }}">
                                 <i class="fas fa-clipboard-list"></i>
                             </a>
                         </div>
