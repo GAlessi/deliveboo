@@ -3,7 +3,7 @@
 @section('content')
 
     <main>
-        
+
         @if (Auth::check())
 
             {{-- sezione myrestaurant --}}
@@ -42,7 +42,7 @@
                         <select name="tipologia" id="tipologia"></select>
 
                         {{-- button --}}
-                        <button>Cerca!</button>
+                        <button @click="getFiltered">Cerca!</button>
                     </div>
 
                     {{-- immagine --}}
@@ -52,6 +52,22 @@
                             src="{{ asset('/storage/images/boy.png') }}">
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section>
+            <label for="type_id[]">Seleziona una o più Tipologie di Cucina</label>
+            <div class="chekbox_container">
+
+                <ul class="flex_wrap">
+
+                    @foreach ($types as $type)
+                        <li class="flex just_start align_cen">
+                            <input id="types_id[]" name="types_id[]" type="checkbox" value="{{ $type->id }}" v-model="type">
+                            {{ $type->nome }}
+                        </li>
+                    @endforeach
+                </ul>
             </div>
         </section>
 

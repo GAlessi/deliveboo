@@ -19,7 +19,7 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -27,30 +27,35 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: '#app',
+ document.addEventListener("DOMContentLoaded", function() {
 
-    data:{
+     new Vue({
+         el: '#app',
 
-        selected: [],
+         data:{
+             "type": [],
+         },
 
-        prezzi: [],
+         methods: {
+           getFiltered: function getFiltered() {
+             console.log("obj:", this.type);
+             console.log("arr:", Object.values(this.type));
+             const typeArr = Object.values(this.type);
 
-        tot: 0,
-
-        vueRestaurants: [],
-
-    },
-
-
-    methods:{
-
-        prova: function(){
-            console.log('ciao', this.restaurant);
-        },
-
-
-    },
+             axios.post('api/filtered', typeArr)
+             .then( res => console.log(res))
+             .catch(() => console.log('error'))
+           }
+        }
 
 
-});
+     });
+
+
+     // $('.autoplay').slick( {
+     //     slidesToShow: 3,
+     //     slidesToScroll: 1,
+     //     autoplay: true,
+     //     autoplaySpeed: 3500,
+     // });
+ });
