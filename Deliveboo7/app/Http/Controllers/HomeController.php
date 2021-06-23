@@ -102,11 +102,29 @@ class HomeController extends Controller
     public function showOrders($id)
     {
         $user = User::findOrFail($id);
-
         $orders = Order::all();
 
+        $ordersId = array();
+        $restaurantOrders = array();
 
-        return view('pages.showOrders', compact('user'));
+        //pusha in array i piatti di un ristorante
+        foreach ($user -> dishes as $dish) {
+            foreach ($dish -> orders as $order){
+                if (!in_array($order->id, $ordersId)) {
+                    array_push($ordersId, $order->id);
+                }
+            }
+        }
+
+        //pusha in array gli di un ristorante
+        foreach ($orders as $order) {
+            if (in_array($order->id, $ordersId)) {
+                array_push($restaurantOrders, $order);
+            }
+        }
+
+
+        return view('pages.showOrders', compact('user', 'restaurantOrders'));
     }
     /**
     * Show the application dashboard.
