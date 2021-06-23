@@ -9,7 +9,7 @@
 
                 {{-- logo --}}
                 <div class="nav_logo">
-                    <a href={{ route('main') }} id="logo_home" title="Home">
+                    <a href={{ route('main') }} target="logo_home" title="Home">
                         <img src="{{ asset('/storage/images/boy.png') }}" alt="logo home">
                     </a>
                 </div>

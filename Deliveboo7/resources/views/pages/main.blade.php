@@ -56,7 +56,7 @@
         </section>
 
         {{-- sezione ristoranti --}}
-        <section id="ristoranti">
+        <section id="restaurants">
             <div class="mycontainer">
 
                 <h2>La nostra selezione di ristoranti</h2>

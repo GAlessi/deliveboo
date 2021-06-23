@@ -17,6 +17,7 @@
 @import "partials/main.scss";
 @import "partials/showRestaurant.scss";
 @import "partials/createDish.scss";
+@import "partials/editDish.scss";
 
 //common rules
 * {
@@ -38,7 +39,6 @@ ul li {
 a {
   text-decoration: none;
   color: inherit;
-  transition: 0.5s;
 
   &:hover {
       color: inherit;

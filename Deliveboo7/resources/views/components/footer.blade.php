@@ -42,14 +42,14 @@
                     </li>
                     {{-- link a cerca --}}
                     <li>
-                        <a href="">I Ristoranti</a>
+                        <a href="#restaurants">I Ristoranti</a>
                     </li>
                     {{-- apri carrello --}}
                     <li>
                         <a href="">Carrello</a>
                     </li>
                     <li>
-                        <a href="">Torna ad inizio pagina <i class="fas fa-level-up-alt"></i></a>
+                        <a href="#logo_home">Torna ad inizio pagina <i class="fas fa-level-up-alt"></i></a>
                     </li>
                 </ul>
             </div>
