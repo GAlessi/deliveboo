@@ -32,9 +32,9 @@
                             </a>
                         </div>
 
-                        <div class="option_card" title="Guarda gli ordini ricevuti">
-                            <a href="" class="flex space_bet align_cen">
-                                <h6>Ordini Ricevuti</h6>
+                        <div class="option_card flex space_bet" title="Guarda gli ordini ricevuti">
+                            <h6>Ordini Ricevuti</h6>
+                            <a href="{{ route('showOrders', $user->id) }}">
                                 <i class="fas fa-clipboard-list"></i>
                             </a>
                         </div>
