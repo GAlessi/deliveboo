@@ -1,13 +1,13 @@
 <template>
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center py-2">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Example Component</div>
 
-                    <div class="card-body">
-                        I'm an example component.
+                    <div>
+                        componente vue
                     </div>
+
                 </div>
             </div>
         </div>
@@ -16,8 +16,31 @@
 
 <script>
     export default {
+
+        data() {
+
+            return {
+
+                tipologia: '',
+            }
+        },
+
+        props:{
+
+            type: Object
+        },
+
         mounted() {
-            console.log('Component mounted.')
-        }
+
+            axios.get('/api/filterRestaurant', {
+                
+            })
+            .then(res => console.log('res'))
+            .catch(err => console.log('err'))
+
+
+            console.log('Component mounted.', this.type, this.tipologia)
+        },
+
     }
 </script>

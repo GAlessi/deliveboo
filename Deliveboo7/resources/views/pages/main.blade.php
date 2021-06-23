@@ -3,7 +3,7 @@
 @section('content')
 
     <main>
-        
+
         @if (Auth::check())
 
             {{-- sezione myrestaurant --}}
@@ -77,10 +77,27 @@
                         @endforeach
                     </div>
                     {{-- fine carousel --}}
+
                 </div>
             </div>
 
-            {{-- fine secrtion bestRestaurant --}}
+        </section>
+
+        <section>
+
+
+            @foreach ($types as $type)
+
+                <example-component
+                :type = "{{ $type }}"
+                >
+
+                </example-component>
+
+            @endforeach
+
+
+
         </section>
 
     </main>
