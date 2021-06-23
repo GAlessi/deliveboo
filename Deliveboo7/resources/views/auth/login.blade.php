@@ -26,7 +26,7 @@
                     @enderror
 
                     {{-- password --}}
-                    <label for="password"">Password</label>
+                    <label for="password">Password</label>
 
                     <input id="password" type="password" name="password"
                         required autocomplete="current-password">
