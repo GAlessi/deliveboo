@@ -14,9 +14,9 @@
                     @csrf
 
                     {{-- email --}}
-                    <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
+                    <label for="email">Email</label>
 
-                    <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email"
+                    <input id="email" type="email" name="email"
                         value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                     @error('email')
@@ -26,9 +26,9 @@
                     @enderror
 
                     {{-- password --}}
-                    <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
+                    <label for="password">Password</label>
 
-                    <input id="password" type="password" class="@error('password') is-invalid @enderror" name="password"
+                    <input id="password" type="password" name="password"
                         required autocomplete="current-password">
 
                     @error('password')
