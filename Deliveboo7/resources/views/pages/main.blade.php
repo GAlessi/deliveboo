@@ -3,7 +3,7 @@
 @section('content')
 
     <main>
-        
+
         @if (Auth::check())
 
             {{-- sezione myrestaurant --}}
@@ -33,13 +33,25 @@
 
                     {{-- filtro ricerca --}}
                     <div class="jumbotron_search flex_col align_cen">
-                        <input type="text" placeholder="Cerca un ristorante">
+                        <input type="text" placeholder="Cerca un ristorante"
+                         type="text">
 
-                        {{-- <label for="citta">Scegli una città</label>
-                        <select name="citta" id="citta"></select> --}}
 
-                        <label for="tipologia">Seleziona una o più tipologie</label>
-                        <select name="tipologia" id="tipologia"></select>
+                        <label for="type_id[]">Seleziona una o più Tipologie di Cucina</label>
+
+                        <div class="chekbox_container">
+
+                            <ul class="flex_wrap">
+
+                                @foreach ($types as $type)
+                                    <li class="flex just_start align_cen">
+                                        <input id="types_id" v-model="filter" v-on:change="getFilteredRestaurant()"
+                                            name="types_id" type="checkbox" value="{{ $type->id }}">
+                                        {{ $type->nome }}
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
 
                         {{-- button --}}
                         <button>Cerca!</button>
@@ -53,6 +65,18 @@
                     </div>
                 </div>
             </div>
+        </section>
+
+        <section class="provvisorio">
+            <ul v-if="filter != ''">
+                <li v-for="restaurant in filteredRestaurants">
+                    Name: @{{ restaurant . nome_attivita }}
+                    <strong v-for="genre in restaurant.categories">
+                        - @{{ genre . name }}
+                    </strong>)
+                </li>
+                <li>NESSUN RISULTATO</li>
+            </ul>
         </section>
 
         {{-- sezione ristoranti --}}
@@ -70,7 +94,8 @@
                             <div class="restaurant_card relative">
                                 <a href="{{ route('show', $user->id) }}"
                                     title="Vai al menu di {{ $user->nome_attivita }}">
-                                    <img src="{{ asset('/storage/images/copertina_jappo.jpg') }}" alt="immagine tiplogia">
+                                    <img src="{{ asset('/storage/images/copertina_jappo.jpg') }}"
+                                        alt="immagine tiplogia">
                                     <h4 class="absolute">{{ $user->nome_attivita }}</h4>
                                 </a>
                             </div>

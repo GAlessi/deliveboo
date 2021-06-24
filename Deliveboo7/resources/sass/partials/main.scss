@@ -55,7 +55,7 @@ main {
      
                     label {
                         margin-top: 15px;
-                        color: $light;
+                        color: $yellow;
                     }
 
                     select {
@@ -79,6 +79,23 @@ main {
                             border: solid 2px $yellow;
                         }
                     }   
+
+                    .chekbox_container {
+
+                            li {
+                                width: 100px;
+                                margin: 5px;
+                                color: $light;
+
+                            }
+
+                            input {
+                                margin: 0;
+                                margin-right: 10px;
+                                width: auto;
+                                box-shadow: none;
+                            }
+                        }
                 } // fine jumbotron_search
 
                 .picture {
