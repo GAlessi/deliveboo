@@ -54,4 +54,6 @@ class ApiController extends Controller
         // return json_encode($category_restaurant[0][0] -> id);
         // return [$restaurants, $restaurantsList, $prova];
     }
+
+    
 }

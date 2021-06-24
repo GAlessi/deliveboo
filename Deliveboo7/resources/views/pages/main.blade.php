@@ -33,7 +33,7 @@
 
                     {{-- filtro ricerca --}}
                     <div class="jumbotron_search flex_col align_cen">
-                        <input type="text" placeholder="Cerca un ristorante"
+                        <input @keyup.enter='searchRestaurant' v-model='searchText' type="text" type="text" placeholder="Cerca un ristorante"
                          type="text">
 
 
@@ -54,7 +54,7 @@
                         </div>
 
                         {{-- button --}}
-                        <button>Cerca!</button>
+                        <button @click='searchRestaurant'>Cerca!</button>
                     </div>
 
                     {{-- immagine --}}

@@ -8,6 +8,9 @@ document.addEventListener("DOMContentLoaded", function () {
         el: '#app',
 
         data: {
+            // restaurantBarra: {},
+            searchText: '',
+
             categories: [],
             restaurantsList: [],
             category_restaurant: [],
@@ -19,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log('VUE Connected');
             this.getCategories();
             this.getAllRestaurants();
+
         },
         methods: {
             // Funzione di chiamata al controller Statistiche
@@ -111,6 +115,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     }
                 });
+
+            },
+
+
+
+
 
             }
 
