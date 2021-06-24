@@ -27,30 +27,146 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: '#app',
 
-    data:{
+ document.addEventListener("DOMContentLoaded", function() {
 
-        selected: [],
+     new Vue({
+         el: '#app',
 
-        prezzi: [],
+         data: {
+             categories: [],
+             restaurantsList: [],
+             category_restaurant: [],
+             filteredRestaurants: [],
+             filter: [],
+             // categorieArray: ['1','2','3','4','5','6','7','8','9','10','11']
+         },
+         mounted: function(){
+             console.log('VUE Connected');
+             this.getCategories();
+             this.getAllRestaurants();
+         },
+         methods:{
+             // Funzione di chiamata al controller Statistiche
+             getCategories: function(){
 
-        tot: 0,
+                 axios.get('/api/get/categories/',
+                 {
+                     params:{
+                         // Parametri
+                     }
+                 }).then(data => {
+                     // this.categories = data.data;
 
-        vueRestaurants: [],
+                     data.data.forEach(element => {
+                         this.categories.push({
+                             'id': element.id,
+                             'nome': element.nome
+                         });
+                     });
+                     console.log(this.categories);
 
-    },
+                 }).catch((error) => {
+                     console.log(error);
+                 });
+             },
+
+             getAllRestaurants: function(){
+
+                 axios.get('/api/get/all/restaurants',
+                 {
+                     params:{
+                         // Parametri
+                     }
+                 }).then(data => {
+                     this.restaurantsList = data.data[0];
+                     this.category_restaurant = data.data[1];
+                     // console.log("prova:1",this.restaurantsList);
+                     // console.log("prova:2",this.category_restaurant);
+                     this.giveGenres();
+                 }).catch((error) => {
+                     console.log(error);
+                 });
+             },
+             giveGenres: function (){
+                 for (let i = 0; i < this.restaurantsList.length; i++) {
+                     // console.log(this.restaurantsList[i].id);
+                     this.restaurantsList[i].categories = [];
+                     for (let j = 0; j < this.category_restaurant[i].length; j++) {
+                         // console.log(this.category_restaurant[i][j]);
+                         this.restaurantsList[i].categories.push({
+                             'id': this.category_restaurant[i][j].id,
+                             'name': this.category_restaurant[i][j].nome
+                         });
+                         // console.log(this.restaurantsList[i].categories);
+                     }
+                 }
+                 // console.log("prova3",this.restaurantsList);
+             },
+
+             // getFilteredRestaurant: function(){
+             //     this.filteredRestaurants = [];
+             //     console.log(this.filteredRestaurants, 'emptyyy');
+             //     this.restaurantsList.forEach(element => {
+             //         let push = false;
+             //         // console.log( 'RISTORANTE'. element.id);
+             //         element.categories
+             //         .forEach(element => {
+             //             console.log(element.name, element.id, 'CATEGORIA');
+             //             console.log(this.filter , 'FILTRO');
+             //             for (let i = 0; i < this.filter.length; i++) {
+             //                 if(element.id == this.filter[i]){
+             //                     push = true;
+             //                 }
+             //             }
+             //         });
+             //         if (push) {
+             //             this.filteredRestaurants.push(element);
+             //             console.log(element.nome_attivita,'PUSHATOOOO');
+             //         }else{
+             //             console.log('NOOOOOOOOOOOOOOOOOOOOOOO');
+             //         }
+             //     });
+             //
+             // }
 
 
-    methods:{
+             getFilteredRestaurant: function(){
+                 this.filteredRestaurants = [];
+                 let arrayCategorie=[];
+                 // let categorieID = [];
 
-        prova: function(){
-            console.log('ciao', this.restaurant);
-        },
+                 for (var i = 0; i < this.restaurantsList.length; i++) {
+                     arrayCategorie.push(this.restaurantsList[i].categories);
+                 }
+
+                 // console.log(arrayCategorie);
+                 // console.log(this.filteredRestaurants);
+                 // console.log(this.filteredRestaurants, 'emptyyy');
+
+                this.restaurantsList.forEach(element => {
+                    let push = false;
+                    let categorie = element.categories;
+                    // categoriesID = [];
+
+                    console.log("categorie ristorante:", categorie);
+                    console.log("categorie selezionate:", this.filter);
+                    console.log("");
 
 
-    },
+                    // if(this.selectedTags.length == 0) return this.cards;
 
+                    var ristorantiFiltrati = [];
+                    var filters = this.filter;
 
-});
+                    categorie.forEach(function(categoria) {
+
+                        function cardContainsFilter(filter) {
+                            return categoria.id.indexOf(filter) != -1;
+                        }
+
+                        if(filters.every(cardContainsFilter)) {
+                            ristorantiFiltrati.push(categoria);
+                        }
+                    });
+                    console.log(ristorantiFiltrati);

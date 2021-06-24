@@ -17,3 +17,16 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::post('filtered', 'ApiController@getFiltered');
+
+Route::get('/restaurants', 'ApiController@getRestaurants')
+-> name('restaurants-api');
+
+
+// Route che torna tutte le categorie
+Route::get('/get/categories','ApiController@getCategories') -> name('getCategoriesLink');
+
+// Route che torna tutti i ristoranti
+Route::get('/get/all/restaurants','ApiController@getAllRestaurants') -> name('getAllRestaurantsLink');

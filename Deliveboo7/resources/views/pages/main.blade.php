@@ -3,7 +3,7 @@
 @section('content')
 
     <main>
-        
+
         @if (Auth::check())
 
             {{-- sezione myrestaurant --}}
@@ -54,6 +54,7 @@
                 </div>
             </div>
         </section>
+
 
         {{-- sezione ristoranti --}}
         <section id="restaurants">
