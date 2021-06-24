@@ -11329,7 +11329,7 @@ main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search input:focu
 
 main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search label {
   margin-top: 15px;
-  color: #DCDCDC;
+  color: #e9c46a;
 }
 
 main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search select {
@@ -11350,6 +11350,19 @@ main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search button {
 main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search button:hover {
   background-color: #e76f51;
   border: solid 2px #e9c46a;
+}
+
+main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container li {
+  width: 100px;
+  margin: 5px;
+  color: #DCDCDC;
+}
+
+main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container input {
+  margin: 0;
+  margin-right: 10px;
+  width: auto;
+  box-shadow: none;
 }
 
 main #myjumbotron .mycontainer .jumbotron_container .picture {
