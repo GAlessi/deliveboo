@@ -42,7 +42,7 @@
                         <select name="tipologia" id="tipologia"></select>
 
                         {{-- button --}}
-                        <button @click="getFiltered">Cerca!</button>
+                        <button>Cerca!</button>
                     </div>
 
                     {{-- immagine --}}
@@ -63,10 +63,23 @@
 
                     @foreach ($types as $type)
                         <li class="flex just_start align_cen">
-                            <input id="types_id[]" name="types_id[]" type="checkbox" value="{{ $type->id }}" v-model="type">
+                            <input id="types_id" name="types_id" type="checkbox" value="{{ $type->id }}" v-model="filter" v-on:change="getFilteredRestaurant()">
                             {{ $type->nome }}
                         </li>
                     @endforeach
+                </ul>
+            </div>
+
+            <div class="">
+
+                <ul v-if="filter != ''">
+                    <li v-for="restaurant in filteredRestaurants">
+                        Name: @{{restaurant.nome_attivita}}
+                        <strong v-for="genre in restaurant.categories">
+                            - @{{genre.name}}
+                        </strong>)
+                    </li>
+                    <li>prova</li>
                 </ul>
             </div>
         </section>

@@ -49651,46 +49651,116 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
 document.addEventListener("DOMContentLoaded", function () {
   new Vue({
     el: '#app',
     data: {
-      "type": []
+      categories: [],
+      restaurantsList: [],
+      category_restaurant: [],
+      filteredRestaurants: [],
+      filter: []
+    },
+    mounted: function mounted() {
+      console.log('VUE Connected');
+      this.getCategories();
+      this.getAllRestaurants();
     },
     methods: {
-      getFiltered: function getFiltered() {
-        console.log("obj:", this.type);
-        console.log("arr:", Object.values(this.type));
-        var typeArr = Object.values(this.type);
-        axios.post('api/filtered', typeArr).then(function (res) {
-          return console.log(res);
-        })["catch"](function () {
-          return console.log('error');
+      // Funzione di chiamata al controller Statistiche
+      getCategories: function getCategories() {
+        var _this = this;
+
+        axios.get('/api/get/categories/', {
+          params: {// Parametri
+          }
+        }).then(function (data) {
+          // this.categories = data.data;
+          data.data.forEach(function (element) {
+            _this.categories.push({
+              'id': element.id,
+              'nome': element.nome
+            });
+          });
+          console.log(_this.categories);
+        })["catch"](function (error) {
+          console.log(error);
+        });
+      },
+      getAllRestaurants: function getAllRestaurants() {
+        var _this2 = this;
+
+        axios.get('/api/get/all/restaurants', {
+          params: {// Parametri
+          }
+        }).then(function (data) {
+          _this2.restaurantsList = data.data[0];
+          _this2.category_restaurant = data.data[1];
+
+          _this2.giveGenres();
+        })["catch"](function (error) {
+          console.log(error);
+        });
+      },
+      giveGenres: function giveGenres() {
+        for (var i = 0; i < this.restaurantsList.length; i++) {
+          // console.log(this.restaurantsList[i].id);
+          this.restaurantsList[i].categories = [];
+
+          for (var j = 0; j < this.category_restaurant[i].length; j++) {
+            // console.log(this.category_restaurant[i][j]);
+            this.restaurantsList[i].categories.push({
+              'id': this.category_restaurant[i][j].id,
+              'name': this.category_restaurant[i][j].nome
+            }); // console.log(this.restaurantsList[i].categories);
+          }
+        } // console.log("prova3",this.restaurantsList);
+
+      },
+      getFilteredRestaurant: function getFilteredRestaurant() {
+        var _this3 = this;
+
+        this.filteredRestaurants = [];
+        var arrayCategorie = [];
+
+        for (var i = 0; i < this.restaurantsList.length; i++) {
+          arrayCategorie.push(this.restaurantsList[i].categories);
+        }
+
+        this.restaurantsList.forEach(function (element) {
+          var push = false;
+          var categorie = element.categories;
+          var categoriesID = [];
+          var filter = [];
+
+          for (var i = 0; i < _this3.filter.length; i++) {
+            filter.push(parseInt(_this3.filter[i]));
+          }
+
+          for (var i = 0; i < categorie.length; i++) {
+            categoriesID.push(categorie[i].id);
+
+            var checker = function checker(arr, target) {
+              return target.every(function (v) {
+                return arr.includes(v);
+              });
+            };
+
+            if (checker(categoriesID, filter)) {
+              var _push = true;
+
+              if (_push) {
+                _this3.filteredRestaurants.push(element);
+
+                console.log(element.nome_attivita);
+              } else {
+                console.log('errore');
+              }
+            }
+          }
         });
       }
     }
