@@ -11391,11 +11391,11 @@ main #restaurants {
 
 main #restaurants .restaurant_card {
   margin: 10px;
-  background-color: #fff;
+  padding: 10px;
+  background-color: #e9c46a;
   height: 200px;
   width: 200px;
   border-radius: 20px;
-  box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
   cursor: pointer;
 }
 

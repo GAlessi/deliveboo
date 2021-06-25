@@ -126,13 +126,14 @@ main {
 
         .restaurant_card {
             margin: 10px;
-            background-color: #fff;
+            padding: 10px;
+            background-color: $yellow;
             height: 200px;
             width: 200px;
             border-radius: 20px;
-            -webkit-box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
-            -moz-box-shadow:    4px 4px 6px 0px rgba(50, 50, 50, 0.91);
-            box-shadow:         4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+            // -webkit-box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+            // -moz-box-shadow:    4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+            // box-shadow:         4px 4px 6px 0px rgba(50, 50, 50, 0.91);
             cursor: pointer;
 
             img {

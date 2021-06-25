@@ -1,6 +1,11 @@
 require('./bootstrap');
 
+require('slick-carousel');
+
 window.Vue = require('vue');
+
+// const slick = require('slick-carousel');
+// import'slick-carousel';
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -118,11 +123,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
-
-    // $('.autoplay').slick( {
-    //     slidesToShow: 3,
-    //     slidesToScroll: 1,
-    //     autoplay: true,
-    //     autoplaySpeed: 3500,
-    // });
+    
 });
+
+$(document).ready(() => {
+    $('.autoplay').slick({
+        // slidesToShow: 3,
+        // slidesToScroll: 1,
+         autoplay: true,
+         autoplaySpeed: 3500,
+        centerMode: true,
+        centerPadding: '60px',
+        slidesToShow: 3,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    centerMode: true,
+                    centerPadding: '40px',
+                    slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    arrows: false,
+                    centerMode: true,
+                    centerPadding: '40px',
+                    slidesToShow: 1
+                }
+            }
+        ]
+    });
+})
