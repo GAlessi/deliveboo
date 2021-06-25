@@ -28,7 +28,7 @@ class HomeController extends Controller
     }
 
 
-    //salvataggio in DB
+    //salvataggio in DB nuovo piatto
     public function storeDish(Request $request) {
         // dd($request -> all());
 
@@ -40,7 +40,7 @@ class HomeController extends Controller
             'visibilita' => 'required|boolean'
 
         ]);
-        //dd($validated);
+        // dd($validated);
 
         $user = User::findOrFail($request->user()->id);
         // dd($user);
