@@ -52683,11 +52683,16 @@ document.addEventListener("DOMContentLoaded", function () {
   new Vue({
     el: '#app',
     data: {
+      //filtro ricerca checkbox input
       categories: [],
       restaurantsList: [],
+      allRestaurants: [],
       category_restaurant: [],
+      filter: [],
+      //filtro ricerca text input
+      searchedRestaurantTxt: "",
       filteredRestaurants: [],
-      filter: []
+      txtFilteredRestaurant: []
     },
     mounted: function mounted() {
       console.log('VUE Connected');
@@ -52699,18 +52704,13 @@ document.addEventListener("DOMContentLoaded", function () {
       getCategories: function getCategories() {
         var _this = this;
 
-        axios.get('/api/get/categories/', {
-          params: {// Parametri
-          }
-        }).then(function (data) {
-          // this.categories = data.data;
+        axios.get('/api/get/categories/').then(function (data) {
           data.data.forEach(function (element) {
             _this.categories.push({
               'id': element.id,
               'nome': element.nome
             });
           });
-          console.log(_this.categories);
         })["catch"](function (error) {
           console.log(error);
         });
@@ -52718,10 +52718,7 @@ document.addEventListener("DOMContentLoaded", function () {
       getAllRestaurants: function getAllRestaurants() {
         var _this2 = this;
 
-        axios.get('/api/get/all/restaurants', {
-          params: {// Parametri
-          }
-        }).then(function (data) {
+        axios.get('/api/get/all/restaurants').then(function (data) {
           _this2.restaurantsList = data.data[0];
           _this2.category_restaurant = data.data[1];
 
@@ -52732,18 +52729,15 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       giveGenres: function giveGenres() {
         for (var i = 0; i < this.restaurantsList.length; i++) {
-          // console.log(this.restaurantsList[i].id);
           this.restaurantsList[i].categories = [];
 
           for (var j = 0; j < this.category_restaurant[i].length; j++) {
-            // console.log(this.category_restaurant[i][j]);
             this.restaurantsList[i].categories.push({
               'id': this.category_restaurant[i][j].id,
               'name': this.category_restaurant[i][j].nome
-            }); // console.log(this.restaurantsList[i].categories);
+            });
           }
-        } // console.log("prova3",this.restaurantsList);
-
+        }
       },
       getFilteredRestaurant: function getFilteredRestaurant() {
         var _this3 = this;
@@ -52780,6 +52774,30 @@ document.addEventListener("DOMContentLoaded", function () {
             }
           }
         });
+      },
+      searchRestaurant: function searchRestaurant() {
+        var _this4 = this;
+
+        // console.log(this.searchedRestaurantTxt);
+        this.filter = [];
+        axios.get('/api/get/all/restaurants', {
+          params: {// Parametri
+          }
+        }).then(function (data) {
+          _this4.allRestaurants = data.data[0]; // console.log(this.allRestaurants);
+        })["catch"](function (error) {
+          console.log(error);
+        });
+        this.txtFilteredRestaurant = [];
+
+        for (var i = 0; i < this.allRestaurants.length; i++) {
+          var restaurant = this.allRestaurants[i];
+          var nomeSingoloRistorante = restaurant.nome_attivita; //console.log(nomeSingoloRistorante);
+
+          if (nomeSingoloRistorante.toLowerCase().includes(this.searchedRestaurantTxt.toLowerCase())) {
+            this.txtFilteredRestaurant.push(restaurant);
+          }
+        }
       }
     }
   });
