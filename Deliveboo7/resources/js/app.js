@@ -13,12 +13,18 @@ document.addEventListener("DOMContentLoaded", function () {
         el: '#app',
 
         data: {
+
+            //filtro ricerca checkbox input
             categories: [],
             restaurantsList: [],
+            allRestaurants: [],
             category_restaurant: [],
-            filteredRestaurants: [],
             filter: [],
 
+            //filtro ricerca text input
+            searchedRestaurantTxt: "",
+            filteredRestaurants: [],
+            txtFilteredRestaurant: [],
         },
         mounted: function () {
             console.log('VUE Connected');
@@ -29,13 +35,9 @@ document.addEventListener("DOMContentLoaded", function () {
             // Funzione di chiamata al controller Statistiche
             getCategories: function () {
 
-                axios.get('/api/get/categories/',
-                    {
-                        params: {
-                            // Parametri
-                        }
-                    }).then(data => {
-                        // this.categories = data.data;
+                axios.get('/api/get/categories/')
+
+                    .then(data => {
 
                         data.data.forEach(element => {
                             this.categories.push({
@@ -43,7 +45,6 @@ document.addEventListener("DOMContentLoaded", function () {
                                 'nome': element.nome
                             });
                         });
-                        console.log(this.categories);
 
                     }).catch((error) => {
                         console.log(error);
@@ -52,12 +53,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             getAllRestaurants: function () {
 
-                axios.get('/api/get/all/restaurants',
-                    {
-                        params: {
-                            // Parametri
-                        }
-                    }).then(data => {
+                axios.get('/api/get/all/restaurants')
+                    .then(data => {
                         this.restaurantsList = data.data[0];
                         this.category_restaurant = data.data[1];
                         this.giveGenres();
@@ -67,18 +64,14 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             giveGenres: function () {
                 for (let i = 0; i < this.restaurantsList.length; i++) {
-                    // console.log(this.restaurantsList[i].id);
                     this.restaurantsList[i].categories = [];
                     for (let j = 0; j < this.category_restaurant[i].length; j++) {
-                        // console.log(this.category_restaurant[i][j]);
                         this.restaurantsList[i].categories.push({
                             'id': this.category_restaurant[i][j].id,
                             'name': this.category_restaurant[i][j].nome
                         });
-                        // console.log(this.restaurantsList[i].categories);
                     }
                 }
-                // console.log("prova3",this.restaurantsList);
             },
 
 
@@ -111,6 +104,38 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 });
 
+            },
+
+            searchRestaurant: function(){
+                // console.log(this.searchedRestaurantTxt);
+                this.filter=[];
+
+                axios.get('/api/get/all/restaurants',
+                    {
+                        params: {
+                            // Parametri
+                        }
+                    }).then(data => {
+                        this.allRestaurants = data.data[0];
+                        // console.log(this.allRestaurants);
+
+                    }).catch((error) => {
+                        console.log(error);
+                    });
+
+                    this.txtFilteredRestaurant=[];
+                for (let i = 0; i < this.allRestaurants.length; i++) {
+                    const restaurant = this.allRestaurants[i];
+
+                    const nomeSingoloRistorante = restaurant.nome_attivita;
+                    //console.log(nomeSingoloRistorante);
+
+                    if(nomeSingoloRistorante.toLowerCase().includes(this.searchedRestaurantTxt.toLowerCase())){
+
+                        this.txtFilteredRestaurant.push(restaurant);
+                    }
+
+                }
             }
 
         }

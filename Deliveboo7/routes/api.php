@@ -23,3 +23,6 @@ Route::get('/get/categories','ApiController@getCategories') -> name('getCategori
 
 // Route che torna tutti i ristoranti
 Route::get('/get/all/restaurants','ApiController@getAllRestaurants') -> name('getAllRestaurantsLink');
+
+//Rotta che restituisce tutti i ristoranti
+// Route::get('/getRestaurants','ApiController@getRestaurants') -> name('getRestaurants');

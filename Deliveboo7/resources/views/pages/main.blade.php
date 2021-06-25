@@ -34,12 +34,14 @@
                     {{-- filtro ricerca --}}
                     <div class="jumbotron_search flex_col align_cen">
                         <input type="text" placeholder="Cerca un ristorante"
-                         type="text">
+                         type="text" @keyup='searchRestaurant' v-model='searchedRestaurantTxt'>
 
+                         {{-- button --}}
+                         {{-- <button @click="searchRestaurant">Cerca!</button> --}}
 
                         <label for="type_id[]">Seleziona una o più Tipologie di Cucina</label>
 
-                        <div class="chekbox_container">
+                        <div class="chekbox_container" v-if="searchedRestaurantTxt == false">
 
                             <ul class="flex_wrap">
 
@@ -53,8 +55,7 @@
                             </ul>
                         </div>
 
-                        {{-- button --}}
-                        <button>Cerca!</button>
+
                     </div>
 
                     {{-- immagine --}}
@@ -70,13 +71,21 @@
         <section class="provvisorio">
             <ul v-if="filter != ''">
                 <li  v-for="restaurant in filteredRestaurants" >
-                    Name: @{{ restaurant . nome_attivita }}
+                    Name: @{{ restaurant.nome_attivita }}
                     <strong v-for="genre in restaurant.categories">
-                        - @{{ genre . name }}
-                    </strong>)
+                        - @{{ genre.name }}
+                    </strong>
                 </li>
                 <li v-if="filteredRestaurants == false" >NESSUN RISULTATO</li>
             </ul>
+
+            <ul v-if="searchedRestaurantTxt">
+                <li  v-for="txtRestaurant in txtFilteredRestaurant" >
+                    Name: @{{ txtRestaurant.nome_attivita }}
+                </li>
+                <li v-if="txtFilteredRestaurant == false" >NESSUN RISULTATO</li>
+            </ul>
+
         </section>
 
         {{-- sezione ristoranti --}}

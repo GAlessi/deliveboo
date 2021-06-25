@@ -16,7 +16,13 @@ class ApiController extends Controller
         return $categories;
     }
 
-
+    // public function getRestaurants()
+    // {
+    //     $restaurants = User::all();
+    //
+    //     return [$restaurants];
+    //
+    // }
     public function getAllRestaurants(){
 
         $restaurants = User::all();
@@ -33,25 +39,7 @@ class ApiController extends Controller
             array_push($category_restaurant, $query);
         }
 
-        for ($i=0; $i < count($restaurants); $i++) {
-            // $restaurants[$i]['category'] = [ 'id' => 0];
-            for ($j=0; $j < count($category_restaurant[$i]); $j++) {
-                // if(count($restaurants[$i]['category']) <1){
-                //     $restaurants[$i]['category'] = [
-                //         'id' => $category_restaurant[$i][$j] ->id
-                //     ];
-                // }
-            }
-            // $restaurants[$i]['category'] [] = [ 'id' => 0];
-            // $restaurants[$i]['category'] = [
-            //     'id' => $category_restaurant[$i]['id'],
-            // ];
-        }
-
         return [$restaurants, $category_restaurant];
-        // return $restaurants[0] -> category;
-        // return $category_restaurant[0]['id'];
-        // return json_encode($category_restaurant[0][0] -> id);
-        // return [$restaurants, $restaurantsList, $prova];
+
     }
 }
