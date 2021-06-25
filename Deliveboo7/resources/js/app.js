@@ -116,13 +116,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
 
+    }); //fine di vue
+
+
+
+    $(document).ready(() =>{
+
+        $('.autoplay').slick( {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 3500,
+        });
+
     });
 
-
-    // $('.autoplay').slick( {
-    //     slidesToShow: 3,
-    //     slidesToScroll: 1,
-    //     autoplay: true,
-    //     autoplaySpeed: 3500,
-    // });
 });
