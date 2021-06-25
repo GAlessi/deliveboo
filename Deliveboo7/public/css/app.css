@@ -11685,6 +11685,10 @@ input:focus {
   display: none;
 }
 
+.braintree-option__paypal {
+  display: none;
+}
+
 :root {
   --input-padding-x: 1.5rem;
   --input-padding-y: 0.75rem;
