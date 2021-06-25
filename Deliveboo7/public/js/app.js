@@ -52692,7 +52692,11 @@ document.addEventListener("DOMContentLoaded", function () {
       //filtro ricerca text input
       searchedRestaurantTxt: "",
       filteredRestaurants: [],
-      txtFilteredRestaurant: []
+      txtFilteredRestaurant: [],
+      //pietti per Carrello
+      carrello: [],
+      totalPrice: 0,
+      productNumber: []
     },
     mounted: function mounted() {
       console.log('VUE Connected');
@@ -52798,6 +52802,54 @@ document.addEventListener("DOMContentLoaded", function () {
             this.txtFilteredRestaurant.push(restaurant);
           }
         }
+      },
+      //selezione piatto per carrello
+      getDishId: function getDishId(dish) {
+        var choosenDish = dish;
+
+        if (this.carrello.length == 0) {
+          this.productNumber.push(choosenDish);
+          this.carrello.push(choosenDish);
+        } else {
+          for (var i = 0; i <= this.carrello.length; i++) {
+            if (this.carrello[i].id == choosenDish.id) {
+              break;
+              console.log('non pusho');
+            } else if (i == this.carrello.length - 1) {
+              this.carrello.push(choosenDish);
+            }
+          }
+        }
+
+        console.log('carrello:', this.carrello, 'product number:', this.productNumber);
+      },
+      //aumenta quantità piatto
+      increase: function increase(dishId, index) {
+        // console.log('aggiungi', dishId, index);
+        this.productNumber[index].counter++;
+        this.totalPrice += this.productNumber[index].prezzo;
+        var dish = {
+          id: dishId
+        };
+        this.productNumber.push(dishId);
+        console.log('productNumber:', this.productNumber, 'total price:', this.totalPrice);
+      },
+      //diminuisci qunatità piatto
+      decrease: function decrease(dishId, index) {
+        // console.log('diminuisci', dishId, index);
+        console.log(this.carrello[index]);
+
+        if (this.carrello[index] > 0) {
+          this.carrello[index].counter--;
+          this.totalPrice -= this.carrello[index].prezzo;
+          var dish = {
+            id: dishId
+          };
+          this.productNumber.splice(index, 1);
+        } else if (this.carrello[index].counter < 1) {
+          this.carrello.splice(index, 1);
+          console.log(this.carrello, this.totalPrice);
+        }
       }
     }
   });
@@ -52896,8 +52948,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\booleanSviluppo\code\laravel\project-final\Deliveboo7\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\booleanSviluppo\code\laravel\project-final\Deliveboo7\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\dev\github\project-final\Deliveboo7\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\dev\github\project-final\Deliveboo7\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

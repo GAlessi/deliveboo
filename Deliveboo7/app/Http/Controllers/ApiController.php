@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\User;
 use App\Type;
+use App\Dish;
 
 class ApiController extends Controller
 {
@@ -41,5 +42,17 @@ class ApiController extends Controller
 
         return [$restaurants, $category_restaurant];
 
+    }
+
+
+    // metodo per la richiesta e la ricezione dei piatti
+    public function getDishes(){
+
+        $dishes = Dish::all();
+        // $dishes = DB::table("dishes") -> where("user_id", $id) -> get();
+
+        return response()->json($dishes);
+
+        // return $dishes; --> funziona anche senza json
     }
 }

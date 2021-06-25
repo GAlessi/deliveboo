@@ -57,7 +57,7 @@
 
                         @if (!$dish->deleted)
 
-                            <li>
+                            <li @click="getDishId({{ $dish }})">
                                 {{-- card piatto --}}
                                 <div class="dish_card" title="Aggiungi {{ $dish->nome }} al carrello">
                                     <h6>{{ $dish->nome }}</h6>
@@ -89,6 +89,23 @@
                     @endforeach
                 </ul>
             </div>
+
+
+            {{-- --------sezione carrello------------------------------- --}}
+
+            <section>
+
+                <h2>Carrello</h2>
+                <ul>
+                    <li v-for='(dish, index) in carrello' >
+                     Piatto: @{{ dish.nome }},<br>
+                     Prezzo: @{{ dish.prezzo }}
+                     <button @click='increase(dish.id, index)' type="button" name="button">+</button>
+                     <button  @click='decrease(dish.id, index)' type="button" name="button">-</button>
+                    </li>
+                </ul>
+
+            </section>
         </div>
     </div>
 @endsection

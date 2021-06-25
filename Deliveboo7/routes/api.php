@@ -26,3 +26,6 @@ Route::get('/get/all/restaurants','ApiController@getAllRestaurants') -> name('ge
 
 //Rotta che restituisce tutti i ristoranti
 // Route::get('/getRestaurants','ApiController@getRestaurants') -> name('getRestaurants');
+
+//Rotta che restituisce i piatti
+Route::get('/get/dishes/', 'ApiController@getDishes') -> name('getDishes');

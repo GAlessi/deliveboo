@@ -25,11 +25,19 @@ document.addEventListener("DOMContentLoaded", function () {
             searchedRestaurantTxt: "",
             filteredRestaurants: [],
             txtFilteredRestaurant: [],
+
+            //pietti per Carrello
+            carrello: [],
+            totalPrice: 0,
+            productNumber: [],
+
+
         },
         mounted: function () {
             console.log('VUE Connected');
             this.getCategories();
             this.getAllRestaurants();
+
         },
         methods: {
             // Funzione di chiamata al controller Statistiche
@@ -136,7 +144,83 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
 
                 }
-            }
+            },
+
+            //selezione piatto per carrello
+            getDishId: function (dish) {
+
+                let choosenDish = dish;
+
+
+                if (this.carrello.length == 0) {
+
+                    this.productNumber.push(choosenDish);
+                    this.carrello.push(choosenDish);
+
+                }else{
+
+
+                    for (let i = 0; i <= this.carrello.length; i++) {
+
+                        if (this.carrello[i].id == choosenDish.id) {
+                            break;
+
+                            console.log('non pusho');
+                        }else if(i == this.carrello.length - 1){
+
+
+                            this.carrello.push(choosenDish);
+
+
+                        }
+                    }
+                }
+
+
+                console.log('carrello:', this.carrello, 'product number:', this.productNumber);
+            },
+
+            //aumenta quantità piatto
+            increase: function(dishId, index){
+
+
+                // console.log('aggiungi', dishId, index);
+                this.productNumber[index].counter++;
+                this.totalPrice += (this.productNumber[index].prezzo);
+
+                let dish = {
+                    id: dishId,
+                };
+
+                this.productNumber.push(dishId);
+                console.log( 'productNumber:', this.productNumber, 'total price:', this.totalPrice);
+            },
+
+
+
+            //diminuisci qunatità piatto
+            decrease: function(dishId, index){
+
+
+                // console.log('diminuisci', dishId, index);
+                console.log(this.carrello[index]);
+                if (this.carrello[index] > 0) {
+                    this.carrello[index].counter--;
+                    this.totalPrice -= (this.carrello[index].prezzo);
+                    let dish = {
+                        id: dishId,
+                    };
+                    this.productNumber.splice(index, 1);
+                }
+                else if (this.carrello[index].counter < 1) {
+
+                    this.carrello.splice(index, 1);
+                    console.log(this.carrello, this.totalPrice);
+                }
+
+            },
+
+
 
         }
 
