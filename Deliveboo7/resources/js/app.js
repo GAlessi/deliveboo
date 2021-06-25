@@ -91,7 +91,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
                 this.restaurantsList.forEach(element => {
-                    let push = false;
                     let categorie = element.categories;
                     let categoriesID = [];
                     let filter = [];
@@ -104,14 +103,9 @@ document.addEventListener("DOMContentLoaded", function () {
                         categoriesID.push(categorie[i].id);
                         let checker = (arr, target) => target.every(v => arr.includes(v));
 
-                        if (checker(categoriesID, filter)) {
-                            let push = true;
-                            if (push) {
-                                this.filteredRestaurants.push(element);
-                                console.log(element.nome_attivita);
-                            } else {
-                                console.log('errore');
-                            }
+                        if (checker(categoriesID, filter) && !this.filteredRestaurants.includes(element)) {
+                            this.filteredRestaurants.push(element);
+                            console.log(element.nome_attivita);
                         }
 
                     }
@@ -123,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
-    
+
 });
 
 $(document).ready(() => {

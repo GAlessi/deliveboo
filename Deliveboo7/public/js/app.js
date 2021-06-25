@@ -52756,7 +52756,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         this.restaurantsList.forEach(function (element) {
-          var push = false;
           var categorie = element.categories;
           var categoriesID = [];
           var filter = [];
@@ -52774,16 +52773,10 @@ document.addEventListener("DOMContentLoaded", function () {
               });
             };
 
-            if (checker(categoriesID, filter)) {
-              var _push = true;
+            if (checker(categoriesID, filter) && !_this3.filteredRestaurants.includes(element)) {
+              _this3.filteredRestaurants.push(element);
 
-              if (_push) {
-                _this3.filteredRestaurants.push(element);
-
-                console.log(element.nome_attivita);
-              } else {
-                console.log('errore');
-              }
+              console.log(element.nome_attivita);
             }
           }
         });
@@ -52885,8 +52878,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\esercizi_laravel\project-final\Deliveboo7\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\esercizi_laravel\project-final\Deliveboo7\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\booleanSviluppo\code\laravel\project-final\Deliveboo7\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\booleanSviluppo\code\laravel\project-final\Deliveboo7\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

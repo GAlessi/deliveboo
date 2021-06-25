@@ -69,13 +69,13 @@
 
         <section class="provvisorio">
             <ul v-if="filter != ''">
-                <li v-for="restaurant in filteredRestaurants">
+                <li  v-for="restaurant in filteredRestaurants" >
                     Name: @{{ restaurant . nome_attivita }}
                     <strong v-for="genre in restaurant.categories">
                         - @{{ genre . name }}
                     </strong>)
                 </li>
-                <li>NESSUN RISULTATO</li>
+                <li v-if="filteredRestaurants == false" >NESSUN RISULTATO</li>
             </ul>
         </section>
 
