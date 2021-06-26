@@ -1,35 +1,36 @@
 @extends('layouts.main-layout')
 
 @section('content')
+    <div id="app">
 
-    <main>
+        <main>
 
-        @if (Auth::check())
+            @if (Auth::check())
 
-            {{-- sezione myrestaurant --}}
-            <div id="myrestaurant">
+                {{-- sezione myrestaurant --}}
+                <div id="myrestaurant">
 
-                <h2>Bentornato {{ $user->name }}</h2>
+                    <h2>Bentornato {{ $user->name }}</h2>
 
-                {{-- link al mio ristorante --}}
-                <a href="{{ route('show', $user->id) }}">
-                    <h3>Vai al tuo ristorante <i class="fas fa-angle-double-right"></i></h3>
-                </a>
+                    {{-- link al mio ristorante --}}
+                    <a href="{{ route('show', $user->id) }}">
+                        <h3>Vai al tuo ristorante <i class="fas fa-angle-double-right"></i></h3>
+                    </a>
 
-            </div>
-        @endif
-
-        {{-- sezione jumbotron --}}
-        <section id="myjumbotron">
-            <div class="mycontainer flex_wrap">
-
-                {{-- title --}}
-                <div class="title">
-                    <h1>Deliveboo!</h1>
-                    <h3>i piatti che ami, a domicilio.</h3>
                 </div>
+            @endif
 
-                <div class="jumbotron_container flex align_cen">
+            {{-- sezione jumbotron --}}
+            <section id="myjumbotron">
+                <div class="mycontainer flex_wrap">
+
+                    {{-- title --}}
+                    <div class="title">
+                        <h1>Deliveboo!</h1>
+                        <h3>i piatti che ami, a domicilio.</h3>
+                    </div>
+
+                    <div class="jumbotron_container flex align_cen">
 
                     {{-- filtro ricerca --}}
                     <div class="jumbotron_search flex_col align_cen">
@@ -41,34 +42,34 @@
                         {{-- button --}}
                         {{-- <button @click="searchRestaurant">Cerca!</button> --}}
 
-                        <label for="type_id[]">Seleziona una o più Tipologie di Cucina</label>
+                            <label for="type_id[]">Seleziona una o più Tipologie di Cucina</label>
 
-                        <div class="chekbox_container" v-if="searchedRestaurantTxt == false">
+                            <div class="chekbox_container" v-if="searchedRestaurantTxt == false">
 
-                            <ul class="flex_wrap">
+                                <ul class="flex_wrap">
 
-                                @foreach ($types as $type)
-                                    <li class="flex just_start align_cen">
-                                        <input id="types_id" v-model="filter" v-on:change="getFilteredRestaurant()"
+                                    @foreach ($types as $type)
+                                        <li class="flex just_start align_cen">
+                                            <input id="types_id" v-model="filter" v-on:change="getFilteredRestaurant()"
                                             name="types_id" type="checkbox" value="{{ $type->id }}">
-                                        {{ $type->nome }}
-                                    </li>
-                                @endforeach
-                            </ul>
+                                            {{ $type->nome }}
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+
+
                         </div>
 
-
-                    </div>
-
-                    {{-- immagine --}}
-                    <div class="picture relative">
-                        <img class="jumbotron_casa absolute" src="{{ asset('/storage/images/casa.png') }}" alt="">
-                        <img class="jumbotron_moto absolute animate__fadeInRight" id="boy-img"
+                        {{-- immagine --}}
+                        <div class="picture relative">
+                            <img class="jumbotron_casa absolute" src="{{ asset('/storage/images/casa.png') }}" alt="">
+                            <img class="jumbotron_moto absolute animate__fadeInRight" id="boy-img"
                             src="{{ asset('/storage/images/boy.png') }}">
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
         {{-- ristoranti filtrati per nome --}}
         <section v-if="txtFilteredRestaurant != 0" id="filtered_restaurants">
@@ -124,32 +125,33 @@
         <section id="restaurants">
             <div class="mycontainer">
 
-                <h2>La nostra selezione di ristoranti</h2>
+                    <h2>La nostra selezione di ristoranti</h2>
 
-                {{-- carousel ristoranti --}}
-                <div class="restaurants_carousel">
-                    <div class="autoplay">
+                    {{-- carousel ristoranti --}}
+                    <div class="restaurants_carousel">
+                        <div class="autoplay">
 
-                        {{-- card tiplogia --}}
-                        @foreach ($users as $user)
-                            <div class="restaurant_card relative">
-                                <a href="{{ route('show', $user->id) }}"
-                                    title="Vai al menu di {{ $user->nome_attivita }}">
-                                    <img src="{{ asset('/storage/images/copertina_jappo.jpg') }}"
+                            {{-- card tiplogia --}}
+                            @foreach ($users as $user)
+                                <div class="restaurant_card relative">
+                                    <a href="{{ route('show', $user->id) }}"
+                                        title="Vai al menu di {{ $user->nome_attivita }}">
+                                        <img src="{{ asset('/storage/images/copertina_jappo.jpg') }}"
                                         alt="immagine tiplogia">
-                                    <h4 class="absolute">{{ $user->nome_attivita }}</h4>
-                                </a>
-                            </div>
-                        @endforeach
+                                        <h4 class="absolute">{{ $user->nome_attivita }}</h4>
+                                    </a>
+                                </div>
+                            @endforeach
+                        </div>
+                        {{-- fine carousel --}}
                     </div>
-                    {{-- fine carousel --}}
                 </div>
-            </div>
 
             {{-- fine section ristauranti --}}
         </section>
 
-    </main>
+        </main>
+    </div>
 
 
 @endsection

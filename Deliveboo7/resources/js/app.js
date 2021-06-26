@@ -25,7 +25,13 @@ document.addEventListener("DOMContentLoaded", function () {
             searchedRestaurantTxt: "",
             filteredRestaurants: [],
             txtFilteredRestaurant: [],
+
+            //piatti per carrello
+            carrello: [],
+            totalPrice: 0,
+            productNumber: [],
         },
+
         mounted: function () {
             console.log('VUE Connected');
             this.getCategories();
@@ -136,7 +142,88 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
 
                 }
-            }
+            },
+
+            getDishId: function (dish) {
+
+               let choosenDish = dish;
+
+
+               if (this.carrello.length == 0) {
+                   this.productNumber.push(choosenDish);
+                   choosenDish.counter=1;
+                   this.totalPrice += (choosenDish.prezzo);
+                   this.carrello.push(choosenDish);
+
+               }else{
+
+
+                   for (let i = 0; i <= this.carrello.length; i++) {
+
+                       if (this.carrello[i].id == choosenDish.id) {
+                           console.log('non pusho');
+                           this.productNumber.push(choosenDish);
+                           choosenDish.counter=1;
+                           this.totalPrice += (choosenDish.prezzo);
+
+                           break;
+
+                       }else if(i == this.carrello.length - 1){
+
+
+                           this.carrello.push(choosenDish);
+
+
+                       }
+                   }
+               }
+           },
+
+            increase: function(dishId, index){
+
+                // console.log('aggiungi', dishId, index);
+                // console.log(this.carrello[index]);
+
+                // if (isNaN(this.carrello[index].counter)) {
+                //     this.totalPrice += (this.carrello[index].prezzo)+(this.carrello[index].prezzo);
+                //     this.carrello[index].counter=2;
+                //
+                // }else {
+
+                    this.totalPrice += (this.carrello[index].prezzo);
+                    this.carrello[index].counter++;
+                // }
+
+                console.log( 'nuovo carrello:', this.carrello[index], 'total price:', this.totalPrice);
+                console.log("");
+
+            },
+
+            //diminuisci qunatità piatto
+            decrease: function(dishId, index){
+
+
+                // console.log('diminuisci', dishId, index);
+                console.log(this.carrello[index]);
+                if (this.carrello[index].counter > 0) {
+                    this.carrello[index].counter--;
+                    this.totalPrice -= (this.carrello[index].prezzo);
+                    let dish = {
+                        id: dishId,
+                    };
+                    this.productNumber.splice(index, 1);
+                    console.log( 'nuovo carrello:', this.carrello, 'total price:', this.totalPrice);
+
+                }
+                else if (this.carrello[index].counter < 1) {
+
+                    this.carrello.splice(index, 1);
+                    console.log(this.carrello, this.totalPrice);
+                    console.log( 'nuovo carrello:', this.carrello, 'total price:', this.totalPrice);
+
+                }
+
+            },
 
         }
 
