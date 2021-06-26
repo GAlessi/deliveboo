@@ -33,11 +33,13 @@
 
                     {{-- filtro ricerca --}}
                     <div class="jumbotron_search flex_col align_cen">
-                        <input type="text" placeholder="Cerca un ristorante"
-                         type="text" @keyup='searchRestaurant' v-model='searchedRestaurantTxt'>
+                        
+                        {{-- ricerca per nome ristorante --}}
+                        <input v-if="filter.length == 0" type="text" placeholder="Cerca un ristorante" type="text" @keyup.enter='searchRestaurant'
+                            v-model='searchedRestaurantTxt'>
 
-                         {{-- button --}}
-                         {{-- <button @click="searchRestaurant">Cerca!</button> --}}
+                        {{-- button --}}
+                        {{-- <button @click="searchRestaurant">Cerca!</button> --}}
 
                         <label for="type_id[]">Seleziona una o più Tipologie di Cucina</label>
 
@@ -68,23 +70,53 @@
             </div>
         </section>
 
-        <section class="provvisorio">
-            <ul v-if="filter != ''">
-                <li  v-for="restaurant in filteredRestaurants" >
-                    Name: @{{ restaurant.nome_attivita }}
-                    <strong v-for="genre in restaurant.categories">
-                        - @{{ genre.name }}
-                    </strong>
-                </li>
-                <li v-if="filteredRestaurants == false" >NESSUN RISULTATO</li>
-            </ul>
+        {{-- ristoranti filtrati per nome --}}
+        <section v-if="txtFilteredRestaurant != 0" id="filtered_restaurants">
+            <div class="mycontainer">
 
-            <ul v-if="searchedRestaurantTxt">
-                <li  v-for="txtRestaurant in txtFilteredRestaurant" >
-                    Name: @{{ txtRestaurant.nome_attivita }}
-                </li>
-                <li v-if="txtFilteredRestaurant == false" >NESSUN RISULTATO</li>
-            </ul>
+                <h3>Ecco cosa abbiamo trovato per te</h3>
+
+                <div class="filtered_restaurants_container">
+
+                    <ul class="flex_wrap">
+                        <li v-for="restaurant in txtFilteredRestaurant">
+                            <div class="restaurant_card relative">
+                                <a :href="'/showRestaurant/' + restaurant.id">
+                                    <img src="{{ asset('/storage/images/copertina_jappo.jpg') }}"
+                                        alt="immagine_ristorante">
+                                    <h4 class="absolute">@{{ restaurant . nome_attivita }}</h4>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            {{-- fine sezione ristoranti filtrati per nome --}}
+        </section>
+
+        {{-- sezione ristoranti filtrati per tipologia --}}
+        <section v-if="filter != ''" id="filtered_restaurants">
+            <div class="mycontainer">
+
+                <h3>Ecco cosa abbiamo trovato per te</h3>
+
+                <div class="filtered_restaurants_container">
+
+                    <ul class="flex_wrap">
+                        <li v-for="restaurant in filteredRestaurants">
+                            <div class="restaurant_card relative">
+                                <a :href="'/showRestaurant/' + restaurant.id">
+                                    <img src="{{ asset('/storage/images/copertina_jappo.jpg') }}"
+                                        alt="immagine_ristorante">
+                                    <h4 class="absolute">@{{ restaurant . nome_attivita }}</h4>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            {{-- fine sezione ristoranti filtrati per tipologia --}}
 
         </section>
 
@@ -114,7 +146,7 @@
                 </div>
             </div>
 
-            {{-- fine secrtion bestRestaurant --}}
+            {{-- fine section ristauranti --}}
         </section>
 
     </main>
