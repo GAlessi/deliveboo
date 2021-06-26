@@ -30,6 +30,10 @@ header {
                             scale: 1.1;
                         }
                     }
+
+                    h3 {
+                        font-family: 'Dela Gothic One', cursive;
+                    }
                 } 
 
                 .nav_search {
@@ -69,13 +73,13 @@ header {
 
             .nav_right {
 
-                .cart {
-                    cursor: pointer;
+                // .cart {
+                //     cursor: pointer;
                     
-                    img {
-                        width: 25px;
-                    }
-                }
+                //     img {
+                //         width: 25px;
+                //     }
+                // }
 
                 .nav_buttons {
                     color: $blue;

@@ -52695,7 +52695,10 @@ document.addEventListener("DOMContentLoaded", function () {
       carrello: [],
       totalPrice: 0,
       productNumber: [],
-      pezziTotali: 0
+      cartItems: 0,
+      multiPrice: 0,
+      //visibilità carrello
+      cartHidden: true
     },
     mounted: function mounted() {
       console.log('VUE Connected');
@@ -52801,56 +52804,54 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         }
       },
-      getDishId: function getDishId(dish) {
-        var choosenDish = dish;
+      //aggiungi al carrello
+      addToCart: function addToCart(dish) {
+        var choosenDish = dish; // increase(dishId, index);
 
         if (this.carrello.length == 0) {
-          this.productNumber.push(choosenDish);
           choosenDish.counter = 1;
           this.totalPrice += choosenDish.prezzo;
           this.carrello.push(choosenDish);
+          this.cartItems += 1;
+          console.log(this.carrello);
         } else {
           for (var i = 0; i <= this.carrello.length; i++) {
             if (this.carrello[i].id == choosenDish.id) {
               console.log('non pusho');
-              this.productNumber.push(choosenDish);
-              choosenDish.counter = 1;
-              this.totalPrice += choosenDish.prezzo;
               break;
             } else if (i == this.carrello.length - 1) {
               this.carrello.push(choosenDish);
+              choosenDish.counter = 1;
+              this.totalPrice += choosenDish.prezzo;
+              this.cartItems++;
             }
           }
         }
       },
+      // aumenta quantità
       increase: function increase(dishId, index) {
         this.totalPrice += this.carrello[index].prezzo;
-        this.carrello[index].counter++; // }
-
-        console.log('nuovo carrello:', this.carrello[index], 'total price:', this.totalPrice);
-        console.log("");
+        this.carrello[index].counter++;
+        this.cartItems++; //this.multiPrice = this.carrello[index].prezzo * this.carrello[index].counter++;
       },
-      //diminuisci quantità piatto
+      // diminuisci quantità
       decrease: function decrease(dishId, index) {
-        // console.log('diminuisci', dishId, index);
-        console.log(this.carrello[index]);
+        this.totalPrice -= this.carrello[index].prezzo;
+        this.cartItems--;
 
-        if (this.carrello[index].counter > 0) {
+        if (this.carrello[index].counter > 1) {
           this.carrello[index].counter--;
-          this.totalPrice -= this.carrello[index].prezzo;
-          var dish = {
-            id: dishId
-          };
-          this.productNumber.splice(index, 1);
-          console.log('nuovo carrello:', this.carrello, 'total price:', this.totalPrice);
-        } else if (this.carrello[index].counter < 1) {
+        } else {
           this.carrello.splice(index, 1);
-          console.log(this.carrello, this.totalPrice);
-          console.log('nuovo carrello:', this.carrello, 'total price:', this.totalPrice);
         }
+      },
+      // mostro-nascondo carrello
+      showCart: function showCart() {
+        this.cartHidden = !this.cartHidden;
       }
-    }
-  });
+    } // fine methods
+
+  }); //fine vue
 });
 $(document).ready(function () {
   $('.autoplay').slick({
