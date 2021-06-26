@@ -98,13 +98,22 @@
                 <h2>Carrello</h2>
                 <ul>
                     <li v-for='(dish, index) in carrello' >
-                     Piatto: @{{ dish.nome }},<br>
-                     Prezzo: @{{ dish.prezzo }}
+                     Piatto: @{{ dish.nome }}
+                     Prezzo: @{{ carrello[index].prezzo * carrello[index].counter }}
                      <button @click='increase(dish.id, index)' type="button" name="button">+</button>
+                     <span>
+                         Q.tà: @{{ dish.counter }}
+                     </span>
                      <button  @click='decrease(dish.id, index)' type="button" name="button">-</button>
                     </li>
                 </ul>
+                <h4>
+                    ToT.Price: £ @{{ totalPrice }}
+                </h4>
 
+                <span>
+                    Pezzi Totali: @{{ pezziTotali }}
+                </span>
 
             </section>
         </div>

@@ -52696,7 +52696,8 @@ document.addEventListener("DOMContentLoaded", function () {
       //piatti per carrello
       carrello: [],
       totalPrice: 0,
-      productNumber: []
+      // productNumber: [],
+      pezziTotali: 0
     },
     mounted: function mounted() {
       console.log('VUE Connected');
@@ -52804,23 +52805,29 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       },
       getDishId: function getDishId(dish) {
-        var choosenDish = dish;
+        var choosenDish = dish; // this.increase(dishId,index)
 
         if (this.carrello.length == 0) {
-          this.productNumber.push(choosenDish);
+          // this.productNumber.push(choosenDish);
           choosenDish.counter = 1;
           this.totalPrice += choosenDish.prezzo;
           this.carrello.push(choosenDish);
+          this.pezziTotali += 1;
+          console.log(this.carrello);
         } else {
           for (var i = 0; i <= this.carrello.length; i++) {
             if (this.carrello[i].id == choosenDish.id) {
-              console.log('non pusho');
-              this.productNumber.push(choosenDish);
-              choosenDish.counter = 1;
-              this.totalPrice += choosenDish.prezzo;
+              console.log('non pusho'); // this.productNumber.push(choosenDish);
+              // choosenDish.counter=1;
+              // this.totalPrice += (choosenDish.prezzo);
+
               break;
             } else if (i == this.carrello.length - 1) {
               this.carrello.push(choosenDish);
+              choosenDish.counter = 1;
+              this.totalPrice += choosenDish.prezzo; // this.carrello.push(choosenDish);
+
+              this.pezziTotali++;
             }
           }
         }
@@ -52834,29 +52841,27 @@ document.addEventListener("DOMContentLoaded", function () {
         //
         // }else {
         this.totalPrice += this.carrello[index].prezzo;
-        this.carrello[index].counter++; // }
-
-        console.log('nuovo carrello:', this.carrello[index], 'total price:', this.totalPrice);
-        console.log("");
+        this.carrello[index].counter++;
+        this.pezziTotali++; // this.carrello.[index].prezzo * this.carrello[index].counter
+        // }
+        // console.log( 'nuovo carrello:', this.carrello, 'lunghezza carrello:', this.carrello.length, 'total price:', this.totalPrice);
+        // console.log( 'nuovo carrello:', this.carrello[index], 'total price:', this.totalPrice);
+        // console.log("");
       },
       //diminuisci qunatità piatto
       decrease: function decrease(dishId, index) {
-        // console.log('diminuisci', dishId, index);
-        console.log(this.carrello[index]);
+        this.totalPrice -= this.carrello[index].prezzo;
+        this.pezziTotali--;
 
-        if (this.carrello[index].counter > 0) {
-          this.carrello[index].counter--;
-          this.totalPrice -= this.carrello[index].prezzo;
-          var dish = {
-            id: dishId
-          };
-          this.productNumber.splice(index, 1);
-          console.log('nuovo carrello:', this.carrello, 'total price:', this.totalPrice);
-        } else if (this.carrello[index].counter < 1) {
-          this.carrello.splice(index, 1);
-          console.log(this.carrello, this.totalPrice);
-          console.log('nuovo carrello:', this.carrello, 'total price:', this.totalPrice);
-        }
+        if (this.carrello[index].counter > 1) {
+          this.carrello[index].counter--; // this.totalPrice -= (this.carrello[index].prezzo);
+          // this.pezziTotali--;
+        } // if (this.carrello[index].counter == 1)
+        else {
+            // this.pezziTotali--;
+            // this.totalPrice -= (this.carrello[index].prezzo);
+            this.carrello.splice(index, 1);
+          }
       }
     }
   });
@@ -52955,8 +52960,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\booleanSviluppo\code\laravel\project-final\Deliveboo7\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\booleanSviluppo\code\laravel\project-final\Deliveboo7\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\dev\github\project-final\Deliveboo7\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\dev\github\project-final\Deliveboo7\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

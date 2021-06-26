@@ -29,7 +29,8 @@ document.addEventListener("DOMContentLoaded", function () {
             //piatti per carrello
             carrello: [],
             totalPrice: 0,
-            productNumber: [],
+            // productNumber: [],
+            pezziTotali: 0,
         },
 
         mounted: function () {
@@ -148,12 +149,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
                let choosenDish = dish;
 
+               // this.increase(dishId,index)
+
 
                if (this.carrello.length == 0) {
-                   this.productNumber.push(choosenDish);
+                   // this.productNumber.push(choosenDish);
                    choosenDish.counter=1;
                    this.totalPrice += (choosenDish.prezzo);
                    this.carrello.push(choosenDish);
+                   this.pezziTotali += 1;
+                   console.log(this.carrello);
 
                }else{
 
@@ -162,9 +167,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
                        if (this.carrello[i].id == choosenDish.id) {
                            console.log('non pusho');
-                           this.productNumber.push(choosenDish);
-                           choosenDish.counter=1;
-                           this.totalPrice += (choosenDish.prezzo);
+                           // this.productNumber.push(choosenDish);
+                           // choosenDish.counter=1;
+                           // this.totalPrice += (choosenDish.prezzo);
 
                            break;
 
@@ -173,7 +178,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
                            this.carrello.push(choosenDish);
 
+                           choosenDish.counter=1;
+                           this.totalPrice += (choosenDish.prezzo);
+                           // this.carrello.push(choosenDish);
 
+                           this.pezziTotali++;
                        }
                    }
                }
@@ -192,34 +201,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     this.totalPrice += (this.carrello[index].prezzo);
                     this.carrello[index].counter++;
-                // }
+                    this.pezziTotali++;
 
-                console.log( 'nuovo carrello:', this.carrello[index], 'total price:', this.totalPrice);
-                console.log("");
+                // }
+                // console.log( 'nuovo carrello:', this.carrello, 'lunghezza carrello:', this.carrello.length, 'total price:', this.totalPrice);
+                // console.log( 'nuovo carrello:', this.carrello[index], 'total price:', this.totalPrice);
+                // console.log("");
 
             },
 
             //diminuisci qunatità piatto
             decrease: function(dishId, index){
 
+                this.totalPrice -= (this.carrello[index].prezzo);
+                this.pezziTotali--;
 
-                // console.log('diminuisci', dishId, index);
-                console.log(this.carrello[index]);
-                if (this.carrello[index].counter > 0) {
+                if (this.carrello[index].counter > 1) {
                     this.carrello[index].counter--;
-                    this.totalPrice -= (this.carrello[index].prezzo);
-                    let dish = {
-                        id: dishId,
-                    };
-                    this.productNumber.splice(index, 1);
-                    console.log( 'nuovo carrello:', this.carrello, 'total price:', this.totalPrice);
+                    // this.totalPrice -= (this.carrello[index].prezzo);
+                    // this.pezziTotali--;
+
 
                 }
-                else if (this.carrello[index].counter < 1) {
 
+                 // if (this.carrello[index].counter == 1)
+                else{
+
+                    // this.pezziTotali--;
+                    // this.totalPrice -= (this.carrello[index].prezzo);
                     this.carrello.splice(index, 1);
-                    console.log(this.carrello, this.totalPrice);
-                    console.log( 'nuovo carrello:', this.carrello, 'total price:', this.totalPrice);
 
                 }
 
