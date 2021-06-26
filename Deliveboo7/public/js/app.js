@@ -52676,9 +52676,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! slick-carousel */ "./node_modules/slick-carousel/slick/slick.js");
 
-window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js"); // const slick = require('slick-carousel');
-// import'slick-carousel';
-
+window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 document.addEventListener("DOMContentLoaded", function () {
   new Vue({
     el: '#app',
@@ -52696,7 +52694,8 @@ document.addEventListener("DOMContentLoaded", function () {
       //piatti per carrello
       carrello: [],
       totalPrice: 0,
-      productNumber: []
+      productNumber: [],
+      pezziTotali: 0
     },
     mounted: function mounted() {
       console.log('VUE Connected');
@@ -52743,6 +52742,7 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         }
       },
+      //filtro per categorie
       getFilteredRestaurant: function getFilteredRestaurant() {
         var _this3 = this;
 
@@ -52772,34 +52772,32 @@ document.addEventListener("DOMContentLoaded", function () {
             };
 
             if (checker(categoriesID, filter) && !_this3.filteredRestaurants.includes(element)) {
-              _this3.filteredRestaurants.push(element);
+              _this3.filteredRestaurants.push(element); //console.log(element.nome_attivita);
 
-              console.log(element.nome_attivita);
             }
           }
         });
       },
+      //filtro per nome
       searchRestaurant: function searchRestaurant() {
         var _this4 = this;
 
-        // console.log(this.searchedRestaurantTxt);
-        this.filter = [];
-        axios.get('/api/get/all/restaurants', {
-          params: {// Parametri
-          }
-        }).then(function (data) {
-          _this4.allRestaurants = data.data[0]; // console.log(this.allRestaurants);
-        })["catch"](function (error) {
-          console.log(error);
-        });
-        this.txtFilteredRestaurant = [];
+        if (this.searchedRestaurantTxt.length > 0) {
+          this.filter = [];
+          axios.get('/api/get/all/restaurants').then(function (data) {
+            _this4.allRestaurants = data.data[0]; // console.log(this.allRestaurants);
+          })["catch"](function (error) {
+            console.log(error);
+          });
+          this.txtFilteredRestaurant = [];
 
-        for (var i = 0; i < this.allRestaurants.length; i++) {
-          var restaurant = this.allRestaurants[i];
-          var nomeSingoloRistorante = restaurant.nome_attivita; //console.log(nomeSingoloRistorante);
+          for (var i = 0; i < this.allRestaurants.length; i++) {
+            var restaurant = this.allRestaurants[i];
+            var nomeSingoloRistorante = restaurant.nome_attivita; //console.log(nomeSingoloRistorante);
 
-          if (nomeSingoloRistorante.toLowerCase().includes(this.searchedRestaurantTxt.toLowerCase())) {
-            this.txtFilteredRestaurant.push(restaurant);
+            if (nomeSingoloRistorante.toLowerCase().includes(this.searchedRestaurantTxt.toLowerCase())) {
+              this.txtFilteredRestaurant.push(restaurant);
+            }
           }
         }
       },
@@ -52826,20 +52824,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       },
       increase: function increase(dishId, index) {
-        // console.log('aggiungi', dishId, index);
-        // console.log(this.carrello[index]);
-        // if (isNaN(this.carrello[index].counter)) {
-        //     this.totalPrice += (this.carrello[index].prezzo)+(this.carrello[index].prezzo);
-        //     this.carrello[index].counter=2;
-        //
-        // }else {
         this.totalPrice += this.carrello[index].prezzo;
         this.carrello[index].counter++; // }
 
         console.log('nuovo carrello:', this.carrello[index], 'total price:', this.totalPrice);
         console.log("");
       },
-      //diminuisci qunatità piatto
+      //diminuisci quantità piatto
       decrease: function decrease(dishId, index) {
         // console.log('diminuisci', dishId, index);
         console.log(this.carrello[index]);

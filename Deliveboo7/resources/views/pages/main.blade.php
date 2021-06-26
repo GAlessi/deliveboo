@@ -32,26 +32,30 @@
 
                     <div class="jumbotron_container flex align_cen">
 
-                    {{-- filtro ricerca --}}
-                    <div class="jumbotron_search flex_col align_cen">
-                        
-                        {{-- ricerca per nome ristorante --}}
-                        <input v-if="filter.length == 0" type="text" placeholder="Cerca un ristorante" type="text" @keyup.enter='searchRestaurant'
-                            v-model='searchedRestaurantTxt'>
+                        {{-- filtro ricerca --}}
+                        <div class="jumbotron_search flex_col align_cen">
 
-                        {{-- button --}}
-                        {{-- <button @click="searchRestaurant">Cerca!</button> --}}
+                            {{-- ricerca per nome ristorante --}}
+                            <input v-if="filter.length == 0" type="text" placeholder="Cerca un ristorante" type="text"
+                                @keyup.enter='searchRestaurant' v-model='searchedRestaurantTxt'>
 
-                            <label for="type_id[]">Seleziona una o più Tipologie di Cucina</label>
+                            {{-- button --}}
+                            {{-- <button @click="searchRestaurant">Cerca!</button> --}}
 
+                            <h6 v-if='searchedRestaurantTxt == "" && filter == 0'>Oppure</h6>
+
+                            
+                            {{-- ricerca per tipologie --}}
                             <div class="chekbox_container" v-if="searchedRestaurantTxt == false">
+
+                                <label for="type_id[]">Seleziona una o più Tipologie di Cucina</label>
 
                                 <ul class="flex_wrap">
 
                                     @foreach ($types as $type)
                                         <li class="flex just_start align_cen">
                                             <input id="types_id" v-model="filter" v-on:change="getFilteredRestaurant()"
-                                            name="types_id" type="checkbox" value="{{ $type->id }}">
+                                                name="types_id" type="checkbox" value="{{ $type->id }}">
                                             {{ $type->nome }}
                                         </li>
                                     @endforeach
@@ -64,66 +68,68 @@
                         {{-- immagine --}}
                         <div class="picture relative">
                             <img class="jumbotron_casa absolute" src="{{ asset('/storage/images/casa.png') }}" alt="">
-                            <img class="jumbotron_moto absolute animate__fadeInRight" id="boy-img"
-                            src="{{ asset('/storage/images/boy.png') }}">
+                            <img class="jumbotron_moto absolute animate__fadeInRightBig" id="boy-img"
+                                src="{{ asset('/storage/images/boy.png') }}">
                         </div>
                     </div>
                 </div>
             </section>
 
-        {{-- ristoranti filtrati per nome --}}
-        <section v-if="txtFilteredRestaurant != 0" id="filtered_restaurants">
-            <div class="mycontainer">
+            {{-- ristoranti filtrati per nome --}}
+            <section v-if="txtFilteredRestaurant != 0" id="filtered_restaurants" class="animate__animated animate__fadeInUp">
+                <div class="mycontainer">
 
-                <h3>Ecco cosa abbiamo trovato per te</h3>
+                    <h3>Ecco cosa abbiamo trovato per te</h3>
 
-                <div class="filtered_restaurants_container">
+                    <div class="filtered_restaurants_container">
 
-                    <ul class="flex_wrap">
-                        <li v-for="restaurant in txtFilteredRestaurant">
-                            <div class="restaurant_card relative">
-                                <a :href="'/showRestaurant/' + restaurant.id">
-                                    <img src="{{ asset('/storage/images/copertina_jappo.jpg') }}"
-                                        alt="immagine_ristorante">
-                                    <h4 class="absolute">@{{ restaurant . nome_attivita }}</h4>
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
+                        <ul class="flex_wrap">
+                            <li v-for="restaurant in txtFilteredRestaurant">
+                                <div class="restaurant_card relative">
+                                    <a :href="'/showRestaurant/' + restaurant.id">
+                                        <img src="{{ asset('/storage/images/copertina_jappo.jpg') }}"
+                                            alt="immagine_ristorante">
+                                        <h4 class="absolute">@{{ restaurant . nome_attivita }}</h4>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            {{-- fine sezione ristoranti filtrati per nome --}}
-        </section>
+                {{-- fine sezione ristoranti filtrati per nome --}}
+            </section>
 
-        {{-- sezione ristoranti filtrati per tipologia --}}
-        <section v-if="filter != ''" id="filtered_restaurants">
-            <div class="mycontainer">
+            {{-- sezione ristoranti filtrati per tipologia --}}
+            <section v-if="filter != ''" id="filtered_restaurants" class="animate__animated animate__fadeInUp">
+                <div class="mycontainer">
 
-                <h3>Ecco cosa abbiamo trovato per te</h3>
+                    <h3 v-if='filteredRestaurants == 0'>Ops! Nessun risultato...</h3>
 
-                <div class="filtered_restaurants_container">
+                    <h3 v-else>Ecco cosa abbiamo trovato per te</h3>
 
-                    <ul class="flex_wrap">
-                        <li v-for="restaurant in filteredRestaurants">
-                            <div class="restaurant_card relative">
-                                <a :href="'/showRestaurant/' + restaurant.id">
-                                    <img src="{{ asset('/storage/images/copertina_jappo.jpg') }}"
-                                        alt="immagine_ristorante">
-                                    <h4 class="absolute">@{{ restaurant . nome_attivita }}</h4>
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
+                    <div class="filtered_restaurants_container">
+
+                        <ul class="flex_wrap">
+                            <li v-for="restaurant in filteredRestaurants">
+                                <div class="restaurant_card relative">
+                                    <a :href="'/showRestaurant/' + restaurant.id">
+                                        <img src="{{ asset('/storage/images/copertina_jappo.jpg') }}"
+                                            alt="immagine_ristorante">
+                                        <h4 class="absolute">@{{ restaurant . nome_attivita }}</h4>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-            {{-- fine sezione ristoranti filtrati per tipologia --}}
+                {{-- fine sezione ristoranti filtrati per tipologia --}}
 
-        </section>
+            </section>
 
-        {{-- sezione ristoranti --}}
-        <section id="restaurants">
-            <div class="mycontainer">
+            {{-- sezione ristoranti --}}
+            <section id="restaurants">
+                <div class="mycontainer">
 
                     <h2>La nostra selezione di ristoranti</h2>
 
@@ -137,7 +143,7 @@
                                     <a href="{{ route('show', $user->id) }}"
                                         title="Vai al menu di {{ $user->nome_attivita }}">
                                         <img src="{{ asset('/storage/images/copertina_jappo.jpg') }}"
-                                        alt="immagine tiplogia">
+                                            alt="immagine tiplogia">
                                         <h4 class="absolute">{{ $user->nome_attivita }}</h4>
                                     </a>
                                 </div>
@@ -147,8 +153,8 @@
                     </div>
                 </div>
 
-            {{-- fine section ristauranti --}}
-        </section>
+                {{-- fine section ristauranti --}}
+            </section>
 
         </main>
     </div>

@@ -11354,12 +11354,12 @@ main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search input:focu
 }
 
 main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search label {
-  margin-top: 15px;
   color: #e9c46a;
 }
 
-main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search select {
-  width: 100%;
+main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search h6 {
+  margin-top: 5px;
+  color: #DCDCDC;
 }
 
 main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search button {
