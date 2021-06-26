@@ -11280,6 +11280,32 @@ main {
   background-color: #e9c46a;
 }
 
+main .restaurant_card {
+  margin: 10px;
+  padding: 10px;
+  background-color: #e9c46a;
+  height: 200px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+main .restaurant_card img {
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+}
+
+main .restaurant_card h4 {
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  padding: 0 5px;
+  color: #2a9d8f;
+  text-shadow: 1px 1px 1px #264653;
+  background-color: #e9c46a;
+  border-radius: 10px;
+}
+
 main #myrestaurant {
   padding: 15x;
   background-color: #f4a261;
@@ -11291,7 +11317,7 @@ main #myrestaurant i {
 }
 
 main #myjumbotron {
-  padding-top: 30px;
+  padding: 30px 0;
   background: #2a9d8f;
   background: linear-gradient(0deg, #2a9d8f 0%, #f4a261 37%, #e9c46a 69%);
 }
@@ -11385,35 +11411,25 @@ main #myjumbotron .mycontainer .jumbotron_container .picture .jumbotron_moto {
           animation-duration: 2s;
 }
 
-main #restaurants {
+main #filtered_restaurants {
+  background-color: #2a9d8f;
   padding: 30px 0;
 }
 
-main #restaurants .restaurant_card {
-  margin: 10px;
-  padding: 10px;
-  background-color: #e9c46a;
-  height: 200px;
-  width: 200px;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-main #restaurants .restaurant_card img {
-  height: 100%;
+main #filtered_restaurants ul {
   width: 100%;
-  border-radius: 20px;
 }
 
-main #restaurants .restaurant_card h4 {
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  padding: 0 5px;
-  color: #2a9d8f;
-  text-shadow: 1px 1px 1px #264653;
-  background-color: #e9c46a;
-  border-radius: 10px;
+main #filtered_restaurants ul li {
+  width: calc(100% / 3);
+}
+
+main #filtered_restaurants .restaurant_card {
+  padding: 0;
+}
+
+main #restaurants {
+  padding: 30px 0;
 }
 
 #showRestaurant {
