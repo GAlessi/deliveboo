@@ -11078,6 +11078,10 @@ header .mycontainer nav .nav_left .nav_logo img:hover {
   scale: 1.1;
 }
 
+header .mycontainer nav .nav_left .nav_logo h3 {
+  font-family: "Dela Gothic One", cursive;
+}
+
 header .mycontainer nav .nav_left .nav_search input {
   padding: 5px 35px 5px 5px;
   width: 200px;
@@ -11103,14 +11107,6 @@ header .mycontainer nav .nav_left .nav_search button {
 header .mycontainer nav .nav_left .nav_search button:hover {
   background-color: #e76f51;
   border: solid 2px #e9c46a;
-}
-
-header .mycontainer nav .nav_right .cart {
-  cursor: pointer;
-}
-
-header .mycontainer nav .nav_right .cart img {
-  width: 25px;
 }
 
 header .mycontainer nav .nav_right .nav_buttons {
@@ -11438,6 +11434,83 @@ main #restaurants {
   background-color: #e76f51;
 }
 
+#showRestaurant .sticky_container {
+  top: 10px;
+  right: 5px;
+}
+
+#showRestaurant .cart {
+  position: sticky;
+  position: -webkit-sticky;
+  /* Safari */
+  top: 90px;
+  height: 55px;
+  width: 55px;
+  background-color: #DCDCDC;
+  border: solid 2px #264653;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#showRestaurant .cart img {
+  width: 30px;
+}
+
+#showRestaurant .cart .cart_count {
+  height: 253x;
+  width: 23px;
+  top: 5px;
+  right: 5px;
+  background-color: #e76f51;
+  border-radius: 50%;
+}
+
+#showRestaurant .cart .cart_count span {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#showRestaurant .opened_cart {
+  position: fixed;
+  top: 85px;
+  right: 0;
+  padding: 15px;
+  height: auto;
+  max-height: 70vh;
+  overflow: auto;
+  width: 30%;
+  background-color: #DCDCDC;
+  border: solid 1px #264653;
+  border-radius: 10px 0 0 10px;
+}
+
+#showRestaurant .opened_cart li {
+  margin: 5px;
+  padding: 5px;
+  background-color: #e9c46a;
+  border: solid 1px #264653;
+  border-radius: 10px;
+}
+
+#showRestaurant .opened_cart li h6 {
+  margin: 0;
+}
+
+#showRestaurant .opened_cart li p {
+  margin: 0;
+  width: 100%;
+  text-transform: capitalize;
+}
+
+#showRestaurant .opened_cart li p i {
+  margin: 5px;
+}
+
+#showRestaurant .opened_cart li p i:hover {
+  scale: 1.3;
+  cursor: pointer;
+}
+
 #showRestaurant .restaurant_name {
   text-align: center;
 }
@@ -11505,7 +11578,6 @@ main #restaurants {
   border: solid 1px #264653;
   border-radius: 10px;
   box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
-  cursor: pointer;
 }
 
 #showRestaurant .menu_container .dish_card p,
@@ -11513,8 +11585,24 @@ main #restaurants {
   margin: 5px;
 }
 
-#showRestaurant .menu_container .dish_card .edit_row {
-  margin-bottom: 5px;
+#showRestaurant .menu_container .dish_card button {
+  justify-self: center;
+  padding: 3px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #DCDCDC;
+  background-color: #2a9d8f;
+  border: solid 1px #264653;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#showRestaurant .menu_container .dish_card button i {
+  color: #DCDCDC;
+}
+
+#showRestaurant .menu_container .dish_card button:hover {
+  border: solid 1px #e9c46a;
 }
 
 #showRestaurant .menu_container .dish_card div[class*=row] {
@@ -11523,6 +11611,10 @@ main #restaurants {
 
 #showRestaurant .menu_container .dish_card div[class*=row] i:hover {
   scale: 1.4;
+}
+
+#showRestaurant .menu_container .dish_card .edit_row {
+  margin-bottom: 5px;
 }
 
 #showRestaurant .menu_container .dish_card:hover {
@@ -11658,6 +11750,10 @@ main #restaurants {
   color: #264653;
   background-color: #e76f51;
   border: solid 2px #264653;
+}
+
+[v-cloak] {
+  display: none;
 }
 
 * {

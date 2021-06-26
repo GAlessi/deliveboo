@@ -19,6 +19,11 @@
 @import "partials/createDish.scss";
 @import "partials/editDish.scss";
 
+// vue refresh
+[v-cloak] {
+  display: none;
+}
+
 //common rules
 * {
   margin: 0;
