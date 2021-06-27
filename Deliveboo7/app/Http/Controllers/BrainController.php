@@ -52,9 +52,9 @@ class BrainController extends Controller
             $editableOrder->status = 'accettato';
             $editableOrder -> save();
 
-            return view('pages.paymentDetails') -> with('success_message','transazione id: '.$transaction->id.'  eseguita');
+            return view('pages.paymentDetails', compact('amount', 'editableOrder'));
         } else {
-            $editableOrder->status = 'accettato';
+            $editableOrder->status = 'rifiutato';
             $editableOrder -> save();
 
             $errorString = "";
@@ -65,7 +65,7 @@ class BrainController extends Controller
 
             // $_SESSION["errors"] = $errorString;
             // header("Location: " . $baseUrl . "index.php");
-            return view('pages.paymentDetails') -> withErrors('Si è verificato un errore:'.$result->message);
+            return view('pages.paymentDetails', compact('amount', 'editableOrder'));
 
         }
     }

@@ -3,23 +3,17 @@
 @section('content')
 
     <main>
-        @if (session('success_message'))
-            <div class="alert alert-success">
-                {{session('success_message')}}
 
-            </div>
+        @if ($editableOrder->status ==="accettato")
+            <h2>
+                Grazie {{$editableOrder->nome_cliente}}, il pagamento di {{$amount}}€ è avvenuto con successo! Il tuo ordine verrà elaborato immediatamente
+            </h2>
+        @else
+            <h2>
+                Ooops, sembra che qualcosa sia andato storto con il tuo pagamento
+            </h2>
 
         @endif
-        @if (count($errors)>0)
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{$error}}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-
         <a href="{{ route('main') }}">torna alla home</a>
     </main>
 
