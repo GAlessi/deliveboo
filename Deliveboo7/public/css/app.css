@@ -11518,6 +11518,10 @@ main #restaurants {
   box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
 }
 
+#showRestaurant .opened_cart button i {
+  color: #dcdcdc;
+}
+
 #showRestaurant .opened_cart button:hover {
   color: #dcdcdc;
   background-color: #2a9d8f;
@@ -11604,6 +11608,7 @@ main #restaurants {
 
 #showRestaurant .menu_container .dish_card button {
   justify-self: center;
+  margin: 5px;
   padding: 3px;
   text-transform: uppercase;
   font-weight: bold;
