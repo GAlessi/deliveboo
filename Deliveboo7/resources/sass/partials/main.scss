@@ -37,7 +37,7 @@ main {
         padding: 15x;
         background-color: $orange;
         border-bottom: 2px solid $blue;
-        
+
         i {
             font-size: inherit;
         }
@@ -45,17 +45,22 @@ main {
 
     #myjumbotron {
         padding: 30px 0;
-        background: rgb(42,157,143);
-        background: linear-gradient(0deg, rgba(42,157,143,1) 0%, rgba(244,162,97,1) 37%, rgba(233,196,106,1) 69%);
+        background: rgb(42, 157, 143);
+        background: linear-gradient(
+            0deg,
+            rgba(42, 157, 143, 1) 0%,
+            rgba(244, 162, 97, 1) 37%,
+            rgba(233, 196, 106, 1) 69%
+        );
 
         .mycontainer {
-
             .title {
                 margin-bottom: 30px;
                 width: 100%;
             }
 
             .jumbotron_container {
+                height: 430px;
                 width: 100%;
 
                 .jumbotron_search {
@@ -65,24 +70,28 @@ main {
                     background-color: $blue;
                     border-radius: 10px;
                     -webkit-box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
-                    -moz-box-shadow:    4px 4px 6px 0px rgba(50, 50, 50, 0.91);
-                    box-shadow:         4px 4px 6px 0px rgba(50, 50, 50, 0.91);
-     
+                    -moz-box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+                    box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+
                     input {
                         padding: 10px;
                         width: 95%;
                         font-size: $text_big;
+                        background-image: url("/storage/images/search.png");
+                        background-position: 95% 40%;
+                        background-size: 35px 35px;
+                        background-repeat: no-repeat;
                         border: solid 2px white;
                         border-radius: 10px;
                         -webkit-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
-                        -moz-box-shadow:    2px 2px 2px 0px rgba(50, 50, 50, 0.91);
-                        box-shadow:         2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+                        -moz-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+                        box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
 
                         &:focus {
                             border: solid 2px $red;
                         }
                     }
-     
+
                     label {
                         color: $yellow;
                     }
@@ -101,22 +110,20 @@ main {
                         border: solid 2px $red;
                         border-radius: 10px;
                         -webkit-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
-                        -moz-box-shadow:    2px 2px 2px 0px rgba(50, 50, 50, 0.91);
-                        box-shadow:         2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+                        -moz-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+                        box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
 
                         &:hover {
                             background-color: $red;
                             border: solid 2px $yellow;
                         }
-                    }   
+                    }
 
                     .chekbox_container {
-
                         li {
                             width: 100px;
                             margin: 5px;
                             color: $light;
-
                         }
 
                         input {
@@ -142,12 +149,12 @@ main {
                     .jumbotron_moto {
                         width: 270px;
                         left: 40%;
-                        bottom:0;
+                        bottom: 0;
                         animation-duration: 2s;
                     }
                 }
             }
-        }        
+        }
     } //fine section myjumbotron
 
     //sezione filtered_restaurants
