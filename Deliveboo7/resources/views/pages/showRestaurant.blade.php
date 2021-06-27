@@ -38,17 +38,12 @@
                             <h5>Totale: @{{ totalPrice }} €</h5>
                         </li>
 
-                        {{-- <li> <a :href="'/createOrder/' + totalPrice">Checkout Ordine</a> </li> --}}
-                        <li>
-                            <form :action="'/createOrder/' + carrelloID" method="post">
-                                @csrf
-                                <input type="hidden" name="totalPrice" :value="totalPrice">
-                                <button type="submit" class="btn-link">Checkout</button>
-                            </form>
-                        </li>
                     </ul>
-
-                    <button>Vai al CheckOut <i class="fas fa-angle-double-right"></i></button>
+                    <form :action="'/createOrder/' + carrelloID" method="post">
+                        @csrf
+                        <input type="hidden" name="totalPrice" :value="totalPrice">
+                        <button type="submit" class="btn-link">Vai al Checkout <i class="fas fa-angle-double-right"></i></button>
+                    </form>
                 </div>
 
                 {{-- nome --}}
