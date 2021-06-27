@@ -26,12 +26,12 @@ class MainController extends Controller
     return view('pages.showRestaurant', compact('user'));
   }
 
-  public function createOrder()
+  public function createOrder($totalPrice)
   {
-      return view('pages.createOrder');
+      return view('pages.createOrder', compact('totalPrice'));
   }
 
-  public function storeOrder(Request $request) {
+  public function storeOrder(Request $request, $totalPrice) {
       // dd($request -> all());
 
       $validated = $request -> validate([
@@ -52,6 +52,7 @@ class MainController extends Controller
       $order -> save();
 
 
-      return redirect() -> route('pay');
+      return redirect() -> route('pay', compact('totalPrice'));
+      // return Redirect::route('pay')->with('totalPrice');
   }
 }

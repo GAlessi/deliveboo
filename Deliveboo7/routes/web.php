@@ -47,28 +47,16 @@ Route::post('/post-registration', 'AuthController@postRegistration')
 -> name('postRegistration');
 
 //Creazione nuovo ordine
-Route::get('/createOrder', 'MainController@createOrder')
+Route::get('/createOrder/{totalPrice}', 'MainController@createOrder')
 ->name('createOrder');
 
-Route::post('/storeOrder', 'MainController@storeOrder')
+Route::post('/storeOrder/{totalPrice}', 'MainController@storeOrder')
 -> name('storeOrder');
 
 
 //braintree
-Route::get('/pay', function (){
-    $gateway = new \Braintree\Gateway([
-        'environment' => config('services.braintree.enviroment'),
-        'merchantId' => config('services.braintree.merchantId'),
-        'publicKey' => config('services.braintree.publicKey'),
-        'privateKey' => config('services.braintree.privateKey')
-    ]);
-
-    $token = $gateway->ClientToken()->generate();
-
-    return view('pages.braintree', [
-        'token' => $token
-    ]);
-})-> name('pay');
+Route::get('/pay/{totalPrice}','BrainController@pay')
+-> name('pay');
 
 Route::post('/checkout', function(Request $request){
 

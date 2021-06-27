@@ -3,12 +3,12 @@
 
     <div id="createDish">
         <div class="mycontainer">
-
+            <h1>{{$totalPrice}}</h1>
             {{-- create_container --}}
             <div class="create_container">
 
                 {{-- form --}}
-                <form method="POST" action="{{ route('storeOrder') }}" class="flex_col align_cen">
+                <form method="POST" action="{{ route('storeOrder', $totalPrice) }}" class="flex_col align_cen">
 
                     @csrf
                     @method('POST')

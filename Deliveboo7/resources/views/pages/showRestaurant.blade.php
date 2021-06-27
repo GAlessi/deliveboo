@@ -33,6 +33,8 @@
                         <li>
                             <h6>totale: @{{ totalPrice }} €</h6>
                         </li>
+
+                        <li> <a :href="'/createOrder/' + totalPrice">Checkout Ordine</a> </li>
                     </ul>
                 </div>
 
