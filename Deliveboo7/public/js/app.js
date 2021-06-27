@@ -52693,6 +52693,7 @@ document.addEventListener("DOMContentLoaded", function () {
       txtFilteredRestaurant: [],
       //piatti per carrello
       carrello: [],
+      carrelloID: [],
       totalPrice: 0,
       productNumber: [],
       cartItems: 0,
@@ -52781,6 +52782,10 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         });
       },
+      // showCarrello: function() {
+      //     this.carrelloString = this.carrello.join();
+      //     console.log(this.carrello);
+      // },
       //filtro per nome
       searchRestaurant: function searchRestaurant() {
         var _this4 = this;
@@ -52812,12 +52817,14 @@ document.addEventListener("DOMContentLoaded", function () {
           choosenDish.counter = 1;
           this.totalPrice += choosenDish.prezzo;
           this.carrello.push(choosenDish);
+          this.carrelloID.push(choosenDish.id);
           this.cartItems += 1;
           this.showCart();
         } else if (this.carrello.length == 0) {
           choosenDish.counter = 1;
           this.totalPrice += choosenDish.prezzo;
           this.carrello.push(choosenDish);
+          this.carrelloID.push(choosenDish.id);
           this.cartItems += 1;
         } else {
           for (var i = 0; i <= this.carrello.length; i++) {
@@ -52826,6 +52833,7 @@ document.addEventListener("DOMContentLoaded", function () {
               break;
             } else if (i == this.carrello.length - 1) {
               this.carrello.push(choosenDish);
+              this.carrelloID.push(choosenDish.id);
               choosenDish.counter = 1;
               this.totalPrice += choosenDish.prezzo;
               this.cartItems++;

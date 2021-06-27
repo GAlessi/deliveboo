@@ -24,7 +24,7 @@ class CreateOrdersTable extends Migration
         $table -> string('cap', 16) -> nullable(false);
         $table -> string('telefono', 32) -> nullable(false);
         $table -> string('note', 255) -> nullable();
-        $table -> string('status', 16) ->default('pagato');
+        $table -> string('status', 16) ->default('in sospeso');
 
         $table->timestamps();
       });

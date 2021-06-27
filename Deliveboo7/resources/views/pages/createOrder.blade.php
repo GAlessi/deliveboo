@@ -3,16 +3,17 @@
 
     <div id="createDish">
         <div class="mycontainer">
-
             {{-- create_container --}}
             <div class="create_container">
+                {{-- <span>{{$totalPrice}}</span> --}}
+                {{-- <span>{{$carrello}}</span> --}}
 
                 {{-- form --}}
-                <form method="POST" action="{{ route('storeOrder') }}" class="flex_col align_cen">
+                <form method="POST" action="{{ route('storeOrder', $carrello) }}" class="flex_col align_cen">
 
                     @csrf
                     @method('POST')
-
+                    <input type="hidden" name="totalPrice" value="{{$totalPrice}}">
                     {{-- nome --}}
                     <label for="nome_cliente">Nome</label>
                     <input id="nome_cliente" type="text" name="nome_cliente" value="{{ old('nome_cliente') }}"

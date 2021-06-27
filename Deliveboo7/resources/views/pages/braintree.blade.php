@@ -2,31 +2,16 @@
 
 @section('content')
     <main>
-        @if (session('success_message'))
-            <div class="alert alert-success">
-                {{session('success_message')}}
 
-            </div>
-
-        @endif
-        @if (count($errors)>0)
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{$error}}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
         <div class="content">
-            <form method="post" id="payment-form" action="{{url('/checkout')}}">
+            <form method="post" id="payment-form" action="{{route('checkout', $order)}}">
                 @csrf
 
                 <section>
                     <label for="amount">
-                        <span class="input-label">Amount</span>
+                        <span class="input-label">Totale da pagare: {{$totalPrice}} €</span>
                         <div class="input-wrapper amount-wrapper">
-                            <input id="amount" name="amount" type="tel" min="1" placeholder="Amount" value="10">
+                            <input id="amount" name="amount" type="hidden" min="1" placeholder="{{$totalPrice}}" value="{{$totalPrice}}">
                         </div>
                     </label>
 
@@ -36,7 +21,7 @@
                 </section>
 
                 <input id="nonce" name="payment_method_nonce" type="hidden" />
-                <button class="button" type="submit"><span>Test Transaction</span></button>
+                <button class="button" type="submit"><span>Esegui pagamento</span></button>
             </form>
         </div>
 
@@ -49,10 +34,7 @@
 
     braintree.dropin.create({
         authorization: client_token,
-        selector: '#bt-dropin',
-        paypal: {
-            flow: 'vault'
-        }
+        selector: '#bt-dropin'
     }, function (createErr, instance) {
         if (createErr) {
             console.log('Create Error', createErr);
