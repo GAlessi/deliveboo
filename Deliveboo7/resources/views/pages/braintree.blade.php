@@ -4,7 +4,7 @@
     <main>
 
         <div class="content">
-            <form method="post" id="payment-form" action="{{url('/checkout')}}">
+            <form method="post" id="payment-form" action="{{route('checkout', $order)}}">
                 @csrf
 
                 <section>
@@ -34,10 +34,7 @@
 
     braintree.dropin.create({
         authorization: client_token,
-        selector: '#bt-dropin',
-        paypal: {
-            flow: 'vault'
-        }
+        selector: '#bt-dropin'
     }, function (createErr, instance) {
         if (createErr) {
             console.log('Create Error', createErr);

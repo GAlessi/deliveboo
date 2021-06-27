@@ -26,14 +26,22 @@ class MainController extends Controller
     return view('pages.showRestaurant', compact('user'));
   }
 
-  public function createOrder($totalPrice)
+  public function createOrder(Request $request, $carrello)
   {
-      return view('pages.createOrder', compact('totalPrice'));
+      // dd($request-> all(), $carrello );
+      $totalPrice= $request->totalPrice;
+      // dd($totalPrice, $carrello);
+      return view('pages.createOrder', compact('totalPrice','carrello'));
   }
 
-  public function storeOrder(Request $request, $totalPrice) {
-      // dd($request -> all());
-
+  public function storeOrder(Request $request, $carrello) {
+      // dd($request->all(), $carrello);
+      $carrelloArray= explode(',', $carrello);
+      $carrelloNum= [];
+      foreach ($carrelloArray as $dish) {
+          $carrelloNum[]= intval($dish);
+      }
+      // dd($carrelloNum);
       $validated = $request -> validate([
           'nome_cliente' => 'required|string|min:3',
           'cognome_cliente' => 'required|string|min:3',
@@ -47,12 +55,18 @@ class MainController extends Controller
       // dd($validated);
 
       $order = Order::make($validated);
-      // $order -> dishes() -> attach($request -> get('dish_id'));
-
       $order -> save();
 
+      foreach ($carrelloNum as $dish) {
+          // dd($dish);
+          $order -> dishes() -> attach($dish);
+          $order -> save();
+      }
+      // $order -> dishes() -> attach('dish_id'); //DA FAR FUNZIONARE
 
-      return redirect() -> route('pay', compact('totalPrice'));
+
+      $totalPrice = $request->totalPrice;
+      return redirect() -> route('pay', compact('totalPrice', 'order'));
       // return Redirect::route('pay')->with('totalPrice');
   }
 }

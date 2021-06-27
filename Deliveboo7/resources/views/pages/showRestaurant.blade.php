@@ -34,7 +34,14 @@
                             <h6>totale: @{{ totalPrice }} €</h6>
                         </li>
 
-                        <li> <a :href="'/createOrder/' + totalPrice">Checkout Ordine</a> </li>
+                        {{-- <li> <a :href="'/createOrder/' + totalPrice">Checkout Ordine</a> </li> --}}
+                        <li>
+                            <form :action="'/createOrder/' + carrelloID" method="post">
+                                @csrf
+                                <input type="hidden" name="totalPrice" :value="totalPrice">
+                                <button type="submit" class="btn-link">Checkout</button>
+                            </form>
+                        </li>
                     </ul>
                 </div>
 

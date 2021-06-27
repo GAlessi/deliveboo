@@ -47,10 +47,10 @@ Route::post('/post-registration', 'AuthController@postRegistration')
 -> name('postRegistration');
 
 //Creazione nuovo ordine
-Route::get('/createOrder/{totalPrice}', 'MainController@createOrder')
+Route::post('/createOrder/{carrello}', 'MainController@createOrder')
 ->name('createOrder');
 
-Route::post('/storeOrder/{totalPrice}', 'MainController@storeOrder')
+Route::post('/storeOrder/{carrello}', 'MainController@storeOrder')
 -> name('storeOrder');
 
 
@@ -58,44 +58,8 @@ Route::post('/storeOrder/{totalPrice}', 'MainController@storeOrder')
 Route::post('/paymentDetails','BrainController@paymentDetails')
 -> name('paymentDetails');
 
-Route::get('/pay/{totalPrice}','BrainController@pay')
+Route::get('/pay/{totalPrice}/{order}','BrainController@pay')
 -> name('pay');
 
-Route::post('/checkout', function(Request $request){
-
-    $gateway = new \Braintree\Gateway([
-        'environment' => config('services.braintree.enviroment'),
-        'merchantId' => config('services.braintree.merchantId'),
-        'publicKey' => config('services.braintree.publicKey'),
-        'privateKey' => config('services.braintree.privateKey')
-    ]);
-
-    $amount = $request -> amount;
-    $nonce = $request -> payment_method_nonce;
-
-    $result = $gateway->transaction()->sale([
-        'amount' => $amount,
-        'paymentMethodNonce' => $nonce,
-        'options' => [
-            'submitForSettlement' => true
-        ]
-    ]);
-
-    if ($result->success) {
-        $transaction = $result->transaction;
-        // header("Location: " . $baseUrl . "transaction.php?id=" . $transaction->id);
-
-        return view('pages.paymentDetails') -> with('success_message','transazione id: '.$transaction->id.'  eseguita');
-    } else {
-        $errorString = "";
-
-        foreach($result->errors->deepAll() as $error) {
-            $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
-        }
-
-        // $_SESSION["errors"] = $errorString;
-        // header("Location: " . $baseUrl . "index.php");
-        return view('pages.paymentDetails') -> withErrors('Si è verificato un errore:'.$result->message);
-
-    }
-});
+Route::post('/checkout/{order}', 'BrainController@checkout')
+-> name('checkout');

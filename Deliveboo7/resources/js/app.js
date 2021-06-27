@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             //piatti per carrello
             carrello: [],
+            carrelloID: [],
             totalPrice: 0,
             productNumber: [],
             cartItems: 0,
@@ -119,6 +120,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
             },
 
+            // showCarrello: function() {
+            //     this.carrelloString = this.carrello.join();
+            //     console.log(this.carrello);
+            // },
+
             //filtro per nome
             searchRestaurant: function () {
 
@@ -168,6 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     choosenDish.counter = 1;
                     this.totalPrice += (choosenDish.prezzo);
                     this.carrello.push(choosenDish);
+                    this.carrelloID.push(choosenDish.id);
                     this.cartItems += 1;
                     this.showCart();
 
@@ -175,6 +182,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     choosenDish.counter = 1;
                     this.totalPrice += (choosenDish.prezzo);
                     this.carrello.push(choosenDish);
+                    this.carrelloID.push(choosenDish.id);
                     this.cartItems += 1;
                 }else {
 
@@ -188,6 +196,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         } else if (i == this.carrello.length - 1) {
 
                             this.carrello.push(choosenDish);
+                            this.carrelloID.push(choosenDish.id);
+                            
 
                             choosenDish.counter = 1;
                             this.totalPrice += (choosenDish.prezzo);
