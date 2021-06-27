@@ -163,16 +163,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 // increase(dishId, index);
 
-                if (this.carrello.length == 0) {
+                if (this.carrello.length == 0 && this.cartHidden) {
 
                     choosenDish.counter = 1;
                     this.totalPrice += (choosenDish.prezzo);
                     this.carrello.push(choosenDish);
                     this.cartItems += 1;
                     this.showCart();
-                    console.log(this.carrello);
 
-                } else {
+                } else if (this.carrello.length == 0) {
+                    choosenDish.counter = 1;
+                    this.totalPrice += (choosenDish.prezzo);
+                    this.carrello.push(choosenDish);
+                    this.cartItems += 1;
+                }else {
 
                     for (let i = 0; i <= this.carrello.length; i++) {
 
