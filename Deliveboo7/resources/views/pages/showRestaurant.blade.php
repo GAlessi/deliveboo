@@ -7,33 +7,39 @@
             <div class="mycontainer relative">
 
                 {{-- carrello icona --}}
-                <div class="cart flex_center absolute" @click="showCart">
+                <div class="cart flex_center absolute" @click="showCart" title="Vai al tuo Ordine">
                     <img src="{{ asset('/storage/images/shopping-cart.png') }}" alt="carrello" class="relative">
 
-                    <div v-if='cartItems > 0' class="cart_count flex_center absolute">
+                    <div v-if='cartItems > 0' class="cart_count flex_center absolute animate__animated animate__shakeY">
                         <span>@{{ cartItems }}</span>
                     </div>
                 </div>
 
                 {{-- carrello aperto --}}
-                <div class="opened_cart" :hidden="cartHidden">
+                <div class="opened_cart flex_col animate__animated animate__fadeInRight" :hidden="cartHidden">
 
-                    <h3>Carrello</h3>
-                    <h6>Totale prodotti: @{{ cartItems }} </h6>
+                    <h3>Il tuo ordine</h3>
+                    <h4>Ristorante: {{ $user->nome_attivita }}</h4>
+                    <h5>Totale prodotti: @{{ cartItems }} </h5>
 
                     <ul>
                         <li v-for='(dish, index) in carrello'>
-                            <p>@{{ dish . nome }} <b>(x @{{ dish . counter }})</b></p>
+                            <h6>@{{ dish . nome }}</h6>
                             <p>Prezzo: <b>@{{ carrello[index] . prezzo * carrello[index] . counter }} €</b></p>
+                            {{-- <p>Quantità: <b>@{{ dish . counter }}</b></p> --}}
                             <p class="flex_center">
                                 <i class="fas fa-minus" @click='decrease(dish.id, index)'></i>
+                                <span>Quantità: <b>@{{ dish . counter }}</b></span>
+
                                 <i class="fas fa-plus" @click='increase(dish.id, index)'></i>
                             </p>
                         </li>
                         <li>
-                            <h6>totale: @{{ totalPrice }} €</h6>
+                            <h5>Totale: @{{ totalPrice }} €</h5>
                         </li>
                     </ul>
+
+                    <button>Vai al CheckOut <i class="fas fa-angle-double-right"></i></button>
                 </div>
 
                 {{-- nome --}}
@@ -100,7 +106,7 @@
 
                                         {{-- bottone aggiungi al carrello --}}
                                         <button @click="addToCart({{ $dish }})">
-                                            Aggiungi <i class="fas fa-cart-plus"></i>
+                                            Aggiungi all'ordine <i class="fas fa-cart-plus"></i>
                                         </button>
 
                                         @if (Auth::check() && Auth::user()->id == $user->id)

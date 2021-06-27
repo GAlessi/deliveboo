@@ -11067,46 +11067,22 @@ header .mycontainer nav {
 
 header .mycontainer nav .nav_left .nav_logo {
   margin-right: 15px;
+  width: 260px;
   font-size: 24px;
 }
 
-header .mycontainer nav .nav_left .nav_logo img {
-  width: 80px;
-}
-
-header .mycontainer nav .nav_left .nav_logo img:hover {
+header .mycontainer nav .nav_left .nav_logo a:hover {
   scale: 1.1;
 }
 
-header .mycontainer nav .nav_left .nav_logo h3 {
+header .mycontainer nav .nav_left .nav_logo a h3 {
   font-family: "Dela Gothic One", cursive;
+  z-index: 950;
 }
 
-header .mycontainer nav .nav_left .nav_search input {
-  padding: 5px 35px 5px 5px;
-  width: 200px;
-  background-image: url("/storage/images/search.png");
-  background-position: 170px 6px;
-  background-size: 25px 25px;
-  background-repeat: no-repeat;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
-}
-
-header .mycontainer nav .nav_left .nav_search button {
-  margin-left: 5px;
-  height: 40px;
-  width: 40px;
-  background-color: #e9c46a;
-  border: solid 2px #e76f51;
-  border-radius: 50%;
-  box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
-}
-
-header .mycontainer nav .nav_left .nav_search button:hover {
-  background-color: #e76f51;
-  border: solid 2px #e9c46a;
+header .mycontainer nav .nav_right h6 {
+  margin: 0;
+  color: #dcdcdc;
 }
 
 header .mycontainer nav .nav_right .nav_buttons {
@@ -11122,7 +11098,8 @@ header .mycontainer nav .nav_right .nav_buttons .navbar-nav li.nav-item {
 }
 
 header .mycontainer nav .nav_right .nav_buttons .navbar-nav li.nav-item a {
-  font-size: 24px;
+  padding: 5px;
+  font-weight: bold;
 }
 
 header .mycontainer nav .nav_right .nav_buttons .navbar-nav li.nav-item a:hover {
@@ -11134,7 +11111,7 @@ footer {
 }
 
 footer * {
-  color: #DCDCDC;
+  color: #dcdcdc;
 }
 
 footer .column {
@@ -11194,7 +11171,7 @@ footer .column .footer_list:last-of-type i:hover {
   padding: 10px 15px;
   width: 50%;
   font-size: 24px;
-  color: #DCDCDC;
+  color: #dcdcdc;
   background-color: #264653;
   border: solid 2px #e76f51;
   border-radius: 10px;
@@ -11257,7 +11234,7 @@ footer .column .footer_list:last-of-type i:hover {
   margin-top: 25px;
   padding: 10px 15px;
   width: 50%;
-  color: #DCDCDC;
+  color: #dcdcdc;
   background-color: #264653;
   border: solid 2px #e76f51;
   border-radius: 10px;
@@ -11324,6 +11301,7 @@ main #myjumbotron .mycontainer .title {
 }
 
 main #myjumbotron .mycontainer .jumbotron_container {
+  height: 430px;
   width: 100%;
 }
 
@@ -11340,6 +11318,10 @@ main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search input {
   padding: 10px;
   width: 95%;
   font-size: 24px;
+  background-image: url("/storage/images/search.png");
+  background-position: 95% 40%;
+  background-size: 35px 35px;
+  background-repeat: no-repeat;
   border: solid 2px white;
   border-radius: 10px;
   box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
@@ -11355,7 +11337,7 @@ main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search label {
 
 main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search h6 {
   margin-top: 5px;
-  color: #DCDCDC;
+  color: #dcdcdc;
 }
 
 main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search button {
@@ -11377,7 +11359,7 @@ main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search button:hov
 main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container li {
   width: 100px;
   margin: 5px;
-  color: #DCDCDC;
+  color: #dcdcdc;
 }
 
 main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container input {
@@ -11446,7 +11428,7 @@ main #restaurants {
   top: 90px;
   height: 55px;
   width: 55px;
-  background-color: #DCDCDC;
+  background-color: #dcdcdc;
   border: solid 2px #264653;
   border-radius: 10px;
   cursor: pointer;
@@ -11479,19 +11461,21 @@ main #restaurants {
   max-height: 70vh;
   overflow: auto;
   width: 30%;
-  background-color: #DCDCDC;
+  background-color: #dcdcdc;
   border: solid 1px #264653;
   border-radius: 10px 0 0 10px;
+  box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
 }
 
 #showRestaurant .opened_cart li {
   margin: 5px;
   padding: 5px;
   background-color: #e9c46a;
-  border: solid 1px #264653;
+  border: solid 2px #264653;
   border-radius: 10px;
 }
 
+#showRestaurant .opened_cart li h5,
 #showRestaurant .opened_cart li h6 {
   margin: 0;
 }
@@ -11502,13 +11486,46 @@ main #restaurants {
   text-transform: capitalize;
 }
 
+#showRestaurant .opened_cart li p:last-of-type {
+  padding: 5px;
+  background-color: #f4a261;
+  border: solid 1px #264653;
+  border-radius: 10px;
+}
+
 #showRestaurant .opened_cart li p i {
-  margin: 5px;
+  margin: 5px 15px;
 }
 
 #showRestaurant .opened_cart li p i:hover {
   scale: 1.3;
   cursor: pointer;
+}
+
+#showRestaurant .opened_cart li:last-of-type {
+  background-color: #e76f51;
+  border: solid 3px #264653;
+  box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+}
+
+#showRestaurant .opened_cart button {
+  margin: 10px;
+  padding: 10px;
+  color: #dcdcdc;
+  background-color: #264653;
+  border: solid 2px #2a9d8f;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+}
+
+#showRestaurant .opened_cart button:hover {
+  color: #dcdcdc;
+  background-color: #2a9d8f;
+  border: solid 2px #264653;
+}
+
+#showRestaurant .opened_cart button:hover i {
+  color: #dcdcdc;
 }
 
 #showRestaurant .restaurant_name {
@@ -11555,7 +11572,7 @@ main #restaurants {
 
 #showRestaurant .menu_container .restaurant_options .option_card:hover i,
 #showRestaurant .menu_container .restaurant_options .option_card:hover h6 {
-  color: #DCDCDC;
+  color: #dcdcdc;
 }
 
 #showRestaurant .menu_container .restaurant_options .option_card i:hover {
@@ -11590,15 +11607,16 @@ main #restaurants {
   padding: 3px;
   text-transform: uppercase;
   font-weight: bold;
-  color: #DCDCDC;
+  color: #dcdcdc;
   background-color: #2a9d8f;
   border: solid 1px #264653;
   border-radius: 10px;
+  box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
   cursor: pointer;
 }
 
 #showRestaurant .menu_container .dish_card button i {
-  color: #DCDCDC;
+  color: #dcdcdc;
 }
 
 #showRestaurant .menu_container .dish_card button:hover {
@@ -11623,7 +11641,7 @@ main #restaurants {
 
 #showRestaurant .menu_container .dish_card:hover > p,
 #showRestaurant .menu_container .dish_card:hover > h6 {
-  color: #DCDCDC;
+  color: #dcdcdc;
 }
 
 #showRestaurant .menu_container .dish_card:hover .edit_row {
@@ -11632,7 +11650,7 @@ main #restaurants {
 }
 
 #showRestaurant .menu_container .dish_card:hover .delete_row {
-  color: #DCDCDC;
+  color: #dcdcdc;
   background-color: #e76f51;
 }
 
@@ -11681,7 +11699,7 @@ main #restaurants {
   margin-top: 25px;
   padding: 10px 15px;
   width: 50%;
-  color: #DCDCDC;
+  color: #dcdcdc;
   background-color: #264653;
   border: solid 2px #e76f51;
   border-radius: 10px;
@@ -11739,7 +11757,7 @@ main #restaurants {
   margin-top: 25px;
   padding: 10px 15px;
   width: 50%;
-  color: #DCDCDC;
+  color: #dcdcdc;
   background-color: #264653;
   border: solid 2px #e76f51;
   border-radius: 10px;
