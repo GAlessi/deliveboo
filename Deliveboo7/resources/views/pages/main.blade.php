@@ -44,7 +44,7 @@
 
                             <h6 v-if='searchedRestaurantTxt == "" && filter == 0'>Oppure</h6>
 
-                            
+
                             {{-- ricerca per tipologie --}}
                             <div class="chekbox_container" v-if="searchedRestaurantTxt == false">
 
@@ -62,7 +62,7 @@
                                 </ul>
                             </div>
 
-
+                            {{-- fine filtro ricerca --}}
                         </div>
 
                         {{-- immagine --}}
@@ -76,7 +76,8 @@
             </section>
 
             {{-- ristoranti filtrati per nome --}}
-            <section v-if="txtFilteredRestaurant != 0" id="filtered_restaurants" class="animate__animated animate__fadeInUp">
+            <section v-if="txtFilteredRestaurant != 0" id="filtered_restaurants"
+                class="animate__animated animate__fadeInUp">
                 <div class="mycontainer">
 
                     <h3>Ecco cosa abbiamo trovato per te</h3>
