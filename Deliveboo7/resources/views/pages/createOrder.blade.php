@@ -3,7 +3,6 @@
 
     <div id="createDish">
         <div class="mycontainer">
-            <h1>{{$totalPrice}}</h1>
             {{-- create_container --}}
             <div class="create_container">
 

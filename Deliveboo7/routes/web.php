@@ -55,6 +55,9 @@ Route::post('/storeOrder/{totalPrice}', 'MainController@storeOrder')
 
 
 //braintree
+Route::post('/paymentDetails','BrainController@paymentDetails')
+-> name('paymentDetails');
+
 Route::get('/pay/{totalPrice}','BrainController@pay')
 -> name('pay');
 
@@ -82,7 +85,7 @@ Route::post('/checkout', function(Request $request){
         $transaction = $result->transaction;
         // header("Location: " . $baseUrl . "transaction.php?id=" . $transaction->id);
 
-        return redirect() -> route('main') -> with('success_message','transazione id: '.$transaction->id.'  eseguita');
+        return view('pages.paymentDetails') -> with('success_message','transazione id: '.$transaction->id.'  eseguita');
     } else {
         $errorString = "";
 
@@ -92,7 +95,7 @@ Route::post('/checkout', function(Request $request){
 
         // $_SESSION["errors"] = $errorString;
         // header("Location: " . $baseUrl . "index.php");
-        return redirect() -> route('main') -> withErrors('Si è verificato un errore:'.$result->message);
+        return view('pages.paymentDetails') -> withErrors('Si è verificato un errore:'.$result->message);
 
     }
 });

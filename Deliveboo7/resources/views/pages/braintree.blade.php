@@ -2,31 +2,16 @@
 
 @section('content')
     <main>
-        @if (session('success_message'))
-            <div class="alert alert-success">
-                {{session('success_message')}}
 
-            </div>
-
-        @endif
-        @if (count($errors)>0)
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{$error}}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
         <div class="content">
             <form method="post" id="payment-form" action="{{url('/checkout')}}">
                 @csrf
 
                 <section>
                     <label for="amount">
-                        <span class="input-label">Amount</span>
+                        <span class="input-label">Totale da pagare: {{$totalPrice}} €</span>
                         <div class="input-wrapper amount-wrapper">
-                            <input id="amount" name="amount" type="tel" min="1" placeholder="{{$totalPrice}}" value="{{$totalPrice}}" disabled>
+                            <input id="amount" name="amount" type="hidden" min="1" placeholder="{{$totalPrice}}" value="{{$totalPrice}}">
                         </div>
                     </label>
 

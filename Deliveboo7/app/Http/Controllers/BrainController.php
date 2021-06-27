@@ -21,4 +21,10 @@ class BrainController extends Controller
 
         return view('pages.braintree', compact('token', 'totalPrice'));
     }
+
+    public function paymentDetails()
+    {
+        return view('pages.paymentDetails');
+
+    }
 }
