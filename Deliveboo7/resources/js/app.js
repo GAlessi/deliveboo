@@ -169,6 +169,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     this.totalPrice += (choosenDish.prezzo);
                     this.carrello.push(choosenDish);
                     this.cartItems += 1;
+                    this.showCart();
                     console.log(this.carrello);
 
                 } else {
@@ -176,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     for (let i = 0; i <= this.carrello.length; i++) {
 
                         if (this.carrello[i].id == choosenDish.id) {
-                            
+
                             console.log('non pusho');
                             break;
 
@@ -213,6 +214,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 } else {
 
                     this.carrello.splice(index, 1);
+                }
+                if (this.carrello.length == 0) {
+                    this.showCart();
                 }
             },
 

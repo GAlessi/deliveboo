@@ -52813,6 +52813,7 @@ document.addEventListener("DOMContentLoaded", function () {
           this.totalPrice += choosenDish.prezzo;
           this.carrello.push(choosenDish);
           this.cartItems += 1;
+          this.showCart();
           console.log(this.carrello);
         } else {
           for (var i = 0; i <= this.carrello.length; i++) {
@@ -52843,6 +52844,10 @@ document.addEventListener("DOMContentLoaded", function () {
           this.carrello[index].counter--;
         } else {
           this.carrello.splice(index, 1);
+        }
+
+        if (this.carrello.length == 0) {
+          this.showCart();
         }
       },
       // mostro-nascondo carrello
@@ -52947,8 +52952,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\esercizi_laravel\project-final\Deliveboo7\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\esercizi_laravel\project-final\Deliveboo7\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\booleanSviluppo\code\laravel\project-final\Deliveboo7\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\booleanSviluppo\code\laravel\project-final\Deliveboo7\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
