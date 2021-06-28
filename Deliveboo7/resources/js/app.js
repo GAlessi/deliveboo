@@ -233,7 +233,8 @@ document.addEventListener("DOMContentLoaded", function () {
             showCart: function() {
 
                 this.cartHidden = !this.cartHidden;
-            }
+            },
+
         } // fine methods
     }); //fine vue
 
@@ -270,4 +271,6 @@ $(document).ready(() => {
             }
         ]
     });
+
+
 })
