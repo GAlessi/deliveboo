@@ -76,7 +76,7 @@
             </section>
 
             {{-- ristoranti filtrati per nome --}}
-            <section v-if="searchedRestaurantTxt.length > 0" id="filtered_restaurants"
+            <section v-if="searchedRestaurantTxt.length > 0 && showSearch" id="filtered_restaurants"
                 class="animate__animated animate__fadeInUp">
                 <div class="mycontainer" v-if="txtFilteredRestaurant.length > 0">
 
@@ -155,7 +155,7 @@
                                     </div>
 
                             @endforeach
-                            
+
                         </div>
                         {{-- fine carousel --}}
                     </div>
