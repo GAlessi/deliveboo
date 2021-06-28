@@ -37,7 +37,7 @@
 
                             {{-- ricerca per nome ristorante --}}
                             <input v-if="filter.length == 0" type="text" placeholder="Cerca un ristorante" type="text"
-                                @keyup.enter='searchRestaurant' v-model='searchedRestaurantTxt'>
+                                @keyup='searchRestaurant' v-model='searchedRestaurantTxt'>
 
                             {{-- button --}}
                             {{-- <button @click="searchRestaurant">Cerca!</button> --}}

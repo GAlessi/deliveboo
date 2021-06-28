@@ -1,7 +1,6 @@
 require('./bootstrap');
 
 require('slick-carousel');
-
 window.Vue = require('vue');
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -190,7 +189,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         if (this.carrello[i].id == choosenDish.id) {
 
-                            console.log('non pusho');
+                           console.log('non pusho');
                             break;
 
                         } else if (i == this.carrello.length - 1) {
