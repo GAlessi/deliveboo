@@ -40,11 +40,13 @@
 
                     </ul>
 
+                    {{-- submit --}}
                     <form class="flex_center" :action="'/createOrder/' + carrelloID" method="post">
                         @csrf
                         <input type="hidden" name="totalPrice" :value="totalPrice">
-                        <button type="submit" class="btn-link">Vai al Checkout <i
-                                class="fas fa-angle-double-right"></i></button>
+                        <button type="submit" class="btn-link">
+                            Vai al Checkout <i class="fas fa-angle-double-right"></i>
+                        </button>
                     </form>
                 </div>
 

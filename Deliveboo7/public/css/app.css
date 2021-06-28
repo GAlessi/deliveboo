@@ -11775,6 +11775,65 @@ main #restaurants {
   border: solid 2px #264653;
 }
 
+#createOrder {
+  margin-top: 85px;
+  padding: 30px 0;
+  background-color: #264653;
+}
+
+#createOrder h2,
+#createOrder h5 {
+  text-align: center;
+  color: #f4a261;
+  text-shadow: 2px 2px 2px rgba(50, 50, 50, 0.91);
+}
+
+#createOrder .order_container {
+  margin: auto;
+  padding: 10px;
+  width: 60%;
+  background-color: #f4a261;
+  border-radius: 20px;
+  box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+}
+
+#createOrder .order_container label {
+  font-size: 24px;
+}
+
+#createOrder .order_container input {
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 80%;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+}
+
+#createOrder .order_container button {
+  margin: 10px;
+  padding: 10px;
+  color: #dcdcdc;
+  background-color: #264653;
+  border: solid 2px #2a9d8f;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+}
+
+#createOrder .order_container button i {
+  color: #dcdcdc;
+}
+
+#createOrder .order_container button:hover {
+  color: #dcdcdc;
+  background-color: #2a9d8f;
+  border: solid 2px #264653;
+}
+
+#createOrder .order_container button:hover i {
+  color: #dcdcdc;
+}
+
 [v-cloak] {
   display: none;
 }

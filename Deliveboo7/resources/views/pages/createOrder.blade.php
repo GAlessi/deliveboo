@@ -1,61 +1,66 @@
 @extends('layouts.main-layout')
 @section('content')
 
-    <div id="createDish">
+    <div id="createOrder">
         <div class="mycontainer">
             {{-- create_container --}}
-            <div class="create_container">
-                {{-- <span>{{$totalPrice}}</span> --}}
-                {{-- <span>{{$carrello}}</span> --}}
+
+            <h5>Ci siamo quasi...</h5>
+
+            <h2>I tuoi dati</h2>
+
+            <div class="order_container">
 
                 {{-- form --}}
                 <form method="POST" action="{{ route('storeOrder', $carrello) }}" class="flex_col align_cen">
 
                     @csrf
                     @method('POST')
-                    <input type="hidden" name="totalPrice" value="{{$totalPrice}}">
+                    <input type="hidden" name="totalPrice" value="{{ $totalPrice }}">
+
                     {{-- nome --}}
                     <label for="nome_cliente">Nome</label>
                     <input id="nome_cliente" type="text" name="nome_cliente" value="{{ old('nome_cliente') }}"
-                        placeholder="Nome" required autofocus>
+                        placeholder="Insersci qui il tuo nome" required autofocus>
 
                     {{-- cognome --}}
                     <label for="cognome_cliente">Cognome</label>
                     <input id="cognome_cliente" type="text" name="cognome_cliente" value="{{ old('cognome_cliente') }}"
-                        placeholder="Cognome" required>
+                        placeholder="Insersci qui il tuo cognome" required>
 
                     {{-- via --}}
                     <label for="via">Via</label>
                     <input id="via" type="text" name="via" value="{{ old('via') }}"
-                        placeholder="Via" required>
+                        placeholder="Insersci qui l'indirizzo di consegna" required>
 
                     {{-- n_civico --}}
                     <label for="">Numero Civico</label>
                     <input id="n_civico" type="integer" name="n_civico" value="{{ old('n_civico') }}"
-                        placeholder="Numero Civico" required>
+                        placeholder="Insersci qui il numero civico" required>
 
                     {{-- citta --}}
-                    <label for="citta">Città</label>
+                    <label for="citta">Comune</label>
                     <input id="citta" type="text" name="citta" value="{{ old('citta') }}"
-                        placeholder="Città" required>
+                        placeholder="Insersci qui il comune" required>
 
                     {{-- cap --}}
                     <label for="cap">Cap</label>
-                    <input id="cap" type="integer" name="cap" value="{{ old('cap') }}"
-                        placeholder="Cap" required>
+                    <input id="cap" type="integer" name="cap" value="{{ old('cap') }}" placeholder="Insersci qui il cap"
+                        required>
 
                     {{-- telefono --}}
-                    <label for="telefono">Numero di telefono:</label>
-                    <input type="tel" id="telefono" name="telefono" pattern="[0-9]{10}">
+                    <label for="telefono">Telefono</label>
+                    <input type="tel" id="telefono" name="telefono" pattern="[0-9]{10}"
+                        placeholder="Insersci qui il tuo numero di telefono">
 
                     {{-- cap --}}
-                    <label for="note">Note</label>
+                    <label for="note">Note (opzionale)</label>
                     <input id="note" type="text" name="note" value="{{ old('note') }}"
-                        placeholder="Note">
+                        placeholder='Insersci qui eventuali note (es.: "citofono rotto")'>
 
                     {{-- submit --}}
                     <button type="submit">
-                        Salva il nuovo elemento
+                        Val al pagamento <i class="fas fa-angle-double-right"></i>
                     </button>
 
                     {{-- gestione errors --}}
