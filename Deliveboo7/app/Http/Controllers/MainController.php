@@ -14,7 +14,10 @@ class MainController extends Controller
   public function main(){
 
     $types = Type::all();
-    $users = User::all();
+    // $users = User::all();
+    $users = User::inRandomOrder()
+                        -> limit(6)
+                        -> get();
     $user = Auth::user();
 
     return view('pages.main', compact('types','users', 'user'));

@@ -143,7 +143,7 @@
                         <div class="autoplay">
 
                             {{-- card tiplogia --}}
-                            @foreach ($users->take(6) as $user)
+                            @foreach ($users as $user)
 
                                     <div class="restaurant_card relative">
                                         <a href="{{ route('show', $user->id) }}"
