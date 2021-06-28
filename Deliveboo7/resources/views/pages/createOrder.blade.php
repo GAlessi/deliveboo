@@ -55,7 +55,7 @@
 
                     {{-- submit --}}
                     <button type="submit">
-                        Salva il nuovo elemento
+                      Vai al pagamento
                     </button>
 
                     {{-- gestione errors --}}
