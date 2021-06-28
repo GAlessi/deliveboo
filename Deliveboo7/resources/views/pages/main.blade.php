@@ -98,7 +98,8 @@
                     </div>
                 </div>
                 <div class="mycontainer" v-else>
-                    <h3>Ooops! Nessun ristorante corrisponde alla tua ricerca. Cercane un altro o prova la ricerca per tipologia di cucina</h3>
+                    <h3>Ooops! Nessun ristorante corrisponde alla tua ricerca. Cercane un altro o prova la ricerca per
+                        tipologia di cucina</h3>
                 </div>
                 {{-- fine sezione ristoranti filtrati per nome --}}
             </section>
@@ -142,16 +143,19 @@
                         <div class="autoplay">
 
                             {{-- card tiplogia --}}
-                            @foreach ($users as $user)
-                                <div class="restaurant_card relative">
-                                    <a href="{{ route('show', $user->id) }}"
-                                        title="Vai al menu di {{ $user->nome_attivita }}">
-                                        <img src="{{ asset('/storage/images/copertina_jappo.jpg') }}"
-                                            alt="immagine tiplogia">
-                                        <h4 class="absolute">{{ $user->nome_attivita }}</h4>
-                                    </a>
-                                </div>
+                            @foreach ($users->take(6) as $user)
+
+                                    <div class="restaurant_card relative">
+                                        <a href="{{ route('show', $user->id) }}"
+                                            title="Vai al menu di {{ $user->nome_attivita }}">
+                                            <img src="{{ asset('/storage/images/copertina_jappo.jpg') }}"
+                                                alt="immagine tiplogia">
+                                            <h4 class="absolute">{{ $user->nome_attivita }}</h4>
+                                        </a>
+                                    </div>
+
                             @endforeach
+                            
                         </div>
                         {{-- fine carousel --}}
                     </div>
