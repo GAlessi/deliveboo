@@ -37,7 +37,7 @@
 
                             {{-- ricerca per nome ristorante --}}
                             <input v-if="filter.length == 0" type="text" placeholder="Cerca un ristorante" type="text"
-                                @keyup.enter='searchRestaurant' v-model='searchedRestaurantTxt'>
+                                @keyup='searchRestaurant' v-model='searchedRestaurantTxt'>
 
                             {{-- button --}}
                             {{-- <button @click="searchRestaurant">Cerca!</button> --}}
@@ -76,9 +76,9 @@
             </section>
 
             {{-- ristoranti filtrati per nome --}}
-            <section v-if="txtFilteredRestaurant != 0" id="filtered_restaurants"
+            <section v-if="searchedRestaurantTxt.length > 0" id="filtered_restaurants"
                 class="animate__animated animate__fadeInUp">
-                <div class="mycontainer">
+                <div class="mycontainer" v-if="txtFilteredRestaurant.length > 0">
 
                     <h3>Ecco cosa abbiamo trovato per te</h3>
 
@@ -97,6 +97,9 @@
                         </ul>
                     </div>
                 </div>
+                <div class="mycontainer" v-else>
+                    <h3>Oooops, nessun ristorante corrisponde alla tua ricerca. Cercane un altro o prova la ricerca per tipologia di cucina</h3>
+                </div>
                 {{-- fine sezione ristoranti filtrati per nome --}}
             </section>
 
@@ -104,7 +107,7 @@
             <section v-if="filter != ''" id="filtered_restaurants" class="animate__animated animate__fadeInUp">
                 <div class="mycontainer">
 
-                    <h3 v-if='filteredRestaurants == 0'>Ops! Nessun risultato...</h3>
+                    <h3 v-if='txtFilteredRestaurant.length'>Ops! Nessun risultato...</h3>
 
                     <h3 v-else>Ecco cosa abbiamo trovato per te</h3>
 
