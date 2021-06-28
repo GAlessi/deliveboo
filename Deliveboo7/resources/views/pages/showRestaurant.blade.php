@@ -101,7 +101,7 @@
 
                         <ul class="flex_wrap">
 
-                            @foreach ($user->dishes as $dish)
+                            @foreach ($user->dishes->sortBy('nome') as $dish)
 
                                 @if (!$dish->deleted)
 
