@@ -11065,19 +11065,14 @@ header .mycontainer nav {
   width: 100%;
 }
 
-header .mycontainer nav .nav_left .nav_logo {
-  margin-right: 15px;
-  width: 260px;
-  font-size: 24px;
-}
-
 header .mycontainer nav .nav_left .nav_logo a:hover {
   scale: 1.1;
 }
 
 header .mycontainer nav .nav_left .nav_logo a h3 {
+  color: #f4a261;
   font-family: "Dela Gothic One", cursive;
-  z-index: 950;
+  text-shadow: 2px 2px 2px rgba(50, 50, 50, 0.91);
 }
 
 header .mycontainer nav .nav_right h6 {
@@ -11086,6 +11081,7 @@ header .mycontainer nav .nav_right h6 {
 }
 
 header .mycontainer nav .nav_right .nav_buttons {
+  padding: 0;
   color: #264653;
 }
 
@@ -11098,7 +11094,7 @@ header .mycontainer nav .nav_right .nav_buttons .navbar-nav li.nav-item {
 }
 
 header .mycontainer nav .nav_right .nav_buttons .navbar-nav li.nav-item a {
-  padding: 5px;
+  padding: 0;
   font-weight: bold;
 }
 
@@ -11408,6 +11404,38 @@ main #filtered_restaurants .restaurant_card {
 
 main #restaurants {
   padding: 30px 0;
+}
+
+main #restaurants h2 {
+  color: #e76f51;
+  text-shadow: 2px 2px 2px rgba(50, 50, 50, 0.91);
+}
+
+main #restaurants .restaurant_card {
+  margin: 10px;
+  padding: 10px;
+  background-color: #e9c46a;
+  height: 200px;
+  width: 200px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+main #restaurants .restaurant_card img {
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+}
+
+main #restaurants .restaurant_card h4 {
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  padding: 0 5px;
+  color: #2a9d8f;
+  text-shadow: 1px 1px 1px #264653;
+  background-color: #e9c46a;
+  border-radius: 10px;
 }
 
 #showRestaurant {
@@ -11832,6 +11860,75 @@ main #restaurants {
 
 #createOrder .order_container button:hover i {
   color: #dcdcdc;
+}
+
+#braintreePay {
+  margin-top: 85px;
+  padding: 30px 0;
+  background-color: #264653;
+}
+
+#braintreePay h2 {
+  text-align: center;
+  color: #f4a261;
+  text-shadow: 2px 2px 2px rgba(50, 50, 50, 0.91);
+}
+
+#braintreePay .payment_container {
+  margin: auto;
+  padding: 10px;
+  width: 60%;
+  background-color: #f4a261;
+  border-radius: 20px;
+  box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+}
+
+#braintreePay .payment_container h5 {
+  text-align: center;
+  color: #264653;
+}
+
+#braintreePay .payment_container button {
+  margin: 10px;
+  padding: 10px;
+  color: #dcdcdc;
+  background-color: #264653;
+  border: solid 2px #2a9d8f;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+}
+
+#braintreePay .payment_container button i {
+  color: #dcdcdc;
+}
+
+#braintreePay .payment_container button:hover {
+  color: #dcdcdc;
+  background-color: #2a9d8f;
+  border: solid 2px #264653;
+}
+
+#braintreePay .payment_container button:hover i {
+  color: #dcdcdc;
+}
+
+#paymentDetails {
+  margin-top: 85px;
+  padding: 30px 0;
+  background-color: #264653;
+}
+
+#paymentDetails h2,
+#paymentDetails h5 {
+  text-align: center;
+  color: #f4a261;
+  text-shadow: 2px 2px 2px rgba(50, 50, 50, 0.91);
+}
+
+#paymentDetails a {
+  margin-top: 30px;
+  font-size: 24px;
+  color: #e9c46a;
 }
 
 [v-cloak] {

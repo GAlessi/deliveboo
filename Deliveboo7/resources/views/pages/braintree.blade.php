@@ -2,59 +2,72 @@
 
 @section('content')
     <main>
+        <div id="braintreePay">
 
-        <div class="content">
-            <form method="post" id="payment-form" action="{{route('checkout', $order)}}">
-                @csrf
+            <div class="mycontainer">
 
-                <section>
-                    <label for="amount">
-                        <span class="input-label">Totale da pagare: {{$totalPrice}} €</span>
-                        <div class="input-wrapper amount-wrapper">
-                            <input id="amount" name="amount" type="hidden" min="1" placeholder="{{$totalPrice}}" value="{{$totalPrice}}">
+                <h2>Completa il tuo ordine</h2>
+
+                <div class="payment_container">
+
+                    <form method="post" id="payment-form" action="{{ route('checkout', $order) }}">
+                        @csrf
+
+                        <label for="amount">
+                            <h5 class="input-label">Importo dovuto: {{ $totalPrice }} €</h5>
+                            <div class="input-wrapper amount-wrapper">
+                                <input id="amount" name="amount" type="hidden" min="1" placeholder="{{ $totalPrice }}"
+                                    value="{{ $totalPrice }}">
+                            </div>
+                        </label>
+
+                        <div class="bt-drop-in-wrapper">
+                            <div id="bt-dropin"></div>
                         </div>
-                    </label>
 
-                    <div class="bt-drop-in-wrapper">
-                        <div id="bt-dropin"></div>
-                    </div>
-                </section>
+                        {{-- submit --}}
+                        <input id="nonce" name="payment_method_nonce" type="hidden" />
+                        <button class="button" type="submit">Ordina!</button>
+                    </form>
 
-                <input id="nonce" name="payment_method_nonce" type="hidden" />
-                <button class="button" type="submit"><span>Esegui pagamento</span></button>
-            </form>
+                    {{-- fine form_container --}}
+                </div>
+
+                {{-- fine mycontainer --}}
+            </div>
+            {{-- fine braintreePay --}}
         </div>
 
     </main>
 
     <script src="https://js.braintreegateway.com/web/dropin/1.30.1/js/dropin.min.js"></script>
     <script>
-    var form = document.querySelector('#payment-form');
-    var client_token = "{{$token}}";
+        var form = document.querySelector('#payment-form');
+        var client_token = "{{ $token }}";
 
-    braintree.dropin.create({
-        authorization: client_token,
-        selector: '#bt-dropin'
-    }, function (createErr, instance) {
-        if (createErr) {
-            console.log('Create Error', createErr);
-            return;
-        }
-        form.addEventListener('submit', function (event) {
-            event.preventDefault();
+        braintree.dropin.create({
+            authorization: client_token,
+            selector: '#bt-dropin'
+        }, function(createErr, instance) {
+            if (createErr) {
+                console.log('Create Error', createErr);
+                return;
+            }
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
 
-            instance.requestPaymentMethod(function (err, payload) {
-                if (err) {
-                    console.log('Request Payment Method Error', err);
-                    return;
-                }
+                instance.requestPaymentMethod(function(err, payload) {
+                    if (err) {
+                        console.log('Request Payment Method Error', err);
+                        return;
+                    }
 
-                // Add the nonce to the form and submit
-                document.querySelector('#nonce').value = payload.nonce;
-                form.submit();
+                    // Add the nonce to the form and submit
+                    document.querySelector('#nonce').value = payload.nonce;
+                    form.submit();
+                });
             });
         });
-    });
     </script>
 
 @endsection

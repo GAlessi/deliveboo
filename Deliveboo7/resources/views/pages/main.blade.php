@@ -98,7 +98,7 @@
                     </div>
                 </div>
                 <div class="mycontainer" v-else>
-                    <h3>Oooops, nessun ristorante corrisponde alla tua ricerca. Cercane un altro o prova la ricerca per tipologia di cucina</h3>
+                    <h3>Ooops! Nessun ristorante corrisponde alla tua ricerca. Cercane un altro o prova la ricerca per tipologia di cucina</h3>
                 </div>
                 {{-- fine sezione ristoranti filtrati per nome --}}
             </section>
