@@ -25,6 +25,7 @@ class User extends Authenticatable
     'citta',
     'cap',
     'p_iva',
+    'file_path'
   ];
 
   /**

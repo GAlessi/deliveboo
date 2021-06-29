@@ -28,7 +28,8 @@ $factory->define(User::class, function (Faker $faker) {
       'p_iva'=>'0126641452',
       'name'=>'Guybrush',
       'email'=>'guybrush@gmail.com',
-      'password'=>'123456789'
+      'password'=>'123456789',
+      'file_path'=>'porchetta.jpg'
 
     ],
     [
@@ -40,7 +41,8 @@ $factory->define(User::class, function (Faker $faker) {
       'p_iva'=>'0126641452',
       'name'=>'Gabbo',
       'email'=>'gabbo@gmail.com',
-      'password'=>'123456789'
+      'password'=>'123456789',
+      'file_path'=>'pomodorini.jpg'
     ],
     [
       'nome_attivita' =>'Da Mirko',
@@ -51,7 +53,8 @@ $factory->define(User::class, function (Faker $faker) {
       'p_iva'=>'0126641452',
       'name'=>'Mirko',
       'email'=>'mirko@gmail.com',
-      'password'=>'123456789'
+      'password'=>'123456789',
+      'file_path'=>'carbonara.jpg'
     ],
     [
       'nome_attivita' =>'Da Natale',
@@ -62,7 +65,8 @@ $factory->define(User::class, function (Faker $faker) {
       'p_iva'=>'0126641452',
       'name'=>'Natale',
       'email'=>'natale@gmail.com',
-      'password'=>'123456789'
+      'password'=>'123456789',
+      'file_path'=>'greco.jpg'
     ],
     [
       'nome_attivita' =>'Da Vale & Figlia',
@@ -73,7 +77,8 @@ $factory->define(User::class, function (Faker $faker) {
       'p_iva'=>'0126641452',
       'name'=>'Vale',
       'email'=>'vale@gmail.com',
-      'password'=>'123456789'
+      'password'=>'123456789',
+      'file_path'=>'pasta.jpg'
     ],
     [
       'nome_attivita' =>'Bella Roma',
@@ -84,7 +89,8 @@ $factory->define(User::class, function (Faker $faker) {
       'p_iva'=>'0126641452',
       'name'=>'Totti',
       'email'=>'totti@gmail.com',
-      'password'=>'123456789'
+      'password'=>'123456789',
+      'file_path'=>'pesce.jpg'
     ],
     [
       'nome_attivita' =>'Cho Tutto',
@@ -95,7 +101,8 @@ $factory->define(User::class, function (Faker $faker) {
       'p_iva'=>'0126641452',
       'name'=>'Mulan',
       'email'=>'mulan@gmail.com',
-      'password'=>'123456789'
+      'password'=>'123456789',
+      'file_path'=>'sushi.jpg'
     ],
     [
       'nome_attivita' =>'El Pepe',
@@ -106,7 +113,8 @@ $factory->define(User::class, function (Faker $faker) {
       'p_iva'=>'0126641452',
       'name'=>'Consuelo',
       'email'=>'consuelo@gmail.com',
-      'password'=>'123456789'
+      'password'=>'123456789',
+      'file_path'=>'messicano.jpg'
     ],
     [
       'nome_attivita' =>'Pizza Pazza',
@@ -117,7 +125,8 @@ $factory->define(User::class, function (Faker $faker) {
       'p_iva'=>'0126641452',
       'name'=>'Gennaro',
       'email'=>'gennaro@gmail.com',
-      'password'=>'123456789'
+      'password'=>'123456789',
+      'file_path'=>'pizza.jpg'
     ],
     [
       'nome_attivita' =>'Gelati gelati',
@@ -128,7 +137,8 @@ $factory->define(User::class, function (Faker $faker) {
       'p_iva'=>'0126641452',
       'name'=>'John',
       'email'=>'john@gmail.com',
-      'password'=>'123456789'
+      'password'=>'123456789',
+      'file_path'=>'gelato.jpg'
     ]
 
   ];
@@ -149,5 +159,6 @@ $factory->define(User::class, function (Faker $faker) {
     'citta' => $restaurant['citta'],
     'cap' => $restaurant['cap'],
     'p_iva' => $restaurant['p_iva'],
+    'file_path' => $restaurant['file_path'],
   ];
 });

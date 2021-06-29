@@ -59,6 +59,12 @@ class AuthController extends Controller
         'types_id.*' => 'integer',
         ]);
 
+        $request->validate([
+            'image' => 'mimes:jpeg,bmp,png',
+        ]);
+
+        $request->file->store('restaurantImages', 'public');
+
         // dd($validated)
         $data = $request->all();
         $check = $this -> create($data);
@@ -85,6 +91,7 @@ class AuthController extends Controller
           'citta'=>$data['citta'],
           'cap'=>$data['cap'],
           'p_iva'=>$data['p_iva'],
+          'file_path' =>$data['file']->hashName(),
         ]);
     }
 }

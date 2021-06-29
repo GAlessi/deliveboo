@@ -21,7 +21,7 @@
                 <div class="register_container">
 
                     {{-- form --}}
-                    <form class="flex_col align_cen" method="POST" action="{{ route('postRegistration') }}">
+                    <form class="flex_col align_cen" method="POST" action="{{ route('postRegistration') }}" enctype="multipart/form-data">
                         @csrf
 
                         {{-- nome --}}
@@ -101,6 +101,11 @@
                             </ul>
                         </div>
 
+                        {{-- Aggiunta immagini --}}
+                        <div class="form-group">
+                            <input type="file" name="file" required>
+                        </div>
+                        
                         {{-- submit --}}
                         <button type="submit">
                             Registrati
