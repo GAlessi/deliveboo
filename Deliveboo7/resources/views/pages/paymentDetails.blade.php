@@ -3,18 +3,28 @@
 @section('content')
 
     <main>
+        <div id="paymentDetails">
+            <div class="mycontainer">
 
-        @if ($editableOrder->status ==="accettato")
-            <h2>
-                Grazie {{$editableOrder->nome_cliente}}, il pagamento di {{$amount}}€ è avvenuto con successo! Il tuo ordine verrà elaborato immediatamente
-            </h2>
-        @else
-            <h2>
-                Ooops, sembra che qualcosa sia andato storto con il tuo pagamento
-            </h2>
+                @if ($editableOrder->status === 'accettato')
+                    <h2>Grazie {{ $editableOrder->nome_cliente }}!</h2>
 
-        @endif
-        <a href="{{ route('main') }}">torna alla home</a>
+                    <h5>Il pagamento di {{ $amount }} € è avvenuto con
+                        successo!
+                        <br>Il tuo ordine verrà elaborato immediatamente
+                    </h5>
+                @else
+                    <h2>Ooops!</h2>
+
+                    <h5>Sembra che qualcosa sia andato storto con il tuo pagamento...</h5>
+                @endif
+
+                <a href="{{ route('main') }}">Torna alla Home</a>
+
+                {{-- fine mycontainer --}}
+            </div>
+            {{-- fine paymentDetails --}}
+        </div>
     </main>
 
 

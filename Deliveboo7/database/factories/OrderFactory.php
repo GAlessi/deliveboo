@@ -21,6 +21,7 @@ $factory->define(Order::class, function (Faker $faker) use ($autoIncrement) {
             'telefono' => '3333333333',
             'note' => 'non suonare',
             'status' => 'pagato',
+            'totalPrice' => 10,
         ],
         [
             'nome_cliente' => 'Ajeje2',
@@ -32,6 +33,7 @@ $factory->define(Order::class, function (Faker $faker) use ($autoIncrement) {
             'telefono' => '3333333333',
             'note' => 'non suonare',
             'status' => 'pagato',
+            'totalPrice' => 10,
         ],
         [
             'nome_cliente' => 'Ajeje3',
@@ -43,6 +45,7 @@ $factory->define(Order::class, function (Faker $faker) use ($autoIncrement) {
             'telefono' => '3333333333',
             'note' => 'non suonare',
             'status' => 'pagato',
+            'totalPrice' => 10,
         ],
         [
             'nome_cliente' => 'Ajeje4',
@@ -54,6 +57,7 @@ $factory->define(Order::class, function (Faker $faker) use ($autoIncrement) {
             'telefono' => '3333333333',
             'note' => 'non suonare',
             'status' => 'pagato',
+            'totalPrice' => 10,
         ],
         [
             'nome_cliente' => 'Ajeje5',
@@ -65,6 +69,7 @@ $factory->define(Order::class, function (Faker $faker) use ($autoIncrement) {
             'telefono' => '3333333333',
             'note' => 'non suonare',
             'status' => 'pagato',
+            'totalPrice' => 10,
         ],
         [
             'nome_cliente' => 'Ajeje6',
@@ -76,6 +81,7 @@ $factory->define(Order::class, function (Faker $faker) use ($autoIncrement) {
             'telefono' => '3333333333',
             'note' => 'non suonare',
             'status' => 'pagato',
+            'totalPrice' => 10,
         ],
         [
             'nome_cliente' => 'Ajeje7',
@@ -87,6 +93,7 @@ $factory->define(Order::class, function (Faker $faker) use ($autoIncrement) {
             'telefono' => '3333333333',
             'note' => 'non suonare',
             'status' => 'pagato',
+            'totalPrice' => 10,
         ],
         [
             'nome_cliente' => 'Ajeje8',
@@ -98,6 +105,7 @@ $factory->define(Order::class, function (Faker $faker) use ($autoIncrement) {
             'telefono' => '3333333333',
             'note' => 'non suonare',
             'status' => 'pagato',
+            'totalPrice' => 10,
         ],
         [
             'nome_cliente' => 'Ajeje9',
@@ -109,6 +117,7 @@ $factory->define(Order::class, function (Faker $faker) use ($autoIncrement) {
             'telefono' => '3333333333',
             'note' => 'non suonare',
             'status' => 'pagato',
+            'totalPrice' => 10,
         ],
         [
             'nome_cliente' => 'Ajeje10',
@@ -120,6 +129,7 @@ $factory->define(Order::class, function (Faker $faker) use ($autoIncrement) {
             'telefono' => '3333333333',
             'note' => 'non suonare',
             'status' => 'pagato',
+            'totalPrice' => 10,
         ],
 
     ];
@@ -138,6 +148,7 @@ $factory->define(Order::class, function (Faker $faker) use ($autoIncrement) {
         'telefono' => $order['telefono'],
         'note' => $order['note'],
         'status' => $order['status'],
+        'totalPrice' => $order['totalPrice'],
     ];
 });
 

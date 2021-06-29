@@ -15,7 +15,10 @@ class MainController extends Controller
   public function main(){
 
     $types = Type::all();
-    $users = User::all();
+    // $users = User::all();
+    $users = User::inRandomOrder()
+                        -> limit(6)
+                        -> get();
     $user = Auth::user();
 
     return view('pages.main', compact('types','users', 'user'));
@@ -52,6 +55,7 @@ class MainController extends Controller
           'cap' => 'required|string',
           'telefono' => 'required|string|min:3',
           'note' => 'max:255',
+          'totalPrice' =>'required',
       ]);
       // dd($validated);
 

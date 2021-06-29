@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
             searchedRestaurantTxt: "",
             filteredRestaurants: [],
             txtFilteredRestaurant: [],
+            showSearch: false,
 
             //piatti per carrello
             carrello: [],
@@ -92,7 +93,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             //filtro per categorie
             getFilteredRestaurant: function () {
-
                 this.filteredRestaurants = [];
                 let arrayCategorie = [];
 
@@ -123,43 +123,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
             },
 
-            // showCarrello: function() {
-            //     this.carrelloString = this.carrello.join();
-            //     console.log(this.carrello);
-            // },
-
             //filtro per nome
             searchRestaurant: function () {
 
-                if (this.searchedRestaurantTxt.length > 0) {
+                if (this.searchedRestaurantTxt.length >= 0) {
 
                     this.filter = [];
 
                     axios.get('/api/get/all/restaurants')
                         .then(data => {
                             this.allRestaurants = data.data[0];
-                            // console.log(this.allRestaurants);
+                            this.txtFilteredRestaurant = [];
+
+                            for (let i = 0; i < this.allRestaurants.length; i++) {
+
+                                const restaurant = this.allRestaurants[i];
+
+                                const nomeSingoloRistorante = restaurant.nome_attivita;
+                                //console.log(nomeSingoloRistorante);
+
+                                if (nomeSingoloRistorante.toLowerCase().includes(this.searchedRestaurantTxt.toLowerCase())) {
+
+                                    this.txtFilteredRestaurant.push(restaurant);
+                                }
+                                this.showSearch = true;
+                            }
 
                         }).catch((error) => {
                             console.log(error);
                         });
 
+
+                }else {
                     this.txtFilteredRestaurant = [];
-
-                    for (let i = 0; i < this.allRestaurants.length; i++) {
-
-                        const restaurant = this.allRestaurants[i];
-
-                        const nomeSingoloRistorante = restaurant.nome_attivita;
-                        //console.log(nomeSingoloRistorante);
-
-                        if (nomeSingoloRistorante.toLowerCase().includes(this.searchedRestaurantTxt.toLowerCase())) {
-
-                            this.txtFilteredRestaurant.push(restaurant);
-                        }
-
-                    }
-
                 }
 
 
@@ -292,4 +288,6 @@ $(document).ready(() => {
             }
         ]
     });
+
+
 })

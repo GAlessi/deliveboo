@@ -11065,19 +11065,14 @@ header .mycontainer nav {
   width: 100%;
 }
 
-header .mycontainer nav .nav_left .nav_logo {
-  margin-right: 15px;
-  width: 260px;
-  font-size: 24px;
-}
-
 header .mycontainer nav .nav_left .nav_logo a:hover {
   scale: 1.1;
 }
 
 header .mycontainer nav .nav_left .nav_logo a h3 {
+  color: #f4a261;
   font-family: "Dela Gothic One", cursive;
-  z-index: 950;
+  text-shadow: 2px 2px 2px rgba(50, 50, 50, 0.91);
 }
 
 header .mycontainer nav .nav_right h6 {
@@ -11086,6 +11081,7 @@ header .mycontainer nav .nav_right h6 {
 }
 
 header .mycontainer nav .nav_right .nav_buttons {
+  padding: 0;
   color: #264653;
 }
 
@@ -11098,7 +11094,7 @@ header .mycontainer nav .nav_right .nav_buttons .navbar-nav li.nav-item {
 }
 
 header .mycontainer nav .nav_right .nav_buttons .navbar-nav li.nav-item a {
-  padding: 5px;
+  padding: 0;
   font-weight: bold;
 }
 
@@ -11133,7 +11129,7 @@ footer .column .footer_list:last-of-type i:hover {
 }
 
 #login {
-  margin-top: 85px;
+  min-height: calc(100vh - 338px);
   padding: 30px 0;
   background-color: #2a9d8f;
 }
@@ -11185,7 +11181,7 @@ footer .column .footer_list:last-of-type i:hover {
 }
 
 #register {
-  margin-top: 85px;
+  min-height: calc(100vh - 338px);
   padding: 30px 0;
   background-color: #2a9d8f;
 }
@@ -11249,11 +11245,14 @@ footer .column .footer_list:last-of-type i:hover {
 
 main {
   margin-top: 85px;
-  text-align: center;
   background-color: #e9c46a;
 }
 
-main .restaurant_card {
+main #mainPage {
+  text-align: center;
+}
+
+main #mainPage .restaurant_card {
   margin: 10px;
   padding: 10px;
   background-color: #e9c46a;
@@ -11262,13 +11261,13 @@ main .restaurant_card {
   cursor: pointer;
 }
 
-main .restaurant_card img {
+main #mainPage .restaurant_card img {
   height: 100%;
   width: 100%;
   border-radius: 20px;
 }
 
-main .restaurant_card h4 {
+main #mainPage .restaurant_card h4 {
   left: 50%;
   bottom: 0;
   transform: translateX(-50%);
@@ -11279,33 +11278,33 @@ main .restaurant_card h4 {
   border-radius: 10px;
 }
 
-main #myrestaurant {
+main #mainPage #myrestaurant {
   padding: 15x;
   background-color: #f4a261;
   border-bottom: 2px solid #264653;
 }
 
-main #myrestaurant i {
+main #mainPage #myrestaurant i {
   font-size: inherit;
 }
 
-main #myjumbotron {
+main #mainPage #myjumbotron {
   padding: 30px 0;
   background: #2a9d8f;
   background: linear-gradient(0deg, #2a9d8f 0%, #f4a261 37%, #e9c46a 69%);
 }
 
-main #myjumbotron .mycontainer .title {
+main #mainPage #myjumbotron .mycontainer .title {
   margin-bottom: 30px;
   width: 100%;
 }
 
-main #myjumbotron .mycontainer .jumbotron_container {
+main #mainPage #myjumbotron .mycontainer .jumbotron_container {
   height: 430px;
   width: 100%;
 }
 
-main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search {
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search {
   margin: 5px;
   padding: 15px;
   width: 30%;
@@ -11314,7 +11313,7 @@ main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search {
   box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
 }
 
-main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search input {
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search input {
   padding: 10px;
   width: 95%;
   font-size: 24px;
@@ -11327,20 +11326,20 @@ main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search input {
   box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
 }
 
-main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search input:focus {
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search input:focus {
   border: solid 2px #e76f51;
 }
 
-main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search label {
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search label {
   color: #e9c46a;
 }
 
-main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search h6 {
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search h6 {
   margin-top: 5px;
   color: #dcdcdc;
 }
 
-main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search button {
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search button {
   margin-top: 25px;
   padding: 10px 15px;
   width: 50%;
@@ -11351,37 +11350,37 @@ main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search button {
   box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
 }
 
-main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search button:hover {
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search button:hover {
   background-color: #e76f51;
   border: solid 2px #e9c46a;
 }
 
-main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container li {
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container li {
   width: 100px;
   margin: 5px;
   color: #dcdcdc;
 }
 
-main #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container input {
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container input {
   margin: 0;
   margin-right: 10px;
   width: auto;
   box-shadow: none;
 }
 
-main #myjumbotron .mycontainer .jumbotron_container .picture {
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .picture {
   margin-left: 30px;
   height: 400px;
   width: 70%;
 }
 
-main #myjumbotron .mycontainer .jumbotron_container .picture .jumbotron_casa {
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .picture .jumbotron_casa {
   width: 500px;
   top: 0;
   left: 10%;
 }
 
-main #myjumbotron .mycontainer .jumbotron_container .picture .jumbotron_moto {
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .picture .jumbotron_moto {
   width: 270px;
   left: 40%;
   bottom: 0;
@@ -11389,36 +11388,62 @@ main #myjumbotron .mycontainer .jumbotron_container .picture .jumbotron_moto {
           animation-duration: 2s;
 }
 
-main #filtered_restaurants {
+main #mainPage #filtered_restaurants {
   background-color: #2a9d8f;
   padding: 30px 0;
 }
 
-main #filtered_restaurants ul {
+main #mainPage #filtered_restaurants ul {
   width: 100%;
 }
 
-main #filtered_restaurants ul li {
+main #mainPage #filtered_restaurants ul li {
   width: calc(100% / 3);
 }
 
-main #filtered_restaurants .restaurant_card {
+main #mainPage #filtered_restaurants .restaurant_card {
   padding: 0;
 }
 
-main #restaurants {
+main #mainPage #restaurants {
   padding: 30px 0;
+}
+
+main #mainPage #restaurants h2 {
+  color: #e76f51;
+  text-shadow: 2px 2px 2px rgba(50, 50, 50, 0.91);
+}
+
+main #mainPage #restaurants .restaurant_card {
+  margin: 10px;
+  padding: 10px;
+  background-color: #e9c46a;
+  height: 200px;
+  width: 200px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+main #mainPage #restaurants .restaurant_card img {
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+}
+
+main #mainPage #restaurants .restaurant_card h4 {
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  padding: 0 5px;
+  color: #2a9d8f;
+  text-shadow: 1px 1px 1px #264653;
+  background-color: #e9c46a;
+  border-radius: 10px;
 }
 
 #showRestaurant {
-  margin-top: 85px;
   padding: 30px 0;
   background-color: #e76f51;
-}
-
-#showRestaurant .sticky_container {
-  top: 10px;
-  right: 5px;
 }
 
 #showRestaurant .cart {
@@ -11532,17 +11557,32 @@ main #restaurants {
   color: #dcdcdc;
 }
 
-#showRestaurant .restaurant_name {
+#showRestaurant .restaurant_info {
   text-align: center;
 }
 
-#showRestaurant .restaurant_name h2,
-#showRestaurant .restaurant_name h6 {
+#showRestaurant .restaurant_info h2,
+#showRestaurant .restaurant_info h6 {
   color: #e9c46a;
   text-shadow: 2px 2px 2px #264653;
 }
 
-#showRestaurant .restaurant_name h6 {
+#showRestaurant .restaurant_info .restaurant_info_card {
+  margin-bottom: 10px;
+  padding: 5px;
+  width: auto;
+  border: solid 1px #e9c46a;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+}
+
+#showRestaurant .restaurant_info .restaurant_info_card i {
+  margin: 5px;
+  box-shadow: none !important;
+}
+
+#showRestaurant .restaurant_info .restaurant_info_card h6 {
+  margin: 0;
   display: inline-block;
 }
 
@@ -11660,7 +11700,7 @@ main #restaurants {
 }
 
 #createDish {
-  margin-top: 85px;
+  min-height: calc(100vh - 338px);
   padding: 30px 0;
   background-color: #2a9d8f;
 }
@@ -11718,7 +11758,7 @@ main #restaurants {
 }
 
 #editDish {
-  margin-top: 85px;
+  min-height: calc(100vh - 338px);
   padding: 30px 0;
   background-color: #e9c46a;
 }
@@ -11775,6 +11815,170 @@ main #restaurants {
   border: solid 2px #264653;
 }
 
+#createOrder {
+  min-height: calc(100vh - 338px);
+  padding: 30px 0;
+  background-color: #264653;
+}
+
+#createOrder h2,
+#createOrder h5 {
+  text-align: center;
+  color: #f4a261;
+  text-shadow: 2px 2px 2px rgba(50, 50, 50, 0.91);
+}
+
+#createOrder .order_container {
+  margin: auto;
+  padding: 10px;
+  width: 60%;
+  background-color: #f4a261;
+  border-radius: 20px;
+  box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+}
+
+#createOrder .order_container label {
+  font-size: 24px;
+}
+
+#createOrder .order_container input {
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 80%;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+}
+
+#createOrder .order_container button {
+  margin: 10px;
+  padding: 10px;
+  color: #dcdcdc;
+  background-color: #264653;
+  border: solid 2px #2a9d8f;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+}
+
+#createOrder .order_container button i {
+  color: #dcdcdc;
+}
+
+#createOrder .order_container button:hover {
+  color: #dcdcdc;
+  background-color: #2a9d8f;
+  border: solid 2px #264653;
+}
+
+#createOrder .order_container button:hover i {
+  color: #dcdcdc;
+}
+
+#showOrders {
+  min-height: calc(100vh - 338px);
+  padding: 30px 0;
+  background-color: #e76f51;
+  text-align: center;
+}
+
+#showOrders h2,
+#showOrders h5 {
+  color: #e9c46a;
+  text-shadow: 2px 2px 2px #264653;
+}
+
+#showOrders .orders_container .order_card {
+  margin: 10px;
+  padding: 5px;
+  background-color: #e9c46a;
+  border: solid 1px #264653;
+  border-radius: 10px;
+  box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+}
+
+#showOrders .orders_container .order_card h6 {
+  border-bottom: 1px solid #264653;
+}
+
+#showOrders .orders_container .order_card i {
+  margin: 5px;
+}
+
+#braintreePay {
+  min-height: calc(100vh - 338px);
+  padding: 30px 0;
+  background-color: #264653;
+}
+
+#braintreePay h2 {
+  text-align: center;
+  color: #f4a261;
+  text-shadow: 2px 2px 2px rgba(50, 50, 50, 0.91);
+}
+
+#braintreePay .payment_container {
+  margin: auto;
+  padding: 10px;
+  width: 60%;
+  text-align: center;
+  background-color: #f4a261;
+  border-radius: 20px;
+  box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+}
+
+#braintreePay .payment_container h5 {
+  text-align: center;
+  color: #264653;
+}
+
+#braintreePay .payment_container .braintree-option__paypal {
+  display: none;
+}
+
+#braintreePay .payment_container button {
+  margin: 10px;
+  padding: 10px;
+  color: #dcdcdc;
+  background-color: #264653;
+  border: solid 2px #2a9d8f;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+}
+
+#braintreePay .payment_container button i {
+  color: #dcdcdc;
+}
+
+#braintreePay .payment_container button:hover {
+  color: #dcdcdc;
+  background-color: #2a9d8f;
+  border: solid 2px #264653;
+}
+
+#braintreePay .payment_container button:hover i {
+  color: #dcdcdc;
+}
+
+#paymentDetails {
+  min-height: calc(100vh - 338px);
+  padding: 30px 0;
+  text-align: center;
+  background-color: #264653;
+}
+
+#paymentDetails h2,
+#paymentDetails h5 {
+  text-align: center;
+  color: #f4a261;
+  text-shadow: 2px 2px 2px rgba(50, 50, 50, 0.91);
+}
+
+#paymentDetails a {
+  margin-top: 30px;
+  font-size: 24px;
+  color: #e9c46a;
+}
+
 [v-cloak] {
   display: none;
 }
@@ -11817,10 +12021,6 @@ input:focus {
 }
 
 .hidden {
-  display: none;
-}
-
-.braintree-option__paypal {
   display: none;
 }
 

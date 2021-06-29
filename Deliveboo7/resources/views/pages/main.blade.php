@@ -5,158 +5,168 @@
 
         <main>
 
-            @if (Auth::check())
+            <div id="mainPage">
 
-                {{-- sezione myrestaurant --}}
-                <div id="myrestaurant">
+                @if (Auth::check())
 
-                    <h2>Bentornato {{ $user->name }}</h2>
+                    {{-- sezione myrestaurant --}}
+                    <div id="myrestaurant">
 
-                    {{-- link al mio ristorante --}}
-                    <a href="{{ route('show', $user->id) }}">
-                        <h3>Vai al tuo ristorante <i class="fas fa-angle-double-right"></i></h3>
-                    </a>
+                        <h2>Bentornato {{ $user->name }}</h2>
 
-                </div>
-            @endif
+                        {{-- link al mio ristorante --}}
+                        <a href="{{ route('show', $user->id) }}">
+                            <h3>Vai al tuo ristorante <i class="fas fa-angle-double-right"></i></h3>
+                        </a>
 
-            {{-- sezione jumbotron --}}
-            <section id="myjumbotron">
-                <div class="mycontainer flex_wrap">
-
-                    {{-- title --}}
-                    <div class="title">
-                        <h1>Deliveboo!</h1>
-                        <h3>i piatti che ami, a domicilio.</h3>
                     </div>
+                @endif
 
-                    <div class="jumbotron_container flex align_cen">
+                {{-- sezione jumbotron --}}
+                <section id="myjumbotron">
+                    <div class="mycontainer flex_wrap">
 
-                        {{-- filtro ricerca --}}
-                        <div class="jumbotron_search flex_col align_cen">
+                        {{-- title --}}
+                        <div class="title">
+                            <h1>Deliveboo!</h1>
+                            <h3>i piatti che ami, a domicilio.</h3>
+                        </div>
 
                             {{-- ricerca per nome ristorante --}}
                             <input v-if="filter.length == 0" type="text" placeholder="Cerca un ristorante" type="text"
                                 @keyup='searchRestaurant' v-model='searchedRestaurantTxt'>
 
-                            {{-- button --}}
-                            {{-- <button @click="searchRestaurant">Cerca!</button> --}}
+                            {{-- filtro ricerca --}}
+                            <div class="jumbotron_search flex_col align_cen">
 
-                            <h6 v-if='searchedRestaurantTxt == "" && filter == 0'>Oppure</h6>
+                                {{-- ricerca per nome ristorante --}}
+                                <input v-if="filter.length == 0" type="text" placeholder="Cerca un ristorante" type="text"
+                                    @keyup='searchRestaurant' v-model='searchedRestaurantTxt'>
+
+                                {{-- button --}}
+                                {{-- <button @click="searchRestaurant">Cerca!</button> --}}
+
+                                <h6 v-if='searchedRestaurantTxt == "" && filter == 0'>Oppure</h6>
 
 
-                            {{-- ricerca per tipologie --}}
-                            <div class="chekbox_container" v-if="searchedRestaurantTxt == false">
+                                {{-- ricerca per tipologie --}}
+                                <div class="chekbox_container" v-if="searchedRestaurantTxt == false">
 
-                                <label for="type_id[]">Seleziona una o più Tipologie di Cucina</label>
+                                    <label for="type_id[]">Seleziona una o più Tipologie di Cucina</label>
 
-                                <ul class="flex_wrap">
+                                    <ul class="flex_wrap">
 
-                                    @foreach ($types as $type)
-                                        <li class="flex just_start align_cen">
-                                            <input id="types_id" v-model="filter" v-on:change="getFilteredRestaurant()"
-                                                name="types_id" type="checkbox" value="{{ $type->id }}">
-                                            {{ $type->nome }}
-                                        </li>
-                                    @endforeach
-                                </ul>
+                                        @foreach ($types as $type)
+                                            <li class="flex just_start align_cen">
+                                                <input id="types_id" v-model="filter" v-on:change="getFilteredRestaurant()"
+                                                    name="types_id" type="checkbox" value="{{ $type->id }}">
+                                                {{ $type->nome }}
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+
+                                {{-- fine filtro ricerca --}}
                             </div>
 
-                            {{-- fine filtro ricerca --}}
-                        </div>
-
-                        {{-- immagine --}}
-                        <div class="picture relative">
-                            <img class="jumbotron_casa absolute" src="{{ asset('/storage/images/casa.png') }}" alt="">
-                            <img class="jumbotron_moto absolute animate__fadeInRightBig" id="boy-img"
-                                src="{{ asset('/storage/images/boy.png') }}">
+                            {{-- immagine --}}
+                            <div class="picture relative">
+                                <img class="jumbotron_casa absolute" src="{{ asset('/storage/images/casa.png') }}" alt="">
+                                <img class="jumbotron_moto absolute animate__fadeInRightBig" id="boy-img"
+                                    src="{{ asset('/storage/images/boy.png') }}">
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
             {{-- ristoranti filtrati per nome --}}
-            <section v-if="txtFilteredRestaurant != 0" id="filtered_restaurants"
+            <section v-if="searchedRestaurantTxt.length > 0 && showSearch" id="filtered_restaurants"
                 class="animate__animated animate__fadeInUp">
-                <div class="mycontainer">
+                <div class="mycontainer" v-if="txtFilteredRestaurant.length > 0">
 
-                    <h3>Ecco cosa abbiamo trovato per te</h3>
+                        <h3>Ecco cosa abbiamo trovato per te</h3>
 
-                    <div class="filtered_restaurants_container">
+                        <div class="filtered_restaurants_container">
 
-                        <ul class="flex_wrap">
-                            <li v-for="restaurant in txtFilteredRestaurant">
-                                <div class="restaurant_card relative">
-                                    <a :href="'/showRestaurant/' + restaurant.id">
-                                        <img src="{{ asset('/storage/images/copertina_jappo.jpg') }}"
-                                            alt="immagine_ristorante">
-                                        <h4 class="absolute">@{{ restaurant . nome_attivita }}</h4>
-                                    </a>
-                                </div>
-                            </li>
-                        </ul>
+                            <ul class="flex_wrap">
+                                <li v-for="restaurant in txtFilteredRestaurant">
+                                    <div class="restaurant_card relative">
+                                        <a :href="'/showRestaurant/' + restaurant.id">
+                                            <img :src="'/storage/restaurantImages/' + restaurant.file_path"
+                                                alt="immagine_ristorante">
+                                            <h4 class="absolute">@{{ restaurant . nome_attivita }}</h4>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                {{-- fine sezione ristoranti filtrati per nome --}}
-            </section>
-
-            {{-- sezione ristoranti filtrati per tipologia --}}
-            <section v-if="filter != ''" id="filtered_restaurants" class="animate__animated animate__fadeInUp">
-                <div class="mycontainer">
-
-                    <h3 v-if='filteredRestaurants == 0'>Ops! Nessun risultato...</h3>
-
-                    <h3 v-else>Ecco cosa abbiamo trovato per te</h3>
-
-                    <div class="filtered_restaurants_container">
-
-                        <ul class="flex_wrap">
-                            <li v-for="restaurant in filteredRestaurants">
-                                <div class="restaurant_card relative">
-                                    <a :href="'/showRestaurant/' + restaurant.id">
-                                        <img src="{{ asset('/storage/images/copertina_jappo.jpg') }}"
-                                            alt="immagine_ristorante">
-                                        <h4 class="absolute">@{{ restaurant . nome_attivita }}</h4>
-                                    </a>
-                                </div>
-                            </li>
-                        </ul>
+                    <div class="mycontainer" v-else>
+                        <h3>Ooops! Nessun ristorante corrisponde alla tua ricerca. Cercane un altro o prova la ricerca per
+                            tipologia di cucina</h3>
                     </div>
-                </div>
+                    {{-- fine sezione ristoranti filtrati per nome --}}
+                </section>
 
-                {{-- fine sezione ristoranti filtrati per tipologia --}}
+                {{-- sezione ristoranti filtrati per tipologia --}}
+                <section v-if="filter != ''" id="filtered_restaurants" class="animate__animated animate__fadeInUp">
+                    <div class="mycontainer">
 
-            </section>
+                        <h3 v-if='filteredRestaurants.length==0'>Ops! Nessun risultato...</h3>
 
-            {{-- sezione ristoranti --}}
-            <section id="restaurants">
-                <div class="mycontainer">
+                        <h3 v-else>Ecco cosa abbiamo trovato per te</h3>
 
-                    <h2>La nostra selezione di ristoranti</h2>
+                        <div class="filtered_restaurants_container">
 
-                    {{-- carousel ristoranti --}}
-                    <div class="restaurants_carousel">
-                        <div class="autoplay">
+                            <ul class="flex_wrap">
+                                <li v-for="restaurant in filteredRestaurants">
+                                    <div class="restaurant_card relative">
+                                        <a :href="'/showRestaurant/' + restaurant.id">
+                                            <img :src="'/storage/restaurantImages/' + restaurant.file_path"
+                                                alt="immagine_ristorante">
+                                            <h4 class="absolute">@{{ restaurant . nome_attivita }}</h4>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    {{-- fine sezione ristoranti filtrati per tipologia --}}
+
+                </section>
+
+                {{-- sezione ristoranti --}}
+                <section id="restaurants">
+                    <div class="mycontainer">
+
+                        <h2>La nostra selezione di ristoranti</h2>
+
+                        {{-- carousel ristoranti --}}
+                        <div class="restaurants_carousel">
+                            <div class="autoplay">
 
                             {{-- card tiplogia --}}
                             @foreach ($users as $user)
-                                <div class="restaurant_card relative">
-                                    <a href="{{ route('show', $user->id) }}"
-                                        title="Vai al menu di {{ $user->nome_attivita }}">
-                                        <img src="{{ asset('/storage/images/copertina_jappo.jpg') }}"
-                                            alt="immagine tiplogia">
-                                        <h4 class="absolute">{{ $user->nome_attivita }}</h4>
-                                    </a>
-                                </div>
+
+                                    <div class="restaurant_card relative">
+                                        <a href="{{ route('show', $user->id) }}"
+                                            title="Vai al menu di {{ $user->nome_attivita }}">
+                                            <img src="{{ asset('/storage/restaurantImages/' . $user->file_path)}}"
+                                                alt="immagine tiplogia">
+                                            <h4 class="absolute">{{ $user->nome_attivita }}</h4>
+                                        </a>
+                                    </div>
+
                             @endforeach
+
                         </div>
-                        {{-- fine carousel --}}
                     </div>
-                </div>
 
-                {{-- fine section ristauranti --}}
-            </section>
-
+                    {{-- fine section ristauranti --}}
+                </section>
+                {{-- fine #mainPage --}}
+            </div>
         </main>
     </div>
 

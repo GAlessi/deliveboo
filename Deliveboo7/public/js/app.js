@@ -52691,6 +52691,7 @@ document.addEventListener("DOMContentLoaded", function () {
       searchedRestaurantTxt: "",
       filteredRestaurants: [],
       txtFilteredRestaurant: [],
+      showSearch: false,
       //piatti per carrello
       carrello: [],
       carrelloID: [],
@@ -52784,31 +52785,31 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         });
       },
-      // showCarrello: function() {
-      //     this.carrelloString = this.carrello.join();
-      //     console.log(this.carrello);
-      // },
       //filtro per nome
       searchRestaurant: function searchRestaurant() {
         var _this4 = this;
 
-        if (this.searchedRestaurantTxt.length > 0) {
+        if (this.searchedRestaurantTxt.length >= 0) {
           this.filter = [];
           axios.get('/api/get/all/restaurants').then(function (data) {
-            _this4.allRestaurants = data.data[0]; // console.log(this.allRestaurants);
+            _this4.allRestaurants = data.data[0];
+            _this4.txtFilteredRestaurant = [];
+
+            for (var i = 0; i < _this4.allRestaurants.length; i++) {
+              var restaurant = _this4.allRestaurants[i];
+              var nomeSingoloRistorante = restaurant.nome_attivita; //console.log(nomeSingoloRistorante);
+
+              if (nomeSingoloRistorante.toLowerCase().includes(_this4.searchedRestaurantTxt.toLowerCase())) {
+                _this4.txtFilteredRestaurant.push(restaurant);
+              }
+
+              _this4.showSearch = true;
+            }
           })["catch"](function (error) {
             console.log(error);
           });
+        } else {
           this.txtFilteredRestaurant = [];
-
-          for (var i = 0; i < this.allRestaurants.length; i++) {
-            var restaurant = this.allRestaurants[i];
-            var nomeSingoloRistorante = restaurant.nome_attivita; //console.log(nomeSingoloRistorante);
-
-            if (nomeSingoloRistorante.toLowerCase().includes(this.searchedRestaurantTxt.toLowerCase())) {
-              this.txtFilteredRestaurant.push(restaurant);
-            }
-          }
         }
       },
       //aggiungi al carrello

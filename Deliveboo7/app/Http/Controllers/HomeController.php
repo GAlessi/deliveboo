@@ -105,7 +105,10 @@ class HomeController extends Controller
         $orders = Order::all();
 
         $ordersId = array();
-        $restaurantOrders = array();
+        $orderSel = array();
+
+
+
 
         //pusha in array i piatti di un ristorante
         foreach ($user -> dishes as $dish) {
@@ -116,15 +119,12 @@ class HomeController extends Controller
             }
         }
 
-        //pusha in array gli di un ristorante
-        foreach ($orders as $order) {
-            if (in_array($order->id, $ordersId)) {
-                array_push($restaurantOrders, $order);
-            }
+        foreach ($ordersId as $orderId) {
+            $selectedOrder = Order::findOrFail($orderId);
+            array_push($orderSel, $selectedOrder);
         }
 
-
-        return view('pages.showOrders', compact('user', 'restaurantOrders'));
+        return view('pages.showOrders', compact('user', 'orderSel'));
     }
 
     //get Statistica
