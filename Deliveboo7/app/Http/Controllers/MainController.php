@@ -70,7 +70,8 @@ class MainController extends Controller
 
 
       $totalPrice = $request->totalPrice;
+
+
       return redirect() -> route('pay', compact('totalPrice', 'order'));
-      // return Redirect::route('pay')->with('totalPrice');
   }
 }
