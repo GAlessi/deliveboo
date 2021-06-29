@@ -52,17 +52,40 @@
                         </form>
                     </div>
 
-                    {{-- nome --}}
-                    <div class="restaurant_name">
+                    {{-- info ristorante --}}
+                    <div class="restaurant_info flex_col align_cen">
+
                         <h2>{{ $user->nome_attivita }}</h2>
 
-                        <p>Tipo di Cucina</p>
+                        <div class="restaurant_info_card flex_col align_start">
 
-                        @foreach ($user->types->sortBy('nome') as $type)
+                            <div class="info_card_row flex align_cen">
+                                <i class="fas fa-utensils"></i>
+                                <h6>Tipo di Cucina:
 
-                            <h6>{{ $loop->last ? $type->nome : $type->nome . ', ' }}</h6>
+                                    @foreach ($user->types->sortBy('nome') as $type)
 
-                        @endforeach
+                                        {{ $loop->last ? $type->nome : $type->nome . ', ' }}
+
+                                    @endforeach
+
+                                </h6>
+                            </div>
+
+
+                            <div class="info_card_row flex align_cen">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <h6>{{ $user->via }} {{ $user->n_civico }}, {{ $user->citta }},
+                                    {{ $user->cap }}</h6>
+                            </div>
+
+                            <div class="info_card_row flex align_cen">
+                                <i class="far fa-envelope"></i>
+                                <h6>{{ $user->email }}</h6>
+                            </div>
+
+                        </div>
+
                         {{-- immagine ristorante --}}
                     </div>
 

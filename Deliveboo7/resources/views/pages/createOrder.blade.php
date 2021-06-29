@@ -45,16 +45,16 @@
                             placeholder="Insersci qui il comune" required>
 
                         {{-- cap --}}
-                        <label for="cap">Cap</label>
+                        <label for="cap">C.A.P.</label>
                         <input id="cap" type="integer" name="cap" value="{{ old('cap') }}"
-                            placeholder="Insersci qui il cap" required>
+                            placeholder="Insersci qui il C.A.P." required>
 
                         {{-- telefono --}}
                         <label for="telefono">Telefono</label>
                         <input type="tel" id="telefono" name="telefono" pattern="[0-9]{10}"
                             placeholder="Insersci qui il tuo numero di telefono">
 
-                        {{-- cap --}}
+                        {{-- note --}}
                         <label for="note">Note (opzionale)</label>
                         <input id="note" type="text" name="note" value="{{ old('note') }}"
                             placeholder='Insersci qui eventuali note (es.: "citofono rotto")'>
