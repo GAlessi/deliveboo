@@ -1,5 +1,4 @@
 <header>
-    {{-- <div id="app"> --}}
     <div class="mycontainer flex_center">
 
         {{-- nav --}}
@@ -21,11 +20,11 @@
             <div class="nav_right flex_col align_cen">
 
                 @guest
-                
+
                     <h6>Sei un ristoratore?</h6>
 
                 @endguest
-                
+
                 {{-- autenticazione --}}
                 <div class="nav_buttons">
                     <div class="nav_buttons collapse navbar-collapse" id="navbarSupportedContent">
@@ -52,7 +51,7 @@
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
-                                                                                                                                                                                           document.getElementById('logout-form').submit();">
+                                                                                                                                                                                               document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
                                         </a>
 

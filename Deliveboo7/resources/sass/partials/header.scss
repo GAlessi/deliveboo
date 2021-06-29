@@ -12,7 +12,6 @@ header {
     .mycontainer {
         flex-direction: row;
         height: 100%;
-        width: 100%;
 
         nav {
             width: 100%;
@@ -64,3 +63,7 @@ header {
         } //fine nav
     } //fine mycontainer
 } //finer header
+
+// VERSIONE TABLET
+//@media all and (min-width: 768px) and (max-width: 1099px) 
+    
