@@ -20,8 +20,12 @@
             {{-- nav_right --}}
             <div class="nav_right flex_col align_cen">
 
-                <h6>Sei un ristoratore?</h6>
+                @guest
+                
+                    <h6>Sei un ristoratore?</h6>
 
+                @endguest
+                
                 {{-- autenticazione --}}
                 <div class="nav_buttons">
                     <div class="nav_buttons collapse navbar-collapse" id="navbarSupportedContent">

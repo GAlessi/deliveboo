@@ -58,7 +58,7 @@
 
                         <p>Tipo di Cucina</p>
 
-                        @foreach ($user->types as $type)
+                        @foreach ($user->types->sortBy('nome') as $type)
 
                             <h6>{{ $loop->last ? $type->nome : $type->nome . ', ' }}</h6>
 
@@ -80,8 +80,8 @@
                                     </a>
                                 </div>
 
-                                <div class="option_card flex space_bet" title="Guarda gli ordini ricevuti">
-                                    <a href="{{ route('showOrders', $user->id) }}">
+                                <div class="option_card" title="Guarda gli ordini ricevuti">
+                                    <a href="{{ route('showOrders', $user->id) }}" class="flex space_bet">
                                         <h6>Ordini Ricevuti</h6>
                                         <i class="fas fa-clipboard-list"></i>
                                     </a>
