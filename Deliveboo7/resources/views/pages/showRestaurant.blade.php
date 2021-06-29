@@ -20,6 +20,11 @@
                     {{-- carrello aperto --}}
                     <div class="opened_cart flex_col animate__animated animate__fadeInRight" :hidden="cartHidden">
 
+                        <div @click="showCart" class="riduci flex just_end align_cen">
+                            <p>Riduci</p>
+                            <h6><i class="fas fa-long-arrow-alt-right"></i></h6>
+                        </div>
+
                         <h3>Il tuo ordine</h3>
                         <h4>Ristorante: {{ $user->nome_attivita }}</h4>
                         <h5>Totale prodotti: @{{ cartItems }} </h5>
@@ -133,12 +138,12 @@
                                         <div class="dish_card flex_col just_start"
                                             title="Aggiungi {{ $dish->nome }} al carrello">
                                             <h6>{{ $dish->nome }}</h6>
-                                            <p>{{ $dish->ingredienti }}</p>
-                                            <p>{{ $dish->descrizione }}</p>
-                                            <h6>{{ $dish->prezzo }} €</h6>
+                                            <p><span>Ingredienti:</span> {{ $dish->ingredienti }}</p>
+                                            <p><span>Descrizione:</span> {{ $dish->descrizione }}</p>
+                                            <h6>Prezzo: {{ $dish->prezzo }} €</h6>
 
                                             {{-- bottone aggiungi al carrello --}}
-                                            <button @click="addToCart({{ $dish }})">
+                                            <button @click="addToCart({{ $dish }})" class="flex_center">
                                                 Aggiungi all'ordine <i class="fas fa-cart-plus"></i>
                                             </button>
 

@@ -11516,7 +11516,7 @@ main #mainPage #restaurants .restaurant_card h4 {
 
   main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search input {
     padding: 3px;
-    font-size: 20px;
+    font-size: 18px;
     background-size: 25px 25px;
   }
 
@@ -11676,11 +11676,19 @@ main #mainPage #restaurants .restaurant_card h4 {
   height: auto;
   max-height: 70vh;
   overflow: auto;
-  width: 30%;
+  width: 45%;
   background-color: #dcdcdc;
   border: solid 1px #264653;
   border-radius: 10px 0 0 10px;
   box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+}
+
+#showRestaurant .opened_cart .riduci {
+  cursor: pointer;
+}
+
+#showRestaurant .opened_cart .riduci i {
+  margin: 5px;
 }
 
 #showRestaurant .opened_cart li {
@@ -11832,6 +11840,10 @@ main #mainPage #restaurants .restaurant_card h4 {
   box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
 }
 
+#showRestaurant .menu_container .dish_card span {
+  font-weight: bold;
+}
+
 #showRestaurant .menu_container .dish_card p,
 #showRestaurant .menu_container .dish_card i {
   margin: 5px;
@@ -11876,6 +11888,7 @@ main #mainPage #restaurants .restaurant_card h4 {
 }
 
 #showRestaurant .menu_container .dish_card:hover > p,
+#showRestaurant .menu_container .dish_card:hover span,
 #showRestaurant .menu_container .dish_card:hover > h6 {
   color: #dcdcdc;
 }
@@ -11888,6 +11901,88 @@ main #mainPage #restaurants .restaurant_card h4 {
 #showRestaurant .menu_container .dish_card:hover .delete_row {
   color: #dcdcdc;
   background-color: #e76f51;
+}
+
+@media all and (max-width: 576px) {
+  #showRestaurant {
+    padding: 15px 0;
+  }
+
+  #showRestaurant .opened_cart {
+    width: 95%;
+  }
+
+  #showRestaurant .menu_container .restaurant_options {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  #showRestaurant .menu_container .restaurant_options .option_card {
+    margin: 4px;
+    width: 95%;
+  }
+
+  #showRestaurant .menu_container ul li {
+    width: 100%;
+  }
+
+  #showRestaurant .menu_container .dish_card p,
+  #showRestaurant .menu_container .dish_card i,
+  #showRestaurant .menu_container .dish_card span {
+    margin: 5px;
+    font-size: 14px;
+  }
+
+  #showRestaurant .menu_container .dish_card button {
+    font-size: 18px;
+  }
+}
+
+@media all and (min-width: 577px) and (max-width: 767px) {
+  #showRestaurant {
+    padding: 15px 0;
+  }
+
+  #showRestaurant .opened_cart {
+    width: 70%;
+  }
+
+  #showRestaurant .menu_container .restaurant_options {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  #showRestaurant .menu_container .restaurant_options .option_card {
+    margin: 5px;
+    width: 48%;
+  }
+
+  #showRestaurant .menu_container ul li {
+    width: 50%;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 1099px) {
+  #showRestaurant .opened_cart {
+    width: 60%;
+  }
+
+  #showRestaurant .menu_container .restaurant_options {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  #showRestaurant .menu_container .restaurant_options .option_card {
+    margin: 5px;
+    width: 48%;
+  }
+
+  #showRestaurant .menu_container ul li {
+    width: 50%;
+  }
 }
 
 #createDish {
@@ -12069,30 +12164,53 @@ main #mainPage #restaurants .restaurant_card h4 {
   min-height: calc(100vh - 338px);
   padding: 30px 0;
   background-color: #e76f51;
-  text-align: center;
 }
 
 #showOrders h2,
 #showOrders h5 {
+  text-align: center;
   color: #e9c46a;
   text-shadow: 2px 2px 2px #264653;
 }
 
-#showOrders .orders_container .order_card {
+#showOrders .orders_container li {
+  width: 45%;
+}
+
+#showOrders .orders_container li .order_card {
   margin: 10px;
   padding: 5px;
+  width: 100%;
   background-color: #e9c46a;
   border: solid 1px #264653;
   border-radius: 10px;
   box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
 }
 
-#showOrders .orders_container .order_card h6 {
+#showOrders .orders_container li .order_card h6 {
   border-bottom: 1px solid #264653;
 }
 
-#showOrders .orders_container .order_card i {
+#showOrders .orders_container li .order_card i {
   margin: 5px;
+}
+
+@media all and (max-width: 576px) {
+  #showOrders .orders_container li {
+    width: 100%;
+  }
+}
+
+@media all and (min-width: 577px) and (max-width: 767px) {
+  #showOrders .orders_container li {
+    width: 100%;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 1099px) {
+  #showOrders .orders_container li {
+    width: 100%;
+  }
 }
 
 #braintreePay {

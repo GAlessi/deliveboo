@@ -27,7 +27,7 @@
 
                 {{-- autenticazione --}}
                 <div class="nav_buttons">
-                    <div class="nav_buttons collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="nav_buttons navbar-collapse" id="navbarSupportedContent">
 
                         <ul class="navbar-nav ml-auto">
 
