@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
             $table -> string('citta', 64) -> nullable(false);
             $table -> string('cap', 16) -> nullable(false);
             $table -> string('p_iva', 16) -> nullable(false);
-            $table -> string('file_path') -> nullable();
+            $table -> string('file_path') -> nullable(false);
             $table->rememberToken();
 
             $table->timestamps();
