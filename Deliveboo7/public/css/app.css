@@ -11129,6 +11129,7 @@ footer .column .footer_list:last-of-type i:hover {
 }
 
 #login {
+  min-height: calc(100vh - 338px);
   padding: 30px 0;
   background-color: #2a9d8f;
 }
@@ -11180,6 +11181,7 @@ footer .column .footer_list:last-of-type i:hover {
 }
 
 #register {
+  min-height: calc(100vh - 338px);
   padding: 30px 0;
   background-color: #2a9d8f;
 }
@@ -11444,11 +11446,6 @@ main #mainPage #restaurants .restaurant_card h4 {
   background-color: #e76f51;
 }
 
-#showRestaurant .sticky_container {
-  top: 10px;
-  right: 5px;
-}
-
 #showRestaurant .cart {
   position: sticky;
   position: -webkit-sticky;
@@ -11560,17 +11557,32 @@ main #mainPage #restaurants .restaurant_card h4 {
   color: #dcdcdc;
 }
 
-#showRestaurant .restaurant_name {
+#showRestaurant .restaurant_info {
   text-align: center;
 }
 
-#showRestaurant .restaurant_name h2,
-#showRestaurant .restaurant_name h6 {
+#showRestaurant .restaurant_info h2,
+#showRestaurant .restaurant_info h6 {
   color: #e9c46a;
   text-shadow: 2px 2px 2px #264653;
 }
 
-#showRestaurant .restaurant_name h6 {
+#showRestaurant .restaurant_info .restaurant_info_card {
+  margin-bottom: 10px;
+  padding: 5px;
+  width: auto;
+  border: solid 1px #e9c46a;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+}
+
+#showRestaurant .restaurant_info .restaurant_info_card i {
+  margin: 5px;
+  box-shadow: none !important;
+}
+
+#showRestaurant .restaurant_info .restaurant_info_card h6 {
+  margin: 0;
   display: inline-block;
 }
 
@@ -11688,6 +11700,7 @@ main #mainPage #restaurants .restaurant_card h4 {
 }
 
 #createDish {
+  min-height: calc(100vh - 338px);
   padding: 30px 0;
   background-color: #2a9d8f;
 }
@@ -11745,6 +11758,7 @@ main #mainPage #restaurants .restaurant_card h4 {
 }
 
 #editDish {
+  min-height: calc(100vh - 338px);
   padding: 30px 0;
   background-color: #e9c46a;
 }
@@ -11802,6 +11816,7 @@ main #mainPage #restaurants .restaurant_card h4 {
 }
 
 #createOrder {
+  min-height: calc(100vh - 338px);
   padding: 30px 0;
   background-color: #264653;
 }
@@ -11860,6 +11875,7 @@ main #mainPage #restaurants .restaurant_card h4 {
 }
 
 #showOrders {
+  min-height: calc(100vh - 338px);
   padding: 30px 0;
   background-color: #e76f51;
   text-align: center;
@@ -11889,7 +11905,7 @@ main #mainPage #restaurants .restaurant_card h4 {
 }
 
 #braintreePay {
-  margin-top: 85px;
+  min-height: calc(100vh - 338px);
   padding: 30px 0;
   background-color: #264653;
 }
@@ -11904,6 +11920,7 @@ main #mainPage #restaurants .restaurant_card h4 {
   margin: auto;
   padding: 10px;
   width: 60%;
+  text-align: center;
   background-color: #f4a261;
   border-radius: 20px;
   box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
@@ -11912,6 +11929,10 @@ main #mainPage #restaurants .restaurant_card h4 {
 #braintreePay .payment_container h5 {
   text-align: center;
   color: #264653;
+}
+
+#braintreePay .payment_container .braintree-option__paypal {
+  display: none;
 }
 
 #braintreePay .payment_container button {
@@ -11939,7 +11960,9 @@ main #mainPage #restaurants .restaurant_card h4 {
 }
 
 #paymentDetails {
+  min-height: calc(100vh - 338px);
   padding: 30px 0;
+  text-align: center;
   background-color: #264653;
 }
 
@@ -11998,10 +12021,6 @@ input:focus {
 }
 
 .hidden {
-  display: none;
-}
-
-.braintree-option__paypal {
   display: none;
 }
 

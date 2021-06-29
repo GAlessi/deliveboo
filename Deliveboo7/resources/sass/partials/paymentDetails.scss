@@ -1,6 +1,7 @@
 #paymentDetails {
-    //margin-top: 85px;
+    min-height: calc(100vh - 338px);
     padding: 30px 0;
+    text-align: center;
     background-color: $blue;
 
     h2, h5 {
