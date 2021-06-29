@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
             searchedRestaurantTxt: "",
             filteredRestaurants: [],
             txtFilteredRestaurant: [],
+            showSearch: false,
 
             //piatti per carrello
             carrello: [],
@@ -142,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                                     this.txtFilteredRestaurant.push(restaurant);
                                 }
-
+                                this.showSearch = true;
                             }
 
                         }).catch((error) => {

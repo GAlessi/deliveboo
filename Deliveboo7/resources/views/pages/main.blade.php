@@ -77,10 +77,10 @@
                     </div>
                 </section>
 
-                {{-- ristoranti filtrati per nome --}}
-                <section v-if="searchedRestaurantTxt.length > 0" id="filtered_restaurants"
-                    class="animate__animated animate__fadeInUp">
-                    <div class="mycontainer" v-if="txtFilteredRestaurant.length > 0">
+            {{-- ristoranti filtrati per nome --}}
+            <section v-if="searchedRestaurantTxt.length > 0 && showSearch" id="filtered_restaurants"
+                class="animate__animated animate__fadeInUp">
+                <div class="mycontainer" v-if="txtFilteredRestaurant.length > 0">
 
                         <h3>Ecco cosa abbiamo trovato per te</h3>
 
@@ -144,8 +144,8 @@
                         <div class="restaurants_carousel">
                             <div class="autoplay">
 
-                                {{-- card tiplogia --}}
-                                @foreach ($users->take(6) as $user)
+                            {{-- card tiplogia --}}
+                            @foreach ($users as $user)
 
                                     <div class="restaurant_card relative">
                                         <a href="{{ route('show', $user->id) }}"
@@ -156,10 +156,8 @@
                                         </a>
                                     </div>
 
-                                @endforeach
+                            @endforeach
 
-                            </div>
-                            {{-- fine carousel --}}
                         </div>
                     </div>
 
