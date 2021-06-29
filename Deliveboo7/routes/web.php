@@ -63,3 +63,6 @@ Route::get('/pay/{totalPrice}/{order}','BrainController@pay')
 
 Route::post('/checkout/{order}', 'BrainController@checkout')
 -> name('checkout');
+
+//statistiche
+Route::get('/statistiche/{id}', 'HomeController@statistiche') -> name('statistiche');
