@@ -32,9 +32,7 @@
                             <h3>i piatti che ami, a domicilio.</h3>
                         </div>
 
-                            {{-- ricerca per nome ristorante --}}
-                            <input v-if="filter.length == 0" type="text" placeholder="Cerca un ristorante" type="text"
-                                @keyup='searchRestaurant' v-model='searchedRestaurantTxt'>
+                        <div class="jumbotron_container flex align_cen">
 
                             {{-- filtro ricerca --}}
                             <div class="jumbotron_search flex_col align_cen">
