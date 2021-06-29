@@ -17,6 +17,7 @@ class Order extends Model
     'telefono',
     'note',
     'status',
+    'totalPrice'
   ];
 
   //One to Many   Restaurant to Orders

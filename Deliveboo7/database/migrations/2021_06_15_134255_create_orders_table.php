@@ -25,6 +25,7 @@ class CreateOrdersTable extends Migration
         $table -> string('telefono', 32) -> nullable(false);
         $table -> string('note', 255) -> nullable();
         $table -> string('status', 16) ->default('in sospeso');
+        $table -> integer('totalPrice') -> nullable(false);
 
         $table->timestamps();
       });
