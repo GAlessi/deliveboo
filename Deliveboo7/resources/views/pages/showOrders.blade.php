@@ -14,7 +14,7 @@
 
                     <ul class="flex_wrap">
 
-                        @foreach ($restaurantOrders as $restaurantOrder)
+                        @foreach ($orderSel as $restaurantOrder)
 
                             <li>
                                 <div class="order_card flex_col align_start">
@@ -23,8 +23,12 @@
                                     <h6><i class="fas fa-user-alt"></i>Cliente: {{ $restaurantOrder->nome_cliente }}
                                         {{ $restaurantOrder->cognome_cliente }} - Tel {{ $restaurantOrder->telefono }}
                                     </h6>
-                                    <h6><i class="fas fa-drumstick-bite"></i>Prodotti ordinati: </h6>
-                                    <h6><i class="fas fa-euro-sign"></i>Pagamento:</h6>
+                                    <h6><i class="fas fa-drumstick-bite"></i>Prodotti ordinati:
+                                            @foreach ($restaurantOrder -> dishes as $dish)
+                                                {{ $loop->last ? $dish->nome : $dish->nome . ', ' }}
+                                            @endforeach
+                                     </h6>
+                                    <h6><i class="fas fa-euro-sign"></i>Pagamento: {{ $restaurantOrder->totalPrice }}</h6>
                                     <h6><i class="fas fa-map-marker-alt"></i>Consegnato in: {{ $restaurantOrder->via }} {{ $restaurantOrder->n_civico }},
                                         {{ $restaurantOrder->citta }}, {{ $restaurantOrder->cap }}</h6>
                                     @if ($restaurantOrder->note)

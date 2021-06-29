@@ -54,6 +54,7 @@ class MainController extends Controller
           'cap' => 'required|string',
           'telefono' => 'required|string|min:3',
           'note' => 'max:255',
+          'totalPrice' =>'required',
       ]);
       // dd($validated);
 
