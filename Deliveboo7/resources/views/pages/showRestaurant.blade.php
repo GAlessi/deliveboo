@@ -117,7 +117,7 @@
                                 </div>
 
                                 <div class="option_card" title="Guarda statistiche">
-                                    <a href="" class="flex space_bet align_cen">
+                                    <a href="{{route('statistiche', $user->id)}}" class="flex space_bet align_cen">
                                         <h6>Statistiche Ordini</h6>
                                         <i class="fas fa-chart-line"></i>
                                     </a>
