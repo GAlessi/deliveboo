@@ -65,41 +65,14 @@
                 border: solid 2px $blue;
             }
         }
-    }
-}
+    } // finre register_container
+} // fine register
 
-
-
-// --------------------------------------------------------------------------
-
-
-// VERSIONE LARGE SMARTPHONE
-@media all and (min-width: 577px) and (max-width: 767px)
-{
-
-
+// VERSIONE SMALL ED EXTRA SMALL DEVICES
+@media all and (max-width: 767px) {
     #register {
-
         .register_container {
-
-            width: 100%;
-
+            width: 90%;
         }
     }
-
-}
-
-//SMALL SMARTPHONE
-@media all and (max-width: 576px)
-{
-
-    #register {
-
-        .register_container {
-
-            width: 100%;
-
-        }
-    }
-
 }

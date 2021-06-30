@@ -3,13 +3,13 @@
 @section('content')
     <main>
         <div id="braintreePay">
-
             <div class="mycontainer">
 
                 <h2>Completa il tuo ordine</h2>
 
                 <div class="payment_container">
 
+                    {{-- form pagamento --}}
                     <form method="post" id="payment-form" action="{{ route('checkout', $order) }}">
                         @csrf
 
@@ -37,7 +37,6 @@
             </div>
             {{-- fine braintreePay --}}
         </div>
-
     </main>
 
     <script src="https://js.braintreegateway.com/web/dropin/1.30.1/js/dropin.min.js"></script>
