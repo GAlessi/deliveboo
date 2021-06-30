@@ -52816,19 +52816,17 @@ document.addEventListener("DOMContentLoaded", function () {
       addToCart: function addToCart(dish) {
         var choosenDish = dish; // increase(dishId, index);
 
-        if (this.carrello.length == 0 && this.cartHidden) {
+        if (this.carrello.length == 0) {
           choosenDish.counter = 1;
           this.totalPrice += choosenDish.prezzo;
           this.carrello.push(choosenDish);
           this.carrelloID.push(choosenDish.id);
           this.cartItems += 1;
-          this.showCart();
-        } else if (this.carrello.length == 0) {
-          choosenDish.counter = 1;
-          this.totalPrice += choosenDish.prezzo;
-          this.carrello.push(choosenDish);
-          this.carrelloID.push(choosenDish.id);
-          this.cartItems += 1;
+          console.log(this.totalPrice, choosenDish.prezzo);
+
+          if (this.cartHidden) {
+            this.showCart();
+          }
         } else {
           for (var i = 0; i <= this.carrello.length; i++) {
             if (this.carrello[i].id == choosenDish.id) {
@@ -52977,8 +52975,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\dev\github\project-final\Deliveboo7\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\dev\github\project-final\Deliveboo7\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\booleanSviluppo\code\laravel\project-final\Deliveboo7\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\booleanSviluppo\code\laravel\project-final\Deliveboo7\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

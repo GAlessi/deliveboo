@@ -30,7 +30,7 @@
 
                         {{-- prezzo --}}
                         <label for="">Prezzo</label>
-                        <input id="prezzo" type="integer" name="prezzo" value="{{ $dish->prezzo }}" required>
+                        <input id="prezzo" type="number" step=".01" name="prezzo" value="{{ $dish->prezzo }}" required>
 
                         {{-- visibilità --}}
                         <label for="visibilita">Desideri che sia subito visibile nel tuo Menu?</label>
