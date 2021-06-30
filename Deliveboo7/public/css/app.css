@@ -11809,19 +11809,34 @@ main #mainPage #restaurants .restaurant_card h4 {
 
 #showRestaurant .restaurant_info .restaurant_info_card {
   margin-bottom: 10px;
-  padding: 5px;
   width: auto;
+  max-width: 400px;
   border: solid 1px #e9c46a;
   border-radius: 10px;
   box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
 }
 
-#showRestaurant .restaurant_info .restaurant_info_card i {
+#showRestaurant .restaurant_info .restaurant_info_card .restaurant_image {
+  width: 100%;
+}
+
+#showRestaurant .restaurant_info .restaurant_info_card .restaurant_image img {
+  height: 100%;
+  width: 100%;
+  border: solid 3px #264653;
+  border-radius: 10px;
+}
+
+#showRestaurant .restaurant_info .restaurant_info_card .info_card_row {
+  padding: 5px;
+}
+
+#showRestaurant .restaurant_info .restaurant_info_card .info_card_row i {
   margin: 5px;
   box-shadow: none !important;
 }
 
-#showRestaurant .restaurant_info .restaurant_info_card h6 {
+#showRestaurant .restaurant_info .restaurant_info_card .info_card_row h6 {
   margin: 0;
   display: inline-block;
 }
