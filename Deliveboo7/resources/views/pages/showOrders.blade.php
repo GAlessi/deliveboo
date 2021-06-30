@@ -4,9 +4,20 @@
 
     <main>
         <div id="showOrders">
+            {{-- sezione myrestaurant --}}
+            <div id="myrestaurant">
+
+                <h2>Bentornato {{ $user->name }}</h2>
+
+                {{-- link al mio ristorante --}}
+                <a href="{{ route('show', $user->id) }}">
+                    <h3>Vai al tuo ristorante <i class="fas fa-angle-double-right"></i></h3>
+                </a>
+
+            </div>
             <div class="mycontainer">
 
-                <h2>Ciao {{ $user->name }}</h2>
+
 
                 <h5>Questi sono gli ordini ricevuti dal tuo ristorante</h5>
 

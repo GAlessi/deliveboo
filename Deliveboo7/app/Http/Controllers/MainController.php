@@ -9,6 +9,7 @@ use App\Type;
 use App\User;
 use App\Order;
 
+
 class MainController extends Controller
 {
   public function main(){
@@ -70,7 +71,11 @@ class MainController extends Controller
 
 
       $totalPrice = $request->totalPrice;
+
+
       return redirect() -> route('pay', compact('totalPrice', 'order'));
-      // return Redirect::route('pay')->with('totalPrice');
   }
+
+
+
 }

@@ -86,7 +86,7 @@
                                 <li v-for="restaurant in txtFilteredRestaurant">
                                     <div class="restaurant_card relative">
                                         <a :href="'/showRestaurant/' + restaurant.id">
-                                            <img src="{{ asset('/storage/images/copertina_jappo.jpg') }}"
+                                            <img :src="'/storage/restaurantImages/' + restaurant.file_path"
                                                 alt="immagine_ristorante">
                                             <h4 class="absolute">@{{ restaurant . nome_attivita }}</h4>
                                         </a>
@@ -116,7 +116,7 @@
                                 <li v-for="restaurant in filteredRestaurants">
                                     <div class="restaurant_card relative">
                                         <a :href="'/showRestaurant/' + restaurant.id">
-                                            <img src="{{ asset('/storage/images/copertina_jappo.jpg') }}"
+                                            <img :src="'/storage/restaurantImages/' + restaurant.file_path"
                                                 alt="immagine_ristorante">
                                             <h4 class="absolute">@{{ restaurant . nome_attivita }}</h4>
                                         </a>
@@ -146,7 +146,7 @@
                                     <div class="restaurant_card relative">
                                         <a href="{{ route('show', $user->id) }}"
                                             title="Vai al menu di {{ $user->nome_attivita }}">
-                                            <img src="{{ asset('/storage/images/copertina_jappo.jpg') }}"
+                                            <img src="{{ asset('/storage/restaurantImages/' . $user->file_path)}}"
                                                 alt="immagine tiplogia">
                                             <h4 class="absolute">{{ $user->nome_attivita }}</h4>
                                         </a>

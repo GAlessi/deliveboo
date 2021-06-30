@@ -34,6 +34,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             //visibilità carrello
             cartHidden: true,
+
+            //Statistiche
+            allOrders: [],
         },
 
         mounted: function () {
@@ -236,6 +239,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 this.cartHidden = !this.cartHidden;
             },
 
+
+            getOrdersStats: function() {
+
+                axios.get('/api/statistiche')
+                    .then(data => {
+                        this.allOrders = data.data;
+                        console.log(this.allOrders);
+
+                    }).catch((error) => {
+                        console.log(error);
+                    });
+
+            }
         } // fine methods
     }); //fine vue
 

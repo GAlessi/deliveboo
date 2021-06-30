@@ -52700,7 +52700,9 @@ document.addEventListener("DOMContentLoaded", function () {
       cartItems: 0,
       multiPrice: 0,
       //visibilità carrello
-      cartHidden: true
+      cartHidden: true,
+      //Statistiche
+      allOrders: []
     },
     mounted: function mounted() {
       console.log('VUE Connected');
@@ -52866,6 +52868,16 @@ document.addEventListener("DOMContentLoaded", function () {
       // mostro-nascondo carrello
       showCart: function showCart() {
         this.cartHidden = !this.cartHidden;
+      },
+      getOrdersStats: function getOrdersStats() {
+        var _this5 = this;
+
+        axios.get('/api/statistiche').then(function (data) {
+          _this5.allOrders = data.data;
+          console.log(_this5.allOrders);
+        })["catch"](function (error) {
+          console.log(error);
+        });
       }
     } // fine methods
 
@@ -52965,8 +52977,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\esercizi_laravel\project-final\Deliveboo7\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\esercizi_laravel\project-final\Deliveboo7\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\dev\github\project-final\Deliveboo7\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\dev\github\project-final\Deliveboo7\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

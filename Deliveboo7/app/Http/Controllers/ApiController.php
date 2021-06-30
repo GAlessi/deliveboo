@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\User;
 use App\Type;
+use App\Order;
 
 class ApiController extends Controller
 {
@@ -42,4 +43,7 @@ class ApiController extends Controller
         return [$restaurants, $category_restaurant];
 
     }
+
+
+
 }

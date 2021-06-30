@@ -15,6 +15,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -25,7 +26,9 @@ class CreateUsersTable extends Migration
             $table -> string('citta', 64) -> nullable(false);
             $table -> string('cap', 16) -> nullable(false);
             $table -> string('p_iva', 16) -> nullable(false);
+            $table -> string('file_path') -> nullable(false);
             $table->rememberToken();
+
             $table->timestamps();
         });
     }

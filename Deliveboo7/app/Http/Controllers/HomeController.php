@@ -126,6 +126,25 @@ class HomeController extends Controller
 
         return view('pages.showOrders', compact('user', 'orderSel'));
     }
+
+    //get Statistica
+    public function statistiche($id){
+
+        $myUser = User::FindOrFail($id);
+
+        $user = DB::table('users')
+        ->join('dishes', 'users.id', '=', 'dishes.user_id')
+        ->where('users.id', $myUser -> id)
+        ->join('dish_order', 'dishes.id', '=', 'dish_order.dish_id')
+        ->join('orders', 'orders.id', '=', 'dish_order.order_id')
+        ->get();
+
+        return view('pages.statistiche', compact('user'));
+    }
+
+
+
+
     /**
     * Show the application dashboard.
     *

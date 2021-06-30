@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+
+use App\Mail\NewOrder;
 use App\Order;
+
 
 class BrainController extends Controller
 {
@@ -45,12 +50,26 @@ class BrainController extends Controller
         $editableOrder = Order::findOrFail($order);
         // dd($editableOrder);
 
+
+        $users = DB::table('orders')
+        ->join('dish_order', 'orders.id', '=', 'dish_order.order_id')
+        ->where('orders.id', $editableOrder -> id)
+        ->join('dishes', 'dishes.id', '=', 'dish_order.dish_id')
+        ->join('users', 'dishes.user_id', '=', 'users.id')
+        ->get();
+        // dd($users[0]->email);
+
         if ($result->success) {
             $transaction = $result->transaction;
             // header("Location: " . $baseUrl . "transaction.php?id=" . $transaction->id);
 
             $editableOrder->status = 'accettato';
             $editableOrder -> save();
+
+
+
+            Mail::to($users[0]->email)
+            ->send(new NewOrder($editableOrder));
 
             return view('pages.paymentDetails', compact('amount', 'editableOrder'));
         } else {
@@ -61,7 +80,7 @@ class BrainController extends Controller
 
             foreach($result->errors->deepAll() as $error) {
                 $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
-            }
+            };
 
             // $_SESSION["errors"] = $errorString;
             // header("Location: " . $baseUrl . "index.php");
