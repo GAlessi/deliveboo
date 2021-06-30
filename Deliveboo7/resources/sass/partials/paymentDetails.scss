@@ -4,7 +4,8 @@
     text-align: center;
     background-color: $blue;
 
-    h2, h5 {
+    h2,
+    h5 {
         text-align: center;
         color: $orange;
         text-shadow: 2px 2px 2px rgba(50, 50, 50, 0.91);
@@ -16,3 +17,12 @@
         color: $yellow;
     }
 } //fine paymentDetails
+
+// VERSIONE EXTRA SMALL DEVICES
+@media all and (max-width: 576px) {
+    #paymentDetails {
+        a {
+            font-size: $text_medium;
+        }
+    }
+}

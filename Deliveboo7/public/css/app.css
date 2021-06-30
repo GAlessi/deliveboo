@@ -11156,6 +11156,7 @@ header .mycontainer nav .nav_right .nav_buttons .navbar-nav li.nav-item a:hover 
 
 footer {
   background-color: #264653;
+  box-shadow: 0px -2px 2px 0px rgba(50, 50, 50, 0.75);
 }
 
 footer * {
@@ -11242,15 +11243,9 @@ footer .column .footer_list:last-of-type i:hover {
   border: solid 2px #264653;
 }
 
-@media all and (min-width: 577px) and (max-width: 767px) {
+@media all and (max-width: 767px) {
   #login .form_container {
-    width: 100%;
-  }
-}
-
-@media all and (max-width: 576px) {
-  #login .form_container {
-    width: 100%;
+    width: 90%;
   }
 }
 
@@ -11317,15 +11312,9 @@ footer .column .footer_list:last-of-type i:hover {
   border: solid 2px #264653;
 }
 
-@media all and (min-width: 577px) and (max-width: 767px) {
+@media all and (max-width: 767px) {
   #register .register_container {
-    width: 100%;
-  }
-}
-
-@media all and (max-width: 576px) {
-  #register .register_container {
-    width: 100%;
+    width: 90%;
   }
 }
 
@@ -12063,7 +12052,7 @@ main #mainPage #restaurants .restaurant_card h4 {
 
 #createDish .create_container input#prezzo {
   background-image: url("/storage/images/euro.png");
-  background-position: 95% 50%;
+  background-position: 90% 50%;
   background-size: 5% 70%;
   background-repeat: no-repeat;
 }
@@ -12085,15 +12074,21 @@ main #mainPage #restaurants .restaurant_card h4 {
   border: solid 2px #264653;
 }
 
-@media all and (min-width: 577px) and (max-width: 767px) {
+@media all and (max-width: 767px) {
   #createDish .create_container {
     width: 100%;
   }
-}
 
-@media all and (max-width: 576px) {
-  #createDish .create_container {
+  #createDish .create_container label {
+    font-size: 18px;
+  }
+
+  #createDish .create_container input {
     width: 100%;
+  }
+
+  #createDish .create_container button {
+    padding: 3px;
   }
 }
 
@@ -12133,7 +12128,7 @@ main #mainPage #restaurants .restaurant_card h4 {
 
 #editDish .edit_container input#prezzo {
   background-image: url("/storage/images/euro.png");
-  background-position: 95% 50%;
+  background-position: 90% 50%;
   background-size: 5% 70%;
   background-repeat: no-repeat;
 }
@@ -12155,15 +12150,21 @@ main #mainPage #restaurants .restaurant_card h4 {
   border: solid 2px #264653;
 }
 
-@media all and (min-width: 577px) and (max-width: 767px) {
+@media all and (max-width: 767px) {
   #editDish .edit_container {
     width: 100%;
   }
-}
 
-@media all and (max-width: 576px) {
-  #editDish .edit_container {
+  #editDish .edit_container label {
+    font-size: 18px;
+  }
+
+  #editDish .edit_container input {
     width: 100%;
+  }
+
+  #editDish .edit_container button {
+    padding: 3px;
   }
 }
 
@@ -12224,6 +12225,24 @@ main #mainPage #restaurants .restaurant_card h4 {
 
 #createOrder .order_container button:hover i {
   color: #dcdcdc;
+}
+
+@media all and (max-width: 767px) {
+  #createOrder .order_container {
+    width: 100%;
+  }
+
+  #createOrder .order_container label {
+    font-size: 18px;
+  }
+
+  #createOrder .order_container input {
+    width: 100%;
+  }
+
+  #createOrder .order_container button {
+    padding: 3px;
+  }
 }
 
 #showOrders {
@@ -12297,7 +12316,7 @@ main #mainPage #restaurants .restaurant_card h4 {
 
 #braintreePay .payment_container {
   margin: auto;
-  padding: 10px;
+  padding: 10px 0;
   width: 60%;
   text-align: center;
   background-color: #f4a261;
@@ -12306,6 +12325,7 @@ main #mainPage #restaurants .restaurant_card h4 {
 }
 
 #braintreePay .payment_container h5 {
+  margin: 0;
   text-align: center;
   color: #264653;
 }
@@ -12315,7 +12335,7 @@ main #mainPage #restaurants .restaurant_card h4 {
 }
 
 #braintreePay .payment_container button {
-  margin: 10px;
+  margin: 5px;
   padding: 10px;
   color: #dcdcdc;
   background-color: #264653;
@@ -12338,6 +12358,12 @@ main #mainPage #restaurants .restaurant_card h4 {
   color: #dcdcdc;
 }
 
+@media all and (max-width: 767px) {
+  #braintreePay .payment_container {
+    width: 90%;
+  }
+}
+
 #paymentDetails {
   min-height: calc(100vh - 338px);
   padding: 30px 0;
@@ -12356,6 +12382,12 @@ main #mainPage #restaurants .restaurant_card h4 {
   margin-top: 30px;
   font-size: 24px;
   color: #e9c46a;
+}
+
+@media all and (max-width: 576px) {
+  #paymentDetails a {
+    font-size: 18px;
+  }
 }
 
 #statistiche {
