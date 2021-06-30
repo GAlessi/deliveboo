@@ -62,3 +62,24 @@
         }
     } // fine order_container
 } // fine createOrder
+
+// VERSIONE SMALL ED EXTRA SMALL DEVICES
+@media all and (max-width: 767px) {
+    #createOrder {
+        .order_container {
+            width: 100%;
+
+            label {
+                font-size: $text_medium;
+            }
+
+            input {
+                width: 100%;
+            }
+
+            button {
+                padding: 3px;
+            }
+        }
+    }
+}
