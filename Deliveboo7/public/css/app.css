@@ -12044,7 +12044,7 @@ main #mainPage #restaurants .restaurant_card h4 {
 
 #createDish .create_container input#prezzo {
   background-image: url("/storage/images/euro.png");
-  background-position: 95% 50%;
+  background-position: 90% 50%;
   background-size: 5% 70%;
   background-repeat: no-repeat;
 }
@@ -12066,15 +12066,21 @@ main #mainPage #restaurants .restaurant_card h4 {
   border: solid 2px #264653;
 }
 
-@media all and (min-width: 577px) and (max-width: 767px) {
+@media all and (max-width: 767px) {
   #createDish .create_container {
     width: 100%;
   }
-}
 
-@media all and (max-width: 576px) {
-  #createDish .create_container {
+  #createDish .create_container label {
+    font-size: 18px;
+  }
+
+  #createDish .create_container input {
     width: 100%;
+  }
+
+  #createDish .create_container button {
+    padding: 3px;
   }
 }
 
