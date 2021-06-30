@@ -11,7 +11,7 @@
 
         </h3>
         <h3>
-            Importo pagato: {{$editableOrder->totalPrice}} €
+            Importo pagato: {{round($editableOrder->totalPrice,2)}} €
 
         </h3>
         <h3>

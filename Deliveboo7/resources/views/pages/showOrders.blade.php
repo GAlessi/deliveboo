@@ -11,10 +11,10 @@
 
                 {{-- link al mio ristorante --}}
                 <a href="{{ route('show', $user->id) }}">
-                    <h4>Torna al tuo ristorante <i class="fas fa-angle-double-right"></i></h4>
+                    <h4><i class="fas fa-angle-double-left"></i> Torna al tuo ristorante</h4>
                 </a>
-
             </div>
+
             <div class="mycontainer">
 
 

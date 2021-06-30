@@ -17,7 +17,7 @@
 
                         @csrf
                         @method('POST')
-                        <input type="hidden" name="totalPrice" value="{{ $totalPrice }}">
+                        <input type="hidden" name="totalPrice" step=".01" value="{{round($totalPrice,2)}}">
 
                         {{-- nome --}}
                         <label for="nome_cliente">Nome</label>

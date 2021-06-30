@@ -57,7 +57,7 @@ class MainController extends Controller
           'note' => 'max:255',
           'totalPrice' =>'required',
       ]);
-      // dd($validated);
+      // dd($request->totalPrice);
 
       $order = Order::make($validated);
       $order -> save();

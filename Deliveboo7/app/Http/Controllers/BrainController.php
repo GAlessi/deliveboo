@@ -57,7 +57,7 @@ class BrainController extends Controller
         ->join('dishes', 'dishes.id', '=', 'dish_order.dish_id')
         ->join('users', 'dishes.user_id', '=', 'users.id')
         ->get();
-        // dd($users[0]->email);
+        // dd($users[0]);
 
         if ($result->success) {
             $transaction = $result->transaction;
@@ -67,7 +67,7 @@ class BrainController extends Controller
             $editableOrder -> save();
 
 
-
+            // dd($editableOrder);
             Mail::to($users[0]->email)
             ->send(new NewOrder($editableOrder));
 

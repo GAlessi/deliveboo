@@ -33,47 +33,20 @@
 
             <div class="footer_list">
 
-                <h3>Il nostro sito</h3>
-
-                <ul>
-                    {{-- link a section tipologie --}}
-                    <li>
-                        <a href="">Tipi di cucina</a>
-                    </li>
-                    {{-- link a cerca --}}
-                    <li>
-                        <a href="#restaurants">I Ristoranti</a>
-                    </li>
-                    {{-- apri carrello --}}
-                    <li>
-                        <a href="">Carrello</a>
-                    </li>
-                    <li>
-                        <a href="#logo_home">Torna ad inizio pagina <i class="fas fa-level-up-alt"></i></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        {{-- terza colonna --}}
-        <div class="column">
-
-            <div class="footer_list">
-
                 <h3>Social</h3>
 
                 <ul>
                     <li>
-                        <a href=""><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
                     </li>
                     <li>
-                        <a href=""><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
                     </li>
                     <li>
-                        <a href=""><i class="fab fa-twitter"></i></a>
+                        <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
                     </li>
                     <li>
-                        <a href=""><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
                     </li>
                 </ul>
             </div>
