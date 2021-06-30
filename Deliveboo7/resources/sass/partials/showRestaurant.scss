@@ -285,6 +285,12 @@
                 background-color: $red;
             }
         } // fine dish_card
+        .dish_card.chiaro{
+            background-color: rgb(240,230,204);
+            &:hover{
+                background-color: rgb(240,230,204);
+            }
+        }
     } //fine menu_container
 } // fine #showRestaurant
 
