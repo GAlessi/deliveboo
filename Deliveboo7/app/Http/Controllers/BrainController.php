@@ -69,7 +69,7 @@ class BrainController extends Controller
 
             // dd($editableOrder);
             Mail::to($users[0]->email)
-            ->send(new NewOrder($editableOrder));
+            ->send(new NewOrder($editableOrder, $users[0]->name));
 
             return view('pages.paymentDetails', compact('amount', 'editableOrder'));
         } else {
