@@ -21,14 +21,14 @@
             <div class="nav_right flex_col align_cen">
 
                 @guest
-                
+
                     <h6>Sei un ristoratore?</h6>
 
                 @endguest
-                
+
                 {{-- autenticazione --}}
                 <div class="nav_buttons">
-                    <div class="nav_buttons collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="nav_buttons navbar-collapse" id="navbarSupportedContent">
 
                         <ul class="navbar-nav ml-auto">
 

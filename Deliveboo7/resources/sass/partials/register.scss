@@ -67,3 +67,39 @@
         }
     }
 }
+
+
+
+// --------------------------------------------------------------------------
+
+
+// VERSIONE LARGE SMARTPHONE
+@media all and (min-width: 577px) and (max-width: 767px)
+{
+
+
+    #register {
+
+        .register_container {
+
+            width: 100%;
+
+        }
+    }
+
+}
+
+//SMALL SMARTPHONE
+@media all and (max-width: 576px)
+{
+
+    #register {
+
+        .register_container {
+
+            width: 100%;
+
+        }
+    }
+
+}
