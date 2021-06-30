@@ -19,6 +19,13 @@ h1 {
     font-size: 85px;
 }
 
+// VERSIONE EXTRA SMALL DEVICES
+@media all and (max-width: 576px) {
+    h1 {
+        font-size: 50px;
+    }
+}
+
 h2,
 h3,
 h4,
@@ -28,25 +35,82 @@ h6 {
 }
 
 h2 {
-    font-size: 50px;
+    font-size: 45px;
+}
+
+// VERSIONE EXTRA SMALL DEVICES
+@media all and (max-width: 576px) {
+    h2 {
+        font-size: 30px;
+    }
 }
 
 h3 {
     font-size: 38px;
 }
 
+// VERSIONE EXTRA SMALL DEVICES
+@media all and (max-width: 576px) {
+    h3 {
+        font-size: 26px;
+    }
+}
+
 h4 {
     font-size: 30px;
+}
+
+// VERSIONE EXTRA SMALL DEVICES
+@media all and (max-width: 576px) {
+    h4 {
+        font-size: 22px;
+    }
 }
 
 h5 {
     font-size: 25px;
 }
 
+// VERSIONE EXTRA SMALL DEVICES
+@media all and (max-width: 576px) {
+    h5 {
+        font-size: 18px;
+    }
+}
+
 h6 {
     font-size: 20px;
 }
 
+// VERSIONE EXTRA SMALL DEVICES
+@media all and (max-width: 576px) {
+    h6 {
+        font-size: 16px;
+    }
+}
+
 //text
 $text_small: 14px;
+$text_medium: 18px;
 $text_big: 24px;
+
+
+//list
+ul li {
+  list-style: none;
+}
+
+//anchor
+a {
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    color: inherit;
+  }
+}
+
+//input
+input:focus {
+  outline: none;
+}

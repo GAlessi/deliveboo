@@ -1,10 +1,10 @@
 @extends('layouts.main-layout')
 
 @section('content')
-    <div id="app">
 
-        <main>
 
+    <main>
+        <div id="app" v-cloak>
             <div id="mainPage">
 
                 @if (Auth::check())
@@ -41,11 +41,7 @@
                                 <input v-if="filter.length == 0" type="text" placeholder="Cerca un ristorante" type="text"
                                     @keyup='searchRestaurant' v-model='searchedRestaurantTxt'>
 
-                                {{-- button --}}
-                                {{-- <button @click="searchRestaurant">Cerca!</button> --}}
-
                                 <h6 v-if='searchedRestaurantTxt == "" && filter == 0'>Oppure</h6>
-
 
                                 {{-- ricerca per tipologie --}}
                                 <div class="chekbox_container" v-if="searchedRestaurantTxt == false">
@@ -77,10 +73,10 @@
                     </div>
                 </section>
 
-            {{-- ristoranti filtrati per nome --}}
-            <section v-if="searchedRestaurantTxt.length > 0 && showSearch" id="filtered_restaurants"
-                class="animate__animated animate__fadeInUp">
-                <div class="mycontainer" v-if="txtFilteredRestaurant.length > 0">
+                {{-- ristoranti filtrati per nome --}}
+                <section v-if="searchedRestaurantTxt.length > 0 && showSearch" id="filtered_restaurants"
+                    class="animate__animated animate__fadeInUp">
+                    <div class="mycontainer" v-if="txtFilteredRestaurant.length > 0">
 
                         <h3>Ecco cosa abbiamo trovato per te</h3>
 
@@ -110,7 +106,7 @@
                 <section v-if="filter != ''" id="filtered_restaurants" class="animate__animated animate__fadeInUp">
                     <div class="mycontainer">
 
-                        <h3 v-if='filteredRestaurants.length==0'>Ops! Nessun risultato...</h3>
+                        <h3 v-if='filteredRestaurants.length == 0'>Ops! Nessun risultato...</h3>
 
                         <h3 v-else>Ecco cosa abbiamo trovato per te</h3>
 
@@ -144,8 +140,8 @@
                         <div class="restaurants_carousel">
                             <div class="autoplay">
 
-                            {{-- card tiplogia --}}
-                            @foreach ($users as $user)
+                                {{-- card tiplogia --}}
+                                @foreach ($users as $user)
 
                                     <div class="restaurant_card relative">
                                         <a href="{{ route('show', $user->id) }}"
@@ -156,17 +152,18 @@
                                         </a>
                                     </div>
 
-                            @endforeach
+                                @endforeach
 
+                            </div>
                         </div>
-                    </div>
 
-                    {{-- fine section ristauranti --}}
+                        {{-- fine section ristauranti --}}
                 </section>
                 {{-- fine #mainPage --}}
             </div>
-        </main>
-    </div>
+            {{-- fine #app --}}
+        </div>
+    </main>
 
 
 @endsection
