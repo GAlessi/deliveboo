@@ -27,7 +27,7 @@
                         <ul>
                             <li v-for='(dish, index) in carrello'>
                                 <h6>@{{ dish . nome }}</h6>
-                                <p>Prezzo: <b>@{{ carrello[index] . prezzo * carrello[index] . counter }} €</b></p>
+                                <p>Prezzo: <b>@{{( carrello[index].prezzo*carrello[index].counter).toFixed(2) }} €</b></p>
                                 {{-- <p>Quantità: <b>@{{ dish . counter }}</b></p> --}}
                                 <p class="flex_center">
                                     <i class="fas fa-minus" @click='decrease(dish.id, index)'></i>
@@ -37,7 +37,7 @@
                                 </p>
                             </li>
                             <li>
-                                <h5>Totale: @{{ totalPrice }} €</h5>
+                                <h5>Totale: @{{ totalPrice.toFixed(2) }} €</h5>
                             </li>
 
                         </ul>
@@ -45,7 +45,7 @@
                         {{-- submit --}}
                         <form class="flex_center" :action="'/createOrder/' + carrelloID" method="post">
                             @csrf
-                            <input type="hidden" name="totalPrice" :value="totalPrice">
+                            <input type="hidden" name="totalPrice" :value="totalPrice.toFixed(2)">
                             <button type="submit" class="btn-link">
                                 Vai al Checkout <i class="fas fa-angle-double-right"></i>
                             </button>

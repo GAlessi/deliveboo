@@ -36,7 +36,7 @@ class HomeController extends Controller
             'nome' => 'required|string|min:3',
             'ingredienti' => 'required|string|min:3',
             'descrizione' => 'required|string|min:3',
-            'prezzo' => 'required|integer',
+            'prezzo' => 'required|between:0,9999.99',
             'visibilita' => 'required|boolean'
 
         ]);
@@ -69,7 +69,7 @@ class HomeController extends Controller
             'nome' => 'required|string|min:3',
             'ingredienti' => 'required|string|min:3',
             'descrizione' => 'required|string|min:3',
-            'prezzo' => 'required|integer',
+            'prezzo' => 'required|between:0,9999.99',
             'visibilita' => 'required|boolean'
 
         ]);

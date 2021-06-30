@@ -21,7 +21,7 @@ $factory->define(Order::class, function (Faker $faker) use ($autoIncrement) {
             'telefono' => '3333333333',
             'note' => 'non suonare',
             'status' => 'pagato',
-            'totalPrice' => 10,
+            'totalPrice' => 10.50,
         ],
         [
             'nome_cliente' => 'Ajeje2',
