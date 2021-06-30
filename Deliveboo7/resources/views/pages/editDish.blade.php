@@ -38,7 +38,7 @@
 
                             <option value="1" @if ($dish->visibilita) selected @endif>Si</option>
 
-                            <option value=0>No</option>
+                            <option value=0 @if (!$dish->visibilita) selected @endif>No</option>
                         </select>
 
                         <button type="submit">

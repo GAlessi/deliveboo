@@ -208,18 +208,6 @@
                                             <p><span>Descrizione:</span> {{ $dish->descrizione }}</p>
                                             <h6>Prezzo: {{ round($dish->prezzo, 2) }} €</h6>
 
-                                            {{-- bottone aggiungi al carrello --}}
-                                            @if (Auth::check() && Auth::user()->id != $user->id)
-                                                <button @click="addToCart({{ $dish }})" class="flex_center">
-                                                    Aggiungi all'ordine <i class="fas fa-cart-plus"></i>
-                                                </button>
-                                            @endif
-                                            @guest
-                                                <button @click="addToCart({{ $dish }})" class="flex_center">
-                                                    Aggiungi all'ordine <i class="fas fa-cart-plus"></i>
-                                                </button>
-                                            @endguest
-
                                             @if (Auth::check() && Auth::user()->id == $user->id)
 
                                                 {{-- edit --}}
