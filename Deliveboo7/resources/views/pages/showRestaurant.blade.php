@@ -8,14 +8,27 @@
                 <div class="mycontainer relative">
 
                     {{-- carrello icona --}}
-                    <div class="cart flex_center absolute" @click="showCart" title="Vai al tuo Ordine">
-                        <img src="{{ asset('/storage/images/shopping-cart.png') }}" alt="carrello" class="relative">
+                    @if (Auth::check() && Auth::user()->id != $user->id)
+                        <div class="cart flex_center absolute" @click="showCart" title="Vai al tuo Ordine">
+                            <img src="{{ asset('/storage/images/shopping-cart.png') }}" alt="carrello" class="relative">
 
-                        {{-- bollino --}}
-                        <div v-if='cartItems > 0' class="cart_count flex_center absolute animate__animated animate__shakeY">
-                            <span>@{{ cartItems }}</span>
+                            {{-- bollino --}}
+                            <div v-if='cartItems > 0' class="cart_count flex_center absolute animate__animated animate__shakeY">
+                                <span>@{{ cartItems }}</span>
+                            </div>
                         </div>
-                    </div>
+                    @endif
+                    @guest
+                        <div class="cart flex_center absolute" @click="showCart" title="Vai al tuo Ordine">
+                            <img src="{{ asset('/storage/images/shopping-cart.png') }}" alt="carrello" class="relative">
+
+                            {{-- bollino --}}
+                            <div v-if='cartItems > 0' class="cart_count flex_center absolute animate__animated animate__shakeY">
+                                <span>@{{ cartItems }}</span>
+                            </div>
+                        </div>
+
+                    @endguest
 
                     {{-- carrello aperto --}}
                     <div class="opened_cart flex_col animate__animated animate__fadeInRight" :hidden="cartHidden">
@@ -149,9 +162,16 @@
                                             <h6>Prezzo: {{ round($dish->prezzo , 2)}} €</h6>
 
                                             {{-- bottone aggiungi al carrello --}}
-                                            <button @click="addToCart({{ $dish }})" class="flex_center">
-                                                Aggiungi all'ordine <i class="fas fa-cart-plus"></i>
-                                            </button>
+                                            @if (Auth::check() && Auth::user()->id != $user->id)
+                                                <button @click="addToCart({{ $dish }})" class="flex_center">
+                                                    Aggiungi all'ordine <i class="fas fa-cart-plus"></i>
+                                                </button>
+                                            @endif
+                                            @guest
+                                                <button @click="addToCart({{ $dish }})" class="flex_center">
+                                                    Aggiungi all'ordine <i class="fas fa-cart-plus"></i>
+                                                </button>
+                                            @endguest
 
                                             @if (Auth::check() && Auth::user()->id == $user->id)
 
