@@ -3,9 +3,17 @@
     <head>
         <meta charset="utf-8">
         <title>new order</title>
+        <style media="screen">
+
+        body {
+            background: linear-gradient(270deg, #2a9d8f 0%, #f4a261 37%, #e9c46a 69%);
+        }
+        </style>
     </head>
+
     <body>
         <h1>Hai ricevuto un nuovo ordine da {{$editableOrder->nome_cliente}}</h1>
+
         <h3>
             ID ordine: {{$editableOrder->id}}
 
