@@ -11119,6 +11119,7 @@ header .mycontainer nav {
 
 header .mycontainer nav .nav_left .nav_logo a:hover {
   scale: 1.1;
+  text-decoration: none;
 }
 
 header .mycontainer nav .nav_left .nav_logo a h3 {
@@ -11137,21 +11138,39 @@ header .mycontainer nav .nav_right .nav_buttons {
   color: #264653;
 }
 
-header .mycontainer nav .nav_right .nav_buttons .navbar-nav {
-  flex-direction: row;
+header .mycontainer nav .nav_right .nav_buttons ul.mynavbar {
+  margin: 0;
 }
 
-header .mycontainer nav .nav_right .nav_buttons .navbar-nav li.nav-item {
+header .mycontainer nav .nav_right .nav_buttons ul.mynavbar li.nav-item {
   margin-left: 15px;
+  padding: 0;
 }
 
-header .mycontainer nav .nav_right .nav_buttons .navbar-nav li.nav-item a {
+header .mycontainer nav .nav_right .nav_buttons ul.mynavbar li.nav-item a {
   padding: 0;
+  line-height: 1;
   font-weight: bold;
 }
 
-header .mycontainer nav .nav_right .nav_buttons .navbar-nav li.nav-item a:hover {
+header .mycontainer nav .nav_right .nav_buttons ul.mynavbar li.nav-item a:hover {
   text-decoration: underline;
+}
+
+@media all and (max-width: 767px) {
+  header .mycontainer nav .nav_right .nav_buttons .mynavbar li.nav-item {
+    margin-left: 10px;
+  }
+
+  header .mycontainer nav .nav_right .nav_buttons .mynavbar li.nav-item a {
+    padding: 0;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  header .mycontainer nav .nav_right .nav_buttons .mynavbar li.nav-item a:hover {
+    text-decoration: underline;
+  }
 }
 
 footer {
@@ -11527,7 +11546,6 @@ main #mainPage #restaurants .restaurant_card h4 {
   }
 
   main #mainPage #myjumbotron .mycontainer .jumbotron_container {
-    flex-wrap: wrap;
     flex-direction: column-reverse;
     height: auto;
   }
@@ -12423,6 +12441,10 @@ main #mainPage #restaurants .restaurant_card h4 {
 
 [v-cloak] {
   display: none;
+}
+
+body {
+  min-width: 340px;
 }
 
 * {
