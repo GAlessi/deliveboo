@@ -12,7 +12,7 @@
                 <ul>
                     {{-- link a registrazione --}}
                     <li>
-                        <a href="">Registra il tuo ristorante</a>
+                        <a href="{{route('getRegistration')}}">Registra il tuo ristorante</a>
                     </li>
                     {{-- eventuali link a nostri linkedin/cv/github --}}
                     <li>
@@ -37,16 +37,16 @@
 
                 <ul>
                     <li>
-                        <a href=""><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
                     </li>
                     <li>
-                        <a href=""><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
                     </li>
                     <li>
-                        <a href=""><i class="fab fa-twitter"></i></a>
+                        <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
                     </li>
                     <li>
-                        <a href=""><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
                     </li>
                 </ul>
             </div>
