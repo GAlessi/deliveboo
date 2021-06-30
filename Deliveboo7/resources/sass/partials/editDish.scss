@@ -35,7 +35,7 @@
 
             &#prezzo {
                 background-image: url("/storage/images/euro.png");
-                background-position: 95% 50%;
+                background-position: 90% 50%;
                 background-size: 5% 70%;
                 background-repeat: no-repeat;
             }
@@ -62,37 +62,41 @@
     } // fine edit_container
 } // fine editDish
 
+// // VERSIONE LARGE SMARTPHONE
+// @media all and (min-width: 577px) and (max-width: 767px) {
+//     #editDish {
+//         .edit_container {
+//             width: 100%;
+//         }
+//     }
+// }
 
-// --------------------------------------------------------------------------
+// //SMALL SMARTPHONE
+// @media all and (max-width: 576px) {
+//     #editDish {
+//         .edit_container {
+//             width: 100%;
+//         }
+//     }
+// }
 
-
-// VERSIONE LARGE SMARTPHONE
-@media all and (min-width: 577px) and (max-width: 767px)
-{
-
-
+// VERSIONE SMALL ED EXTRA SMALL DEVICES
+@media all and (max-width: 767px) {
     #editDish {
-
         .edit_container {
-
             width: 100%;
 
+            label {
+                font-size: $text_medium;
+            }
+
+            input {
+                width: 100%;
+            }
+
+            button {
+                padding: 3px;
+            }
         }
     }
-
-}
-
-//SMALL SMARTPHONE
-@media all and (max-width: 576px)
-{
-
-    #editDish {
-
-        .edit_container {
-
-            width: 100%;
-
-        }
-    }
-
 }
