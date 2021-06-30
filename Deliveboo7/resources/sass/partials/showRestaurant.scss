@@ -42,13 +42,21 @@
         height: auto;
         max-height: 70vh;
         overflow: auto;
-        width: 30%;
+        width: 45%;
         background-color: $light;
         border: solid 1px $blue;
         border-radius: 10px 0 0 10px;
         -webkit-box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
         -moz-box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
         box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+
+        .riduci {
+            cursor: pointer;
+
+            i {
+                margin: 5px;
+            }
+        }
 
         li {
             margin: 5px;
@@ -147,7 +155,6 @@
             h6 {
                 margin: 0;
                 display: inline-block;
-
             }
         }
     }
@@ -213,6 +220,10 @@
             -moz-box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
             box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
 
+            span {
+                font-weight: bold;
+            }
+
             p,
             i {
                 margin: 5px;
@@ -259,6 +270,7 @@
             }
 
             &:hover > p,
+            &:hover span,
             &:hover > h6 {
                 color: $light;
             }
@@ -272,6 +284,402 @@
                 color: $light;
                 background-color: $red;
             }
+        } // fine dish_card
+    } //fine menu_container
+} // fine #showRestaurant
+
+// VERSIONE EXTRA SMALL DEVICES
+@media all and (max-width: 576px) {
+    #showRestaurant {
+        padding: 15px 0;
+
+        //carrello blocco
+        .opened_cart {
+            width: 95%;
         }
-    }
+
+        .menu_container {
+            .restaurant_options {
+                flex-wrap: wrap;
+                justify-content: center;
+                width: 100%;
+
+                .option_card {
+                    margin: 4px;
+                    width: 95%;
+                }
+            }
+
+            ul {
+                li {
+                    width: 100%;
+                }
+            }
+
+            .dish_card {
+                // span {
+                //     font-weight: bold;
+                // }
+
+                p,
+                i,
+                span {
+                    margin: 5px;
+                    font-size: $text_small;
+                }
+
+                button {
+                    font-size: $text_medium;
+                }
+            } // fine dish_card
+        } //fine menu_container
+    } // fine #showRestaurant
 }
+
+// VERSIONE SMALL DEVICES
+@media all and (min-width: 577px) and (max-width: 767px) {
+    #showRestaurant {
+        padding: 15px 0;
+
+        //carrello blocco
+        .opened_cart {
+            width: 70%;
+        }
+
+        .menu_container {
+            .restaurant_options {
+                flex-wrap: wrap;
+                justify-content: center;
+                width: 100%;
+
+                .option_card {
+                    margin: 5px;
+                    width: 48%;
+                }
+            }
+
+            ul {
+                li {
+                    width: 50%;
+                }
+            }
+        } //fine menu_container
+    } // fine #showRestaurant
+}
+
+// VERSIONE LARGE DEVICES
+@media all and (min-width: 768px) and (max-width: 1099px) {
+    #showRestaurant {
+        //padding: 15px 0;
+
+        //carrello blocco
+        .opened_cart {
+            width: 60%;
+        }
+
+        .menu_container {
+            .restaurant_options {
+                flex-wrap: wrap;
+                justify-content: center;
+                width: 100%;
+
+                .option_card {
+                    margin: 5px;
+                    width: 48%;
+                }
+            }
+
+            ul {
+                li {
+                    width: 50%;
+                }
+            }
+        } //fine menu_container
+    } // fine #showRestaurant
+}
+
+// --------------------------------------------------------------------------
+// VERSIONE TABLET
+@media all and (min-width: 768px) and (max-width: 1099px)
+{
+
+    // #showRestaurant {
+    //     padding: 30px 0;
+    //     background-color: $red;
+    //
+    //     // carrello icona
+    //     .cart {
+    //         position: sticky;
+    //         position: -webkit-sticky; /* Safari */
+    //         top: 90px;
+    //         height: 55px;
+    //         width: 55px;
+    //         background-color: $light;
+    //         border: solid 2px $blue;
+    //         border-radius: 10px;
+    //         cursor: pointer;
+    //
+    //         img {
+    //             width: 30px;
+    //         }
+    //
+    //         .cart_count {
+    //             height: 253x;
+    //             width: 23px;
+    //             top: 5px;
+    //             right: 5px;
+    //             background-color: $red;
+    //             border-radius: 50%;
+    //
+    //             span {
+    //                 font-size: $text_small;
+    //                 font-weight: bold;
+    //             }
+    //         }
+    //     } // fine cart
+    //
+    //     //carrello blocco
+    //     .opened_cart {
+    //         position: fixed;
+    //         top: 85px;
+    //         right: 0;
+    //         padding: 15px;
+    //         height: auto;
+    //         max-height: 70vh;
+    //         overflow: auto;
+    //         width: 30%;
+    //         background-color: $light;
+    //         border: solid 1px $blue;
+    //         border-radius: 10px 0 0 10px;
+    //         -webkit-box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+    //         -moz-box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+    //         box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+    //
+    //         li {
+    //             margin: 5px;
+    //             padding: 5px;
+    //             background-color: $yellow;
+    //             border: solid 2px $blue;
+    //             border-radius: 10px;
+    //
+    //             h5,
+    //             h6 {
+    //                 margin: 0;
+    //             }
+    //
+    //             p {
+    //                 margin: 0;
+    //                 width: 100%;
+    //                 text-transform: capitalize;
+    //
+    //                 &:last-of-type {
+    //                     padding: 5px;
+    //                     background-color: $orange;
+    //                     border: solid 1px $blue;
+    //                     border-radius: 10px;
+    //                 }
+    //
+    //                 i {
+    //                     margin: 5px 15px;
+    //
+    //                     &:hover {
+    //                         scale: 1.3;
+    //                         cursor: pointer;
+    //                     }
+    //                 }
+    //             }
+    //
+    //             &:last-of-type {
+    //                 background-color: $red;
+    //                 border: solid 3px $blue;
+    //                 -webkit-box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+    //                 -moz-box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+    //                 box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+    //             }
+    //         } // fine li
+    //
+    //         button {
+    //             margin: 10px;
+    //             padding: 10px;
+    //             color: $light;
+    //             background-color: $blue;
+    //             border: solid 2px $green;
+    //             border-radius: 10px;
+    //             -webkit-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+    //             -moz-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+    //             box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+    //
+    //             i {
+    //                 color: $light;
+    //             }
+    //
+    //             &:hover {
+    //                 color: $light;
+    //                 background-color: $green;
+    //                 border: solid 2px $blue;
+    //
+    //                 i {
+    //                     color: $light;
+    //                 }
+    //             }
+    //         }
+    //     } // fine carrello blocco
+    //
+    //     .restaurant_info {
+    //         text-align: center;
+    //
+    //         h2,
+    //         h6 {
+    //             color: $yellow;
+    //             text-shadow: 2px 2px 2px #264653;
+    //         }
+    //
+    //         .restaurant_info_card {
+    //             margin-bottom: 10px;
+    //             padding: 5px;
+    //             width: auto;
+    //             border: solid 1px $yellow;
+    //             border-radius: 10px;
+    //             -webkit-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+    //             -moz-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+    //             box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+    //
+    //             i {
+    //                 margin: 5px;
+    //                 box-shadow: none !important;
+    //             }
+    //
+    //             h6 {
+    //                 margin: 0;
+    //                 display: inline-block;
+    //
+    //             }
+    //         }
+    //     }
+    //
+        // .menu_container {
+    //         .restaurant_options {
+    //             margin-bottom: 20px;
+    //             width: 100%;
+    //             background-color: $green;
+    //             border-radius: 10px;
+    //             -webkit-box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+    //             -moz-box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+    //             box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+    //
+    //             h6 {
+    //                 margin: 0;
+    //                 padding: 0;
+    //             }
+    //
+    //             .option_card {
+    //                 width: 30%;
+    //                 margin: 10px;
+    //                 padding: 10px;
+    //                 background-color: $yellow;
+    //                 border: solid 1px $blue;
+    //                 border-radius: 10px;
+    //                 -webkit-box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+    //                 -moz-box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+    //                 box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+    //                 cursor: pointer;
+    //
+    //                 &:hover {
+    //                     background-color: $blue;
+    //                 }
+    //
+    //                 &:hover i,
+    //                 &:hover h6 {
+    //                     color: $light;
+    //                 }
+    //
+    //                 i:hover {
+    //                     color: $orange;
+    //                     scale: 1.5;
+    //                 }
+    //             }
+    //         }
+    //
+            // ul {
+    //             width: 100%;
+    //
+            //     li {
+            //         width: calc(100% / 3);
+            //     }
+            // }
+    //
+    //         .dish_card {
+    //             margin: 10px;
+    //             padding: 5px;
+    //             background-color: $yellow;
+    //             border: solid 1px $blue;
+    //             border-radius: 10px;
+    //             -webkit-box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+    //             -moz-box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+    //             box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+    //
+    //             p,
+    //             i {
+    //                 margin: 5px;
+    //             }
+    //
+    //             button {
+    //                 justify-self: center;
+    //                 margin: 5px;
+    //                 padding: 3px;
+    //                 text-transform: uppercase;
+    //                 font-weight: bold;
+    //                 color: $light;
+    //                 background-color: $green;
+    //                 border: solid 1px $blue;
+    //                 border-radius: 10px;
+    //                 -webkit-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+    //                 -moz-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+    //                 box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+    //                 cursor: pointer;
+    //
+    //                 i {
+    //                     color: $light;
+    //                 }
+    //
+    //                 &:hover {
+    //                     border: solid 1px $yellow;
+    //                 }
+    //             }
+    //
+    //             div[class*="row"] {
+    //                 border-radius: 5px;
+    //
+    //                 i:hover {
+    //                     scale: 1.4;
+    //                 }
+    //             }
+    //
+    //             .edit_row {
+    //                 margin-bottom: 5px;
+    //             }
+    //
+    //             &:hover {
+    //                 background-color: $blue;
+    //             }
+    //
+    //             &:hover > p,
+    //             &:hover > h6 {
+    //                 color: $light;
+    //             }
+    //
+    //             &:hover .edit_row {
+    //                 color: $blue;
+    //                 background-color: $yellow;
+    //             }
+    //
+    //             &:hover .delete_row {
+    //                 color: $light;
+    //                 background-color: $red;
+    //             }
+    //         }
+    //     }
+    // }
+
+
+}// fine della mediaquery

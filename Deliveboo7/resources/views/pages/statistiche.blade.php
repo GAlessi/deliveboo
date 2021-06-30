@@ -6,9 +6,17 @@
     <input id="test" type="hidden" name="" value="{{$user}}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 
+    <div id="statistiche">
+        <div class="mycontainer">
+            <h4>Le tue statistiche</h4>
+            <div class="graph_container">
+                <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+            </div>
+        </div>
+    </div>
+
 </main>
 
-<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
 <script>
 
 

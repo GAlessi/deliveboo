@@ -43,6 +43,7 @@ main {
 
         #myjumbotron {
             padding: 30px 0;
+            min-height: calc(100vh - 85px);
             background: rgb(42, 157, 143);
             background: linear-gradient(
                 0deg,
@@ -141,12 +142,12 @@ main {
                         .jumbotron_casa {
                             width: 500px;
                             top: 0;
-                            left: 10%;
+                            left: 25%;
                         }
 
                         .jumbotron_moto {
                             width: 270px;
-                            left: 40%;
+                            left: 45%;
                             bottom: 0;
                             animation-duration: 2s;
                         }
@@ -189,9 +190,6 @@ main {
                 height: 200px;
                 width: 200px;
                 border-radius: 20px;
-                // -webkit-box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
-                // -moz-box-shadow:    4px 4px 6px 0px rgba(50, 50, 50, 0.91);
-                // box-shadow:         4px 4px 6px 0px rgba(50, 50, 50, 0.91);
                 cursor: pointer;
 
                 img {
@@ -213,4 +211,178 @@ main {
             }
         } //fine sezione ristoranti
     } // fine #mainPage
+} // fine main
+
+// VERSIONE EXTRA SMALL DEVICES
+@media all and (max-width: 576px) {
+    main {
+        #mainPage {
+            .restaurant_card {
+                height: 170px;
+            }
+
+            #myjumbotron {
+                padding: 15px 0;
+                .mycontainer {
+                    .jumbotron_container {
+                        flex-wrap: wrap;
+                        flex-direction: column-reverse;
+                        height: auto;
+
+                        .jumbotron_search {
+                            width: 100%;
+                            margin: 5px;
+
+                            input {
+                                padding: 3px;
+                                font-size: $text_medium;
+                                background-size: 25px 25px;
+                            }
+
+                            .chekbox_container {
+                                li {
+                                    margin: 3px;
+                                    font-size: 16px;
+                                }
+                            }
+                        }
+
+                        .picture {
+                            margin: 0;
+                            height: 210px;
+                            width: 280px;
+
+                            .jumbotron_casa {
+                                height: 170px;
+                                width: auto;
+                                left: 50%;
+                                transform: translateX(-50%);
+                            }
+
+                            .jumbotron_moto {
+                                width: 135px;
+                                animation: none;
+                            }
+                        } //fine picture
+                    } //fine jumbotron_container
+                } // fine mycontainer
+            } //fine section myjumbotron
+
+            #filtered_restaurants {
+                padding: 0;
+
+                ul {
+                    li {
+                        margin: auto;
+                        width: 80%;
+                    }
+                }
+
+                .restaurant_card {
+                    padding: 0;
+                }
+            } // fine sezione filtered_restaurants
+
+            #restaurants {
+                padding: 15px 0;
+            }
+        } // fine #mainPage
+    } // fine main
+}
+
+// VERSIONE SMALL DEVICES
+@media all and (min-width: 577px) and (max-width: 767px) {
+    main {
+        #mainPage {
+            .restaurant_card {
+                height: 170px;
+            }
+
+            #myjumbotron {
+                .mycontainer {
+                    .jumbotron_container {
+                        flex-wrap: wrap;
+                        flex-direction: column-reverse;
+                        height: auto;
+
+                        .jumbotron_search {
+                            width: 100%;
+                        }
+
+                        .picture {
+                            margin: 0;
+                            height: 250px;
+                            width: 100%;
+
+                            .jumbotron_casa {
+                                height: 200px;
+                                width: auto;
+                                left: 50%;
+                                transform: translateX(-50%);
+                            }
+
+                            .jumbotron_moto {
+                                width: 150px;
+                                animation: none;
+                            }
+                        } //fine picture
+                    } //fine jumbotron_container
+                } // fine mycontainer
+            } //fine section myjumbotron
+
+            #filtered_restaurants {
+                // background-color: $green;
+                // padding: 30px 0;
+
+                ul {
+                    li {
+                        width: calc(100% / 2);
+                    }
+                }
+
+                // .restaurant_card {
+                //     padding: 0;
+                // }
+            } // fine sezione filtered_restaurants
+        } // fine #mainPage
+    } // fine main
+}
+
+// VERSIONE LARGE DEVICES
+@media all and (min-width: 768px) and (max-width: 1099px) {
+    main {
+        #mainPage {
+            .restaurant_card {
+                height: 170px;
+            }
+
+            #myjumbotron {
+                .mycontainer {
+                    .jumbotron_container {
+                        flex-wrap: wrap;
+                        flex-direction: column-reverse;
+                        height: auto;
+
+                        .jumbotron_search {
+                            width: 100%;
+                        }
+
+                        .picture {
+                            margin: 0;
+                            width: 100%;
+
+                            .jumbotron_casa {
+                                left: 50%;
+                                transform: translateX(-50%);
+                            }
+
+                            .jumbotron_moto {
+                                animation: none;
+                            }
+                        } //fine picture
+                    } //fine jumbotron_container
+                } // fine mycontainer
+            } //fine section myjumbotron
+        } // fine #mainPage
+    } // fine main
 }
