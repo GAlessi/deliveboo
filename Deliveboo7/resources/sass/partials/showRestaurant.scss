@@ -42,13 +42,21 @@
         height: auto;
         max-height: 70vh;
         overflow: auto;
-        width: 30%;
+        width: 45%;
         background-color: $light;
         border: solid 1px $blue;
         border-radius: 10px 0 0 10px;
         -webkit-box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
         -moz-box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
         box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+
+        .riduci {
+            cursor: pointer;
+
+            i {
+                margin: 5px;
+            }
+        }
 
         li {
             margin: 5px;
@@ -147,7 +155,6 @@
             h6 {
                 margin: 0;
                 display: inline-block;
-
             }
         }
     }
@@ -213,6 +220,10 @@
             -moz-box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
             box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
 
+            span {
+                font-weight: bold;
+            }
+
             p,
             i {
                 margin: 5px;
@@ -259,6 +270,7 @@
             }
 
             &:hover > p,
+            &:hover span,
             &:hover > h6 {
                 color: $light;
             }
@@ -272,6 +284,116 @@
                 color: $light;
                 background-color: $red;
             }
+        } // fine dish_card
+    } //fine menu_container
+} // fine #showRestaurant
+
+// VERSIONE EXTRA SMALL DEVICES
+@media all and (max-width: 576px) {
+    #showRestaurant {
+        padding: 15px 0;
+
+        //carrello blocco
+        .opened_cart {
+            width: 95%;
         }
-    }
+
+        .menu_container {
+            .restaurant_options {
+                flex-wrap: wrap;
+                justify-content: center;
+                width: 100%;
+
+                .option_card {
+                    margin: 4px;
+                    width: 95%;
+                }
+            }
+
+            ul {
+                li {
+                    width: 100%;
+                }
+            }
+
+            .dish_card {
+                // span {
+                //     font-weight: bold;
+                // }
+
+                p,
+                i,
+                span {
+                    margin: 5px;
+                    font-size: $text_small;
+                }
+
+                button {
+                    font-size: $text_medium;
+                }
+            } // fine dish_card
+        } //fine menu_container
+    } // fine #showRestaurant
+}
+
+// VERSIONE SMALL DEVICES
+@media all and (min-width: 577px) and (max-width: 767px) {
+    #showRestaurant {
+        padding: 15px 0;
+
+        //carrello blocco
+        .opened_cart {
+            width: 70%;
+        }
+
+        .menu_container {
+            .restaurant_options {
+                flex-wrap: wrap;
+                justify-content: center;
+                width: 100%;
+
+                .option_card {
+                    margin: 5px;
+                    width: 48%;
+                }
+            }
+
+            ul {
+                li {
+                    width: 50%;
+                }
+            }
+        } //fine menu_container
+    } // fine #showRestaurant
+}
+
+// VERSIONE LARGE DEVICES
+@media all and (min-width: 768px) and (max-width: 1099px) {
+    #showRestaurant {
+        //padding: 15px 0;
+
+        //carrello blocco
+        .opened_cart {
+            width: 60%;
+        }
+
+        .menu_container {
+            .restaurant_options {
+                flex-wrap: wrap;
+                justify-content: center;
+                width: 100%;
+
+                .option_card {
+                    margin: 5px;
+                    width: 48%;
+                }
+            }
+
+            ul {
+                li {
+                    width: 50%;
+                }
+            }
+        } //fine menu_container
+    } // fine #showRestaurant
 }

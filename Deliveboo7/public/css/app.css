@@ -11017,6 +11017,12 @@ h1 {
   font-size: 85px;
 }
 
+@media all and (max-width: 576px) {
+  h1 {
+    font-size: 50px;
+  }
+}
+
 h2,
 h3,
 h4,
@@ -11026,23 +11032,70 @@ h6 {
 }
 
 h2 {
-  font-size: 50px;
+  font-size: 45px;
+}
+
+@media all and (max-width: 576px) {
+  h2 {
+    font-size: 30px;
+  }
 }
 
 h3 {
   font-size: 38px;
 }
 
+@media all and (max-width: 576px) {
+  h3 {
+    font-size: 26px;
+  }
+}
+
 h4 {
   font-size: 30px;
+}
+
+@media all and (max-width: 576px) {
+  h4 {
+    font-size: 22px;
+  }
 }
 
 h5 {
   font-size: 25px;
 }
 
+@media all and (max-width: 576px) {
+  h5 {
+    font-size: 18px;
+  }
+}
+
 h6 {
   font-size: 20px;
+}
+
+@media all and (max-width: 576px) {
+  h6 {
+    font-size: 16px;
+  }
+}
+
+ul li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: inherit;
+}
+
+input:focus {
+  outline: none;
 }
 
 header {
@@ -11058,7 +11111,6 @@ header {
 header .mycontainer {
   flex-direction: row;
   height: 100%;
-  width: 100%;
 }
 
 header .mycontainer nav {
@@ -11290,6 +11342,7 @@ main #mainPage #myrestaurant i {
 
 main #mainPage #myjumbotron {
   padding: 30px 0;
+  min-height: calc(100vh - 85px);
   background: #2a9d8f;
   background: linear-gradient(0deg, #2a9d8f 0%, #f4a261 37%, #e9c46a 69%);
 }
@@ -11377,12 +11430,12 @@ main #mainPage #myjumbotron .mycontainer .jumbotron_container .picture {
 main #mainPage #myjumbotron .mycontainer .jumbotron_container .picture .jumbotron_casa {
   width: 500px;
   top: 0;
-  left: 10%;
+  left: 25%;
 }
 
 main #mainPage #myjumbotron .mycontainer .jumbotron_container .picture .jumbotron_moto {
   width: 270px;
-  left: 40%;
+  left: 45%;
   bottom: 0;
   -webkit-animation-duration: 2s;
           animation-duration: 2s;
@@ -11441,6 +11494,144 @@ main #mainPage #restaurants .restaurant_card h4 {
   border-radius: 10px;
 }
 
+@media all and (max-width: 576px) {
+  main #mainPage .restaurant_card {
+    height: 170px;
+  }
+
+  main #mainPage #myjumbotron {
+    padding: 15px 0;
+  }
+
+  main #mainPage #myjumbotron .mycontainer .jumbotron_container {
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+    height: auto;
+  }
+
+  main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search {
+    width: 100%;
+    margin: 5px;
+  }
+
+  main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search input {
+    padding: 3px;
+    font-size: 18px;
+    background-size: 25px 25px;
+  }
+
+  main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container li {
+    margin: 3px;
+    font-size: 16px;
+  }
+
+  main #mainPage #myjumbotron .mycontainer .jumbotron_container .picture {
+    margin: 0;
+    height: 210px;
+    width: 280px;
+  }
+
+  main #mainPage #myjumbotron .mycontainer .jumbotron_container .picture .jumbotron_casa {
+    height: 170px;
+    width: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  main #mainPage #myjumbotron .mycontainer .jumbotron_container .picture .jumbotron_moto {
+    width: 135px;
+    -webkit-animation: none;
+            animation: none;
+  }
+
+  main #mainPage #filtered_restaurants {
+    padding: 0;
+  }
+
+  main #mainPage #filtered_restaurants ul li {
+    margin: auto;
+    width: 80%;
+  }
+
+  main #mainPage #filtered_restaurants .restaurant_card {
+    padding: 0;
+  }
+
+  main #mainPage #restaurants {
+    padding: 15px 0;
+  }
+}
+
+@media all and (min-width: 577px) and (max-width: 767px) {
+  main #mainPage .restaurant_card {
+    height: 170px;
+  }
+
+  main #mainPage #myjumbotron .mycontainer .jumbotron_container {
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+    height: auto;
+  }
+
+  main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search {
+    width: 100%;
+  }
+
+  main #mainPage #myjumbotron .mycontainer .jumbotron_container .picture {
+    margin: 0;
+    height: 250px;
+    width: 100%;
+  }
+
+  main #mainPage #myjumbotron .mycontainer .jumbotron_container .picture .jumbotron_casa {
+    height: 200px;
+    width: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  main #mainPage #myjumbotron .mycontainer .jumbotron_container .picture .jumbotron_moto {
+    width: 150px;
+    -webkit-animation: none;
+            animation: none;
+  }
+
+  main #mainPage #filtered_restaurants ul li {
+    width: calc(100% / 2);
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 1099px) {
+  main #mainPage .restaurant_card {
+    height: 170px;
+  }
+
+  main #mainPage #myjumbotron .mycontainer .jumbotron_container {
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+    height: auto;
+  }
+
+  main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search {
+    width: 100%;
+  }
+
+  main #mainPage #myjumbotron .mycontainer .jumbotron_container .picture {
+    margin: 0;
+    width: 100%;
+  }
+
+  main #mainPage #myjumbotron .mycontainer .jumbotron_container .picture .jumbotron_casa {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  main #mainPage #myjumbotron .mycontainer .jumbotron_container .picture .jumbotron_moto {
+    -webkit-animation: none;
+            animation: none;
+  }
+}
+
 #showRestaurant {
   padding: 30px 0;
   background-color: #e76f51;
@@ -11485,11 +11676,19 @@ main #mainPage #restaurants .restaurant_card h4 {
   height: auto;
   max-height: 70vh;
   overflow: auto;
-  width: 30%;
+  width: 45%;
   background-color: #dcdcdc;
   border: solid 1px #264653;
   border-radius: 10px 0 0 10px;
   box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+}
+
+#showRestaurant .opened_cart .riduci {
+  cursor: pointer;
+}
+
+#showRestaurant .opened_cart .riduci i {
+  margin: 5px;
 }
 
 #showRestaurant .opened_cart li {
@@ -11641,6 +11840,10 @@ main #mainPage #restaurants .restaurant_card h4 {
   box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
 }
 
+#showRestaurant .menu_container .dish_card span {
+  font-weight: bold;
+}
+
 #showRestaurant .menu_container .dish_card p,
 #showRestaurant .menu_container .dish_card i {
   margin: 5px;
@@ -11685,6 +11888,7 @@ main #mainPage #restaurants .restaurant_card h4 {
 }
 
 #showRestaurant .menu_container .dish_card:hover > p,
+#showRestaurant .menu_container .dish_card:hover span,
 #showRestaurant .menu_container .dish_card:hover > h6 {
   color: #dcdcdc;
 }
@@ -11697,6 +11901,88 @@ main #mainPage #restaurants .restaurant_card h4 {
 #showRestaurant .menu_container .dish_card:hover .delete_row {
   color: #dcdcdc;
   background-color: #e76f51;
+}
+
+@media all and (max-width: 576px) {
+  #showRestaurant {
+    padding: 15px 0;
+  }
+
+  #showRestaurant .opened_cart {
+    width: 95%;
+  }
+
+  #showRestaurant .menu_container .restaurant_options {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  #showRestaurant .menu_container .restaurant_options .option_card {
+    margin: 4px;
+    width: 95%;
+  }
+
+  #showRestaurant .menu_container ul li {
+    width: 100%;
+  }
+
+  #showRestaurant .menu_container .dish_card p,
+  #showRestaurant .menu_container .dish_card i,
+  #showRestaurant .menu_container .dish_card span {
+    margin: 5px;
+    font-size: 14px;
+  }
+
+  #showRestaurant .menu_container .dish_card button {
+    font-size: 18px;
+  }
+}
+
+@media all and (min-width: 577px) and (max-width: 767px) {
+  #showRestaurant {
+    padding: 15px 0;
+  }
+
+  #showRestaurant .opened_cart {
+    width: 70%;
+  }
+
+  #showRestaurant .menu_container .restaurant_options {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  #showRestaurant .menu_container .restaurant_options .option_card {
+    margin: 5px;
+    width: 48%;
+  }
+
+  #showRestaurant .menu_container ul li {
+    width: 50%;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 1099px) {
+  #showRestaurant .opened_cart {
+    width: 60%;
+  }
+
+  #showRestaurant .menu_container .restaurant_options {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  #showRestaurant .menu_container .restaurant_options .option_card {
+    margin: 5px;
+    width: 48%;
+  }
+
+  #showRestaurant .menu_container ul li {
+    width: 50%;
+  }
 }
 
 #createDish {
@@ -11878,30 +12164,53 @@ main #mainPage #restaurants .restaurant_card h4 {
   min-height: calc(100vh - 338px);
   padding: 30px 0;
   background-color: #e76f51;
-  text-align: center;
 }
 
 #showOrders h2,
 #showOrders h5 {
+  text-align: center;
   color: #e9c46a;
   text-shadow: 2px 2px 2px #264653;
 }
 
-#showOrders .orders_container .order_card {
+#showOrders .orders_container li {
+  width: 45%;
+}
+
+#showOrders .orders_container li .order_card {
   margin: 10px;
   padding: 5px;
+  width: 100%;
   background-color: #e9c46a;
   border: solid 1px #264653;
   border-radius: 10px;
   box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
 }
 
-#showOrders .orders_container .order_card h6 {
+#showOrders .orders_container li .order_card h6 {
   border-bottom: 1px solid #264653;
 }
 
-#showOrders .orders_container .order_card i {
+#showOrders .orders_container li .order_card i {
   margin: 5px;
+}
+
+@media all and (max-width: 576px) {
+  #showOrders .orders_container li {
+    width: 100%;
+  }
+}
+
+@media all and (min-width: 577px) and (max-width: 767px) {
+  #showOrders .orders_container li {
+    width: 100%;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 1099px) {
+  #showOrders .orders_container li {
+    width: 100%;
+  }
 }
 
 #braintreePay {
@@ -11991,25 +12300,14 @@ main #mainPage #restaurants .restaurant_card h4 {
 
 .mycontainer {
   width: 80%;
-  max-width: 1000px;
+  max-width: 1100px;
   margin: auto;
 }
 
-ul li {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-a:hover {
-  color: inherit;
-}
-
-input:focus {
-  outline: none;
+@media all and (max-width: 1099px) {
+  .mycontainer {
+    width: 90%;
+  }
 }
 
 .relative {
