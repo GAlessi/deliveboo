@@ -12,11 +12,11 @@
                 <ul>
                     {{-- link a registrazione --}}
                     <li>
-                        <a href="">Registra il tuo ristorante</a>
+                        <a href="{{ route('getRegistration') }}">Registra il tuo ristorante</a>
                     </li>
                     {{-- eventuali link a nostri linkedin/cv/github --}}
                     <li>
-                        <a href="">Chi siamo</a>
+                        <a href="{{ route('chiSiamo') }}">Chi siamo</a>
                     </li>
                     <li>
                         <a href=""><i class="far fa-envelope">&#160;</i>Contattaci</a>

@@ -12077,6 +12077,18 @@ main #mainPage #restaurants .restaurant_card h4 {
   border: solid 2px #264653;
 }
 
+@media all and (min-width: 577px) and (max-width: 767px) {
+  #createDish .create_container {
+    width: 100%;
+  }
+}
+
+@media all and (max-width: 576px) {
+  #createDish .create_container {
+    width: 100%;
+  }
+}
+
 #editDish {
   min-height: calc(100vh - 338px);
   padding: 30px 0;
@@ -12133,6 +12145,18 @@ main #mainPage #restaurants .restaurant_card h4 {
   color: #264653;
   background-color: #e76f51;
   border: solid 2px #264653;
+}
+
+@media all and (min-width: 577px) and (max-width: 767px) {
+  #editDish .edit_container {
+    width: 100%;
+  }
+}
+
+@media all and (max-width: 576px) {
+  #editDish .edit_container {
+    width: 100%;
+  }
 }
 
 #createOrder {
@@ -12381,12 +12405,6 @@ main #mainPage #restaurants .restaurant_card h4 {
 
 .hidden {
   display: none;
-}
-
-@media all and (max-width: 1099px) {
-  .mycontainer {
-    width: 90%;
-  }
 }
 
 :root {

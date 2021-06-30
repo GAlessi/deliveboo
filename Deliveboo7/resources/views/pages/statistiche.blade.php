@@ -22,10 +22,11 @@
 
     let user = document.getElementById('test').value;
     let myUsers = JSON.parse(user);
+    console.log(myUsers);
 
 
     var xValues = ['Gen','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct', 'Nov', 'Dec'];
-    var yValues = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    var yValues = [5, 10, 6, 4, 0, 0, 0, 0, 0, 0, 0, 0];
 
     var barColors = ["red", "green","blue","orange","brown", "magenta", "yellow", "purple", "pink", "cyan", "brown", "red"];
 
@@ -43,7 +44,7 @@
     }
 
 
-
+    //grafico uno
     new Chart("myChart", {
         type: "bar",
         data: {
@@ -53,6 +54,7 @@
                 data: yValues
             }]
         },
+
         options: {
             legend: {display: false},
             title: {
@@ -61,6 +63,7 @@
             }
         }
     });
+
 
 </script>
 @endsection

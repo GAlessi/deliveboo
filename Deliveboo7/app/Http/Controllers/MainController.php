@@ -76,6 +76,12 @@ class MainController extends Controller
       return redirect() -> route('pay', compact('totalPrice', 'order'));
   }
 
+  //chi chiSiamo
+  public function chiSiamo(){
+
+    return view('pages.chiSiamo');
+  }
+
 
 
 }

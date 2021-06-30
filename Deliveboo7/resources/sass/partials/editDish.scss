@@ -61,3 +61,38 @@
         }
     } // fine edit_container
 } // fine editDish
+
+
+// --------------------------------------------------------------------------
+
+
+// VERSIONE LARGE SMARTPHONE
+@media all and (min-width: 577px) and (max-width: 767px)
+{
+
+
+    #editDish {
+
+        .edit_container {
+
+            width: 100%;
+
+        }
+    }
+
+}
+
+//SMALL SMARTPHONE
+@media all and (max-width: 576px)
+{
+
+    #editDish {
+
+        .edit_container {
+
+            width: 100%;
+
+        }
+    }
+
+}
