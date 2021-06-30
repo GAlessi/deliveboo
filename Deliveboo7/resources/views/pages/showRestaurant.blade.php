@@ -89,12 +89,12 @@
                                 <h6>{{ $user->email }}</h6>
                             </div>
 
-                            <div class="option_card" title="Guarda statistiche">
+                            {{-- <div class="option_card" title="Guarda statistiche">
                                 <a href="{{ route('statistiche', $user->id)}}" class="flex space_bet align_cen">
                                     <h6>Statistiche Ordini</h6>
                                     <i class="fas fa-chart-line"></i>
                                 </a>
-                            </div>
+                            </div> --}}
                         </div>
 
                         {{-- immagine ristorante --}}

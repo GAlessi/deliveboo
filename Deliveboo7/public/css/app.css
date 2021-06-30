@@ -12166,6 +12166,10 @@ main #mainPage #restaurants .restaurant_card h4 {
   background-color: #e76f51;
 }
 
+#showOrders #myrestaurant {
+  text-align: center;
+}
+
 #showOrders h2,
 #showOrders h5 {
   text-align: center;
