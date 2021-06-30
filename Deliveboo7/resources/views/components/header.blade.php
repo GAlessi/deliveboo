@@ -5,10 +5,10 @@
         <nav class="flex space_bet align_cen">
 
             {{-- nav_left --}}
-            <div class="nav_left flex align_cen">
+            <div class="nav_left">
 
                 {{-- logo --}}
-                <div class="nav_logo flex_center">
+                <div class="nav_logo">
                     <a href={{ route('main') }} title="Home">
                         <h3>Deliveboo!</h3>
                     </a>
@@ -17,7 +17,7 @@
             </div>
 
             {{-- nav_right --}}
-            <div class="nav_right flex_col align_cen">
+            <div class="nav_right flex_col align_end">
 
                 @guest
 
@@ -27,9 +27,9 @@
 
                 {{-- autenticazione --}}
                 <div class="nav_buttons">
-                    <div class="nav_buttons navbar-collapse" id="navbarSupportedContent">
+                    <div class="nav_buttons" id="navbarSupportedContent">
 
-                        <ul class="navbar-nav ml-auto">
+                        <ul class="mynavbar flex">
 
                             <!-- Authentication Links -->
                             @guest
@@ -51,7 +51,7 @@
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
-                                                                                                                                                                                               document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                       document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
                                         </a>
 
