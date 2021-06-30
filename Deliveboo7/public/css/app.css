@@ -12383,12 +12383,6 @@ main #mainPage #restaurants .restaurant_card h4 {
   display: none;
 }
 
-@media all and (max-width: 1099px) {
-  .mycontainer {
-    width: 90%;
-  }
-}
-
 :root {
   --input-padding-x: 1.5rem;
   --input-padding-y: 0.75rem;

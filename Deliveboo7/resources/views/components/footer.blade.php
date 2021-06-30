@@ -33,33 +33,6 @@
 
             <div class="footer_list">
 
-                <h3>Il nostro sito</h3>
-
-                <ul>
-                    {{-- link a section tipologie --}}
-                    <li>
-                        <a href="">Tipi di cucina</a>
-                    </li>
-                    {{-- link a cerca --}}
-                    <li>
-                        <a href="#restaurants">I Ristoranti</a>
-                    </li>
-                    {{-- apri carrello --}}
-                    <li>
-                        <a href="">Carrello</a>
-                    </li>
-                    <li>
-                        <a href="#logo_home">Torna ad inizio pagina <i class="fas fa-level-up-alt"></i></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        {{-- terza colonna --}}
-        <div class="column">
-
-            <div class="footer_list">
-
                 <h3>Social</h3>
 
                 <ul>
