@@ -11546,7 +11546,6 @@ main #mainPage #restaurants .restaurant_card h4 {
   }
 
   main #mainPage #myjumbotron .mycontainer .jumbotron_container {
-    flex-wrap: wrap;
     flex-direction: column-reverse;
     height: auto;
   }
@@ -12442,6 +12441,10 @@ main #mainPage #restaurants .restaurant_card h4 {
 
 [v-cloak] {
   display: none;
+}
+
+body {
+  min-width: 340px;
 }
 
 * {
