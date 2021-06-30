@@ -90,7 +90,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             },
 
-
             //filtro per categorie
             getFilteredRestaurant: function () {
                 this.filteredRestaurants = [];
@@ -117,7 +116,6 @@ document.addEventListener("DOMContentLoaded", function () {
                             this.filteredRestaurants.push(element);
                             //console.log(element.nome_attivita);
                         }
-
                     }
                 });
 
@@ -145,6 +143,8 @@ document.addEventListener("DOMContentLoaded", function () {
                                 if (nomeSingoloRistorante.toLowerCase().includes(this.searchedRestaurantTxt.toLowerCase())) {
 
                                     this.txtFilteredRestaurant.push(restaurant);
+
+                                    console.log(this.txtFilteredRestaurant);
                                 }
                                 this.showSearch = true;
                             }
@@ -154,11 +154,9 @@ document.addEventListener("DOMContentLoaded", function () {
                         });
 
 
-                }else {
+                } else {
                     this.txtFilteredRestaurant = [];
                 }
-
-
             },
 
             //aggiungi al carrello
@@ -171,16 +169,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (this.carrello.length == 0) {
 
                     choosenDish.counter = 1;
-                    this.totalPrice +=  (choosenDish.prezzo);
+                    this.totalPrice += (choosenDish.prezzo);
                     this.carrello.push(choosenDish);
                     this.carrelloID.push(choosenDish.id);
                     this.cartItems += 1;
                     console.log(this.totalPrice, choosenDish.prezzo);
-                    if ( this.cartHidden) {
+                    if (this.cartHidden) {
                         this.showCart();
                     }
 
-                }else {
+                } else {
 
                     for (let i = 0; i <= this.carrello.length; i++) {
 
@@ -196,7 +194,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                             choosenDish.counter = 1;
-                            this.totalPrice +=  (choosenDish.prezzo);
+                            this.totalPrice += (choosenDish.prezzo);
                             this.cartItems++;
                         }
                     }
@@ -206,7 +204,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // aumenta quantità
             increase: function (dishId, index) {
 
-                this.totalPrice +=  (this.carrello[index].prezzo);
+                this.totalPrice += (this.carrello[index].prezzo);
                 this.carrello[index].counter++;
                 this.cartItems++;
                 //this.multiPrice = this.carrello[index].prezzo * this.carrello[index].counter++;
@@ -215,7 +213,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // diminuisci quantità
             decrease: function (dishId, index) {
 
-                this.totalPrice -=  (this.carrello[index].prezzo);
+                this.totalPrice -= (this.carrello[index].prezzo);
                 this.cartItems--;
 
                 if (this.carrello[index].counter > 1) {
@@ -231,13 +229,13 @@ document.addEventListener("DOMContentLoaded", function () {
             },
 
             // mostro-nascondo carrello
-            showCart: function() {
+            showCart: function () {
 
                 this.cartHidden = !this.cartHidden;
             },
 
 
-            getOrdersStats: function() {
+            getOrdersStats: function () {
 
                 axios.get('/api/statistiche')
                     .then(data => {
@@ -247,7 +245,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     }).catch((error) => {
                         console.log(error);
                     });
-
             }
         } // fine methods
     }); //fine vue

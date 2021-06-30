@@ -52801,6 +52801,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
               if (nomeSingoloRistorante.toLowerCase().includes(_this4.searchedRestaurantTxt.toLowerCase())) {
                 _this4.txtFilteredRestaurant.push(restaurant);
+
+                console.log(_this4.txtFilteredRestaurant);
               }
 
               _this4.showSearch = true;
