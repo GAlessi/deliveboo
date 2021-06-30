@@ -150,11 +150,13 @@
 
                             @foreach ($user->dishes->sortBy('nome') as $dish)
 
-                                @if (!$dish->deleted)
+                                @if (!Auth::check() || Auth::user()->id != $user->id)
 
-                                    <li>
-                                        {{-- card piatto --}}
-                                        <div class="dish_card flex_col just_start"
+                                    @if (!$dish->deleted && $dish->visibilita)
+
+                                        <li>
+                                            {{-- card piatto --}}
+                                            <div class="dish_card flex_col just_start"
                                             title="Aggiungi {{ $dish->nome }} al carrello">
                                             <h6>{{ $dish->nome }}</h6>
                                             <p><span>Ingredienti:</span> {{ $dish->ingredienti }}</p>
@@ -197,6 +199,54 @@
                                         </div>
                                     </li>
                                 @endif
+                                @endif
+                                @if (Auth::check() && Auth::user()->id == $user->id)
+                                        <li>
+                                            {{-- card piatto --}}
+                                            <div class="dish_card flex_col just_start {{ !$dish->visibilita ? 'chiaro' : ''  }}"
+                                            title="Aggiungi {{ $dish->nome }} al carrello">
+                                            <h6>{{ $dish->nome }}</h6>
+                                            <p><span>Ingredienti:</span> {{ $dish->ingredienti }}</p>
+                                            <p><span>Descrizione:</span> {{ $dish->descrizione }}</p>
+                                            <h6>Prezzo: {{ round($dish->prezzo , 2)}} €</h6>
+
+                                            {{-- bottone aggiungi al carrello --}}
+                                            @if (Auth::check() && Auth::user()->id != $user->id)
+                                                <button @click="addToCart({{ $dish }})" class="flex_center">
+                                                    Aggiungi all'ordine <i class="fas fa-cart-plus"></i>
+                                                </button>
+                                            @endif
+                                            @guest
+                                                <button @click="addToCart({{ $dish }})" class="flex_center">
+                                                    Aggiungi all'ordine <i class="fas fa-cart-plus"></i>
+                                                </button>
+                                            @endguest
+
+                                            @if (Auth::check() && Auth::user()->id == $user->id)
+
+                                                {{-- edit --}}
+                                                <div class="edit_row" title="Modifica prodotto">
+                                                    <a href="{{ route('editDish', $dish->id) }}"
+                                                        class="flex space_bet align_cen">
+                                                        <p>Modifica</p>
+                                                        <i class="far fa-edit"></i>
+                                                    </a>
+                                                </div>
+
+                                                {{-- delete --}}
+                                                <div class="delete_row" title="Elimina prodotto">
+                                                    <a href="{{ route('destroy', [$dish->id, $user->id]) }}"
+                                                        class="flex space_bet align_cen">
+                                                        <p>Elimina Prodotto</p>
+                                                        <i class="far fa-trash-alt"></i>
+                                                    </a>
+                                                </div>
+
+                                            @endif
+                                        </div>
+                                    </li>
+
+                                @endif
                             @endforeach
                         </ul>
                         {{-- fine menu_container --}}
@@ -208,13 +258,5 @@
             {{-- fine #app --}}
         </div>
     </main>
-    {{-- <script
-  src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-  crossorigin="anonymous"></script>
-    <script type="text/javascript">
-        $(window).bind('beforeunload', function(){
-            return 'Are you sure you want to leave?';
-        });
-    </script> --}}
+
 @endsection
