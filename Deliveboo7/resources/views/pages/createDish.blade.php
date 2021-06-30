@@ -33,7 +33,7 @@
 
                         {{-- prezzo --}}
                         <label for="">Prezzo</label>
-                        <input id="prezzo" step=".01" type="decimal" name="prezzo" value="{{ old('prezzo') }}"
+                        <input id="prezzo" step=".01" type="number" name="prezzo" value="{{ old('prezzo') }}"
                             placeholder="Inserisci qui il prezzo" required>
 
                         {{-- visibilità --}}
