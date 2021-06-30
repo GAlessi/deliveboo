@@ -65,4 +65,9 @@ Route::post('/checkout/{order}', 'BrainController@checkout')
 -> name('checkout');
 
 //statistiche
-Route::get('/statistiche/{id}', 'HomeController@statistiche') -> name('statistiche');
+Route::get('/statistiche/{id}', 'HomeController@statistiche')
+-> name('statistiche');
+
+//chi siamo
+Route::get('/chiSiamo', 'MainController@chiSiamo')
+-> name('chiSiamo');
