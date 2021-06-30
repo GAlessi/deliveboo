@@ -11,7 +11,7 @@
 
     .payment_container {
         margin: auto;
-        padding: 10px;
+        padding: 10px 0;
         width: 60%;
         text-align: center;
         background-color: $orange;
@@ -21,6 +21,7 @@
         box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
 
         h5 {
+            margin: 0;
             text-align: center;
             color: $blue;
         }
@@ -30,7 +31,7 @@
         }
 
         button {
-            margin: 10px;
+            margin: 5px;
             padding: 10px;
             color: $light;
             background-color: $blue;
@@ -56,3 +57,12 @@
         }
     } // fine order_container
 } // fine braintreePay
+
+// VERSIONE SMALL ED EXTRA SMALL DEVICES
+@media all and (max-width: 767px) {
+    #braintreePay {
+        .payment_container {
+            width: 90%;
+        }
+    }
+}
