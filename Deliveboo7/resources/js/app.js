@@ -168,21 +168,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 // increase(dishId, index);
 
-                if (this.carrello.length == 0 && this.cartHidden) {
+                if (this.carrello.length == 0) {
 
                     choosenDish.counter = 1;
-                    this.totalPrice += (choosenDish.prezzo);
+                    this.totalPrice +=  (choosenDish.prezzo);
                     this.carrello.push(choosenDish);
                     this.carrelloID.push(choosenDish.id);
                     this.cartItems += 1;
-                    this.showCart();
+                    console.log(this.totalPrice, choosenDish.prezzo);
+                    if ( this.cartHidden) {
+                        this.showCart();
+                    }
 
-                } else if (this.carrello.length == 0) {
-                    choosenDish.counter = 1;
-                    this.totalPrice += (choosenDish.prezzo);
-                    this.carrello.push(choosenDish);
-                    this.carrelloID.push(choosenDish.id);
-                    this.cartItems += 1;
                 }else {
 
                     for (let i = 0; i <= this.carrello.length; i++) {
@@ -199,7 +196,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                             choosenDish.counter = 1;
-                            this.totalPrice += (choosenDish.prezzo);
+                            this.totalPrice +=  (choosenDish.prezzo);
                             this.cartItems++;
                         }
                     }
@@ -209,7 +206,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // aumenta quantità
             increase: function (dishId, index) {
 
-                this.totalPrice += this.carrello[index].prezzo;
+                this.totalPrice +=  (this.carrello[index].prezzo);
                 this.carrello[index].counter++;
                 this.cartItems++;
                 //this.multiPrice = this.carrello[index].prezzo * this.carrello[index].counter++;
@@ -218,7 +215,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // diminuisci quantità
             decrease: function (dishId, index) {
 
-                this.totalPrice -= this.carrello[index].prezzo;
+                this.totalPrice -=  (this.carrello[index].prezzo);
                 this.cartItems--;
 
                 if (this.carrello[index].counter > 1) {

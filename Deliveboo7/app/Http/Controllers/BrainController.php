@@ -37,7 +37,7 @@ class BrainController extends Controller
             'privateKey' => config('services.braintree.privateKey')
         ]);
 
-        $amount = $request -> amount;
+        $amount = round($request -> amount, 2);
         $nonce = $request -> payment_method_nonce;
 
         $result = $gateway->transaction()->sale([
