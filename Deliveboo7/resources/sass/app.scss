@@ -22,6 +22,7 @@
 @import "partials/showOrders.scss";
 @import "partials/braintreePay.scss";
 @import "partials/paymentDetails.scss";
+@import "partials/statistiche.scss";
 
 
 // vue refresh
@@ -71,6 +72,11 @@ input:focus {
     display: none;
 }
 
+@media all and (max-width: 1099px) {
+  .mycontainer {
+    width: 90%;
+  }
+}
 
 
 

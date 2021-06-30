@@ -55,3 +55,37 @@
         }
     } // fine form_container
 } //fine #login
+
+
+// ------------------------------------------------------
+
+// VERSIONE LARGE SMARTPHONE
+@media all and (min-width: 577px) and (max-width: 767px)
+{
+
+
+    #login {
+
+        .form_container {
+
+            width: 100%;
+
+        }
+    }
+
+}
+
+//SMALL SMARTPHONE
+@media all and (max-width: 576px)
+{
+
+    #login {
+
+        .form_container {
+
+            width: 100%;
+
+        }
+    }
+
+}

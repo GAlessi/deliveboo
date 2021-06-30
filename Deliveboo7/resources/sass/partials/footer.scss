@@ -29,3 +29,22 @@ footer {
         }
     }
 }
+
+// -------------------------------------------------------------
+
+// SMALL SMARTPHONE
+@media all and (max-width: 576px)
+
+{
+        footer{
+
+            .mycontainer{
+                flex-wrap: wrap;
+
+                .column{
+                    width: 100%;
+                }
+            }
+
+        }
+}
