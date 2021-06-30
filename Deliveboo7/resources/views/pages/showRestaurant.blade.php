@@ -146,7 +146,7 @@
                                             <h6>{{ $dish->nome }}</h6>
                                             <p><span>Ingredienti:</span> {{ $dish->ingredienti }}</p>
                                             <p><span>Descrizione:</span> {{ $dish->descrizione }}</p>
-                                            <h6>Prezzo: {{ $dish->prezzo }} €</h6>
+                                            <h6>Prezzo: {{ round($dish->prezzo , 2)}} €</h6>
 
                                             {{-- bottone aggiungi al carrello --}}
                                             <button @click="addToCart({{ $dish }})" class="flex_center">
