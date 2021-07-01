@@ -18,6 +18,7 @@ class CreateOrdersTable extends Migration
 
         $table -> string('nome_cliente', 32) -> nullable(false);
         $table -> string('cognome_cliente', 32) -> nullable(false);
+        $table -> string('email_cliente', 32) -> nullable(false);
         $table -> string('via', 64) -> nullable(false);
         $table -> string('n_civico', 8) -> nullable(false);
         $table -> string('citta', 64) -> nullable(false);

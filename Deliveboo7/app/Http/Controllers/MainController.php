@@ -49,6 +49,7 @@ class MainController extends Controller
       $validated = $request -> validate([
           'nome_cliente' => 'required|string|min:3',
           'cognome_cliente' => 'required|string|min:3',
+          'email_cliente' => 'required|string|min:3',
           'via' => 'required|string|min:3',
           'n_civico' => 'required|string',
           'citta' => 'required|string',
@@ -69,11 +70,7 @@ class MainController extends Controller
       }
       // $order -> dishes() -> attach('dish_id'); //DA FAR FUNZIONARE
 
-
-      $totalPrice = $request->totalPrice;
-
-
-      return redirect() -> route('pay', compact('totalPrice', 'order'));
+      return redirect() -> route('pay', compact('order'));
   }
 
   //chi chiSiamo
