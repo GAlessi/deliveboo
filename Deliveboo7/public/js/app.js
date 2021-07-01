@@ -52702,10 +52702,19 @@ document.addEventListener("DOMContentLoaded", function () {
       //visibilità carrello
       cartHidden: true,
       //Statistiche
-      allOrders: []
+      allOrders: [],
+      //visibilità elementi in showOrders
+      hiddenOrdersPagati: true,
+      hiddenChevronPagati: false,
+      hiddenOrdersSospesi: true,
+      hiddenChevronSospesi: false,
+      hiddenOrdersRifiutati: true,
+      hiddenChevronRifiutati: false,
+      hiddenOrdersAccettati: true,
+      hiddenChevronAccettati: false
     },
     mounted: function mounted() {
-      console.log('VUE Connected');
+      console.log('Questa pagina utlizza VUE');
       this.getCategories();
       this.getAllRestaurants();
     },
@@ -52868,6 +52877,26 @@ document.addEventListener("DOMContentLoaded", function () {
       // mostro-nascondo carrello
       showCart: function showCart() {
         this.cartHidden = !this.cartHidden;
+      },
+      // mostro-nascondo ordini in pagati
+      showOrdersPagati: function showOrdersPagati() {
+        this.hiddenOrdersPagati = !this.hiddenOrdersPagati;
+        this.hiddenChevronPagati = !this.hiddenChevronPagati;
+      },
+      // mostro-nascondo ordini sospesi
+      showOrdersSospesi: function showOrdersSospesi() {
+        this.hiddenOrdersSospesi = !this.hiddenOrdersSospesi;
+        this.hiddenChevronSospesi = !this.hiddenChevronSospesi;
+      },
+      // mostro-nascondo ordini rifiutati
+      showOrdersRifiutati: function showOrdersRifiutati() {
+        this.hiddenOrdersRifiutati = !this.hiddenOrdersRifiutati;
+        this.hiddenChevronRifiutati = !this.hiddenChevronRifiutati;
+      },
+      // mostro-nascondo ordini accettati            
+      showOrdersAccettati: function showOrdersAccettati() {
+        this.hiddenOrdersAccettati = !this.hiddenOrdersAccettati;
+        this.hiddenChevronAccettati = !this.hiddenChevronAccettati;
       },
       getOrdersStats: function getOrdersStats() {
         var _this5 = this;
