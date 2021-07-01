@@ -11674,7 +11674,7 @@ main #mainPage #restaurants .restaurant_card h4 {
 }
 
 #showRestaurant {
-  padding: 30px 0;
+  padding: 25px 0;
   background-color: #e76f51;
 }
 
@@ -11717,7 +11717,7 @@ main #mainPage #restaurants .restaurant_card h4 {
   height: auto;
   max-height: 70vh;
   overflow: auto;
-  width: 45%;
+  width: 25%;
   background-color: #dcdcdc;
   border: solid 1px #264653;
   border-radius: 10px 0 0 10px;
@@ -11734,7 +11734,7 @@ main #mainPage #restaurants .restaurant_card h4 {
 
 #showRestaurant .opened_cart li {
   margin: 5px;
-  padding: 5px;
+  padding: 15px;
   background-color: #e9c46a;
   border: solid 2px #264653;
   border-radius: 10px;
@@ -11889,11 +11889,15 @@ main #mainPage #restaurants .restaurant_card h4 {
 
 #showRestaurant .menu_container .dish_card {
   margin: 10px;
-  padding: 5px;
+  padding: 15px;
   background-color: #e9c46a;
   border: solid 1px #264653;
   border-radius: 10px;
   box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+}
+
+#showRestaurant .menu_container .dish_card h5 {
+  margin: 0;
 }
 
 #showRestaurant .menu_container .dish_card span {
@@ -11949,6 +11953,7 @@ main #mainPage #restaurants .restaurant_card h4 {
 
 #showRestaurant .menu_container .dish_card:hover > p,
 #showRestaurant .menu_container .dish_card:hover span,
+#showRestaurant .menu_container .dish_card:hover > h5,
 #showRestaurant .menu_container .dish_card:hover > h6 {
   color: #dcdcdc;
 }
@@ -11973,6 +11978,7 @@ main #mainPage #restaurants .restaurant_card h4 {
 
 #showRestaurant .menu_container .dish_card.chiaro:hover > p,
 #showRestaurant .menu_container .dish_card.chiaro:hover span,
+#showRestaurant .menu_container .dish_card.chiaro:hover > h6,
 #showRestaurant .menu_container .dish_card.chiaro:hover > h6 {
   color: #264653;
 }
@@ -11983,7 +11989,7 @@ main #mainPage #restaurants .restaurant_card h4 {
   }
 
   #showRestaurant .opened_cart {
-    width: 95%;
+    width: 275px;
   }
 
   #showRestaurant .menu_container .restaurant_options {
@@ -12019,7 +12025,7 @@ main #mainPage #restaurants .restaurant_card h4 {
   }
 
   #showRestaurant .opened_cart {
-    width: 70%;
+    width: 275px;
   }
 
   #showRestaurant .menu_container .restaurant_options {
@@ -12040,7 +12046,7 @@ main #mainPage #restaurants .restaurant_card h4 {
 
 @media all and (min-width: 768px) and (max-width: 1099px) {
   #showRestaurant .opened_cart {
-    width: 60%;
+    width: 275px;
   }
 
   #showRestaurant .menu_container .restaurant_options {
@@ -12307,11 +12313,12 @@ main #mainPage #restaurants .restaurant_card h4 {
 
 #showOrders .orders_container .accepted_orders_container .status_title,
 #showOrders .orders_container .suspended_orders_container .status_title,
+#showOrders .orders_container .refused_orders_container .status_title,
 #showOrders .orders_container .processed_orders_container .status_title {
   position: sticky;
   top: 90px;
   margin: 5px;
-  padding: 5px;
+  padding: 5px 15px;
   color: #dcdcdc;
   background-color: #264653;
   border: solid 1px #e9c46a;
@@ -12321,33 +12328,38 @@ main #mainPage #restaurants .restaurant_card h4 {
 
 #showOrders .orders_container .accepted_orders_container .status_title h4,
 #showOrders .orders_container .suspended_orders_container .status_title h4,
+#showOrders .orders_container .refused_orders_container .status_title h4,
 #showOrders .orders_container .processed_orders_container .status_title h4 {
   margin: 0;
 }
 
 #showOrders .orders_container .accepted_orders_container .status_title i,
 #showOrders .orders_container .suspended_orders_container .status_title i,
+#showOrders .orders_container .refused_orders_container .status_title i,
 #showOrders .orders_container .processed_orders_container .status_title i {
   color: #dcdcdc;
 }
 
 #showOrders .orders_container .accepted_orders_container ul,
 #showOrders .orders_container .suspended_orders_container ul,
+#showOrders .orders_container .refused_orders_container ul,
 #showOrders .orders_container .processed_orders_container ul {
   width: 100%;
 }
 
 #showOrders .orders_container .accepted_orders_container ul li,
 #showOrders .orders_container .suspended_orders_container ul li,
+#showOrders .orders_container .refused_orders_container ul li,
 #showOrders .orders_container .processed_orders_container ul li {
-  width: 45%;
+  width: 48%;
 }
 
 #showOrders .orders_container .accepted_orders_container ul li .order_card,
 #showOrders .orders_container .suspended_orders_container ul li .order_card,
+#showOrders .orders_container .refused_orders_container ul li .order_card,
 #showOrders .orders_container .processed_orders_container ul li .order_card {
-  margin: 10px;
-  padding: 5px;
+  margin: 5px 0;
+  padding: 10px;
   width: 100%;
   background-color: #e9c46a;
   border: solid 1px #264653;
@@ -12357,6 +12369,7 @@ main #mainPage #restaurants .restaurant_card h4 {
 
 #showOrders .orders_container .accepted_orders_container ul li .order_card .order_card_row,
 #showOrders .orders_container .suspended_orders_container ul li .order_card .order_card_row,
+#showOrders .orders_container .refused_orders_container ul li .order_card .order_card_row,
 #showOrders .orders_container .processed_orders_container ul li .order_card .order_card_row {
   padding: 3px;
   width: 100%;
@@ -12367,6 +12380,8 @@ main #mainPage #restaurants .restaurant_card h4 {
 #showOrders .orders_container .accepted_orders_container ul li .order_card .order_card_row:last-of-type,
 #showOrders .orders_container .suspended_orders_container ul li .order_card .order_card_row:first-of-type,
 #showOrders .orders_container .suspended_orders_container ul li .order_card .order_card_row:last-of-type,
+#showOrders .orders_container .refused_orders_container ul li .order_card .order_card_row:first-of-type,
+#showOrders .orders_container .refused_orders_container ul li .order_card .order_card_row:last-of-type,
 #showOrders .orders_container .processed_orders_container ul li .order_card .order_card_row:first-of-type,
 #showOrders .orders_container .processed_orders_container ul li .order_card .order_card_row:last-of-type {
   border: none;
@@ -12374,6 +12389,7 @@ main #mainPage #restaurants .restaurant_card h4 {
 
 #showOrders .orders_container .accepted_orders_container ul li .order_card .order_card_row h6,
 #showOrders .orders_container .suspended_orders_container ul li .order_card .order_card_row h6,
+#showOrders .orders_container .refused_orders_container ul li .order_card .order_card_row h6,
 #showOrders .orders_container .processed_orders_container ul li .order_card .order_card_row h6 {
   margin: 0;
   display: inline-block;
@@ -12381,12 +12397,14 @@ main #mainPage #restaurants .restaurant_card h4 {
 
 #showOrders .orders_container .accepted_orders_container ul li .order_card .order_card_row i,
 #showOrders .orders_container .suspended_orders_container ul li .order_card .order_card_row i,
+#showOrders .orders_container .refused_orders_container ul li .order_card .order_card_row i,
 #showOrders .orders_container .processed_orders_container ul li .order_card .order_card_row i {
   margin: 5px;
 }
 
 #showOrders .orders_container .accepted_orders_container ul li .order_card .order_card_row p,
 #showOrders .orders_container .suspended_orders_container ul li .order_card .order_card_row p,
+#showOrders .orders_container .refused_orders_container ul li .order_card .order_card_row p,
 #showOrders .orders_container .processed_orders_container ul li .order_card .order_card_row p {
   margin: 0;
 }
@@ -12397,6 +12415,9 @@ main #mainPage #restaurants .restaurant_card h4 {
 #showOrders .orders_container .suspended_orders_container ul li .order_card .accettato,
 #showOrders .orders_container .suspended_orders_container ul li .order_card .sospeso,
 #showOrders .orders_container .suspended_orders_container ul li .order_card .pagato,
+#showOrders .orders_container .refused_orders_container ul li .order_card .accettato,
+#showOrders .orders_container .refused_orders_container ul li .order_card .sospeso,
+#showOrders .orders_container .refused_orders_container ul li .order_card .pagato,
 #showOrders .orders_container .processed_orders_container ul li .order_card .accettato,
 #showOrders .orders_container .processed_orders_container ul li .order_card .sospeso,
 #showOrders .orders_container .processed_orders_container ul li .order_card .pagato {
@@ -12417,6 +12438,12 @@ main #mainPage #restaurants .restaurant_card h4 {
 #showOrders .orders_container .suspended_orders_container ul li .order_card .sospeso i,
 #showOrders .orders_container .suspended_orders_container ul li .order_card .pagato h6,
 #showOrders .orders_container .suspended_orders_container ul li .order_card .pagato i,
+#showOrders .orders_container .refused_orders_container ul li .order_card .accettato h6,
+#showOrders .orders_container .refused_orders_container ul li .order_card .accettato i,
+#showOrders .orders_container .refused_orders_container ul li .order_card .sospeso h6,
+#showOrders .orders_container .refused_orders_container ul li .order_card .sospeso i,
+#showOrders .orders_container .refused_orders_container ul li .order_card .pagato h6,
+#showOrders .orders_container .refused_orders_container ul li .order_card .pagato i,
 #showOrders .orders_container .processed_orders_container ul li .order_card .accettato h6,
 #showOrders .orders_container .processed_orders_container ul li .order_card .accettato i,
 #showOrders .orders_container .processed_orders_container ul li .order_card .sospeso h6,
@@ -12428,18 +12455,21 @@ main #mainPage #restaurants .restaurant_card h4 {
 
 #showOrders .orders_container .accepted_orders_container ul li .order_card .accettato h6:last-of-type,
 #showOrders .orders_container .suspended_orders_container ul li .order_card .accettato h6:last-of-type,
+#showOrders .orders_container .refused_orders_container ul li .order_card .accettato h6:last-of-type,
 #showOrders .orders_container .processed_orders_container ul li .order_card .accettato h6:last-of-type {
   color: #2a9d8f;
 }
 
 #showOrders .orders_container .accepted_orders_container ul li .order_card .sospeso h6:last-of-type,
 #showOrders .orders_container .suspended_orders_container ul li .order_card .sospeso h6:last-of-type,
+#showOrders .orders_container .refused_orders_container ul li .order_card .sospeso h6:last-of-type,
 #showOrders .orders_container .processed_orders_container ul li .order_card .sospeso h6:last-of-type {
   color: #e76f51;
 }
 
 #showOrders .orders_container .accepted_orders_container ul li .order_card.processed,
 #showOrders .orders_container .suspended_orders_container ul li .order_card.processed,
+#showOrders .orders_container .refused_orders_container ul li .order_card.processed,
 #showOrders .orders_container .processed_orders_container ul li .order_card.processed {
   background-color: #dcdcdc;
 }
@@ -12622,7 +12652,7 @@ main #mainPage #restaurants .restaurant_card h4 {
   background-repeat: no-repeat;
 }
 
-.mycontainer .column {
+.mycontainer .profile_column {
   width: calc(100% / 4);
   display: flex;
   flex-direction: column;
@@ -12633,7 +12663,7 @@ main #mainPage #restaurants .restaurant_card h4 {
   transition: 1s;
 }
 
-.mycontainer .column:hover {
+.mycontainer .profile_column:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 

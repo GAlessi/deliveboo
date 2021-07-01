@@ -2,313 +2,413 @@
 
 @section('content')
 
-    <main>
-        <div id="app" v-cloak>
-            <div id="showOrders">
-                {{-- sezione myrestaurant --}}
-                <div id="myrestaurant">
+  <main>
+    <div id="app" v-cloak>
+      <div id="showOrders">
+        {{-- sezione myrestaurant --}}
+        <div id="myrestaurant">
 
-                    <h2>Ciao {{ $user->name }}</h2>
+          <h2>Ciao {{ $user->name }}</h2>
 
-                    {{-- link al mio ristorante --}}
-                    <a href="{{ route('show', $user->id) }}">
-                        <h4><i class="fas fa-angle-double-left"></i> Torna al tuo ristorante</h4>
-                    </a>
-                </div>
-
-                <div class="mycontainer">
-
-                    <h5>Questi sono gli ordini ricevuti dal tuo ristorante</h5>
-
-                    {{-- orders_container --}}
-                    <div class="orders_container">
-                        <ul>
-                            <li>
-
-                                {{-- contenitore ordini accettati --}}
-                                <div class="accepted_orders_container">
-
-                                    <div class="status_title flex space_bet align_cen">
-                                        <h4>Ordini In Elaborazione</h4>
-                                        <div class="open_close flex align_cen">
-                                            <i class="fas fa-chevron-circle-up" :hidden="hiddenOrdersAccettati" @click="showOrdersAccettati" title="Riduci ordini"></i>
-                                            <i class="fas fa-chevron-circle-down" :hidden="hiddenChevronAccettati" @click="showOrdersAccettati" title="Espandi ordini"></i>
-                                        </div>
-                                    </div>
-
-                                    <div class="accepted_orders" :hidden="hiddenOrdersAccettati">
-
-                                        <ul class="flex_wrap space_bet">
-
-                                            @foreach ($orderSel as $restaurantOrder)
-
-                                                @if ($restaurantOrder->status == 'accettato')
-
-                                                    <li>
-
-                                                        {{-- card ordine accettato --}}
-                                                        <div class="accepted order_card flex_col align_start">
-
-                                                            {{-- data --}}
-                                                            <div class="order_card_row">
-                                                                <h6><i class="fas fa-calendar-day"></i>Ordine del:
-                                                                    {{ $restaurantOrder->created_at }}
-                                                                </h6>
-                                                            </div>
-
-                                                            {{-- stato --}}
-                                                            <div class="order_card_row accettato flex align_cen">
-                                                                <h6><i class="fas fa-hourglass-half"></i>Stato Ordine:</h6>
-                                                                <h6>&#160;In Elaborazione</h6>
-                                                            </div>
-
-                                                            {{-- cliente --}}
-                                                            <div class="order_card_row">
-                                                                <h6><i class="fas fa-user-alt"></i>Cliente:
-                                                                    {{ $restaurantOrder->nome_cliente }}
-                                                                    {{ $restaurantOrder->cognome_cliente }} - Tel
-                                                                    {{ $restaurantOrder->telefono }}
-                                                                </h6>
-                                                            </div>
-
-                                                            {{-- prodotti ordinati --}}
-                                                            <div class="order_card_row">
-                                                                <h6><i class="fas fa-drumstick-bite"></i>Prodotti ordinati:
-                                                                    @foreach ($restaurantOrder->dishes as $dish)
-                                                                        {{ $loop->last ? $dish->nome : $dish->nome . ', ' }}
-                                                                    @endforeach
-                                                                </h6>
-                                                            </div>
-
-                                                            {{-- pagamento --}}
-                                                            <div class="order_card_row">
-                                                                <h6><i class="fas fa-euro-sign"></i>Pagamento:
-                                                                    {{ $restaurantOrder->totalPrice }} €
-                                                                </h6>
-                                                            </div>
-
-                                                            {{-- indirizzo consegna --}}
-                                                            <div class="order_card_row">
-                                                                <h6><i class="fas fa-map-marker-alt"></i>Da consegnare in:
-                                                                    {{ $restaurantOrder->via }}
-                                                                    {{ $restaurantOrder->n_civico }},
-                                                                    {{ $restaurantOrder->citta }},
-                                                                    {{ $restaurantOrder->cap }}
-                                                                </h6>
-                                                            </div>
-
-                                                            {{-- note --}}
-                                                            @if ($restaurantOrder->note)
-                                                                <div class="order_card_row">
-                                                                    <p><i class="fas fa-sticky-note"></i>Note:
-                                                                        "{{ $restaurantOrder->note }}"</p>
-                                                                </div>
-                                                            @endif
-                                                        </div>
-                                                    </li>
-                                                @endif
-
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                    {{-- fine ordini in elaborazione --}}
-                                </div>
-                            </li>
-
-                            <li>
-                                {{-- contenitore ordini in sospeso --}}
-                                <div class="suspended_orders_container">
-
-                                    <div class="status_title flex space_bet align_cen">
-                                        <h4>Ordini In Sospeso</h4>
-                                        <div class="open_close flex align_cen">
-                                            <i class="fas fa-chevron-circle-up" :hidden="hiddenOrdersSospesi" @click="showOrdersSospesi" title="Riduci ordini"></i>
-                                            <i class="fas fa-chevron-circle-down" :hidden="hiddenChevronSospesi" @click="showOrdersSospesi" title="Espandi ordini"></i>
-                                        </div>
-                                    </div>
-
-                                    <div class="suspended_orders" :hidden="hiddenOrdersSospesi">
-
-                                        <ul class="flex_wrap space_bet">
-
-                                            @foreach ($orderSel as $restaurantOrder)
-
-                                                @if ($restaurantOrder->status == 'rifiutato')
-
-                                                    <li>
-
-                                                        {{-- card ordine sospeso --}}
-                                                        <div class="suspended order_card flex_col align_start">
-
-                                                            {{-- data --}}
-                                                            <div class="order_card_row">
-                                                                <h6><i class="fas fa-calendar-day"></i>Ordine del:
-                                                                    {{ $restaurantOrder->created_at }}
-                                                                </h6>
-                                                            </div>
-
-                                                            {{-- stato --}}
-                                                            <div class="order_card_row sospeso flex align_cen">
-                                                                <h6><i class="fas fa-hand-paper"></i>Stato Ordine:</h6>
-                                                                <h6>&#160;In Sospeso</h6>
-                                                            </div>
-
-                                                            {{-- cliente --}}
-                                                            <div class="order_card_row">
-                                                                <h6><i class="fas fa-user-alt"></i>Cliente:
-                                                                    {{ $restaurantOrder->nome_cliente }}
-                                                                    {{ $restaurantOrder->cognome_cliente }} - Tel
-                                                                    {{ $restaurantOrder->telefono }}
-                                                                </h6>
-                                                            </div>
-
-                                                            {{-- prodotti ordinati --}}
-                                                            <div class="order_card_row">
-                                                                <h6><i class="fas fa-drumstick-bite"></i>Prodotti ordinati:
-                                                                    @foreach ($restaurantOrder->dishes as $dish)
-                                                                        {{ $loop->last ? $dish->nome : $dish->nome . ', ' }}
-                                                                    @endforeach
-                                                                </h6>
-                                                            </div>
-
-                                                            {{-- pagamento --}}
-                                                            <div class="order_card_row">
-                                                                <h6><i class="fas fa-euro-sign"></i>Pagamento:
-                                                                    {{ $restaurantOrder->totalPrice }} €
-                                                                </h6>
-                                                            </div>
-
-                                                            {{-- indirizzo copnsegna --}}
-                                                            <div class="order_card_row">
-                                                                <h6><i class="fas fa-map-marker-alt"></i>Da consegnare in:
-                                                                    {{ $restaurantOrder->via }}
-                                                                    {{ $restaurantOrder->n_civico }},
-                                                                    {{ $restaurantOrder->citta }},
-                                                                    {{ $restaurantOrder->cap }}
-                                                                </h6>
-                                                            </div>
-
-                                                            {{-- note --}}
-                                                            @if ($restaurantOrder->note)
-                                                                <div class="order_card_row">
-                                                                    <p><i class="fas fa-sticky-note"></i>Note:
-                                                                        "{{ $restaurantOrder->note }}"</p>
-                                                                </div>
-                                                            @endif
-                                                        </div>
-                                                    </li>
-                                                @endif
-
-                                            @endforeach
-
-                                        </ul>
-                                    </div>
-                                    {{-- fine ordini in sospeso --}}
-                                </div>
-                            </li>
-
-                            <li>
-                                {{-- contenitore ordini evasi --}}
-                                <div class="processed_orders_container">
-
-                                    <div class="status_title flex space_bet align_cen">
-                                        <h4>Ordini Evasi</h4>
-                                        <div class="open_close flex align_cen">
-                                            <i class="fas fa-chevron-circle-up" :hidden="hiddenOrdersPagati" @click="showOrdersPagati" title="Riduci ordini"></i>
-                                            <i class="fas fa-chevron-circle-down" :hidden="hiddenChevronPagati" @click="showOrdersPagati" title="Espandi ordini"></i>
-                                        </div>
-                                    </div>
-
-                                    <div class="processed_orders" :hidden="hiddenOrdersPagati">
-
-                                        <ul class="flex_wrap space_bet">
-
-                                            @foreach ($orderSel as $restaurantOrder)
-
-                                                @if ($restaurantOrder->status == 'pagato')
-
-                                                    <li>
-
-                                                        {{-- accepted_order_card --}}
-                                                        <div class="processed order_card flex_col align_start">
-
-                                                            {{-- data --}}
-                                                            <div class="order_card_row">
-                                                                <h6><i class="fas fa-calendar-day"></i>Ordine del:
-                                                                    {{ $restaurantOrder->created_at }}
-                                                                </h6>
-                                                            </div>
-
-                                                            {{-- stato --}}
-                                                            <div class="order_card_row pagato">
-                                                                <h6><i class="fas fa-check-square"></i>Stato Ordine:
-                                                                    {{ $restaurantOrder->status }}
-                                                                </h6>
-                                                            </div>
-
-                                                            {{-- cliente --}}
-                                                            <div class="order_card_row">
-                                                                <h6><i class="fas fa-user-alt"></i>Cliente:
-                                                                    {{ $restaurantOrder->nome_cliente }}
-                                                                    {{ $restaurantOrder->cognome_cliente }} - Tel
-                                                                    {{ $restaurantOrder->telefono }}
-                                                                </h6>
-                                                            </div>
-
-                                                            {{-- prodotti ordinati --}}
-                                                            <div class="order_card_row">
-                                                                <h6><i class="fas fa-drumstick-bite"></i>Prodotti ordinati:
-                                                                    @foreach ($restaurantOrder->dishes as $dish)
-                                                                        {{ $loop->last ? $dish->nome : $dish->nome . ', ' }}
-                                                                    @endforeach
-                                                                </h6>
-                                                            </div>
-
-                                                            {{-- pagamento --}}
-                                                            <div class="order_card_row">
-                                                                <h6><i class="fas fa-euro-sign"></i>Pagamento:
-                                                                    {{ $restaurantOrder->totalPrice }} €
-                                                                </h6>
-                                                            </div>
-
-                                                            {{-- indirizzo copnsegna --}}
-                                                            <div class="order_card_row">
-                                                                <h6><i class="fas fa-map-marker-alt"></i>Consegnato in:
-                                                                    {{ $restaurantOrder->via }}
-                                                                    {{ $restaurantOrder->n_civico }},
-                                                                    {{ $restaurantOrder->citta }},
-                                                                    {{ $restaurantOrder->cap }}
-                                                                </h6>
-                                                            </div>
-
-                                                            {{-- note --}}
-                                                            @if ($restaurantOrder->note)
-                                                                <div class="order_card_row">
-                                                                    <p><i class="fas fa-sticky-note"></i>Note:
-                                                                        "{{ $restaurantOrder->note }}"</p>
-                                                                </div>
-                                                            @endif
-                                                        </div>
-                                                    </li>
-                                                @endif
-
-                                            @endforeach
-                                        </ul>
-                                        {{-- fine processed_orders --}}
-                                    </div>
-                                    {{-- fine ordini evasi --}}
-                                </div>
-                            </li>
-                        </ul>
-                        {{-- fine orders_container --}}
-                    </div>
-                    {{-- fine mycontainer --}}
-                </div>
-                {{-- fine #showOrders --}}
-            </div>
-            {{-- fine #app --}}
+          {{-- link al mio ristorante --}}
+          <a href="{{ route('show', $user->id) }}">
+            <h4><i class="fas fa-angle-double-left"></i> Torna al tuo ristorante</h4>
+          </a>
         </div>
-    </main>
+
+        <div class="mycontainer">
+
+          <h5>Questi sono gli ordini ricevuti dal tuo ristorante</h5>
+
+          {{-- orders_container --}}
+          <div class="orders_container">
+            <ul>
+              <li>
+
+                {{-- contenitore ordini accettati --}}
+                <div class="accepted_orders_container">
+
+                  <div class="status_title flex space_bet align_cen">
+                    <h4>Ordini In Elaborazione</h4>
+                    <div class="open_close flex align_cen">
+                      <i class="fas fa-chevron-circle-up" :hidden="hiddenOrdersAccettati" @click="showOrdersAccettati"
+                        title="Riduci ordini"></i>
+                      <i class="fas fa-chevron-circle-down" :hidden="hiddenChevronAccettati" @click="showOrdersAccettati"
+                        title="Espandi ordini"></i>
+                    </div>
+                  </div>
+
+                  <div class="accepted_orders" :hidden="hiddenOrdersAccettati">
+
+                    <ul class="flex_wrap space_bet">
+
+                      @foreach ($orderSel as $restaurantOrder)
+
+                        @if ($restaurantOrder->status == 'accettato')
+
+                          {{-- card ordine accettato --}}
+                          <li>
+
+                            <div class="accepted order_card flex_col align_start">
+
+                              {{-- data --}}
+                              <div class="order_card_row">
+                                <h6><i class="fas fa-calendar-day"></i>Ordine del:
+                                  {{ $restaurantOrder->created_at }}
+                                </h6>
+                              </div>
+
+                              {{-- stato --}}
+                              <div class="order_card_row accettato flex align_cen">
+                                <h6><i class="fas fa-hourglass-half"></i>Stato Ordine:</h6>
+                                <h6>&#160;In Elaborazione</h6>
+                              </div>
+
+                              {{-- cliente --}}
+                              <div class="order_card_row">
+                                <h6><i class="fas fa-user-alt"></i>Cliente:
+                                  {{ $restaurantOrder->nome_cliente }}
+                                  {{ $restaurantOrder->cognome_cliente }} - Tel
+                                  {{ $restaurantOrder->telefono }}
+                                </h6>
+                              </div>
+
+                              {{-- prodotti ordinati --}}
+                              <div class="order_card_row">
+                                <h6><i class="fas fa-drumstick-bite"></i>Prodotti ordinati:
+                                  @foreach ($restaurantOrder->dishes as $dish)
+                                    {{ $loop->last ? $dish->nome : $dish->nome . ', ' }}
+                                  @endforeach
+                                </h6>
+                              </div>
+
+                              {{-- pagamento --}}
+                              <div class="order_card_row">
+                                <h6><i class="fas fa-euro-sign"></i>Pagamento:
+                                  {{ $restaurantOrder->totalPrice }} €
+                                </h6>
+                              </div>
+
+                              {{-- indirizzo consegna --}}
+                              <div class="order_card_row">
+                                <h6><i class="fas fa-map-marker-alt"></i>Da consegnare in:
+                                  {{ $restaurantOrder->via }}
+                                  {{ $restaurantOrder->n_civico }},
+                                  {{ $restaurantOrder->citta }},
+                                  {{ $restaurantOrder->cap }}
+                                </h6>
+                              </div>
+
+                              {{-- note --}}
+                              @if ($restaurantOrder->note)
+                                <div class="order_card_row">
+                                  <p><i class="fas fa-sticky-note"></i>Note:
+                                    "{{ $restaurantOrder->note }}"</p>
+                                </div>
+                              @endif
+                            </div>
+                          </li>
+                        @endif
+
+                      @endforeach
+                    </ul>
+                  </div>
+                </div>
+                {{-- fine ordini in elaborazione --}}
+              </li>
+
+              {{-- contenitore ordini in sospeso --}}
+              <li>
+                <div class="suspended_orders_container">
+
+                  <div class="status_title flex space_bet align_cen">
+                    <h4>Ordini In Sospeso</h4>
+                    <div class="open_close flex align_cen">
+                      <i class="fas fa-chevron-circle-up" :hidden="hiddenOrdersSospesi" @click="showOrdersSospesi"
+                        title="Riduci ordini"></i>
+                      <i class="fas fa-chevron-circle-down" :hidden="hiddenChevronSospesi" @click="showOrdersSospesi"
+                        title="Espandi ordini"></i>
+                    </div>
+                  </div>
+
+                  <div class="suspended_orders" :hidden="hiddenOrdersSospesi">
+
+                    <ul class="flex_wrap space_bet">
+
+                      @foreach ($orderSel as $restaurantOrder)
+
+                        @if ($restaurantOrder->status == 'in sospeso')
+
+                          <li>
+
+                            {{-- card ordine sospeso --}}
+                            <div class="suspended order_card flex_col align_start">
+
+                              {{-- data --}}
+                              <div class="order_card_row">
+                                <h6><i class="fas fa-calendar-day"></i>Ordine del:
+                                  {{ $restaurantOrder->created_at }}
+                                </h6>
+                              </div>
+
+                              {{-- stato --}}
+                              <div class="order_card_row sospeso flex align_cen">
+                                <h6><i class="fas fa-exclamation-triangle"></i>Stato Ordine:</h6>
+                                <h6>&#160;In Sospeso</h6>
+                              </div>
+
+                              {{-- cliente --}}
+                              <div class="order_card_row">
+                                <h6><i class="fas fa-user-alt"></i>Cliente:
+                                  {{ $restaurantOrder->nome_cliente }}
+                                  {{ $restaurantOrder->cognome_cliente }} - Tel
+                                  {{ $restaurantOrder->telefono }}
+                                </h6>
+                              </div>
+
+                              {{-- prodotti ordinati --}}
+                              <div class="order_card_row">
+                                <h6><i class="fas fa-drumstick-bite"></i>Prodotti ordinati:
+                                  @foreach ($restaurantOrder->dishes as $dish)
+                                    {{ $loop->last ? $dish->nome : $dish->nome . ', ' }}
+                                  @endforeach
+                                </h6>
+                              </div>
+
+                              {{-- pagamento --}}
+                              <div class="order_card_row">
+                                <h6><i class="fas fa-euro-sign"></i>Pagamento:
+                                  {{ $restaurantOrder->totalPrice }} €
+                                </h6>
+                              </div>
+
+                              {{-- indirizzo copnsegna --}}
+                              <div class="order_card_row">
+                                <h6><i class="fas fa-map-marker-alt"></i>Da consegnare in:
+                                  {{ $restaurantOrder->via }}
+                                  {{ $restaurantOrder->n_civico }},
+                                  {{ $restaurantOrder->citta }},
+                                  {{ $restaurantOrder->cap }}
+                                </h6>
+                              </div>
+
+                              {{-- note --}}
+                              @if ($restaurantOrder->note)
+                                <div class="order_card_row">
+                                  <p><i class="fas fa-sticky-note"></i>Note:
+                                    "{{ $restaurantOrder->note }}"</p>
+                                </div>
+                              @endif
+                            </div>
+                          </li>
+                        @endif
+
+                      @endforeach
+
+                    </ul>
+                  </div>
+                </div>
+                {{-- fine ordini in sospeso --}}
+              </li>
+
+              {{-- contenitore ordini in rifiutati --}}
+              <li>
+                <div class="refused_orders_container">
+
+                  <div class="status_title flex space_bet align_cen">
+                    <h4>Ordini Rifiutati</h4>
+                    <div class="open_close flex align_cen">
+                      <i class="fas fa-chevron-circle-up" :hidden="hiddenOrdersRifiutati" @click="showOrdersRifiutati"
+                        title="Riduci ordini"></i>
+                      <i class="fas fa-chevron-circle-down" :hidden="hiddenChevronRifiutati" @click="showOrdersRifiutati"
+                        title="Espandi ordini"></i>
+                    </div>
+                  </div>
+
+                  <div class="refused_orders" :hidden="hiddenOrdersRifiutati">
+
+                    <ul class="flex_wrap space_bet">
+
+                      @foreach ($orderSel as $restaurantOrder)
+
+                        @if ($restaurantOrder->status == 'in sospeso')
+
+                          <li>
+
+                            {{-- card ordine rifiutato --}}
+                            <div class="refused order_card flex_col align_start">
+
+                              {{-- data --}}
+                              <div class="order_card_row">
+                                <h6><i class="fas fa-calendar-day"></i>Ordine del:
+                                  {{ $restaurantOrder->created_at }}
+                                </h6>
+                              </div>
+
+                              {{-- stato --}}
+                              <div class="order_card_row sospeso flex align_cen">
+                                <h6><i class="fas fa-times-circle"></i>Stato Ordine:</h6>
+                                <h6>&#160;Rifiutato</h6>
+                              </div>
+
+                              {{-- cliente --}}
+                              <div class="order_card_row">
+                                <h6><i class="fas fa-user-alt"></i>Cliente:
+                                  {{ $restaurantOrder->nome_cliente }}
+                                  {{ $restaurantOrder->cognome_cliente }} - Tel
+                                  {{ $restaurantOrder->telefono }}
+                                </h6>
+                              </div>
+
+                              {{-- prodotti ordinati --}}
+                              <div class="order_card_row">
+                                <h6><i class="fas fa-drumstick-bite"></i>Prodotti ordinati:
+                                  @foreach ($restaurantOrder->dishes as $dish)
+                                    {{ $loop->last ? $dish->nome : $dish->nome . ', ' }}
+                                  @endforeach
+                                </h6>
+                              </div>
+
+                              {{-- pagamento --}}
+                              <div class="order_card_row">
+                                <h6><i class="fas fa-euro-sign"></i>Pagamento:
+                                  {{ $restaurantOrder->totalPrice }} €
+                                </h6>
+                              </div>
+
+                              {{-- indirizzo copnsegna --}}
+                              <div class="order_card_row">
+                                <h6><i class="fas fa-map-marker-alt"></i>Da consegnare in:
+                                  {{ $restaurantOrder->via }}
+                                  {{ $restaurantOrder->n_civico }},
+                                  {{ $restaurantOrder->citta }},
+                                  {{ $restaurantOrder->cap }}
+                                </h6>
+                              </div>
+
+                              {{-- note --}}
+                              @if ($restaurantOrder->note)
+                                <div class="order_card_row">
+                                  <p><i class="fas fa-sticky-note"></i>Note:
+                                    "{{ $restaurantOrder->note }}"</p>
+                                </div>
+                              @endif
+                            </div>
+                          </li>
+                        @endif
+
+                      @endforeach
+
+                    </ul>
+                  </div>
+                </div>
+                {{-- fine ordini in rifiutati --}}
+              </li>
+
+              {{-- contenitore ordini evasi --}}
+              <li>
+                <div class="processed_orders_container">
+
+                  <div class="status_title flex space_bet align_cen">
+                    <h4>Ordini Evasi</h4>
+                    <div class="open_close flex align_cen">
+                      <i class="fas fa-chevron-circle-up" :hidden="hiddenOrdersPagati" @click="showOrdersPagati"
+                        title="Riduci ordini"></i>
+                      <i class="fas fa-chevron-circle-down" :hidden="hiddenChevronPagati" @click="showOrdersPagati"
+                        title="Espandi ordini"></i>
+                    </div>
+                  </div>
+
+                  <div class="processed_orders" :hidden="hiddenOrdersPagati">
+
+                    <ul class="flex_wrap space_bet">
+
+                      @foreach ($orderSel as $restaurantOrder)
+
+                        @if ($restaurantOrder->status == 'pagato')
+
+                          <li>
+
+                            {{-- accepted_order_card --}}
+                            <div class="processed order_card flex_col align_start">
+
+                              {{-- data --}}
+                              <div class="order_card_row">
+                                <h6><i class="fas fa-calendar-day"></i>Ordine del:
+                                  {{ $restaurantOrder->created_at }}
+                                </h6>
+                              </div>
+
+                              {{-- stato --}}
+                              <div class="order_card_row pagato">
+                                <h6><i class="fas fa-check-square"></i>Stato Ordine:
+                                  {{ $restaurantOrder->status }}
+                                </h6>
+                              </div>
+
+                              {{-- cliente --}}
+                              <div class="order_card_row">
+                                <h6><i class="fas fa-user-alt"></i>Cliente:
+                                  {{ $restaurantOrder->nome_cliente }}
+                                  {{ $restaurantOrder->cognome_cliente }} - Tel
+                                  {{ $restaurantOrder->telefono }}
+                                </h6>
+                              </div>
+
+                              {{-- prodotti ordinati --}}
+                              <div class="order_card_row">
+                                <h6><i class="fas fa-drumstick-bite"></i>Prodotti ordinati:
+                                  @foreach ($restaurantOrder->dishes as $dish)
+                                    {{ $loop->last ? $dish->nome : $dish->nome . ', ' }}
+                                  @endforeach
+                                </h6>
+                              </div>
+
+                              {{-- pagamento --}}
+                              <div class="order_card_row">
+                                <h6><i class="fas fa-euro-sign"></i>Pagamento:
+                                  {{ $restaurantOrder->totalPrice }} €
+                                </h6>
+                              </div>
+
+                              {{-- indirizzo copnsegna --}}
+                              <div class="order_card_row">
+                                <h6><i class="fas fa-map-marker-alt"></i>Consegnato in:
+                                  {{ $restaurantOrder->via }}
+                                  {{ $restaurantOrder->n_civico }},
+                                  {{ $restaurantOrder->citta }},
+                                  {{ $restaurantOrder->cap }}
+                                </h6>
+                              </div>
+
+                              {{-- note --}}
+                              @if ($restaurantOrder->note)
+                                <div class="order_card_row">
+                                  <p><i class="fas fa-sticky-note"></i>Note:
+                                    "{{ $restaurantOrder->note }}"</p>
+                                </div>
+                              @endif
+                            </div>
+                          </li>
+                        @endif
+
+                      @endforeach
+                    </ul>
+                    {{-- fine processed_orders --}}
+                  </div>
+                </div>
+                {{-- fine ordini evasi --}}
+              </li>
+            </ul>
+            {{-- fine orders_container --}}
+          </div>
+          {{-- fine mycontainer --}}
+        </div>
+        {{-- fine #showOrders --}}
+      </div>
+      {{-- fine #app --}}
+    </div>
+  </main>
 
 
 @endsection
