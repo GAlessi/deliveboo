@@ -139,22 +139,38 @@
 
         .restaurant_info_card {
             margin-bottom: 10px;
-            padding: 5px;
+            //padding: 5px;
             width: auto;
+            max-width: 400px;
             border: solid 1px $yellow;
             border-radius: 10px;
             -webkit-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
             -moz-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
             box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
 
-            i {
-                margin: 5px;
-                box-shadow: none !important;
+            .restaurant_image {
+                width: 100%;
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                    border: solid 3px $blue;
+                    border-radius: 10px;
+                }
             }
 
-            h6 {
-                margin: 0;
-                display: inline-block;
+            .info_card_row {
+                padding: 5px;
+
+                i {
+                    margin: 5px;
+                    box-shadow: none !important;
+                }
+
+                h6 {
+                    margin: 0;
+                    display: inline-block;
+                }
             }
         }
     }
@@ -285,6 +301,12 @@
                 background-color: $red;
             }
         } // fine dish_card
+        .dish_card.chiaro {
+            background-color: rgb(240, 230, 204);
+            &:hover {
+                background-color: rgb(240, 230, 204);
+            }
+        }
     } //fine menu_container
 } // fine #showRestaurant
 
@@ -400,9 +422,7 @@
 
 // --------------------------------------------------------------------------
 // VERSIONE TABLET
-@media all and (min-width: 768px) and (max-width: 1099px)
-{
-
+@media all and (min-width: 768px) and (max-width: 1099px) {
     // #showRestaurant {
     //     padding: 30px 0;
     //     background-color: $red;
@@ -557,7 +577,7 @@
     //         }
     //     }
     //
-        // .menu_container {
+    // .menu_container {
     //         .restaurant_options {
     //             margin-bottom: 20px;
     //             width: 100%;
@@ -600,13 +620,13 @@
     //             }
     //         }
     //
-            // ul {
+    // ul {
     //             width: 100%;
     //
-            //     li {
-            //         width: calc(100% / 3);
-            //     }
-            // }
+    //     li {
+    //         width: calc(100% / 3);
+    //     }
+    // }
     //
     //         .dish_card {
     //             margin: 10px;
@@ -680,6 +700,4 @@
     //         }
     //     }
     // }
-
-
-}// fine della mediaquery
+} // fine della mediaquery

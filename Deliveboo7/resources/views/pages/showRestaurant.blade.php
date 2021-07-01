@@ -13,7 +13,8 @@
                             <img src="{{ asset('/storage/images/shopping-cart.png') }}" alt="carrello" class="relative">
 
                             {{-- bollino --}}
-                            <div v-if='cartItems > 0' class="cart_count flex_center absolute animate__animated animate__shakeY">
+                            <div v-if='cartItems > 0'
+                                class="cart_count flex_center absolute animate__animated animate__shakeY">
                                 <span>@{{ cartItems }}</span>
                             </div>
                         </div>
@@ -45,7 +46,7 @@
                         <ul>
                             <li v-for='(dish, index) in carrello'>
                                 <h6>@{{ dish . nome }}</h6>
-                                <p>Prezzo: <b>@{{( carrello[index].prezzo*carrello[index].counter).toFixed(2) }} €</b></p>
+                                <p>Prezzo: <b>@{{ carrello[index] . prezzo * carrello[index] . counter . toFixed(2) }} €</b></p>
                                 {{-- <p>Quantità: <b>@{{ dish . counter }}</b></p> --}}
                                 <p class="flex_center">
                                     <i class="fas fa-minus" @click='decrease(dish.id, index)'></i>
@@ -55,7 +56,7 @@
                                 </p>
                             </li>
                             <li>
-                                <h5>Totale: @{{ totalPrice.toFixed(2) }} €</h5>
+                                <h5>Totale: @{{ totalPrice . toFixed(2) }} €</h5>
                             </li>
 
                         </ul>
@@ -70,12 +71,17 @@
                         </form>
                     </div>
 
-                    {{-- info ristorante --}}
                     <div class="restaurant_info flex_col align_cen">
 
                         <h2>{{ $user->nome_attivita }}</h2>
 
+                        {{-- info card ristorante --}}
                         <div class="restaurant_info_card flex_col align_start">
+                            {{-- immagine ristorante --}}
+                            <div class="restaurant_image">
+                                <img src="{{ asset('/storage/restaurantImages/' . $user->file_path) }}"
+                                    alt="immagine_ristorante" alt="">
+                            </div>
 
                             <div class="info_card_row flex align_cen">
                                 <i class="fas fa-utensils"></i>
@@ -90,7 +96,6 @@
                                 </h6>
                             </div>
 
-
                             <div class="info_card_row flex align_cen">
                                 <i class="fas fa-map-marker-alt"></i>
                                 <h6>{{ $user->via }} {{ $user->n_civico }}, {{ $user->citta }},
@@ -101,13 +106,6 @@
                                 <i class="far fa-envelope"></i>
                                 <h6>{{ $user->email }}</h6>
                             </div>
-
-                            {{-- <div class="option_card" title="Guarda statistiche">
-                                <a href="{{ route('statistiche', $user->id)}}" class="flex space_bet align_cen">
-                                    <h6>Statistiche Ordini</h6>
-                                    <i class="fas fa-chart-line"></i>
-                                </a>
-                            </div> --}}
                         </div>
 
                         {{-- immagine ristorante --}}
@@ -135,7 +133,7 @@
                                 </div>
 
                                 <div class="option_card" title="Guarda statistiche">
-                                    <a href="{{route('statistiche', $user->id)}}" class="flex space_bet align_cen">
+                                    <a href="{{ route('statistiche', $user->id) }}" class="flex space_bet align_cen">
                                         <h6>Statistiche Ordini</h6>
                                         <i class="fas fa-chart-line"></i>
                                     </a>
@@ -150,28 +148,65 @@
 
                             @foreach ($user->dishes->sortBy('nome') as $dish)
 
-                                @if (!$dish->deleted)
+                                @if (!Auth::check() || Auth::user()->id != $user->id)
 
+                                    @if (!$dish->deleted && $dish->visibilita)
+
+                                        <li>
+                                            {{-- card piatto --}}
+                                            <div class="dish_card flex_col just_start"
+                                                title="Aggiungi {{ $dish->nome }} al carrello">
+                                                <h6>{{ $dish->nome }}</h6>
+                                                <p><span>Ingredienti:</span> {{ $dish->ingredienti }}</p>
+                                                <p><span>Descrizione:</span> {{ $dish->descrizione }}</p>
+                                                <h6>Prezzo: {{ round($dish->prezzo, 2) }} €</h6>
+
+                                                {{-- bottone aggiungi al carrello --}}
+                                                @if (Auth::check() && Auth::user()->id != $user->id)
+                                                    <button @click="addToCart({{ $dish }})" class="flex_center">
+                                                        Aggiungi all'ordine <i class="fas fa-cart-plus"></i>
+                                                    </button>
+                                                @endif
+                                                @guest
+                                                    <button @click="addToCart({{ $dish }})" class="flex_center">
+                                                        Aggiungi all'ordine <i class="fas fa-cart-plus"></i>
+                                                    </button>
+                                                @endguest
+
+                                                @if (Auth::check() && Auth::user()->id == $user->id)
+
+                                                    {{-- edit --}}
+                                                    <div class="edit_row" title="Modifica prodotto">
+                                                        <a href="{{ route('editDish', $dish->id) }}"
+                                                            class="flex space_bet align_cen">
+                                                            <p>Modifica</p>
+                                                            <i class="far fa-edit"></i>
+                                                        </a>
+                                                    </div>
+
+                                                    {{-- delete --}}
+                                                    <div class="delete_row" title="Elimina prodotto">
+                                                        <a href="{{ route('destroy', [$dish->id, $user->id]) }}"
+                                                            class="flex space_bet align_cen">
+                                                            <p>Elimina Prodotto</p>
+                                                            <i class="far fa-trash-alt"></i>
+                                                        </a>
+                                                    </div>
+
+                                                @endif
+                                            </div>
+                                        </li>
+                                    @endif
+                                @endif
+                                @if (Auth::check() && Auth::user()->id == $user->id)
                                     <li>
                                         {{-- card piatto --}}
-                                        <div class="dish_card flex_col just_start"
+                                        <div class="dish_card flex_col just_start {{ !$dish->visibilita ? 'chiaro' : '' }}"
                                             title="Aggiungi {{ $dish->nome }} al carrello">
                                             <h6>{{ $dish->nome }}</h6>
                                             <p><span>Ingredienti:</span> {{ $dish->ingredienti }}</p>
                                             <p><span>Descrizione:</span> {{ $dish->descrizione }}</p>
-                                            <h6>Prezzo: {{ round($dish->prezzo , 2)}} €</h6>
-
-                                            {{-- bottone aggiungi al carrello --}}
-                                            @if (Auth::check() && Auth::user()->id != $user->id)
-                                                <button @click="addToCart({{ $dish }})" class="flex_center">
-                                                    Aggiungi all'ordine <i class="fas fa-cart-plus"></i>
-                                                </button>
-                                            @endif
-                                            @guest
-                                                <button @click="addToCart({{ $dish }})" class="flex_center">
-                                                    Aggiungi all'ordine <i class="fas fa-cart-plus"></i>
-                                                </button>
-                                            @endguest
+                                            <h6>Prezzo: {{ round($dish->prezzo, 2) }} €</h6>
 
                                             @if (Auth::check() && Auth::user()->id == $user->id)
 
@@ -196,6 +231,7 @@
                                             @endif
                                         </div>
                                     </li>
+
                                 @endif
                             @endforeach
                         </ul>
@@ -208,13 +244,5 @@
             {{-- fine #app --}}
         </div>
     </main>
-    {{-- <script
-  src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-  crossorigin="anonymous"></script>
-    <script type="text/javascript">
-        $(window).bind('beforeunload', function(){
-            return 'Are you sure you want to leave?';
-        });
-    </script> --}}
+
 @endsection

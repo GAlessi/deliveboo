@@ -12,16 +12,18 @@ class NewOrder extends Mailable
     use Queueable, SerializesModels;
 
     public $editableOrder;
+    public $nome;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-     
-    public function __construct($editableOrder)
+
+    public function __construct($editableOrder, $nome)
     {
         $this -> editableOrder = $editableOrder;
+        $this -> nome = $nome;
     }
 
     /**

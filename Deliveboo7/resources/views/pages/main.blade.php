@@ -89,6 +89,7 @@
                                             <img :src="'/storage/restaurantImages/' + restaurant.file_path"
                                                 alt="immagine_ristorante">
                                             <h4 class="absolute">@{{ restaurant . nome_attivita }}</h4>
+                                            <h1 v-for='type in restaurant.type_id'>@{{type}}</h1>
                                         </a>
                                     </div>
                                 </li>
