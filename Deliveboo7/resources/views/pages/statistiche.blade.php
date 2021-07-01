@@ -31,11 +31,12 @@
 
         //estrazione del mese da created_at
         for (var i = 0; i < myUsers.length; i++) {
-            // let created_at_array = myUsers[i].created_at;
+
             let month = new Date(myUsers[i].created_at);
             let indexMonth = month.getMonth();
             for (var j = 0; j < yValues.length; j++) {
 
+                //paragono il valore numerico del mese con l'indice dell'array yValues
                 if (indexMonth == j) {
                     yValues[j]++
                 }
@@ -61,5 +62,6 @@
                 }
             }
         });
+
     </script>
 @endsection

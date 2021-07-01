@@ -12362,7 +12362,7 @@ main #mainPage #restaurants .restaurant_card h4 {
 }
 
 #statistiche .mycontainer .graph_container {
-  margin: auto;
+  margin: 50px auto;
   padding: 10px;
   width: 60%;
   max-width: 600px;
@@ -12377,6 +12377,80 @@ main #mainPage #restaurants .restaurant_card h4 {
 
 @media all and (max-width: 1099px) {
   #statistiche .mycontainer .graph_container {
+    width: 100%;
+  }
+}
+
+.mycontainer #chiSiamo {
+  margin: 100px 0px;
+}
+
+.mycontainer #chiSiamo img {
+  border-radius: 50%;
+}
+
+.mycontainer .chiSiamo_container {
+  margin-top: 150px;
+}
+
+.mycontainer .img {
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  border-radius: 50%;
+  margin-bottom: 30px;
+}
+
+.mycontainer #mirko {
+  background-image: url("/storage/chiSiamoImg/mirko.png");
+  background-position: -20px -14px;
+  background-repeat: no-repeat;
+}
+
+.mycontainer #nata {
+  background-image: url("/storage/chiSiamoImg/fototessera.jpg");
+  background-position: 100% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.mycontainer #vale {
+  background-image: url("/storage/chiSiamoImg/vale.jpeg");
+  background-position: 100% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.mycontainer #gabbo {
+  background-image: url("/storage/chiSiamoImg/gabbo.jpg");
+  background-position: 100% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.mycontainer .column {
+  width: calc(100% / 4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 60px;
+  transition: 1s;
+}
+
+.mycontainer .column:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media all and (min-width: 577px) and (max-width: 767px) {
+  .mycontainer #profile .column {
+    width: calc(100% / 2);
+  }
+}
+
+@media all and (max-width: 576px) {
+  .mycontainer #profile .column {
     width: 100%;
   }
 }
