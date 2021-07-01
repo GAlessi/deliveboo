@@ -7,12 +7,13 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 use App\Mail\NewOrder;
+use App\Mail\NewOrderUser;
 use App\Order;
 
 
 class BrainController extends Controller
 {
-    public function pay($totalPrice, $order)
+    public function pay($order)
     {
         // dd($totalPrice);
         $gateway = new \Braintree\Gateway([
@@ -23,8 +24,11 @@ class BrainController extends Controller
         ]);
 
         $token = $gateway->ClientToken()->generate();
-
-        return view('pages.braintree', compact('token', 'totalPrice', 'order'));
+        // dd($order);
+        $editableOrder = Order::findOrFail($order);
+        $orderPrice = $editableOrder->totalPrice;
+        // dd($orderPrice);
+        return view('pages.braintree', compact('token','order', 'orderPrice'));
     }
 
     public function checkout(Request $request, $order)
@@ -37,7 +41,10 @@ class BrainController extends Controller
             'privateKey' => config('services.braintree.privateKey')
         ]);
 
-        $amount = round($request -> amount, 2);
+        $editableOrder = Order::findOrFail($order);
+        // dd($editableOrder);
+
+        $amount = $editableOrder->totalPrice;
         $nonce = $request -> payment_method_nonce;
 
         $result = $gateway->transaction()->sale([
@@ -47,8 +54,6 @@ class BrainController extends Controller
                 'submitForSettlement' => true
             ]
         ]);
-        $editableOrder = Order::findOrFail($order);
-        // dd($editableOrder);
 
 
         $users = DB::table('orders')
@@ -67,9 +72,12 @@ class BrainController extends Controller
             $editableOrder -> save();
 
 
-            // dd($editableOrder);
+            // dd($users[0]);
             Mail::to($users[0]->email)
             ->send(new NewOrder($editableOrder, $users[0]->name));
+
+            Mail::to($editableOrder->email_cliente)
+            ->send(new NewOrderUser($editableOrder, $users[0]->nome_attivita));
 
             return view('pages.paymentDetails', compact('amount', 'editableOrder'));
         } else {

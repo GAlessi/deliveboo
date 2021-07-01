@@ -58,7 +58,7 @@ Route::post('/storeOrder/{carrello}', 'MainController@storeOrder')
 Route::post('/paymentDetails','BrainController@paymentDetails')
 -> name('paymentDetails');
 
-Route::get('/pay/{totalPrice}/{order}','BrainController@pay')
+Route::get('/pay/{order}','BrainController@pay')
 -> name('pay');
 
 Route::post('/checkout/{order}', 'BrainController@checkout')

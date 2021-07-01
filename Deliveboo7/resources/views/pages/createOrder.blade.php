@@ -29,6 +29,11 @@
                         <input id="cognome_cliente" type="text" name="cognome_cliente"
                             value="{{ old('cognome_cliente') }}" placeholder="Insersci qui il tuo cognome" required>
 
+                        {{-- email --}}
+                        <label for="email_cliente">Indirizzo email</label>
+                        <input id="email_cliente" type="email" name="email_cliente"
+                            value="{{ old('email_cliente') }}" placeholder="Insersci qui la tua email" required>
+
                         {{-- via --}}
                         <label for="via">Via</label>
                         <input id="via" type="text" name="via" value="{{ old('via') }}"
