@@ -17,12 +17,13 @@
     .orders_container {
         .accepted_orders_container,
         .suspended_orders_container,
+        .refused_orders_container,
         .processed_orders_container {
             .status_title {
                 position: sticky;
                 top: 90px;
                 margin: 5px;
-                padding: 5px;
+                padding: 5px 15px;
                 color: $light;
                 background-color: $blue;
                 border: solid 1px $yellow;
@@ -55,11 +56,11 @@
                 width: 100%;
 
                 li {
-                    width: 45%;
+                    width: 48%;
 
                     .order_card {
-                        margin: 10px;
-                        padding: 5px;
+                        margin: 5px 0;
+                        padding: 10px;
                         width: 100%;
                         background-color: $yellow;
                         border: solid 1px $blue;
