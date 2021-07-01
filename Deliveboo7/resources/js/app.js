@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log('VUE Connected');
             this.getCategories();
             this.getAllRestaurants();
+
         },
 
         methods: {
@@ -75,6 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     .catch((error) => {
                         console.log(error);
                     });
+
             },
 
             giveGenres: function () {
