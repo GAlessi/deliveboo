@@ -166,41 +166,65 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 let choosenDish = dish;
 
+                choosenDish.counter = 0;
+
+                this.carrello.push(choosenDish);
+                this.carrelloID.push(choosenDish.id);
+                this.cartItems += 1;
+                this.totalPrice += (choosenDish.prezzo);
+                choosenDish.counter += 1;
                 // increase(dishId, index);
 
-                if (this.carrello.length == 0) {
+                this.totalPrice += (choosenDish.prezzo);
+                this.cartItems++;
 
-                    choosenDish.counter = 1;
-                    this.totalPrice += (choosenDish.prezzo);
-                    this.carrello.push(choosenDish);
-                    this.carrelloID.push(choosenDish.id);
-                    this.cartItems += 1;
-                    console.log(this.totalPrice, choosenDish.prezzo);
-                    if (this.cartHidden) {
-                        this.showCart();
-                    }
-
-                } else {
-
-                    for (let i = 0; i <= this.carrello.length; i++) {
-
-                        if (this.carrello[i].id == choosenDish.id) {
-
-                            console.log('non pusho');
-                            break;
-
-                        } else if (i == this.carrello.length - 1) {
-
-                            this.carrello.push(choosenDish);
-                            this.carrelloID.push(choosenDish.id);
-
-
-                            choosenDish.counter = 1;
-                            this.totalPrice += (choosenDish.prezzo);
-                            this.cartItems++;
-                        }
-                    }
+                if (this.cartHidden) {
+                    this.showCart();
                 }
+
+                console.log(this.carrello);
+
+                // if (this.carrello.length == 0) {
+                //
+                //
+                //     // -----
+                //
+                //     console.log(this.totalPrice, choosenDish.prezzo);
+                //     if (this.cartHidden) {
+                //         this.showCart();
+                //     }
+                //
+                // }
+                // else {
+                //
+                //     for (let i = 0; i <= this.carrello.length; i++) {
+                //
+                //         this.carrello.push(choosenDish);
+                //         this.carrelloID.push(choosenDish.id);
+                //
+                //
+                //         choosenDish.counter = 1;
+                //         this.totalPrice += (choosenDish.prezzo);
+                //         this.cartItems++;
+
+                        // if (this.carrello[i].id == choosenDish.id) {
+                        //
+                        //
+                        //     // console.log('non pusho');
+                        //     break;
+                        //
+                        // } else if (i == this.carrello.length - 1) {
+                        //
+                        //     this.carrello.push(choosenDish);
+                        //     this.carrelloID.push(choosenDish.id);
+                        //
+                        //
+                        //     choosenDish.counter = 1;
+                        //     this.totalPrice += (choosenDish.prezzo);
+                        //     this.cartItems++;
+                        // }
+                    // }
+                // }
             },
 
             // aumenta quantità
@@ -209,6 +233,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 this.totalPrice += (this.carrello[index].prezzo);
                 this.carrello[index].counter++;
                 this.cartItems++;
+
                 //this.multiPrice = this.carrello[index].prezzo * this.carrello[index].counter++;
             },
 

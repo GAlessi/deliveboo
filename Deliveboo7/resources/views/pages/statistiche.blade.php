@@ -29,9 +29,8 @@
             "red"
         ];
 
-        //estrazione del mese da created_at
+        
         for (var i = 0; i < myUsers.length; i++) {
-
             let month = new Date(myUsers[i].created_at);
             let indexMonth = month.getMonth();
             for (var j = 0; j < yValues.length; j++) {

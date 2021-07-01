@@ -52816,33 +52816,61 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       //aggiungi al carrello
       addToCart: function addToCart(dish) {
-        var choosenDish = dish; // increase(dishId, index);
+        var choosenDish = dish;
+        choosenDish.counter = 0;
+        this.carrello.push(choosenDish);
+        this.carrelloID.push(choosenDish.id);
+        this.cartItems += 1;
+        this.totalPrice += choosenDish.prezzo;
+        choosenDish.counter += 1; // increase(dishId, index);
 
-        if (this.carrello.length == 0) {
-          choosenDish.counter = 1;
-          this.totalPrice += choosenDish.prezzo;
-          this.carrello.push(choosenDish);
-          this.carrelloID.push(choosenDish.id);
-          this.cartItems += 1;
-          console.log(this.totalPrice, choosenDish.prezzo);
+        this.totalPrice += choosenDish.prezzo;
+        this.cartItems++;
 
-          if (this.cartHidden) {
-            this.showCart();
-          }
-        } else {
-          for (var i = 0; i <= this.carrello.length; i++) {
-            if (this.carrello[i].id == choosenDish.id) {
-              console.log('non pusho');
-              break;
-            } else if (i == this.carrello.length - 1) {
-              this.carrello.push(choosenDish);
-              this.carrelloID.push(choosenDish.id);
-              choosenDish.counter = 1;
-              this.totalPrice += choosenDish.prezzo;
-              this.cartItems++;
-            }
-          }
+        if (this.cartHidden) {
+          this.showCart();
         }
+
+        console.log(this.carrello); // if (this.carrello.length == 0) {
+        //
+        //
+        //     // -----
+        //
+        //     console.log(this.totalPrice, choosenDish.prezzo);
+        //     if (this.cartHidden) {
+        //         this.showCart();
+        //     }
+        //
+        // }
+        // else {
+        //
+        //     for (let i = 0; i <= this.carrello.length; i++) {
+        //
+        //         this.carrello.push(choosenDish);
+        //         this.carrelloID.push(choosenDish.id);
+        //
+        //
+        //         choosenDish.counter = 1;
+        //         this.totalPrice += (choosenDish.prezzo);
+        //         this.cartItems++;
+        // if (this.carrello[i].id == choosenDish.id) {
+        //
+        //
+        //     // console.log('non pusho');
+        //     break;
+        //
+        // } else if (i == this.carrello.length - 1) {
+        //
+        //     this.carrello.push(choosenDish);
+        //     this.carrelloID.push(choosenDish.id);
+        //
+        //
+        //     choosenDish.counter = 1;
+        //     this.totalPrice += (choosenDish.prezzo);
+        //     this.cartItems++;
+        // }
+        // }
+        // }
       },
       // aumenta quantità
       increase: function increase(dishId, index) {
@@ -52977,8 +53005,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\esercizi_laravel\project-final\Deliveboo7\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\esercizi_laravel\project-final\Deliveboo7\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\dev\github\project-final\Deliveboo7\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\dev\github\project-final\Deliveboo7\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
