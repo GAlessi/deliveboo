@@ -20,10 +20,11 @@
     <script>
         let user = document.getElementById('test').value;
         let myUsers = JSON.parse(user);
+        let idOrders = [];
 
-
+        console.log(myUsers);
         var xValues = ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'];
-        var yValues = [9, 12, 25, 16, 9, 0, 0, 0, 0, 0, 0, 0];
+        var yValues = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
         var barColors = ["red", "green", "blue", "orange", "brown", "magenta", "yellow", "purple", "pink", "cyan", "brown",
             "red"
@@ -32,16 +33,20 @@
         //estrazione del mese da created_at
         for (var i = 0; i < myUsers.length; i++) {
 
+            
             let month = new Date(myUsers[i].created_at);
             let indexMonth = month.getMonth();
+
             for (var j = 0; j < yValues.length; j++) {
 
                 //paragono il valore numerico del mese con l'indice dell'array yValues
-                if (indexMonth == j) {
+
+                if (indexMonth == j && !idOrders.includes(myUsers[i].order_id) ) {
+                    idOrders.push(myUsers[i].order_id)
                     yValues[j]++
-                }
-            }
-        }
+                };
+            };
+        };
 
         new Chart("myChart", {
             type: "bar",

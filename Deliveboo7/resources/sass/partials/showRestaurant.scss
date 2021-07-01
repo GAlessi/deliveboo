@@ -272,6 +272,9 @@
             div[class*="row"] {
                 border-radius: 5px;
 
+                a:hover{
+                    text-decoration: none;
+                }
                 i:hover {
                     scale: 1.4;
                 }
@@ -305,6 +308,11 @@
             background-color: rgb(240, 230, 204);
             &:hover {
                 background-color: rgb(240, 230, 204);
+            }
+            &:hover > p,
+            &:hover span,
+            &:hover > h6 {
+                color: $blue;
             }
         }
     } //fine menu_container

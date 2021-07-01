@@ -11931,6 +11931,10 @@ main #mainPage #restaurants .restaurant_card h4 {
   border-radius: 5px;
 }
 
+#showRestaurant .menu_container .dish_card div[class*=row] a:hover {
+  text-decoration: none;
+}
+
 #showRestaurant .menu_container .dish_card div[class*=row] i:hover {
   scale: 1.4;
 }
@@ -11965,6 +11969,12 @@ main #mainPage #restaurants .restaurant_card h4 {
 
 #showRestaurant .menu_container .dish_card.chiaro:hover {
   background-color: #f0e6cc;
+}
+
+#showRestaurant .menu_container .dish_card.chiaro:hover > p,
+#showRestaurant .menu_container .dish_card.chiaro:hover span,
+#showRestaurant .menu_container .dish_card.chiaro:hover > h6 {
+  color: #264653;
 }
 
 @media all and (max-width: 576px) {

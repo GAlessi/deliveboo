@@ -139,6 +139,8 @@ class HomeController extends Controller
         ->join('orders', 'orders.id', '=', 'dish_order.order_id')
         ->get();
 
+
+        // dd($user);
         return view('pages.statistiche', compact('user'));
     }
 
