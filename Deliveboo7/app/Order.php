@@ -10,6 +10,7 @@ class Order extends Model
 
     'nome_cliente',
     'cognome_cliente',
+    'email_cliente',
     'via',
     'n_civico',
     'citta',
@@ -17,7 +18,7 @@ class Order extends Model
     'telefono',
     'note',
     'status',
-    'totalPrice'
+    'totalPrice',
   ];
 
   //One to Many   Restaurant to Orders

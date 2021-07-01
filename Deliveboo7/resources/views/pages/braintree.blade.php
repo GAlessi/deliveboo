@@ -14,11 +14,7 @@
                         @csrf
 
                         <label for="amount">
-                            <h5 class="input-label">Importo dovuto: {{ $totalPrice }} €</h5>
-                            <div class="input-wrapper amount-wrapper">
-                                <input id="amount" name="amount" type="hidden" min="1" placeholder="{{ $totalPrice }}"
-                                    value="{{ $totalPrice }}">
-                            </div>
+                            <h5 class="input-label">Importo dovuto: {{ $orderPrice }} €</h5>
                         </label>
 
                         <div class="bt-drop-in-wrapper">
