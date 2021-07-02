@@ -75,12 +75,56 @@
 
                               {{-- prodotti ordinati --}}
                               <div class="order_card_row">
-                                <h6><i class="fas fa-drumstick-bite"></i>Prodotti ordinati:
-                                  @foreach ($restaurantOrder->dishes as $dish)
-                                    {{ $loop->last ? $dish->nome : $dish->nome . ', ' }}
-                                  @endforeach
-                                </h6>
-                              </div>
+                                  <h6><i class="fas fa-drumstick-bite"></i>Prodotti ordinati:
+
+                                      @php
+
+                                      $orderedDishes = array();
+                                      $orderedDishesID = array();
+
+                                      foreach ($restaurantOrder->dishes as $dish) {
+
+                                          if (!in_array($dish->id, $orderedDishesID)) {
+
+                                              $dish -> counter = 1;
+
+                                              array_push($orderedDishesID, $dish->id);
+                                              array_push($orderedDishes, $dish);
+
+                                          } else{
+                                              foreach ($orderedDishes as $singleDish) {
+                                                  if ($singleDish->id == $dish->id) {
+                                                      $singleDish -> counter ++;
+                                                  }
+                                              }
+                                          }
+
+                                      }
+
+                                    // dd($orderedDishes);
+                                    @endphp
+
+                                    @foreach ($orderedDishes as $dish)
+                                        @if ($loop->last)
+                                            @if ($dish->counter == 1)
+                                                {{$dish->nome}}
+                                            @else
+                                                 {{$dish->nome . ' x' . ($dish->counter)}}
+                                            @endif
+
+
+                                        @else
+                                            @if ($dish->counter == 1)
+                                                    {{$dish->nome . ', '}}
+                                            @else
+                                                    {{$dish->nome . ' x' . ($dish->counter) . ', '}}
+                                            @endif
+
+                                        @endif
+
+                                    @endforeach
+                              </h6>
+                          </div>
 
                               {{-- pagamento --}}
                               <div class="order_card_row">
@@ -91,12 +135,12 @@
 
                               {{-- indirizzo consegna --}}
                               <div class="order_card_row">
-                                <h6><i class="fas fa-map-marker-alt"></i>Da consegnare in:
-                                  {{ $restaurantOrder->via }}
-                                  {{ $restaurantOrder->n_civico }},
-                                  {{ $restaurantOrder->citta }},
-                                  {{ $restaurantOrder->cap }}
-                                </h6>
+                                  <h6><i class="fas fa-map-marker-alt"></i>Da consegnare in : Via
+                                      {{ $restaurantOrder->via }}
+                                      {{ $restaurantOrder->n_civico }},
+                                      {{ $restaurantOrder->citta }},
+                                      {{ $restaurantOrder->cap }}
+                                  </h6>
                               </div>
 
                               {{-- note --}}
@@ -121,7 +165,7 @@
               </li>
 
 
-              {{-- contenitore ordini in rifiutati --}}
+              {{-- contenitore ordini rifiutati --}}
               <li>
                 <div class="refused_orders_container">
 
@@ -172,11 +216,55 @@
 
                               {{-- prodotti ordinati --}}
                               <div class="order_card_row">
-                                <h6><i class="fas fa-drumstick-bite"></i>Prodotti ordinati:
-                                  @foreach ($restaurantOrder->dishes as $dish)
-                                    {{ $loop->last ? $dish->nome : $dish->nome . ', ' }}
-                                  @endforeach
-                                </h6>
+                                  <h6><i class="fas fa-drumstick-bite"></i>Prodotti ordinati:
+
+                                      @php
+
+                                      $orderedDishes = array();
+                                      $orderedDishesID = array();
+
+                                      foreach ($restaurantOrder->dishes as $dish) {
+
+                                          if (!in_array($dish->id, $orderedDishesID)) {
+
+                                              $dish -> counter = 1;
+
+                                              array_push($orderedDishesID, $dish->id);
+                                              array_push($orderedDishes, $dish);
+
+                                          } else{
+                                              foreach ($orderedDishes as $singleDish) {
+                                                  if ($singleDish->id == $dish->id) {
+                                                      $singleDish -> counter ++;
+                                                  }
+                                              }
+                                          }
+
+                                      }
+
+                                    // dd($orderedDishes);
+                                    @endphp
+
+                                    @foreach ($orderedDishes as $dish)
+                                        @if ($loop->last)
+                                            @if ($dish->counter == 1)
+                                                {{$dish->nome}}
+                                            @else
+                                                 {{$dish->nome . ' x' . ($dish->counter)}}
+                                            @endif
+
+
+                                        @else
+                                            @if ($dish->counter == 1)
+                                                    {{$dish->nome . ', '}}
+                                            @else
+                                                    {{$dish->nome . ' x' . ($dish->counter) . ', '}}
+                                            @endif
+
+                                        @endif
+
+                                    @endforeach
+                              </h6>
                               </div>
 
                               {{-- pagamento --}}
@@ -188,7 +276,7 @@
 
                               {{-- indirizzo copnsegna --}}
                               <div class="order_card_row">
-                                <h6><i class="fas fa-map-marker-alt"></i>Da consegnare in:
+                                <h6><i class="fas fa-map-marker-alt"></i>Da consegnare in: Via
                                   {{ $restaurantOrder->via }}
                                   {{ $restaurantOrder->n_civico }},
                                   {{ $restaurantOrder->citta }},
@@ -267,11 +355,55 @@
 
                               {{-- prodotti ordinati --}}
                               <div class="order_card_row">
-                                <h6><i class="fas fa-drumstick-bite"></i>Prodotti ordinati:
-                                  @foreach ($restaurantOrder->dishes as $dish)
-                                    {{ $loop->last ? $dish->nome : $dish->nome . ', ' }}
-                                  @endforeach
-                                </h6>
+                                  <h6><i class="fas fa-drumstick-bite"></i>Prodotti ordinati:
+
+                                      @php
+
+                                      $orderedDishes = array();
+                                      $orderedDishesID = array();
+
+                                      foreach ($restaurantOrder->dishes as $dish) {
+
+                                          if (!in_array($dish->id, $orderedDishesID)) {
+
+                                              $dish -> counter = 1;
+
+                                              array_push($orderedDishesID, $dish->id);
+                                              array_push($orderedDishes, $dish);
+
+                                          } else{
+                                              foreach ($orderedDishes as $singleDish) {
+                                                  if ($singleDish->id == $dish->id) {
+                                                      $singleDish -> counter ++;
+                                                  }
+                                              }
+                                          }
+
+                                      }
+
+                                    // dd($orderedDishes);
+                                    @endphp
+
+                                    @foreach ($orderedDishes as $dish)
+                                        @if ($loop->last)
+                                            @if ($dish->counter == 1)
+                                                {{$dish->nome}}
+                                            @else
+                                                 {{$dish->nome . ' x' . ($dish->counter)}}
+                                            @endif
+
+
+                                        @else
+                                            @if ($dish->counter == 1)
+                                                    {{$dish->nome . ', '}}
+                                            @else
+                                                    {{$dish->nome . ' x' . ($dish->counter) . ', '}}
+                                            @endif
+
+                                        @endif
+
+                                    @endforeach
+                              </h6>
                               </div>
 
                               {{-- pagamento --}}

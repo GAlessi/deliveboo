@@ -10,7 +10,7 @@
             font-family: system-ui;
         }
 
-        .logo{
+        .logo, footer{
             background-color: #2a9d8f;
             padding: 5px;
             text-align: center;
@@ -35,6 +35,23 @@
         }
         .contact p, h4{
             margin: 0;
+        }
+
+        footer{
+
+            background-color: black;
+        }
+        footer ul{
+
+            list-style: none;
+        }
+        li{
+
+            display: inline-block;
+        }
+        li a{
+
+            color: white;
         }
         </style>
     </head>
@@ -75,5 +92,6 @@
             <h4>Deliveboo Team</h4>
             <p>This message was sent to you, as a Deliveboo user, consistent with your email preferences.</p>
         </div>
+
     </body>
 </html>
