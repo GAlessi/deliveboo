@@ -224,7 +224,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (this.carrello[index].counter > 1) {
                     this.carrello[index].counter--;
-                    
+
                 } else {
                     this.carrello.splice(index, 1);
                     this.carrelloID.splice(index, 1);
@@ -262,7 +262,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 this.hiddenChevronRifiutati = !this.hiddenChevronRifiutati;
             },
 
-            // mostro-nascondo ordini accettati            
+            // mostro-nascondo ordini accettati
             showOrdersAccettati: function () {
 
                 this.hiddenOrdersAccettati = !this.hiddenOrdersAccettati;
@@ -316,6 +316,8 @@ $(document).ready(() => {
             }
         ]
     });
+
+    $('.single-item').slick();
 
 
 })
