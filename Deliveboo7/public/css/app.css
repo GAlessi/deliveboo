@@ -11787,6 +11787,20 @@ main #mainPage #restaurants .restaurant_card h4 {
   color: #dcdcdc;
 }
 
+#showRestaurant .helper_ristoratore {
+  margin: 10px;
+  padding: 15px;
+  background-color: #e9c46a;
+  border: solid 1px #264653;
+  border-radius: 10px;
+  box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+}
+
+#showRestaurant .helper_ristoratore h2,
+#showRestaurant .helper_ristoratore h4 {
+  text-align: center;
+}
+
 #showRestaurant .restaurant_info {
   text-align: center;
 }
@@ -11798,7 +11812,7 @@ main #mainPage #restaurants .restaurant_card h4 {
 }
 
 #showRestaurant .restaurant_info .restaurant_info_card {
-  margin-bottom: 10px;
+  margin-bottom: 25px;
   width: auto;
   max-width: 600px;
 }
@@ -11833,6 +11847,20 @@ main #mainPage #restaurants .restaurant_card h4 {
 #showRestaurant .restaurant_info .restaurant_info_card .info_card_row_container .info_card_row h6 {
   margin: 0;
   display: inline-block;
+}
+
+#showRestaurant .restaurant_info .restaurant_info_card.ristoratore .restaurant_image {
+  max-width: 400px;
+}
+
+#showRestaurant .restaurant_info .restaurant_info_card.ristoratore .info_card_row_container {
+  border: solid 1px #e9c46a;
+  border-left: none;
+  border-radius: 0 10px 10px 0;
+}
+
+#showRestaurant .restaurant_info .restaurant_info_card.ristoratore .info_card_row_container h5 {
+  padding: 5px;
 }
 
 #showRestaurant .menu_container .restaurant_options {
@@ -12303,6 +12331,10 @@ main #mainPage #restaurants .restaurant_card h4 {
   text-align: center;
   color: #e9c46a;
   text-shadow: 2px 2px 2px #264653;
+}
+
+#showOrders h5 {
+  margin-bottom: 20px;
 }
 
 #showOrders .orders_container .accepted_orders_container .status_title,
