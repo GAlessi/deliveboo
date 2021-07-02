@@ -19,13 +19,19 @@
                         <a href="{{ route('chiSiamo') }}">Chi siamo</a>
                     </li>
                     <li>
-                        <a href=""><i class="far fa-envelope">&#160;</i>Contattaci</a>
+                        <a href="{{route('contattaci')}}"><i class="far fa-envelope">&#160;</i>Contattaci</a>
+                    </li>
+                    <li>
+                        <a href="{{route('faq')}}">Faq</a>
                     </li>
                 </ul>
             </div>
-
             {{-- logo --}}
-            <div class="small_logo">small logo</div>
+            <div class="nav_logo">
+                <a href={{ route('main') }} title="Home">
+                    <h6>Deliveboo!</h6>
+                </a>
+            </div>
         </div>
 
         {{-- seconda colonna --}}

@@ -73,12 +73,28 @@ class MainController extends Controller
       return redirect() -> route('pay', compact('order'));
   }
 
+
+
+
+
+  //Footeer
   //chi chiSiamo
   public function chiSiamo(){
 
     return view('pages.chiSiamo');
   }
 
+  //contattaci
+  public function contattaci(){
+
+    return view('pages.contattaci');
+  }
+
+  //faq
+  public function faq(){
+
+    return view('pages.faq');
+  }
 
 
 }
