@@ -15,7 +15,7 @@
         </div>
 
         <div id='profile' class="flex_wrap">
-            <div class="column">
+            <div class="chiSiamoColumn">
                 <div id='vale' class="img">
 
                 </div>
@@ -33,7 +33,7 @@
                 </p>
             </div>
 
-            <div class="column">
+            <div class="chiSiamoColumn">
                 <div id='mirko' class="img">
 
                 </div>
@@ -51,7 +51,7 @@
                 </p>
             </div>
 
-            <div class="column">
+            <div class="chiSiamoColumn">
                 <div id='gabbo' class="img">
 
                 </div>
@@ -69,7 +69,7 @@
                 </p>
             </div>
 
-            <div class="column">
+            <div class="chiSiamoColumn">
                 <div id='nata' class="img">
 
                 </div>

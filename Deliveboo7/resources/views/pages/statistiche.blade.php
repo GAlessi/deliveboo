@@ -7,21 +7,26 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 
       <div id="statistiche">
-          <div class="mycontainer">
+          <div class="mycontainer flex_col flex_center">
               <h2>Le statistiche dei tuoi ordini</h2>
-              <div class="graph_container">
 
-                  <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+              <div class="single-item" style="text-align:center;max-width:60%;margin-auto">
 
-              </div>
-              <div class="graph_container">
+                  <div class="graph_container">
 
-                  <canvas id="myChart2" style="width:100%;max-width:600px"></canvas>
+                      <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
 
-              </div>
-              <div class="graph_container">
+                  </div>
+                  <div class="graph_container">
 
-                  <canvas id="myChart3" style="width:100%;max-width:600px"></canvas>
+                      <canvas id="myChart2" style="width:100%;max-width:600px"></canvas>
+
+                  </div>
+                  <div class="graph_container">
+
+                      <canvas id="myChart3" style="width:100%;max-width:600px"></canvas>
+
+                  </div>
 
               </div>
           </div>

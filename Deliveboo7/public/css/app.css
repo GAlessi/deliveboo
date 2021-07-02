@@ -12448,7 +12448,7 @@ main #mainPage #restaurants .restaurant_card h4 {
   margin: 50px auto;
   padding: 10px;
   width: 60%;
-  max-width: 600px;
+  max-width: 800px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
@@ -12511,7 +12511,7 @@ main #mainPage #restaurants .restaurant_card h4 {
   background-repeat: no-repeat;
 }
 
-.mycontainer .column {
+.mycontainer .chiSiamoColumn {
   width: calc(100% / 4);
   display: flex;
   flex-direction: column;
@@ -12522,7 +12522,7 @@ main #mainPage #restaurants .restaurant_card h4 {
   transition: 1s;
 }
 
-.mycontainer .column:hover {
+.mycontainer .chiSiamoColumn:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
