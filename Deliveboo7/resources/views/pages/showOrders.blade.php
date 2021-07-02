@@ -76,9 +76,11 @@
                               {{-- prodotti ordinati --}}
                               <div class="order_card_row">
                                 <h6><i class="fas fa-drumstick-bite"></i>Prodotti ordinati:
-                                  @foreach ($restaurantOrder->dishes as $dish)
-                                    {{ $loop->last ? $dish->nome : $dish->nome . ', ' }}
-                                  @endforeach
+
+                                    @foreach ($restaurantOrder -> dishes as $dish)
+                                     {{ $dish->nome . ' X' . $dish->counter }}
+                                    @endforeach
+
                                 </h6>
                               </div>
 

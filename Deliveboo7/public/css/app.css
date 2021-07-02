@@ -12589,7 +12589,6 @@ main #mainPage #restaurants .restaurant_card h4 {
   margin: 50px auto;
   padding: 10px;
   width: 60%;
-  max-width: 600px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
@@ -12668,13 +12667,13 @@ main #mainPage #restaurants .restaurant_card h4 {
 }
 
 @media all and (min-width: 577px) and (max-width: 767px) {
-  .mycontainer #profile .column {
+  .mycontainer #profile .profile_column {
     width: calc(100% / 2);
   }
 }
 
 @media all and (max-width: 576px) {
-  .mycontainer #profile .column {
+  .mycontainer #profile .profile_column {
     width: 100%;
   }
 }

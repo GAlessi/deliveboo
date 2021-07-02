@@ -10,7 +10,7 @@
           <div class="mycontainer">
               <h2>Le statistiche dei tuoi ordini</h2>
 
-              <div class="single-item" style="text-align:center;">
+              <div class="single-item" >
 
                   <div class="graph_container">
 
@@ -19,12 +19,12 @@
                   </div>
                   <div class="graph_container">
 
-                      <canvas id="myChart2" style="width:100%;max-width:600px"></canvas>
+                      <canvas id="myChart2" style="width:100%;max-width:600px;margin:auto"></canvas>
 
                   </div>
                   <div class="graph_container">
 
-                      <canvas id="myChart3" style="width:100%;max-width:600px"></canvas>
+                      <canvas id="myChart3" style="width:100%;max-width:600px;margin:auto"></canvas>
 
                   </div>
 
@@ -47,9 +47,9 @@
       let priceTotal=0;
       console.log('Incaso mensile', yValuesMonthTotal );
 
-      //var barColors = ["red", "green", "blue", "orange", "brown", "magenta", "yellow", "purple", "pink", "cyan", "brown",
-      //     "red"
-      // ];
+      var barColors = ["red", "green", "blue", "orange", "brown", "magenta", "yellow", "purple", "pink", "cyan", "brown",
+          "red"
+      ];
 
       //estrazione del mese da created_at
       for (var i = 0; i < myUsers.length; i++) {
