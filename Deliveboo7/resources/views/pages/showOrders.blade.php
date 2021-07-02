@@ -106,6 +106,7 @@
                                     "{{ $restaurantOrder->note }}"</p>
                                 </div>
                               @endif
+                              <a href="{{route('editStatus', $restaurantOrder->id)}}">----</a>
                             </div>
                           </li>
                         @endif
@@ -117,99 +118,6 @@
                 {{-- fine ordini in elaborazione --}}
               </li>
 
-              {{-- contenitore ordini in sospeso --}}
-              <li>
-                <div class="suspended_orders_container">
-
-                  <div class="status_title flex space_bet align_cen">
-                    <h4>Ordini In Sospeso</h4>
-                    <div class="open_close flex align_cen">
-                      <i class="fas fa-chevron-circle-up" :hidden="hiddenOrdersSospesi" @click="showOrdersSospesi"
-                        title="Riduci ordini"></i>
-                      <i class="fas fa-chevron-circle-down" :hidden="hiddenChevronSospesi" @click="showOrdersSospesi"
-                        title="Espandi ordini"></i>
-                    </div>
-                  </div>
-
-                  <div class="suspended_orders" :hidden="hiddenOrdersSospesi">
-
-                    <ul class="flex_wrap space_bet">
-
-                      @foreach ($orderSel as $restaurantOrder)
-
-                        @if ($restaurantOrder->status == 'in sospeso')
-
-                          <li>
-
-                            {{-- card ordine sospeso --}}
-                            <div class="suspended order_card flex_col align_start">
-
-                              {{-- data --}}
-                              <div class="order_card_row">
-                                <h6><i class="fas fa-calendar-day"></i>Ordine del:
-                                  {{ $restaurantOrder->created_at }}
-                                </h6>
-                              </div>
-
-                              {{-- stato --}}
-                              <div class="order_card_row sospeso flex align_cen">
-                                <h6><i class="fas fa-exclamation-triangle"></i>Stato Ordine:</h6>
-                                <h6>&#160;In Sospeso</h6>
-                              </div>
-
-                              {{-- cliente --}}
-                              <div class="order_card_row">
-                                <h6><i class="fas fa-user-alt"></i>Cliente:
-                                  {{ $restaurantOrder->nome_cliente }}
-                                  {{ $restaurantOrder->cognome_cliente }} - Tel
-                                  {{ $restaurantOrder->telefono }}
-                                </h6>
-                              </div>
-
-                              {{-- prodotti ordinati --}}
-                              <div class="order_card_row">
-                                <h6><i class="fas fa-drumstick-bite"></i>Prodotti ordinati:
-                                  @foreach ($restaurantOrder->dishes as $dish)
-                                    {{ $loop->last ? $dish->nome : $dish->nome . ', ' }}
-                                  @endforeach
-                                </h6>
-                              </div>
-
-                              {{-- pagamento --}}
-                              <div class="order_card_row">
-                                <h6><i class="fas fa-euro-sign"></i>Pagamento:
-                                  {{ $restaurantOrder->totalPrice }} €
-                                </h6>
-                              </div>
-
-                              {{-- indirizzo copnsegna --}}
-                              <div class="order_card_row">
-                                <h6><i class="fas fa-map-marker-alt"></i>Da consegnare in:
-                                  {{ $restaurantOrder->via }}
-                                  {{ $restaurantOrder->n_civico }},
-                                  {{ $restaurantOrder->citta }},
-                                  {{ $restaurantOrder->cap }}
-                                </h6>
-                              </div>
-
-                              {{-- note --}}
-                              @if ($restaurantOrder->note)
-                                <div class="order_card_row">
-                                  <p><i class="fas fa-sticky-note"></i>Note:
-                                    "{{ $restaurantOrder->note }}"</p>
-                                </div>
-                              @endif
-                            </div>
-                          </li>
-                        @endif
-
-                      @endforeach
-
-                    </ul>
-                  </div>
-                </div>
-                {{-- fine ordini in sospeso --}}
-              </li>
 
               {{-- contenitore ordini in rifiutati --}}
               <li>
@@ -325,7 +233,7 @@
 
                       @foreach ($orderSel as $restaurantOrder)
 
-                        @if ($restaurantOrder->status == 'pagato')
+                        @if ($restaurantOrder->status == 'evaso')
 
                           <li>
 
