@@ -52704,7 +52704,9 @@ document.addEventListener("DOMContentLoaded", function () {
       cartHidden: true,
       //Statistiche
       allOrders: [],
-      //visibilità elementi in showOrders
+      //visibilità helperInfo in showRestaurant
+      hiddenHelperInfo: true,
+      //visibilità ordini in showOrders
       hiddenOrdersPagati: true,
       hiddenChevronPagati: false,
       hiddenOrdersSospesi: true,
@@ -52887,6 +52889,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (this.carrello.length == 0) {
           this.showCart();
         }
+      },
+      //mostro-nascondo helperInfo
+      showHelperInfo: function showHelperInfo() {
+        this.hiddenHelperInfo = !this.hiddenHelperInfo;
       },
       // mostro-nascondo carrello
       showCart: function showCart() {
