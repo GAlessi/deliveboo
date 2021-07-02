@@ -93,6 +93,29 @@
                             }
                         }
 
+                        a{
+                          justify-self: center;
+                          margin: 5px;
+                          padding: 5px;
+                          text-transform: uppercase;
+                          font-weight: bold;
+                          color: $light;
+                          background-color: $green;
+                          border: solid 1px $blue;
+                          border-radius: 10px;
+                          -webkit-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+                          -moz-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+                          box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+                          cursor: pointer;
+
+                          i {
+                            color: $light;
+                          }
+
+                          &:hover {
+                            border: solid 1px $red;
+                          }
+                        }
                         .accettato,
                         .sospeso,
                         .pagato {

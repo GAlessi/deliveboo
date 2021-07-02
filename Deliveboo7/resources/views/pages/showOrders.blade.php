@@ -106,7 +106,9 @@
                                     "{{ $restaurantOrder->note }}"</p>
                                 </div>
                               @endif
-                              <a href="{{route('editStatus', $restaurantOrder->id)}}">----</a>
+                              <a href="{{route('editStatus', $restaurantOrder->id)}}">
+                                Ordine Evaso
+                              </a>
                             </div>
                           </li>
                         @endif
