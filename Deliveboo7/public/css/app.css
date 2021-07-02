@@ -12646,7 +12646,6 @@ main #mainPage #restaurants .restaurant_card h4 {
   margin: 50px auto;
   padding: 10px;
   width: 60%;
-  max-width: 600px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
@@ -12755,13 +12754,14 @@ main #mainPage #restaurants .restaurant_card h4 {
 #contattaci .mycontainer .container-box .boxQuestion .questionOne {
   background-color: #e9c46a;
   border-bottom: 1px solid #264653;
-  padding-left: 30px;
+  padding: 4px 0;
 }
 
 #contattaci .mycontainer .container-box .boxQuestion .questionTwo {
   background-color: #e9c46a;
   border-bottom: 1px solid #264653;
-  padding-left: 30px;
+  padding-top: 20px;
+  padding-bottom: 4px;
 }
 
 #contattaci .mycontainer .container-box .boxAnswers {

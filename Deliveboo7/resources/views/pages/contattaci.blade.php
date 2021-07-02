@@ -3,7 +3,7 @@
 <main>
   <div id='contattaci' >
     <div class="mycontainer">
-      <h1>Contattaci</h1>
+      <h1 >Contattaci</h1>
       <div class="flex space_bet container-box flex_wrap">
 
         <div class="boxQuestion">
@@ -31,12 +31,12 @@
 
           <div>
             <h2>Contatti Media</h2>
-            <p>Per le interviste o altre richieste media, per favore scrivi una mail a press@deliveroo.co.uk.
+            <p>Per le interviste o altre richieste media, per favore scrivi una mail a press@deliveboo.com.
               Purtroppo l'ufficio stampa non ha accesso alle informazioni sugli account, quindi non può essere
               d'aiuto con le richieste dei clienti. Si prega di contattare il servizio clienti.
             </p>
 
-            <p>Sede legale: Deliveroo Italy S.R.L.Via Carlo Bo 11 Milano 20143</p>
+            <p>Sede legale: Deliveboo Italy S.R.L.Via Carlo Bo 11 Milano 20143</p>
           </div>
 
         </div>
