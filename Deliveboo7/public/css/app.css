@@ -12824,6 +12824,30 @@ main #mainPage #restaurants .restaurant_card h4 {
   padding-bottom: 20px;
 }
 
+@media all and (min-width: 577px) and (max-width: 767px) {
+  #contattaci .mycontainer .container-box .boxQuestion {
+    width: 100%;
+  }
+
+  #contattaci .mycontainer .container-box .boxAnswers {
+    width: 100%;
+  }
+}
+
+@media all and (max-width: 576px) {
+  #contattaci .mycontainer h1 {
+    font-size: 40px;
+  }
+
+  #contattaci .mycontainer .container-box .boxQuestion {
+    width: 100%;
+  }
+
+  #contattaci .mycontainer .container-box .boxAnswers {
+    width: 100%;
+  }
+}
+
 [v-cloak] {
   display: none;
 }

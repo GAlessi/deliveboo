@@ -34,3 +34,47 @@
     }
   }
 }
+
+
+@media all and (min-width: 577px) and (max-width: 767px)
+{
+  #contattaci{
+    .mycontainer{
+
+      .container-box{
+
+        .boxQuestion{
+          width: 100%;
+
+        }
+        .boxAnswers{
+          width: 100%;
+        }
+
+      }
+    }
+  }
+
+}
+
+//SMALL SMARTPHONE
+@media all and (max-width: 576px)
+{
+  #contattaci{
+    .mycontainer{
+      h1{
+        font-size: 40px;
+      }
+      .container-box{
+
+        .boxQuestion{
+          width: 100%;
+        }
+        .boxAnswers{
+          width: 100%;
+        }
+
+      }
+    }
+  }
+}
