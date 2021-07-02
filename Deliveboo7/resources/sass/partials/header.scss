@@ -19,7 +19,8 @@ header {
             .nav_left {
                 .nav_logo {
                     a {
-                        &:hover {
+                        &:hover,
+                        &:focus {
                             scale: 1.1;
                             text-decoration: none;
                         }
