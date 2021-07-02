@@ -61,7 +61,7 @@
             </ul>
 
             {{-- submit --}}
-            <form class="flex_center" :action="'/createOrder/' + carrelloID" method="post">
+            <form class="flex_center" :action="'/createOrder/' + carrelloIDs" method="post">
               @csrf
               <input type="hidden" name="totalPrice" :value="totalPrice.toFixed(2)">
               <button type="submit" class="btn-link">

@@ -52695,6 +52695,7 @@ document.addEventListener("DOMContentLoaded", function () {
       //data per piatti per carrello
       carrello: [],
       carrelloID: [],
+      carrelloIDs: [],
       totalPrice: 0,
       productNumber: [],
       cartItems: 0,
@@ -52837,6 +52838,7 @@ document.addEventListener("DOMContentLoaded", function () {
           this.totalPrice += choosenDish.prezzo;
           this.carrello.push(choosenDish);
           this.carrelloID.push(choosenDish.id);
+          this.carrelloIDs.push(choosenDish.id);
           this.cartItems += 1;
         } else {
           if (!this.carrelloID.includes(choosenDish.id)) {
@@ -52853,6 +52855,8 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       // aumenta quantità
       increase: function increase(dishId, index) {
+        this.carrelloIDs.push(this.carrello[index].id);
+
         if (this.carrello[index].counter >= 1) {
           this.totalPrice += this.carrello[index].prezzo;
           this.carrello[index].counter++;
@@ -52867,6 +52871,11 @@ document.addEventListener("DOMContentLoaded", function () {
       decrease: function decrease(dishId, index) {
         this.totalPrice -= this.carrello[index].prezzo;
         this.cartItems--;
+
+        if (this.carrelloIDs.includes(this.carrello[index].id)) {
+          var indice = this.carrelloIDs.indexOf(this.carrello[index].id);
+          this.carrelloIDs.splice(indice, 1);
+        }
 
         if (this.carrello[index].counter > 1) {
           this.carrello[index].counter--;
@@ -52898,7 +52907,7 @@ document.addEventListener("DOMContentLoaded", function () {
         this.hiddenOrdersRifiutati = !this.hiddenOrdersRifiutati;
         this.hiddenChevronRifiutati = !this.hiddenChevronRifiutati;
       },
-      // mostro-nascondo ordini accettati            
+      // mostro-nascondo ordini accettati
       showOrdersAccettati: function showOrdersAccettati() {
         this.hiddenOrdersAccettati = !this.hiddenOrdersAccettati;
         this.hiddenChevronAccettati = !this.hiddenChevronAccettati;
@@ -52944,6 +52953,7 @@ $(document).ready(function () {
       }
     }]
   });
+  $('.single-item').slick();
 });
 
 /***/ }),

@@ -20,7 +20,19 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
+    //edit status
+    public function editStatus($id)
+    {
+        // dd($id);
+        $order = Order::findOrFail($id);
+        $order->status = 'evaso';
+        $order -> save();
 
+        // dd($order);
+
+        return redirect() -> back();
+
+    }
     //creazione nuovo piatto
     public function createDish()
     {
