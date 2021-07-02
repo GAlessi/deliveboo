@@ -12710,6 +12710,43 @@ main #mainPage #restaurants .restaurant_card h4 {
   }
 }
 
+#contattaci {
+  height: calc(100% -282px);
+}
+
+#contattaci .mycontainer h1 {
+  margin-top: 30px;
+}
+
+#contattaci .mycontainer .container-box {
+  padding: 40px 0;
+}
+
+#contattaci .mycontainer .container-box .boxQuestion {
+  width: 30%;
+}
+
+#contattaci .mycontainer .container-box .boxQuestion .questionOne {
+  background-color: #e9c46a;
+  border-bottom: 1px solid #264653;
+  padding-left: 30px;
+}
+
+#contattaci .mycontainer .container-box .boxQuestion .questionTwo {
+  background-color: #e9c46a;
+  border-bottom: 1px solid #264653;
+  padding-left: 30px;
+}
+
+#contattaci .mycontainer .container-box .boxAnswers {
+  width: 65%;
+}
+
+#contattaci .mycontainer .container-box .boxAnswers .border-email {
+  border-bottom: 1px solid #264653;
+  padding-bottom: 20px;
+}
+
 [v-cloak] {
   display: none;
 }
