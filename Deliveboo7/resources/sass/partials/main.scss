@@ -188,6 +188,7 @@ main {
             }
 
             .restaurant_card {
+                margin: 0;
                 padding: 10px;
                 background-color: $yellow;
                 height: 200px;
@@ -229,6 +230,7 @@ main {
 
                             .chekbox_container {
                                 li {
+                                    width: 40%;
                                     margin: 3px;
                                     font-size: 16px;
                                 }
@@ -295,6 +297,12 @@ main {
 
                         .jumbotron_search {
                             width: 100%;
+
+                            .chekbox_container {
+                                li {
+                                    width: 30%;
+                                }
+                            }
                         }
 
                         .picture {
