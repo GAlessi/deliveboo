@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
             //data per piatti per carrello
             carrello: [],
             carrelloID: [],
+            carrelloIDs: [],
             totalPrice: 0,
             productNumber: [],
             cartItems: 0,
@@ -184,6 +185,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     this.totalPrice += (choosenDish.prezzo);
                     this.carrello.push(choosenDish);
                     this.carrelloID.push(choosenDish.id);
+                    this.carrelloIDs.push(choosenDish.id);
                     this.cartItems += 1;
 
 
@@ -191,6 +193,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (!this.carrelloID.includes(choosenDish.id)) {
                         this.carrello.push(choosenDish);
                         this.carrelloID.push(choosenDish.id);
+
                     }
 
                     for (let i = 0; i < this.carrello.length; i++) {
@@ -204,6 +207,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // aumenta quantità
             increase: function (dishId, index) {
+                this.carrelloIDs.push(this.carrello[index].id);
                 if (this.carrello[index].counter >= 1) {
                     this.totalPrice += (this.carrello[index].prezzo);
                     this.carrello[index].counter++;
@@ -221,6 +225,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 this.totalPrice -= (this.carrello[index].prezzo);
                 this.cartItems--;
+
+                if (this.carrelloIDs.includes(this.carrello[index].id)) {
+                    let indice = this.carrelloIDs.indexOf(this.carrello[index].id)
+                    this.carrelloIDs.splice(indice, 1);
+
+                }
 
                 if (this.carrello[index].counter > 1) {
                     this.carrello[index].counter--;
