@@ -131,9 +131,8 @@
               </div>
             </div>
 
-          @endif
-
-          @guest
+            {{-- @endif --}}
+          @else
 
             {{-- restaurant_info --}}
             <div class="restaurant_info flex_col align_cen">
@@ -178,7 +177,7 @@
               </div>
             </div>
 
-          @endguest
+          @endif
 
           <div class="menu_container flex_col align_cen">
 
