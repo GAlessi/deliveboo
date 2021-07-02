@@ -70,48 +70,115 @@
             </form>
           </div>
 
-          {{-- restaurant_info --}}
-          <div class="restaurant_info flex_col align_cen">
+          @if (Auth::check() && Auth::user()->id == $user->id)
 
-            <h2>{{ $user->nome_attivita }}</h2>
+            <div class="helper_ristoratore">
+              <h2>Ciao {{ $user->name }}</h2>
 
-            {{-- info card ristorante --}}
-            <div class="restaurant_info_card flex_col just_end">
-              {{-- immagine ristorante --}}
-              <div class="restaurant_image">
-                <img src="{{ asset('/storage/restaurantImages/' . $user->file_path) }}" alt="immagine_ristorante"
-                  alt="">
-              </div>
+              <h4>Questa è la pagina riservata al tuo ristorante "{{ $user->nome_attivita }}"</h4>
 
-              <div class="flex_center">
-                <div class="info_card_row_container">
-                <div class="info_card_row flex align_cen">
-                  <i class="fas fa-utensils"></i>
-                  <h6>Tipo di Cucina:
+              <p>Da qui potrai gestire il tuo menu, con la possibilità di aggiungere nuovi piatti, modificarli,
+                eliminarli o renderli momentaneamente non accessibili ai tuoi clienti.<br>Potrai sempre controllare lo
+                stato di ogni singolo ordine ricevuto ed avrai una visione completa ed aggiornata in tempo reale
+                dell'andamento della tua attività e consultare ogni tipo di statistica.</p>
+            </div>
 
-                    @foreach ($user->types->sortBy('nome') as $type)
+            {{-- restaurant_info --}}
+            <div class="restaurant_info flex_col align_cen">
 
-                      {{ $loop->last ? $type->nome : $type->nome . ', ' }}
+              <h5>Il nome della tua attività:</h5>
 
-                    @endforeach
+              <h2>{{ $user->nome_attivita }}</h2>
 
-                  </h6>
+              {{-- info card ristorante --}}
+              <div class="restaurant_info_card ristoratore flex">
+                {{-- immagine ristorante --}}
+                <div class="restaurant_image">
+                  <img src="{{ asset('/storage/restaurantImages/' . $user->file_path) }}" alt="immagine_ristorante"
+                    alt="">
                 </div>
 
-                <div class="info_card_row flex align_cen">
-                  <i class="fas fa-map-marker-alt"></i>
-                  <h6>{{ $user->via }} {{ $user->n_civico }}, {{ $user->citta }},
-                    {{ $user->cap }}</h6>
-                </div>
+                <div class="flex_center">
+                  <div class="info_card_row_container">
 
-                <div class="info_card_row flex align_cen">
-                  <i class="far fa-envelope"></i>
-                  <h6>{{ $user->email }}</h6>
+                    <h5>Le tue informarzioni visibili al pubblico</h5>
+
+                    <div class="info_card_row flex align_cen">
+                      <i class="fas fa-utensils"></i>
+                      <h6>Tipo di Cucina:
+
+                        @foreach ($user->types->sortBy('nome') as $type)
+
+                          {{ $loop->last ? $type->nome : $type->nome . ', ' }}
+
+                        @endforeach
+
+                      </h6>
+                    </div>
+
+                    <div class="info_card_row flex align_cen">
+                      <i class="fas fa-map-marker-alt"></i>
+                      <h6>{{ $user->via }} {{ $user->n_civico }}, {{ $user->citta }},
+                        {{ $user->cap }}</h6>
+                    </div>
+
+                    <div class="info_card_row flex align_cen">
+                      <i class="far fa-envelope"></i>
+                      <h6>{{ $user->email }}</h6>
+                    </div>
+                  </div>
                 </div>
-              </div>
               </div>
             </div>
-          </div>
+
+          @endif
+
+          @guest
+
+            {{-- restaurant_info --}}
+            <div class="restaurant_info flex_col align_cen">
+
+              <h2>{{ $user->nome_attivita }}</h2>
+
+              {{-- info card ristorante --}}
+              <div class="restaurant_info_card flex_col just_end">
+                {{-- immagine ristorante --}}
+                <div class="restaurant_image">
+                  <img src="{{ asset('/storage/restaurantImages/' . $user->file_path) }}" alt="immagine_ristorante"
+                    alt="">
+                </div>
+
+                <div class="flex_center">
+                  <div class="info_card_row_container">
+                    <div class="info_card_row flex align_cen">
+                      <i class="fas fa-utensils"></i>
+                      <h6>Tipo di Cucina:
+
+                        @foreach ($user->types->sortBy('nome') as $type)
+
+                          {{ $loop->last ? $type->nome : $type->nome . ', ' }}
+
+                        @endforeach
+
+                      </h6>
+                    </div>
+
+                    <div class="info_card_row flex align_cen">
+                      <i class="fas fa-map-marker-alt"></i>
+                      <h6>{{ $user->via }} {{ $user->n_civico }}, {{ $user->citta }},
+                        {{ $user->cap }}</h6>
+                    </div>
+
+                    <div class="info_card_row flex align_cen">
+                      <i class="far fa-envelope"></i>
+                      <h6>{{ $user->email }}</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          @endguest
 
           <div class="menu_container flex_col align_cen">
 
