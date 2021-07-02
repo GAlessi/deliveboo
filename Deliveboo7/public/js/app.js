@@ -52681,18 +52681,18 @@ document.addEventListener("DOMContentLoaded", function () {
   new Vue({
     el: '#app',
     data: {
-      //filtro ricerca checkbox input
+      //data per filtro ricerca checkbox input
       categories: [],
       restaurantsList: [],
       allRestaurants: [],
       category_restaurant: [],
       filter: [],
-      //filtro ricerca text input
+      //data per filtro ricerca text input
       searchedRestaurantTxt: "",
       filteredRestaurants: [],
       txtFilteredRestaurant: [],
       showSearch: false,
-      //piatti per carrello
+      //data per piatti per carrello
       carrello: [],
       carrelloID: [],
       totalPrice: 0,
@@ -52710,7 +52710,7 @@ document.addEventListener("DOMContentLoaded", function () {
       this.getAllRestaurants();
     },
     methods: {
-      // Funzione di chiamata al controller Statistiche
+      // Funzione di chiamata al controller per le categorie
       getCategories: function getCategories() {
         var _this = this;
 
@@ -52725,6 +52725,7 @@ document.addEventListener("DOMContentLoaded", function () {
           console.log(error);
         });
       },
+      //funzione che richiama tutti i ristoranti dal db
       getAllRestaurants: function getAllRestaurants() {
         var _this2 = this;
 
@@ -52737,6 +52738,7 @@ document.addEventListener("DOMContentLoaded", function () {
           console.log(error);
         });
       },
+      //funzione che prende i generi
       giveGenres: function giveGenres() {
         for (var i = 0; i < this.restaurantsList.length; i++) {
           this.restaurantsList[i].categories = [];
@@ -52779,8 +52781,7 @@ document.addEventListener("DOMContentLoaded", function () {
             };
 
             if (checker(categoriesID, filter) && !_this3.filteredRestaurants.includes(element)) {
-              _this3.filteredRestaurants.push(element); //console.log(element.nome_attivita);
-
+              _this3.filteredRestaurants.push(element);
             }
           }
         });
@@ -52797,7 +52798,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             for (var i = 0; i < _this4.allRestaurants.length; i++) {
               var restaurant = _this4.allRestaurants[i];
-              var nomeSingoloRistorante = restaurant.nome_attivita; //console.log(nomeSingoloRistorante);
+              var nomeSingoloRistorante = restaurant.nome_attivita;
 
               if (nomeSingoloRistorante.toLowerCase().includes(_this4.searchedRestaurantTxt.toLowerCase())) {
                 _this4.txtFilteredRestaurant.push(restaurant);
@@ -52816,7 +52817,11 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       //aggiungi al carrello
       addToCart: function addToCart(dish) {
-        var choosenDish = dish; // increase(dishId, index);
+        var choosenDish = dish;
+
+        if (this.cartHidden) {
+          this.showCart();
+        }
 
         if (this.carrello.length == 0) {
           choosenDish.counter = 1;
@@ -52824,31 +52829,30 @@ document.addEventListener("DOMContentLoaded", function () {
           this.carrello.push(choosenDish);
           this.carrelloID.push(choosenDish.id);
           this.cartItems += 1;
-          console.log(this.totalPrice, choosenDish.prezzo);
-
-          if (this.cartHidden) {
-            this.showCart();
-          }
         } else {
-          for (var i = 0; i <= this.carrello.length; i++) {
+          if (!this.carrelloID.includes(choosenDish.id)) {
+            this.carrello.push(choosenDish);
+            this.carrelloID.push(choosenDish.id);
+          }
+
+          for (var i = 0; i < this.carrello.length; i++) {
             if (this.carrello[i].id == choosenDish.id) {
-              console.log('non pusho');
-              break;
-            } else if (i == this.carrello.length - 1) {
-              this.carrello.push(choosenDish);
-              this.carrelloID.push(choosenDish.id);
-              choosenDish.counter = 1;
-              this.totalPrice += choosenDish.prezzo;
-              this.cartItems++;
+              this.increase(this.carrello[i].id, i);
             }
           }
         }
       },
       // aumenta quantità
       increase: function increase(dishId, index) {
-        this.totalPrice += this.carrello[index].prezzo;
-        this.carrello[index].counter++;
-        this.cartItems++; //this.multiPrice = this.carrello[index].prezzo * this.carrello[index].counter++;
+        if (this.carrello[index].counter >= 1) {
+          this.totalPrice += this.carrello[index].prezzo;
+          this.carrello[index].counter++;
+          this.cartItems++;
+        } else {
+          this.totalPrice += this.carrello[index].prezzo;
+          this.carrello[index].counter = 1;
+          this.cartItems++;
+        }
       },
       // diminuisci quantità
       decrease: function decrease(dishId, index) {
@@ -52859,6 +52863,7 @@ document.addEventListener("DOMContentLoaded", function () {
           this.carrello[index].counter--;
         } else {
           this.carrello.splice(index, 1);
+          this.carrelloID.splice(index, 1);
         }
 
         if (this.carrello.length == 0) {
@@ -52977,8 +52982,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\esercizi_laravel\project-final\Deliveboo7\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\esercizi_laravel\project-final\Deliveboo7\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\booleanSviluppo\code\laravel\project-final\Deliveboo7\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\booleanSviluppo\code\laravel\project-final\Deliveboo7\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

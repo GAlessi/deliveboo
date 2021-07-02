@@ -11,20 +11,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
         data: {
 
-            //filtro ricerca checkbox input
+            //data per filtro ricerca checkbox input
             categories: [],
             restaurantsList: [],
             allRestaurants: [],
             category_restaurant: [],
             filter: [],
 
-            //filtro ricerca text input
+            //data per filtro ricerca text input
             searchedRestaurantTxt: "",
             filteredRestaurants: [],
             txtFilteredRestaurant: [],
             showSearch: false,
 
-            //piatti per carrello
+            //data per piatti per carrello
             carrello: [],
             carrelloID: [],
             totalPrice: 0,
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
 
         methods: {
-            // Funzione di chiamata al controller Statistiche
+            // Funzione di chiamata al controller per le categorie
             getCategories: function () {
 
                 axios.get('/api/get/categories/')
@@ -65,6 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
             },
 
+            //funzione che richiama tutti i ristoranti dal db
             getAllRestaurants: function () {
 
                 axios.get('/api/get/all/restaurants')
@@ -79,6 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             },
 
+            //funzione che prende i generi
             giveGenres: function () {
 
                 for (let i = 0; i < this.restaurantsList.length; i++) {
@@ -116,7 +118,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         if (checker(categoriesID, filter) && !this.filteredRestaurants.includes(element)) {
                             this.filteredRestaurants.push(element);
-                            //console.log(element.nome_attivita);
                         }
                     }
                 });
@@ -140,7 +141,6 @@ document.addEventListener("DOMContentLoaded", function () {
                                 const restaurant = this.allRestaurants[i];
 
                                 const nomeSingoloRistorante = restaurant.nome_attivita;
-                                //console.log(nomeSingoloRistorante);
 
                                 if (nomeSingoloRistorante.toLowerCase().includes(this.searchedRestaurantTxt.toLowerCase())) {
 
@@ -163,41 +163,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
             //aggiungi al carrello
             addToCart: function (dish) {
-
                 let choosenDish = dish;
 
-                // increase(dishId, index);
+                if (this.cartHidden) {
+                    this.showCart();
+                }
 
                 if (this.carrello.length == 0) {
-
                     choosenDish.counter = 1;
                     this.totalPrice += (choosenDish.prezzo);
                     this.carrello.push(choosenDish);
                     this.carrelloID.push(choosenDish.id);
                     this.cartItems += 1;
-                    console.log(this.totalPrice, choosenDish.prezzo);
-                    if (this.cartHidden) {
-                        this.showCart();
-                    }
+
 
                 } else {
+                    if (!this.carrelloID.includes(choosenDish.id)) {
+                        this.carrello.push(choosenDish);
+                        this.carrelloID.push(choosenDish.id);
+                    }
 
-                    for (let i = 0; i <= this.carrello.length; i++) {
+                    for (let i = 0; i < this.carrello.length; i++) {
 
                         if (this.carrello[i].id == choosenDish.id) {
-
-                            console.log('non pusho');
-                            break;
-
-                        } else if (i == this.carrello.length - 1) {
-
-                            this.carrello.push(choosenDish);
-                            this.carrelloID.push(choosenDish.id);
-
-
-                            choosenDish.counter = 1;
-                            this.totalPrice += (choosenDish.prezzo);
-                            this.cartItems++;
+                            this.increase(this.carrello[i].id, i);
                         }
                     }
                 }
@@ -205,11 +194,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // aumenta quantità
             increase: function (dishId, index) {
+                if (this.carrello[index].counter >= 1) {
+                    this.totalPrice += (this.carrello[index].prezzo);
+                    this.carrello[index].counter++;
+                    this.cartItems++;
 
-                this.totalPrice += (this.carrello[index].prezzo);
-                this.carrello[index].counter++;
-                this.cartItems++;
-                //this.multiPrice = this.carrello[index].prezzo * this.carrello[index].counter++;
+                }else {
+                    this.totalPrice += (this.carrello[index].prezzo);
+                    this.carrello[index].counter=1;
+                    this.cartItems++;
+                }
             },
 
             // diminuisci quantità
@@ -219,12 +213,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 this.cartItems--;
 
                 if (this.carrello[index].counter > 1) {
-
                     this.carrello[index].counter--;
+                    
                 } else {
-
                     this.carrello.splice(index, 1);
+                    this.carrelloID.splice(index, 1);
                 }
+
                 if (this.carrello.length == 0) {
                     this.showCart();
                 }

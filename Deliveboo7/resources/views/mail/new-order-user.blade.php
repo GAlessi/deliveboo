@@ -5,6 +5,11 @@
         <title>new order</title>
 
         <style media="screen">
+
+        *{
+            font-family: system-ui;
+        }
+
         .logo{
             background-color: #2a9d8f;
             padding: 5px;
@@ -13,14 +18,12 @@
         }
         .logo h1{
             color: #f4a261;
-            font-family: "Dela Gothic One", cursive;
             text-shadow: 2px 2px 2px rgb(50 50 50 / 91%);
         }
         .scheda {
             width: 60%;
             margin: 20px auto;
             padding-bottom: 20px;
-            font-family: system-ui;
             border: 1px solid;
             border-radius: 5px;
             border-color: #2A9D8F;
@@ -41,7 +44,7 @@
             <h1>Deliveboo</h1>
         </div>
         <div class="scheda">
-            <h1>Ciao {{$editableOrder->nome_cliente}} </br> il tuo ordine presso {{$nome}} è avvenuto con successo</h1>
+            <h1>Ciao {{$editableOrder->nome_cliente}} </br> il tuo ordine presso ilo ristorante "{{$nome}}" è avvenuto con successo</h1>
 
             <h3>
                 ID ordine: {{$editableOrder->id}}
