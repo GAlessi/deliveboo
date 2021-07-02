@@ -37,10 +37,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
             //Statistiche
             allOrders: [],
+
+            //visibilità elementi in showOrders
+            hiddenOrdersPagati: true,
+            hiddenChevronPagati: false,
+            hiddenOrdersSospesi: true,
+            hiddenChevronSospesi: false,
+            hiddenOrdersRifiutati: true,
+            hiddenChevronRifiutati: false,
+            hiddenOrdersAccettati: true,
+            hiddenChevronAccettati: false,
         },
 
         mounted: function () {
-            console.log('VUE Connected');
+            console.log('Questa pagina utlizza VUE');
             this.getCategories();
             this.getAllRestaurants();
 
@@ -231,6 +241,33 @@ document.addEventListener("DOMContentLoaded", function () {
                 this.cartHidden = !this.cartHidden;
             },
 
+            // mostro-nascondo ordini in pagati
+            showOrdersPagati: function () {
+
+                this.hiddenOrdersPagati = !this.hiddenOrdersPagati;
+                this.hiddenChevronPagati = !this.hiddenChevronPagati;
+            },
+
+            // mostro-nascondo ordini sospesi
+            showOrdersSospesi: function () {
+
+                this.hiddenOrdersSospesi = !this.hiddenOrdersSospesi;
+                this.hiddenChevronSospesi = !this.hiddenChevronSospesi;
+            },
+
+            // mostro-nascondo ordini rifiutati
+            showOrdersRifiutati: function () {
+
+                this.hiddenOrdersRifiutati = !this.hiddenOrdersRifiutati;
+                this.hiddenChevronRifiutati = !this.hiddenChevronRifiutati;
+            },
+
+            // mostro-nascondo ordini accettati            
+            showOrdersAccettati: function () {
+
+                this.hiddenOrdersAccettati = !this.hiddenOrdersAccettati;
+                this.hiddenChevronAccettati = !this.hiddenChevronAccettati;
+            },
 
             getOrdersStats: function () {
 

@@ -7,7 +7,8 @@
             <div class="chiSiamo_container">
 
                 <blockquote cite="http://">
-                    <h5>Un array senza i suoi iesimi elementi non è altro che un paio di parentesi vuote e prive di valore.</h5> cit.
+                    <h5>Un array senza i suoi iesimi elementi non è altro che un paio di parentesi vuote e prive di valore.
+                    </h5> cit.
                 </blockquote>
                 <p>Noi siamo la <b>durezza</b> degli iesimi elementi.</p>
 
@@ -15,7 +16,7 @@
         </div>
 
         <div id='profile' class="flex_wrap">
-            <div class="column">
+            <div class="profile_column">
                 <div id='vale' class="img">
 
                 </div>
@@ -33,7 +34,7 @@
                 </p>
             </div>
 
-            <div class="column">
+            <div class="profile_column">
                 <div id='mirko' class="img">
 
                 </div>
@@ -51,7 +52,7 @@
                 </p>
             </div>
 
-            <div class="column">
+            <div class="profile_column">
                 <div id='gabbo' class="img">
 
                 </div>
@@ -62,14 +63,14 @@
                     Cognome: Alessi
                 </p>
                 <p>
-                 <a href="https://www.linkedin.com/in/gabriele-alessi/">Likedin</a>
+                    <a href="https://www.linkedin.com/in/gabriele-alessi/">Likedin</a>
                 </p>
                 <p>
                     <a href="https://github.com/GAlessi">Github</a>
                 </p>
             </div>
 
-            <div class="column">
+            <div class="profile_column">
                 <div id='nata' class="img">
 
                 </div>

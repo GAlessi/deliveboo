@@ -82,7 +82,6 @@
 
                     </form>
 
-
                     {{-- fine create_container --}}
                 </div>
                 {{-- fine mycontainer --}}
