@@ -68,10 +68,20 @@ Route::post('/checkout/{order}', 'BrainController@checkout')
 Route::get('/statistiche/{id}', 'HomeController@statistiche')
 -> name('statistiche');
 
+//editStatus
+Route::get('/status/{id}', 'HomeController@editStatus')
+-> name('editStatus');
+
+
+//Footer
 //chi siamo
 Route::get('/chiSiamo', 'MainController@chiSiamo')
 -> name('chiSiamo');
 
-//editStatus
-Route::get('/status/{id}', 'HomeController@editStatus')
--> name('editStatus');
+//Contattaci
+Route::get('/contattaci', 'MainController@contattaci')
+-> name('contattaci');
+
+//Faq
+Route::get('/faq', 'MainController@faq')
+-> name('faq');
