@@ -11514,6 +11514,7 @@ main #mainPage #restaurants h2 {
 }
 
 main #mainPage #restaurants .restaurant_card {
+  margin: 0;
   padding: 10px;
   background-color: #e9c46a;
   height: 200px;
@@ -11550,6 +11551,7 @@ main #mainPage #restaurants .restaurant_card h4 {
   }
 
   main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container li {
+    width: 40%;
     margin: 3px;
     font-size: 16px;
   }
@@ -11604,6 +11606,10 @@ main #mainPage #restaurants .restaurant_card h4 {
 
   main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search {
     width: 100%;
+  }
+
+  main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container li {
+    width: 30%;
   }
 
   main #mainPage #myjumbotron .mycontainer .jumbotron_container .picture {
