@@ -52704,7 +52704,9 @@ document.addEventListener("DOMContentLoaded", function () {
       cartHidden: true,
       //Statistiche
       allOrders: [],
-      //visibilità elementi in showOrders
+      //visibilità helperInfo in showRestaurant
+      hiddenHelperInfo: true,
+      //visibilità ordini in showOrders
       hiddenOrdersPagati: true,
       hiddenChevronPagati: false,
       hiddenOrdersSospesi: true,
@@ -52888,6 +52890,10 @@ document.addEventListener("DOMContentLoaded", function () {
           this.showCart();
         }
       },
+      //mostro-nascondo helperInfo
+      showHelperInfo: function showHelperInfo() {
+        this.hiddenHelperInfo = !this.hiddenHelperInfo;
+      },
       // mostro-nascondo carrello
       showCart: function showCart() {
         this.cartHidden = !this.cartHidden;
@@ -53021,8 +53027,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\esercizi_laravel\project-final\Deliveboo7\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\esercizi_laravel\project-final\Deliveboo7\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\boolean29\laravel\project-final\Deliveboo7\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\boolean29\laravel\project-final\Deliveboo7\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

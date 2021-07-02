@@ -11801,6 +11801,15 @@ main #mainPage #restaurants .restaurant_card h4 {
   text-align: center;
 }
 
+#showRestaurant .helper_ristoratore h2 i {
+  font-size: inherit;
+  background-color: #e76f51;
+  border: solid 3px #e76f51;
+  border-radius: 50%;
+  box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+  cursor: pointer;
+}
+
 #showRestaurant .restaurant_info {
   text-align: center;
 }
@@ -11847,6 +11856,10 @@ main #mainPage #restaurants .restaurant_card h4 {
 #showRestaurant .restaurant_info .restaurant_info_card .info_card_row_container .info_card_row h6 {
   margin: 0;
   display: inline-block;
+}
+
+#showRestaurant .restaurant_info .restaurant_info_card.ristoratore {
+  max-width: 1000px;
 }
 
 #showRestaurant .restaurant_info .restaurant_info_card.ristoratore .restaurant_image {
@@ -12010,6 +12023,17 @@ main #mainPage #restaurants .restaurant_card h4 {
     padding: 15px 0;
   }
 
+  #showRestaurant .restaurant_info .restaurant_info_card.ristoratore {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #showRestaurant .restaurant_info .restaurant_info_card.ristoratore .info_card_row_container {
+    border: solid 1px #e9c46a;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+  }
+
   #showRestaurant .opened_cart {
     width: 275px;
   }
@@ -12046,6 +12070,17 @@ main #mainPage #restaurants .restaurant_card h4 {
     padding: 15px 0;
   }
 
+  #showRestaurant .restaurant_info .restaurant_info_card.ristoratore {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #showRestaurant .restaurant_info .restaurant_info_card.ristoratore .info_card_row_container {
+    border: solid 1px #e9c46a;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+  }
+
   #showRestaurant .opened_cart {
     width: 275px;
   }
@@ -12067,6 +12102,17 @@ main #mainPage #restaurants .restaurant_card h4 {
 }
 
 @media all and (min-width: 768px) and (max-width: 1099px) {
+  #showRestaurant .restaurant_info .restaurant_info_card.ristoratore {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #showRestaurant .restaurant_info .restaurant_info_card.ristoratore .info_card_row_container {
+    border: solid 1px #e9c46a;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+  }
+
   #showRestaurant .opened_cart {
     width: 275px;
   }
@@ -12439,9 +12485,8 @@ main #mainPage #restaurants .restaurant_card h4 {
 #showOrders .orders_container .suspended_orders_container ul li .order_card a,
 #showOrders .orders_container .refused_orders_container ul li .order_card a,
 #showOrders .orders_container .processed_orders_container ul li .order_card a {
-  justify-self: center;
-  margin: 5px;
   padding: 5px;
+  width: 100%;
   text-transform: uppercase;
   font-weight: bold;
   color: #dcdcdc;
@@ -12456,6 +12501,7 @@ main #mainPage #restaurants .restaurant_card h4 {
 #showOrders .orders_container .suspended_orders_container ul li .order_card a i,
 #showOrders .orders_container .refused_orders_container ul li .order_card a i,
 #showOrders .orders_container .processed_orders_container ul li .order_card a i {
+  margin: 5px;
   color: #dcdcdc;
 }
 
@@ -12463,7 +12509,15 @@ main #mainPage #restaurants .restaurant_card h4 {
 #showOrders .orders_container .suspended_orders_container ul li .order_card a:hover,
 #showOrders .orders_container .refused_orders_container ul li .order_card a:hover,
 #showOrders .orders_container .processed_orders_container ul li .order_card a:hover {
-  border: solid 1px #e76f51;
+  color: #264653;
+}
+
+#showOrders .orders_container .accepted_orders_container ul li .order_card a:hover i,
+#showOrders .orders_container .suspended_orders_container ul li .order_card a:hover i,
+#showOrders .orders_container .refused_orders_container ul li .order_card a:hover i,
+#showOrders .orders_container .processed_orders_container ul li .order_card a:hover i {
+  color: #264653;
+  text-decoration: none;
 }
 
 #showOrders .orders_container .accepted_orders_container ul li .order_card .accettato,
@@ -12531,14 +12585,11 @@ main #mainPage #restaurants .restaurant_card h4 {
   background-color: #dcdcdc;
 }
 
-@media all and (max-width: 576px) {
-  #showOrders .orders_container li {
-    width: 100%;
-  }
-}
-
-@media all and (min-width: 577px) and (max-width: 767px) {
-  #showOrders .orders_container li {
+@media all and (max-width: 767px) {
+  #showOrders .orders_container .accepted_orders_container ul li,
+  #showOrders .orders_container .suspended_orders_container ul li,
+  #showOrders .orders_container .refused_orders_container ul li,
+  #showOrders .orders_container .processed_orders_container ul li {
     width: 100%;
   }
 }
@@ -12646,7 +12697,6 @@ main #mainPage #restaurants .restaurant_card h4 {
   margin: 50px auto;
   padding: 10px;
   width: 60%;
-  max-width: 600px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
@@ -12734,6 +12784,44 @@ main #mainPage #restaurants .restaurant_card h4 {
   .mycontainer #profile .column {
     width: 100%;
   }
+}
+
+#contattaci {
+  height: calc(100% -282px);
+}
+
+#contattaci .mycontainer h1 {
+  margin-top: 30px;
+}
+
+#contattaci .mycontainer .container-box {
+  padding: 40px 0;
+}
+
+#contattaci .mycontainer .container-box .boxQuestion {
+  width: 30%;
+}
+
+#contattaci .mycontainer .container-box .boxQuestion .questionOne {
+  background-color: #e9c46a;
+  border-bottom: 1px solid #264653;
+  padding: 4px 0;
+}
+
+#contattaci .mycontainer .container-box .boxQuestion .questionTwo {
+  background-color: #e9c46a;
+  border-bottom: 1px solid #264653;
+  padding-top: 20px;
+  padding-bottom: 4px;
+}
+
+#contattaci .mycontainer .container-box .boxAnswers {
+  width: 65%;
+}
+
+#contattaci .mycontainer .container-box .boxAnswers .border-email {
+  border-bottom: 1px solid #264653;
+  padding-bottom: 20px;
 }
 
 [v-cloak] {

@@ -38,7 +38,10 @@ document.addEventListener("DOMContentLoaded", function () {
             //Statistiche
             allOrders: [],
 
-            //visibilità elementi in showOrders
+            //visibilità helperInfo in showRestaurant
+            hiddenHelperInfo: true,
+
+            //visibilità ordini in showOrders
             hiddenOrdersPagati: true,
             hiddenChevronPagati: false,
             hiddenOrdersSospesi: true,
@@ -212,9 +215,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     this.carrello[index].counter++;
                     this.cartItems++;
 
-                }else {
+                } else {
                     this.totalPrice += (this.carrello[index].prezzo);
-                    this.carrello[index].counter=1;
+                    this.carrello[index].counter = 1;
                     this.cartItems++;
                 }
             },
@@ -242,6 +245,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (this.carrello.length == 0) {
                     this.showCart();
                 }
+            },
+
+            //mostro-nascondo helperInfo
+            showHelperInfo: function () {
+
+                this.hiddenHelperInfo = !this.hiddenHelperInfo;
             },
 
             // mostro-nascondo carrello
@@ -327,6 +336,4 @@ $(document).ready(() => {
     });
 
     $('.single-item').slick();
-
-
 })

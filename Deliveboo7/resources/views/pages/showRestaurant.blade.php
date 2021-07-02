@@ -18,6 +18,7 @@
               </div>
             </div>
           @endif
+
           @guest
             <div class="cart flex_center absolute" @click="showCart" title="Vai al tuo Ordine">
               <img src="{{ asset('/storage/images/shopping-cart.png') }}" alt="carrello" class="relative">
@@ -72,15 +73,25 @@
 
           @if (Auth::check() && Auth::user()->id == $user->id)
 
-            <div class="helper_ristoratore">
-              <h2>Ciao {{ $user->name }}</h2>
+            <div class="helper_ristoratore relative">
+
+              <h2>Ciao {{ $user->name }} <i class="fas fa-info-circle animate__animated animate__bounceIn"
+                  @click="showHelperInfo" title="Info Ristoratore"></i></h2>
 
               <h4>Questa è la pagina riservata al tuo ristorante "{{ $user->nome_attivita }}"</h4>
 
-              <p>Da qui potrai gestire il tuo menu, con la possibilità di aggiungere nuovi piatti, modificarli,
-                eliminarli o renderli momentaneamente non accessibili ai tuoi clienti.<br>Potrai sempre controllare lo
-                stato di ogni singolo ordine ricevuto ed avrai una visione completa ed aggiornata in tempo reale
-                dell'andamento della tua attività e consultare ogni tipo di statistica.</p>
+              <div class="helper_info" :hidden="hiddenHelperInfo">
+                <p>Da qui potrai gestire il tuo menu, con la possibilità di aggiungere nuovi piatti, modificarli,
+                  eliminarli o renderli momentaneamente non accessibili ai tuoi clienti.
+                  <br>&ensp;Potrai sempre controllare lo stato di ogni singolo ordine ricevuto ed avrai una visione
+                  completa
+                  ed aggiornata in tempo reale dell'andamento della tua attività e consultare ogni tipo di statistica.
+                </p>
+              </div>
+
+              {{-- <div class="open_close_helper absolute">
+                <i class="fas fa-info-circle" @click="showHelperInfo" title="Info Ristoratore"></i>
+              </div> --}}
             </div>
 
             {{-- restaurant_info --}}
