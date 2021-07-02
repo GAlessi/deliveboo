@@ -11013,6 +11013,7 @@ a.text-dark:focus {
 }
 
 h1 {
+  margin: 0;
   font-family: "Dela Gothic One", cursive;
   font-size: 85px;
 }
@@ -11028,6 +11029,7 @@ h3,
 h4,
 h5,
 h6 {
+  margin: 0;
   font-family: "Staatliches", cursive;
 }
 
@@ -11090,7 +11092,8 @@ a {
   color: inherit;
 }
 
-a:hover {
+a:hover,
+a:focus {
   color: inherit;
 }
 
@@ -11117,7 +11120,8 @@ header .mycontainer nav {
   width: 100%;
 }
 
-header .mycontainer nav .nav_left .nav_logo a:hover {
+header .mycontainer nav .nav_left .nav_logo a:hover,
+header .mycontainer nav .nav_left .nav_logo a:focus {
   scale: 1.1;
   text-decoration: none;
 }
@@ -11348,7 +11352,7 @@ main #mainPage {
 
 main #mainPage .restaurant_card {
   margin: 10px;
-  padding: 10px;
+  padding: 0;
   background-color: #e9c46a;
   height: 200px;
   border-radius: 20px;
@@ -11358,18 +11362,21 @@ main #mainPage .restaurant_card {
 main #mainPage .restaurant_card img {
   height: 100%;
   width: 100%;
+  border: solid 2px #264653;
   border-radius: 20px;
 }
 
 main #mainPage .restaurant_card h4 {
   left: 50%;
-  bottom: 0;
+  bottom: -10px;
   transform: translateX(-50%);
   padding: 0 5px;
   color: #2a9d8f;
   text-shadow: 1px 1px 1px #264653;
   background-color: #e9c46a;
+  border: solid 1px #264653;
   border-radius: 10px;
+  box-shadow: 0px 2px 2px 0px rgba(50, 50, 50, 0.75);
 }
 
 main #mainPage #myrestaurant {
@@ -11485,7 +11492,7 @@ main #mainPage #myjumbotron .mycontainer .jumbotron_container .picture .jumbotro
 
 main #mainPage #filtered_restaurants {
   background-color: #2a9d8f;
-  padding: 30px 0;
+  padding: 0 0 20px 0;
 }
 
 main #mainPage #filtered_restaurants ul {
@@ -11496,12 +11503,9 @@ main #mainPage #filtered_restaurants ul li {
   width: calc(100% / 3);
 }
 
-main #mainPage #filtered_restaurants .restaurant_card {
-  padding: 0;
-}
-
 main #mainPage #restaurants {
   padding: 30px 0;
+  box-shadow: inset 0px 2px 2px 0px rgba(50, 50, 50, 0.75);
 }
 
 main #mainPage #restaurants h2 {
@@ -11510,30 +11514,14 @@ main #mainPage #restaurants h2 {
 }
 
 main #mainPage #restaurants .restaurant_card {
-  margin: 10px;
   padding: 10px;
   background-color: #e9c46a;
   height: 200px;
   width: 200px;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-main #mainPage #restaurants .restaurant_card img {
-  height: 100%;
-  width: 100%;
-  border-radius: 20px;
 }
 
 main #mainPage #restaurants .restaurant_card h4 {
-  left: 50%;
   bottom: 0;
-  transform: translateX(-50%);
-  padding: 0 5px;
-  color: #2a9d8f;
-  text-shadow: 1px 1px 1px #264653;
-  background-color: #e9c46a;
-  border-radius: 10px;
 }
 
 @media all and (max-width: 576px) {
@@ -11738,6 +11726,7 @@ main #mainPage #restaurants .restaurant_card h4 {
   background-color: #e9c46a;
   border: solid 2px #264653;
   border-radius: 10px;
+  box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
 }
 
 #showRestaurant .opened_cart li h5,
@@ -11756,6 +11745,7 @@ main #mainPage #restaurants .restaurant_card h4 {
   background-color: #f4a261;
   border: solid 1px #264653;
   border-radius: 10px;
+  box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
 }
 
 #showRestaurant .opened_cart li p i {
@@ -11770,7 +11760,7 @@ main #mainPage #restaurants .restaurant_card h4 {
 #showRestaurant .opened_cart li:last-of-type {
   background-color: #e76f51;
   border: solid 3px #264653;
-  box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+  box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
 }
 
 #showRestaurant .opened_cart button {
@@ -11797,6 +11787,20 @@ main #mainPage #restaurants .restaurant_card h4 {
   color: #dcdcdc;
 }
 
+#showRestaurant .helper_ristoratore {
+  margin: 10px;
+  padding: 15px;
+  background-color: #e9c46a;
+  border: solid 1px #264653;
+  border-radius: 10px;
+  box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+}
+
+#showRestaurant .helper_ristoratore h2,
+#showRestaurant .helper_ristoratore h4 {
+  text-align: center;
+}
+
 #showRestaurant .restaurant_info {
   text-align: center;
 }
@@ -11808,12 +11812,9 @@ main #mainPage #restaurants .restaurant_card h4 {
 }
 
 #showRestaurant .restaurant_info .restaurant_info_card {
-  margin-bottom: 10px;
+  margin-bottom: 25px;
   width: auto;
-  max-width: 400px;
-  border: solid 1px #e9c46a;
-  border-radius: 10px;
-  box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+  max-width: 600px;
 }
 
 #showRestaurant .restaurant_info .restaurant_info_card .restaurant_image {
@@ -11827,18 +11828,39 @@ main #mainPage #restaurants .restaurant_card h4 {
   border-radius: 10px;
 }
 
-#showRestaurant .restaurant_info .restaurant_info_card .info_card_row {
+#showRestaurant .restaurant_info .restaurant_info_card .info_card_row_container {
+  border: solid 1px #e9c46a;
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+}
+
+#showRestaurant .restaurant_info .restaurant_info_card .info_card_row_container .info_card_row {
   padding: 5px;
 }
 
-#showRestaurant .restaurant_info .restaurant_info_card .info_card_row i {
+#showRestaurant .restaurant_info .restaurant_info_card .info_card_row_container .info_card_row i {
   margin: 5px;
   box-shadow: none !important;
 }
 
-#showRestaurant .restaurant_info .restaurant_info_card .info_card_row h6 {
+#showRestaurant .restaurant_info .restaurant_info_card .info_card_row_container .info_card_row h6 {
   margin: 0;
   display: inline-block;
+}
+
+#showRestaurant .restaurant_info .restaurant_info_card.ristoratore .restaurant_image {
+  max-width: 400px;
+}
+
+#showRestaurant .restaurant_info .restaurant_info_card.ristoratore .info_card_row_container {
+  border: solid 1px #e9c46a;
+  border-left: none;
+  border-radius: 0 10px 10px 0;
+}
+
+#showRestaurant .restaurant_info .restaurant_info_card.ristoratore .info_card_row_container h5 {
+  padding: 5px;
 }
 
 #showRestaurant .menu_container .restaurant_options {
@@ -12309,6 +12331,10 @@ main #mainPage #restaurants .restaurant_card h4 {
   text-align: center;
   color: #e9c46a;
   text-shadow: 2px 2px 2px #264653;
+}
+
+#showOrders h5 {
+  margin-bottom: 20px;
 }
 
 #showOrders .orders_container .accepted_orders_container .status_title,

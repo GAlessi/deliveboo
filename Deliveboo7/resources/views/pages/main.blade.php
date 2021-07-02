@@ -12,7 +12,7 @@
                     {{-- sezione myrestaurant --}}
                     <div id="myrestaurant">
 
-                        <h2>Bentornato {{ $user->name }}</h2>
+                        <h2>Ciao {{ $user->name }}</h2>
 
                         {{-- link al mio ristorante --}}
                         <a href="{{ route('show', $user->id) }}">

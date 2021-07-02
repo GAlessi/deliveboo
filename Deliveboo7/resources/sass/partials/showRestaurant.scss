@@ -64,6 +64,9 @@
             background-color: $yellow;
             border: solid 2px $blue;
             border-radius: 10px;
+            -webkit-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+            -moz-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+            box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
 
             h5,
             h6 {
@@ -80,6 +83,9 @@
                     background-color: $orange;
                     border: solid 1px $blue;
                     border-radius: 10px;
+                    -webkit-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+                    -moz-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+                    box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
                 }
 
                 i {
@@ -95,9 +101,9 @@
             &:last-of-type {
                 background-color: $red;
                 border: solid 3px $blue;
-                -webkit-box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
-                -moz-box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
-                box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+                -webkit-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+                -moz-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+                box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
             }
         } // fine li
 
@@ -128,6 +134,22 @@
         }
     } // fine carrello blocco
 
+    .helper_ristoratore {
+        margin: 10px;
+        padding: 15px;
+        background-color: $yellow;
+        border: solid 1px $blue;
+        border-radius: 10px;
+        -webkit-box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+        -moz-box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+        box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+
+        h2,
+        h4 {
+            text-align: center;
+        }
+    }
+
     .restaurant_info {
         text-align: center;
 
@@ -138,15 +160,9 @@
         }
 
         .restaurant_info_card {
-            margin-bottom: 10px;
-            //padding: 5px;
+            margin-bottom: 25px;
             width: auto;
-            max-width: 400px;
-            border: solid 1px $yellow;
-            border-radius: 10px;
-            -webkit-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
-            -moz-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
-            box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+            max-width: 600px;
 
             .restaurant_image {
                 width: 100%;
@@ -159,17 +175,42 @@
                 }
             }
 
-            .info_card_row {
-                padding: 5px;
+            .info_card_row_container {
+                border: solid 1px $yellow;
+                border-top: none;
+                border-radius: 0 0 10px 10px;
+                -webkit-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+                -moz-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+                box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
 
-                i {
-                    margin: 5px;
-                    box-shadow: none !important;
+                .info_card_row {
+                    padding: 5px;
+
+                    i {
+                        margin: 5px;
+                        box-shadow: none !important;
+                    }
+
+                    h6 {
+                        margin: 0;
+                        display: inline-block;
+                    }
                 }
+            }
+        } // fine restaurant_info_card
 
-                h6 {
-                    margin: 0;
-                    display: inline-block;
+        .restaurant_info_card.ristoratore {
+            .restaurant_image {
+                max-width: 400px;
+            }
+
+            .info_card_row_container {
+                border: solid 1px $yellow;
+                border-left: none;
+                border-radius: 0 10px 10px 0;
+
+                h5 {
+                    padding: 5px;
                 }
             }
         }
