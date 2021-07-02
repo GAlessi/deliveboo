@@ -12836,13 +12836,15 @@ main #mainPage #restaurants .restaurant_card h4 {
   }
 
   #contattaci .mycontainer .container-box .boxAnswers {
+    margin-top: 30px;
     width: 100%;
   }
 }
 
 @media all and (max-width: 576px) {
   #contattaci .mycontainer h1 {
-    font-size: 40px;
+    font-size: 47px;
+    text-align: center;
   }
 
   #contattaci .mycontainer .container-box .boxQuestion {
@@ -12850,6 +12852,7 @@ main #mainPage #restaurants .restaurant_card h4 {
   }
 
   #contattaci .mycontainer .container-box .boxAnswers {
+    margin-top: 30px;
     width: 100%;
   }
 }
