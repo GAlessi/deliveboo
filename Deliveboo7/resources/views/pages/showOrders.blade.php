@@ -106,9 +106,12 @@
                                     "{{ $restaurantOrder->note }}"</p>
                                 </div>
                               @endif
-                              <a href="{{route('editStatus', $restaurantOrder->id)}}">
+
+                              <a class="flex_center" href="{{ route('editStatus', $restaurantOrder->id) }}">
+                                <i class="fas fa-check-circle"></i>
                                 Ordine Evaso
                               </a>
+
                             </div>
                           </li>
                         @endif
