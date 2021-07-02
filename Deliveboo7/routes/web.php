@@ -71,3 +71,7 @@ Route::get('/statistiche/{id}', 'HomeController@statistiche')
 //chi siamo
 Route::get('/chiSiamo', 'MainController@chiSiamo')
 -> name('chiSiamo');
+
+//editStatus
+Route::get('/status/{id}', 'HomeController@editStatus')
+-> name('editStatus');
