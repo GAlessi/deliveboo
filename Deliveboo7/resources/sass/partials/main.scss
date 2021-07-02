@@ -7,7 +7,7 @@ main {
 
         .restaurant_card {
             margin: 10px;
-            padding: 10px;
+            padding: 0;
             background-color: $yellow;
             height: 200px;
             border-radius: 20px;
@@ -16,18 +16,23 @@ main {
             img {
                 height: 100%;
                 width: 100%;
+                border: solid 2px $blue;
                 border-radius: 20px;
             }
 
             h4 {
                 left: 50%;
-                bottom: 0;
+                bottom: -10px;
                 transform: translateX(-50%);
                 padding: 0 5px;
                 color: $green;
                 text-shadow: 1px 1px 1px #264653;
                 background-color: $yellow;
+                border: solid 1px $blue;
                 border-radius: 10px;
+                -webkit-box-shadow: 0px 2px 2px 0px rgba(50, 50, 50, 0.75);
+                -moz-box-shadow: 0px 2px 2px 0px rgba(50, 50, 50, 0.75);
+                box-shadow: 0px 2px 2px 0px rgba(50, 50, 50, 0.75);
             }
         } // fine restaurant_card
 
@@ -159,7 +164,7 @@ main {
         //sezione filtered_restaurants
         #filtered_restaurants {
             background-color: $green;
-            padding: 30px 0;
+            padding: 0 0 20px 0;
 
             ul {
                 width: 100%;
@@ -168,15 +173,14 @@ main {
                     width: calc(100% / 3);
                 }
             }
-
-            .restaurant_card {
-                padding: 0;
-            }
         } // fine sezione filtered_restaurants
 
         //sezione ristoranti
         #restaurants {
             padding: 30px 0;
+            -webkit-box-shadow: inset 0px 2px 2px 0px rgba(50, 50, 50, 0.75);
+            -moz-box-shadow: inset 0px 2px 2px 0px rgba(50, 50, 50, 0.75);
+            box-shadow: inset 0px 2px 2px 0px rgba(50, 50, 50, 0.75);
 
             h2 {
                 color: $red;
@@ -184,29 +188,13 @@ main {
             }
 
             .restaurant_card {
-                margin: 10px;
                 padding: 10px;
                 background-color: $yellow;
                 height: 200px;
                 width: 200px;
-                border-radius: 20px;
-                cursor: pointer;
-
-                img {
-                    height: 100%;
-                    width: 100%;
-                    border-radius: 20px;
-                }
 
                 h4 {
-                    left: 50%;
                     bottom: 0;
-                    transform: translateX(-50%);
-                    padding: 0 5px;
-                    color: $green;
-                    text-shadow: 1px 1px 1px #264653;
-                    background-color: $yellow;
-                    border-radius: 10px;
                 }
             }
         } //fine sezione ristoranti
@@ -223,6 +211,7 @@ main {
 
             #myjumbotron {
                 padding: 15px 0;
+
                 .mycontainer {
                     .jumbotron_container {
                         flex-direction: column-reverse;
@@ -330,18 +319,11 @@ main {
             } //fine section myjumbotron
 
             #filtered_restaurants {
-                // background-color: $green;
-                // padding: 30px 0;
-
                 ul {
                     li {
                         width: calc(100% / 2);
                     }
                 }
-
-                // .restaurant_card {
-                //     padding: 0;
-                // }
             } // fine sezione filtered_restaurants
         } // fine #mainPage
     } // fine main

@@ -70,44 +70,47 @@
             </form>
           </div>
 
+          {{-- restaurant_info --}}
           <div class="restaurant_info flex_col align_cen">
 
             <h2>{{ $user->nome_attivita }}</h2>
 
             {{-- info card ristorante --}}
-            <div class="restaurant_info_card flex_col align_start">
+            <div class="restaurant_info_card flex_col just_end">
               {{-- immagine ristorante --}}
               <div class="restaurant_image">
                 <img src="{{ asset('/storage/restaurantImages/' . $user->file_path) }}" alt="immagine_ristorante"
                   alt="">
               </div>
 
-              <div class="info_card_row flex align_cen">
-                <i class="fas fa-utensils"></i>
-                <h6>Tipo di Cucina:
+              <div class="flex_center">
+                <div class="info_card_row_container">
+                <div class="info_card_row flex align_cen">
+                  <i class="fas fa-utensils"></i>
+                  <h6>Tipo di Cucina:
 
-                  @foreach ($user->types->sortBy('nome') as $type)
+                    @foreach ($user->types->sortBy('nome') as $type)
 
-                    {{ $loop->last ? $type->nome : $type->nome . ', ' }}
+                      {{ $loop->last ? $type->nome : $type->nome . ', ' }}
 
-                  @endforeach
+                    @endforeach
 
-                </h6>
+                  </h6>
+                </div>
+
+                <div class="info_card_row flex align_cen">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <h6>{{ $user->via }} {{ $user->n_civico }}, {{ $user->citta }},
+                    {{ $user->cap }}</h6>
+                </div>
+
+                <div class="info_card_row flex align_cen">
+                  <i class="far fa-envelope"></i>
+                  <h6>{{ $user->email }}</h6>
+                </div>
               </div>
-
-              <div class="info_card_row flex align_cen">
-                <i class="fas fa-map-marker-alt"></i>
-                <h6>{{ $user->via }} {{ $user->n_civico }}, {{ $user->citta }},
-                  {{ $user->cap }}</h6>
-              </div>
-
-              <div class="info_card_row flex align_cen">
-                <i class="far fa-envelope"></i>
-                <h6>{{ $user->email }}</h6>
               </div>
             </div>
-
-            {{-- immagine ristorante --}}
           </div>
 
           <div class="menu_container flex_col align_cen">
