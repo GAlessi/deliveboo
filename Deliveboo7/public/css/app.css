@@ -12409,6 +12409,37 @@ main #mainPage #restaurants .restaurant_card h4 {
   margin: 0;
 }
 
+#showOrders .orders_container .accepted_orders_container ul li .order_card a,
+#showOrders .orders_container .suspended_orders_container ul li .order_card a,
+#showOrders .orders_container .refused_orders_container ul li .order_card a,
+#showOrders .orders_container .processed_orders_container ul li .order_card a {
+  justify-self: center;
+  margin: 5px;
+  padding: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #dcdcdc;
+  background-color: #2a9d8f;
+  border: solid 1px #264653;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+  cursor: pointer;
+}
+
+#showOrders .orders_container .accepted_orders_container ul li .order_card a i,
+#showOrders .orders_container .suspended_orders_container ul li .order_card a i,
+#showOrders .orders_container .refused_orders_container ul li .order_card a i,
+#showOrders .orders_container .processed_orders_container ul li .order_card a i {
+  color: #dcdcdc;
+}
+
+#showOrders .orders_container .accepted_orders_container ul li .order_card a:hover,
+#showOrders .orders_container .suspended_orders_container ul li .order_card a:hover,
+#showOrders .orders_container .refused_orders_container ul li .order_card a:hover,
+#showOrders .orders_container .processed_orders_container ul li .order_card a:hover {
+  border: solid 1px #e76f51;
+}
+
 #showOrders .orders_container .accepted_orders_container ul li .order_card .accettato,
 #showOrders .orders_container .accepted_orders_container ul li .order_card .sospeso,
 #showOrders .orders_container .accepted_orders_container ul li .order_card .pagato,
