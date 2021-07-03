@@ -13225,6 +13225,66 @@ main #mainPage #restaurants .restaurants_carousel .restaurant_card h4 {
   }
 }
 
+#faq {
+  height: calc(100% -282px);
+}
+
+#faq .mycontainer h4 {
+  margin-top: 30px;
+}
+
+#faq .mycontainer .container-box {
+  padding: 40px 0;
+}
+
+#faq .mycontainer .container-box .boxQuestion {
+  width: 30%;
+}
+
+#faq .mycontainer .container-box .boxQuestion .question {
+  background-color: #e9c46a;
+  border-bottom: 1px solid #264653;
+  padding-top: 20px;
+  padding-bottom: 4px;
+}
+
+#faq .mycontainer .container-box .boxAnswers {
+  width: 65%;
+}
+
+#faq .mycontainer .container-box .boxAnswers .border-email {
+  border-bottom: 1px solid #264653;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+@media all and (min-width: 577px) and (max-width: 767px) {
+  #faq .mycontainer .container-box .boxQuestion {
+    width: 100%;
+  }
+
+  #faq .mycontainer .container-box .boxAnswers {
+    margin-top: 30px;
+    width: 100%;
+  }
+}
+
+@media all and (max-width: 576px) {
+  #faq .mycontainer h4 {
+    font-size: 47px;
+    text-align: center;
+  }
+
+  #faq .mycontainer .container-box .boxQuestion {
+    width: 100%;
+  }
+
+  #faq .mycontainer .container-box .boxAnswers {
+    margin-top: 30px;
+    width: 100%;
+  }
+}
+
 [v-cloak] {
   display: none;
 }
