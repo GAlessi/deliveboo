@@ -70,7 +70,7 @@ main {
                     .jumbotron_search {
                         margin: 5px;
                         padding: 15px;
-                        width: 30%;
+                        width: 33%;
                         background-color: $blue;
                         border-radius: 10px;
                         -webkit-box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
@@ -124,25 +124,140 @@ main {
                         }
 
                         .chekbox_container {
-                            li {
-                                width: 100px;
-                                margin: 5px;
+                            .control {
+                                position: relative;
+                                margin: 10px;
+                                margin-bottom: 15px;
+                                padding-top: 1px;
+                                padding-left: 25px;
+                                width: 110px;
+                                text-align: left;
+                                font-weight: normal;
                                 color: $light;
+                                display: block;
+                                cursor: pointer;
+
+                                input {
+                                    position: absolute;
+                                    z-index: -1;
+                                    opacity: 0;
+                                }
                             }
 
-                            input {
-                                margin: 0;
-                                margin-right: 10px;
-                                width: auto;
-                                box-shadow: none;
+                            .control_indicator {
+                                position: absolute;
+                                top: 3px;
+                                left: 0;
+                                height: 20px;
+                                width: 20px;
+                                background: $yellow;
+                                border-radius: 5px;
                             }
-                        }
+                            .control:hover input ~ .control_indicator,
+                            .control input:focus ~ .control_indicator {
+                                background: $red;
+                            }
+
+                            .control input:checked ~ .control_indicator {
+                                background: #2a9d8f;
+                            }
+
+                            .control:hover input:not([disabled]):checked ~ .control_indicator,
+                            .control input:checked:focus ~ .control_indicator {
+                                background: #2a9d8f;
+                            }
+
+                            .control input:disabled ~ .control_indicator {
+                                background: #e6e6e6;
+                                opacity: 0.6;
+                                pointer-events: none;
+                            }
+
+                            .control_indicator:after {
+                                box-sizing: unset;
+                                content: "";
+                                position: absolute;
+                                display: none;
+                            }
+
+                            .control input:checked ~ .control_indicator:after {
+                                display: block;
+                            }
+
+                            .control-checkbox .control_indicator:after {
+                                left: 6px;
+                                top: 2px;
+                                width: 5px;
+                                height: 10px;
+                                border: solid #ffffff;
+                                border-width: 0 3px 3px 0;
+                                transform: rotate(45deg);
+                            }
+
+                            .control-checkbox input:disabled ~ .control_indicator:after {
+                                border-color: #7b7b7b;
+                            }
+
+                            .control-checkbox .control_indicator::before {
+                                content: "";
+                                display: block;
+                                position: absolute;
+                                left: 0;
+                                top: 0;
+                                width: 4.444rem;
+                                height: 4.018rem;
+                                margin-left: -1.3rem;
+                                margin-top: -1.3rem;
+                                background: #e76f51;
+                                border-radius: 3rem;
+                                opacity: 0.6;
+                                z-index: 99999;
+                                transform: scale(0);
+                            }
+
+                            @keyframes s-ripple {
+                                0% {
+                                    transform: scale(0);
+                                }
+                                20% {
+                                    transform: scale(1);
+                                }
+                                100% {
+                                    opacity: 0;
+                                    transform: scale(1);
+                                }
+                            }
+
+                            @keyframes s-ripple-dup {
+                                0% {
+                                    transform: scale(0);
+                                }
+                                30% {
+                                    transform: scale(1);
+                                }
+                                60% {
+                                    transform: scale(1);
+                                }
+                                100% {
+                                    opacity: 0;
+                                    transform: scale(1);
+                                }
+                            }
+
+                            .control-checkbox input + .control_indicator::before {
+                                animation: s-ripple 250ms ease-out;
+                            }
+                            
+                            .control-checkbox input:checked + .control_indicator::before {
+                                animation-name: s-ripple-dup;
+                            }
+                        } // fine blocco checkbox
                     } // fine jumbotron_search
 
                     .picture {
                         margin-left: 30px;
                         height: 400px;
-                        width: 70%;
+                        width: 67%;
 
                         .jumbotron_casa {
                             width: 500px;
