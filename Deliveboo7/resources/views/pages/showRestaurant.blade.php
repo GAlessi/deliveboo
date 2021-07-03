@@ -7,8 +7,10 @@
       <div id="showRestaurant">
         <div class="mycontainer relative">
 
-          {{-- carrello icona --}}
-          @if (Auth::check() && Auth::user()->id != $user->id)
+          @if (Auth::check() && Auth::user()->id == $user->id)
+          @else
+            {{-- CARRELLO PER CLIENTE E USER NON PROPRIETARIO --}}
+            {{-- carrello icona --}}
             <div class="cart flex_center absolute" @click="showCart" title="Vai al tuo Ordine">
               <img src="{{ asset('/storage/images/shopping-cart.png') }}" alt="carrello" class="relative">
 
@@ -18,18 +20,6 @@
               </div>
             </div>
           @endif
-
-          @guest
-            <div class="cart flex_center absolute" @click="showCart" title="Vai al tuo Ordine">
-              <img src="{{ asset('/storage/images/shopping-cart.png') }}" alt="carrello" class="relative">
-
-              {{-- bollino --}}
-              <div v-if='cartItems > 0' class="cart_count flex_center absolute animate__animated animate__shakeY">
-                <span>@{{ cartItems }}</span>
-              </div>
-            </div>
-
-          @endguest
 
           {{-- carrello aperto --}}
           <div class="opened_cart flex_col animate__animated animate__fadeInRight" :hidden="cartHidden">
@@ -69,10 +59,12 @@
                 Vai al Checkout <i class="fas fa-angle-double-right"></i>
               </button>
             </form>
+            {{-- FINE CARRELLO PER CLIENTE E USER NON PROPRIETARIO --}}
           </div>
 
           @if (Auth::check() && Auth::user()->id == $user->id)
 
+            {{-- HELPER USER PROPRIETARIO --}}
             <div class="helper_ristoratore relative">
 
               <h2>Ciao {{ $user->name }} <i class="fas fa-info-circle animate__animated animate__bounceIn"
@@ -88,13 +80,10 @@
                   ed aggiornata in tempo reale dell'andamento della tua attività e consultare ogni tipo di statistica.
                 </p>
               </div>
-
-              {{-- <div class="open_close_helper absolute">
-                <i class="fas fa-info-circle" @click="showHelperInfo" title="Info Ristoratore"></i>
-              </div> --}}
+              {{-- FINE HELPER USER PROPRIETARIO --}}
             </div>
 
-            {{-- restaurant_info --}}
+            {{-- INFO USER PROPRIETARIO --}}
             <div class="restaurant_info flex_col align_cen">
 
               <h5>Il nome della tua attività:</h5>
@@ -140,12 +129,13 @@
                   </div>
                 </div>
               </div>
+              {{-- FINE INFO USER PROPRIETARIO --}}
             </div>
 
-            {{-- @endif --}}
+            {{-- @endif autenticato --}}
           @else
 
-            {{-- restaurant_info --}}
+            {{-- INFO CLIENTE E USER NON PROPRIETARIO --}}
             <div class="restaurant_info flex_col align_cen">
 
               <h2>{{ $user->nome_attivita }}</h2>
@@ -186,6 +176,7 @@
                   </div>
                 </div>
               </div>
+              {{-- FINE INFO CLIENTE E USER NON PROPRIETARIO --}}
             </div>
 
           @endif
@@ -194,6 +185,7 @@
 
             @if (Auth::check() && Auth::user()->id == $user->id)
 
+              {{-- OPZIONI USER PROPRIETARIO --}}
               <div class="restaurant_options flex space_bet">
 
                 {{-- option_card --}}
@@ -217,6 +209,7 @@
                     <i class="fas fa-chart-line"></i>
                   </a>
                 </div>
+                {{-- FINE OPZIONI USER PROPRIETARIO --}}
               </div>
 
             @endif
@@ -227,54 +220,9 @@
 
               @foreach ($user->dishes->sortBy('nome') as $dish)
 
-                @if (!Auth::check() || Auth::user()->id != $user->id)
-
-                  @if (!$dish->deleted && $dish->visibilita)
-
-                    <li>
-                      {{-- card piatto --}}
-                      <div class="dish_card flex_col just_start" title="Aggiungi {{ $dish->nome }} al carrello">
-                        <h5>{{ $dish->nome }}</h5>
-                        <p><span>Ingredienti:</span> {{ $dish->ingredienti }}</p>
-                        <p><span>Descrizione:</span> {{ $dish->descrizione }}</p>
-                        <h6>Prezzo: {{ round($dish->prezzo, 2) }} €</h6>
-
-                        {{-- bottone aggiungi al carrello --}}
-                        @if (Auth::check() && Auth::user()->id != $user->id)
-                          <button @click="addToCart({{ $dish }})" class="flex_center">
-                            Aggiungi all'ordine <i class="fas fa-cart-plus"></i>
-                          </button>
-                        @endif
-                        @guest
-                          <button @click="addToCart({{ $dish }})" class="flex_center">
-                            Aggiungi all'ordine <i class="fas fa-cart-plus"></i>
-                          </button>
-                        @endguest
-
-                        @if (Auth::check() && Auth::user()->id == $user->id)
-
-                          {{-- edit --}}
-                          <div class="edit_row" title="Modifica prodotto">
-                            <a href="{{ route('editDish', $dish->id) }}" class="flex space_bet align_cen">
-                              <p>Modifica</p>
-                              <i class="far fa-edit"></i>
-                            </a>
-                          </div>
-
-                          {{-- delete --}}
-                          <div class="delete_row" title="Elimina prodotto">
-                            <a href="{{ route('destroy', [$dish->id, $user->id]) }}" class="flex space_bet align_cen">
-                              <p>Elimina Prodotto</p>
-                              <i class="far fa-trash-alt"></i>
-                            </a>
-                          </div>
-
-                        @endif
-                      </div>
-                    </li>
-                  @endif
-                @endif
                 @if (Auth::check() && Auth::user()->id == $user->id)
+
+                  {{-- CARD PIATTO USER PROPRIETARIO --}}
                   <li>
                     {{-- card piatto --}}
                     <div class="dish_card flex_col just_start {{ !$dish->visibilita ? 'chiaro' : '' }}"
@@ -284,27 +232,51 @@
                       <p><span>Descrizione:</span> {{ $dish->descrizione }}</p>
                       <h6>Prezzo: {{ round($dish->prezzo, 2) }} €</h6>
 
-                      @if (Auth::check() && Auth::user()->id == $user->id)
+                      {{-- tasti ristoratore --}}
+                      {{-- edit --}}
+                      <div class="edit_row" title="Modifica prodotto">
+                        <a href="{{ route('editDish', $dish->id) }}" class="flex space_bet align_cen">
+                          <p>Modifica</p>
+                          <i class="far fa-edit"></i>
+                        </a>
+                      </div>
 
-                        {{-- edit --}}
-                        <div class="edit_row" title="Modifica prodotto">
-                          <a href="{{ route('editDish', $dish->id) }}" class="flex space_bet align_cen">
-                            <p>Modifica</p>
-                            <i class="far fa-edit"></i>
-                          </a>
-                        </div>
-
-                        {{-- delete --}}
-                        <div class="delete_row" title="Elimina prodotto">
-                          <a href="{{ route('destroy', [$dish->id, $user->id]) }}" class="flex space_bet align_cen">
-                            <p>Elimina Prodotto</p>
-                            <i class="far fa-trash-alt"></i>
-                          </a>
-                        </div>
-
-                      @endif
+                      {{-- delete --}}
+                      <div class="delete_row" title="Elimina prodotto">
+                        <a href="{{ route('destroy', [$dish->id, $user->id]) }}" class="flex space_bet align_cen">
+                          <p>Elimina Prodotto</p>
+                          <i class="far fa-trash-alt"></i>
+                        </a>
+                      </div>
                     </div>
+                    {{-- FINE CARD PIATTO USER PROPRIETARIO --}}
                   </li>
+
+                @else
+
+                  @if (!$dish->deleted && $dish->visibilita)
+
+                    {{-- CARD PIATTO CLIENTE E USER NON PROPRIETARIO --}}
+                    <li>
+                      {{-- card piatto --}}
+                      <div class="dish_card flex_col just_start" title="Aggiungi {{ $dish->nome }} al carrello">
+                        <h5>{{ $dish->nome }}</h5>
+                        <p><span>Ingredienti:</span> {{ $dish->ingredienti }}</p>
+                        <p><span>Descrizione:</span> {{ $dish->descrizione }}</p>
+                        <h6>Prezzo: {{ round($dish->prezzo, 2) }} €</h6>
+
+                        @if (Auth::check() && Auth::user()->id == $user->id)
+                        @else
+                          {{-- bottone aggiungi al carrello per guest e user in ristorante non proprio --}}
+                          <button @click="addToCart({{ $dish }})" class="flex_center">
+                            Aggiungi all'ordine <i class="fas fa-cart-plus"></i>
+                          </button>
+                        @endif
+
+                      </div>
+                      {{-- FINE CARD PIATTO CLIENTE E USER NON PROPRIETARIO --}}
+                    </li>
+                  @endif
 
                 @endif
               @endforeach

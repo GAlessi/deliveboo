@@ -6,6 +6,8 @@ $yellow: #e9c46a;
 $orange: #f4a261;
 $red: #e76f51;
 
+$disabled: #606060;
+
 //font & size
 * {
     font-family: "Dosis", sans-serif;
@@ -96,24 +98,23 @@ $text_small: 14px;
 $text_medium: 18px;
 $text_big: 24px;
 
-
 //list
 ul li {
-  list-style: none;
+    list-style: none;
 }
 
 //anchor
 a {
-  text-decoration: none;
-  color: inherit;
-
-  &:hover,
-  &:focus {
+    text-decoration: none;
     color: inherit;
-  }
+
+    &:hover,
+    &:focus {
+        color: inherit;
+    }
 }
 
 //input
 input:focus {
-  outline: none;
+    outline: none;
 }

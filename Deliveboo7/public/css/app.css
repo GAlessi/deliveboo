@@ -11306,158 +11306,15 @@ footer .column .footer_list:last-of-type i:hover {
   box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
 }
 
-#register .register_container .chekbox_container li {
-  width: 100px;
-  margin: 5px;
+#register .register_container input.file {
+  background-color: white;
 }
 
-#register .register_container .chekbox_container input {
-  margin: 0;
-  margin-right: 10px;
-  width: auto;
-  box-shadow: none;
+#register .register_container .checkbox_container li {
+  width: 140px;
 }
 
-#register .register_container button {
-  margin-top: 25px;
-  padding: 10px 15px;
-  width: 50%;
-  color: #dcdcdc;
-  background-color: #264653;
-  border: solid 2px #e76f51;
-  border-radius: 10px;
-  box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
-}
-
-#register .register_container button:hover {
-  color: #264653;
-  background-color: #e76f51;
-  border: solid 2px #264653;
-}
-
-@media all and (max-width: 767px) {
-  #register .register_container {
-    width: 90%;
-  }
-}
-
-main {
-  margin-top: 85px;
-  background-color: #e9c46a;
-}
-
-main #mainPage {
-  text-align: center;
-}
-
-main #mainPage .restaurant_card {
-  margin: 10px;
-  padding: 0;
-  background-color: #e9c46a;
-  height: 200px;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-main #mainPage .restaurant_card img {
-  height: 100%;
-  width: 100%;
-  border: solid 2px #264653;
-  border-radius: 20px;
-}
-
-main #mainPage .restaurant_card h4 {
-  left: 50%;
-  bottom: -10px;
-  transform: translateX(-50%);
-  padding: 0 5px;
-  color: #2a9d8f;
-  text-shadow: 1px 1px 1px #264653;
-  background-color: #e9c46a;
-  border: solid 1px #264653;
-  border-radius: 10px;
-  box-shadow: 0px 2px 2px 0px rgba(50, 50, 50, 0.75);
-}
-
-main #mainPage #myrestaurant {
-  padding: 15x;
-  background-color: #f4a261;
-  border-bottom: 2px solid #264653;
-}
-
-main #mainPage #myrestaurant i {
-  font-size: inherit;
-}
-
-main #mainPage #myjumbotron {
-  padding: 30px 0;
-  min-height: calc(100vh - 85px);
-  background: #2a9d8f;
-  background: linear-gradient(0deg, #2a9d8f 0%, #f4a261 37%, #e9c46a 69%);
-}
-
-main #mainPage #myjumbotron .mycontainer .title {
-  margin-bottom: 30px;
-  width: 100%;
-}
-
-main #mainPage #myjumbotron .mycontainer .jumbotron_container {
-  height: 430px;
-  width: 100%;
-}
-
-main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search {
-  margin: 5px;
-  padding: 15px;
-  width: 33%;
-  background-color: #264653;
-  border-radius: 10px;
-  box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
-}
-
-main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search input {
-  padding: 10px;
-  width: 95%;
-  font-size: 24px;
-  background-image: url("/storage/images/search.png");
-  background-position: 95% 40%;
-  background-size: 35px 35px;
-  background-repeat: no-repeat;
-  border: solid 2px white;
-  border-radius: 10px;
-  box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
-}
-
-main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search input:focus {
-  border: solid 2px #e76f51;
-}
-
-main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search label {
-  color: #e9c46a;
-}
-
-main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search h6 {
-  margin-top: 5px;
-  color: #dcdcdc;
-}
-
-main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search button {
-  margin-top: 25px;
-  padding: 10px 15px;
-  width: 50%;
-  font-size: 24px;
-  background-color: #e9c46a;
-  border: solid 2px #e76f51;
-  border-radius: 10px;
-  box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
-}
-
-main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search button:hover {
-  background-color: #e76f51;
-  border: solid 2px #e9c46a;
-}
-
-main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container .control {
+#register .register_container .checkbox_container li .control {
   position: relative;
   margin: 10px;
   margin-bottom: 15px;
@@ -11465,60 +11322,62 @@ main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search 
   padding-left: 25px;
   width: 110px;
   text-align: left;
+  font-size: 24px;
   font-weight: normal;
-  color: #dcdcdc;
+  color: #264653;
   display: block;
   cursor: pointer;
 }
 
-main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container .control input {
+#register .register_container .checkbox_container li .control input {
   position: absolute;
   z-index: -1;
   opacity: 0;
 }
 
-main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container .control_indicator {
+#register .register_container .checkbox_container li .control_indicator {
   position: absolute;
-  top: 3px;
+  top: 10px;
   left: 0;
   height: 20px;
   width: 20px;
-  background: #e9c46a;
+  background: white;
+  border: solid 1px #264653;
   border-radius: 5px;
 }
 
-main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container .control:hover input ~ .control_indicator,
-main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container .control input:focus ~ .control_indicator {
+#register .register_container .checkbox_container li .control:hover input ~ .control_indicator,
+#register .register_container .checkbox_container li .control input:focus ~ .control_indicator {
   background: #e76f51;
 }
 
-main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container .control input:checked ~ .control_indicator {
+#register .register_container .checkbox_container li .control input:checked ~ .control_indicator {
   background: #2a9d8f;
 }
 
-main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container .control:hover input:not([disabled]):checked ~ .control_indicator,
-main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container .control input:checked:focus ~ .control_indicator {
+#register .register_container .checkbox_container li .control:hover input:not([disabled]):checked ~ .control_indicator,
+#register .register_container .checkbox_container li .control input:checked:focus ~ .control_indicator {
   background: #2a9d8f;
 }
 
-main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container .control input:disabled ~ .control_indicator {
-  background: #e6e6e6;
+#register .register_container .checkbox_container li .control input:disabled ~ .control_indicator {
+  background: #dcdcdc;
   opacity: 0.6;
   pointer-events: none;
 }
 
-main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container .control_indicator:after {
+#register .register_container .checkbox_container li .control_indicator:after {
   box-sizing: unset;
   content: "";
   position: absolute;
   display: none;
 }
 
-main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container .control input:checked ~ .control_indicator:after {
+#register .register_container .checkbox_container li .control input:checked ~ .control_indicator:after {
   display: block;
 }
 
-main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container .control-checkbox .control_indicator:after {
+#register .register_container .checkbox_container li .control-checkbox .control_indicator:after {
   left: 6px;
   top: 2px;
   width: 5px;
@@ -11528,11 +11387,11 @@ main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search 
   transform: rotate(45deg);
 }
 
-main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container .control-checkbox input:disabled ~ .control_indicator:after {
+#register .register_container .checkbox_container li .control-checkbox input:disabled ~ .control_indicator:after {
   border-color: #7b7b7b;
 }
 
-main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container .control-checkbox .control_indicator::before {
+#register .register_container .checkbox_container li .control-checkbox .control_indicator::before {
   content: "";
   display: block;
   position: absolute;
@@ -11617,12 +11476,318 @@ main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search 
   }
 }
 
-main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container .control-checkbox input + .control_indicator::before {
+#register .register_container .checkbox_container li .control-checkbox input + .control_indicator::before {
   -webkit-animation: s-ripple 250ms ease-out;
           animation: s-ripple 250ms ease-out;
 }
 
-main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container .control-checkbox input:checked + .control_indicator::before {
+#register .register_container .checkbox_container li .control-checkbox input:checked + .control_indicator::before {
+  -webkit-animation-name: s-ripple-dup;
+          animation-name: s-ripple-dup;
+}
+
+#register .register_container button {
+  margin-top: 25px;
+  padding: 10px 15px;
+  width: 50%;
+  color: #dcdcdc;
+  background-color: #264653;
+  border: solid 2px #e76f51;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+}
+
+#register .register_container button:hover {
+  color: #264653;
+  background-color: #e76f51;
+  border: solid 2px #264653;
+}
+
+@media all and (max-width: 767px) {
+  #register .register_container {
+    width: 90%;
+  }
+
+  #register .register_container .checkbox_container li {
+    width: 110px;
+  }
+
+  #register .register_container .checkbox_container li .control {
+    font-size: 18px;
+  }
+
+  #register .register_container .checkbox_container li .control_indicator {
+    top: 5px;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 1099px) {
+  #register .register_container {
+    width: 70%;
+  }
+}
+
+main {
+  margin-top: 85px;
+  background-color: #e9c46a;
+}
+
+main #mainPage {
+  text-align: center;
+}
+
+main #mainPage .restaurant_card {
+  margin: 20px 10px;
+  padding: 0;
+  background-color: #e9c46a;
+  height: 220px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+main #mainPage .restaurant_card img {
+  height: 100%;
+  width: 100%;
+  border: solid 2px #264653;
+  border-radius: 20px;
+}
+
+main #mainPage .restaurant_card h4 {
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+  padding: 0 5px;
+  color: #2a9d8f;
+  text-shadow: 1px 1px 1px #264653;
+  background-color: #e9c46a;
+  border: solid 1px #264653;
+  border-radius: 10px;
+  box-shadow: 0px 2px 2px 0px rgba(50, 50, 50, 0.75);
+}
+
+main #mainPage #myrestaurant {
+  padding: 15x;
+  background-color: #f4a261;
+  border-bottom: 2px solid #264653;
+}
+
+main #mainPage #myrestaurant i {
+  font-size: inherit;
+}
+
+main #mainPage #myjumbotron {
+  padding: 20px 0;
+  height: auto;
+  min-height: calc(100vh - 85px);
+  background: #2a9d8f;
+  background: linear-gradient(0deg, #2a9d8f 0%, #f4a261 37%, #e9c46a 69%);
+}
+
+main #mainPage #myjumbotron .mycontainer .title {
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+main #mainPage #myjumbotron .mycontainer .jumbotron_container {
+  width: 100%;
+}
+
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search {
+  margin: 5px;
+  padding: 15px;
+  width: 35%;
+  background-color: #264653;
+  border-radius: 10px;
+  box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
+}
+
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search input {
+  padding: 10px;
+  width: 95%;
+  font-size: 24px;
+  background-image: url("/storage/images/search.png");
+  background-position: 95% 40%;
+  background-size: 35px 35px;
+  background-repeat: no-repeat;
+  border: solid 2px white;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+}
+
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search input:focus {
+  border: solid 2px #e76f51;
+}
+
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search input:disabled {
+  background: #606060;
+}
+
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search label {
+  font-size: 24px;
+  color: #e9c46a;
+}
+
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search h6 {
+  margin-top: 5px;
+  color: #dcdcdc;
+}
+
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search button {
+  margin-top: 25px;
+  padding: 10px 15px;
+  width: 50%;
+  font-size: 24px;
+  background-color: #e9c46a;
+  border: solid 2px #e76f51;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+}
+
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search button:hover {
+  background-color: #e76f51;
+  border: solid 2px #e9c46a;
+}
+
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container ul {
+  margin: 0;
+}
+
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container ul li {
+  width: 140px;
+}
+
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container ul li .control {
+  position: relative;
+  margin: 10px;
+  margin-bottom: 15px;
+  padding-top: 1px;
+  padding-left: 25px;
+  text-align: left;
+  font-size: 24px;
+  font-weight: normal;
+  color: #dcdcdc;
+  display: block;
+  cursor: pointer;
+}
+
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container ul li .control input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container ul li .control_indicator {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background: #e9c46a;
+  border-radius: 5px;
+}
+
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container ul li .control:hover input ~ .control_indicator,
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container ul li .control input:focus ~ .control_indicator {
+  background: #e76f51;
+}
+
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container ul li .control input:checked ~ .control_indicator {
+  background: #2a9d8f;
+}
+
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container ul li .control:hover input:not([disabled]):checked ~ .control_indicator,
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container ul li .control input:checked:focus ~ .control_indicator {
+  background: #2a9d8f;
+}
+
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container ul li .control input:disabled ~ .control_indicator {
+  background: #606060;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container ul li .control_indicator:after {
+  box-sizing: unset;
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container ul li .control input:checked ~ .control_indicator:after {
+  display: block;
+}
+
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container ul li .control-checkbox .control_indicator:after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid #ffffff;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container ul li .control-checkbox input:disabled ~ .control_indicator:after {
+  border-color: #7b7b7b;
+}
+
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container ul li .control-checkbox .control_indicator::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4.444rem;
+  height: 4.018rem;
+  margin-left: -1.3rem;
+  margin-top: -1.3rem;
+  background: #e76f51;
+  border-radius: 3rem;
+  opacity: 0.6;
+  z-index: 99999;
+  transform: scale(0);
+}
+
+@keyframes s-ripple {
+  0% {
+    transform: scale(0);
+  }
+
+  20% {
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+@keyframes s-ripple-dup {
+  0% {
+    transform: scale(0);
+  }
+
+  30% {
+    transform: scale(1);
+  }
+
+  60% {
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container ul li .control-checkbox input + .control_indicator::before {
+  -webkit-animation: s-ripple 250ms ease-out;
+          animation: s-ripple 250ms ease-out;
+}
+
+main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container ul li .control-checkbox input:checked + .control_indicator::before {
   -webkit-animation-name: s-ripple-dup;
           animation-name: s-ripple-dup;
 }
@@ -11630,13 +11795,13 @@ main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search 
 main #mainPage #myjumbotron .mycontainer .jumbotron_container .picture {
   margin-left: 30px;
   height: 400px;
-  width: 67%;
+  width: 65%;
 }
 
 main #mainPage #myjumbotron .mycontainer .jumbotron_container .picture .jumbotron_casa {
   width: 500px;
   top: 0;
-  left: 25%;
+  left: 10%;
 }
 
 main #mainPage #myjumbotron .mycontainer .jumbotron_container .picture .jumbotron_moto {
@@ -11670,7 +11835,7 @@ main #mainPage #restaurants h2 {
   text-shadow: 2px 2px 2px rgba(50, 50, 50, 0.91);
 }
 
-main #mainPage #restaurants .restaurant_card {
+main #mainPage #restaurants .restaurants_carousel .restaurant_card {
   margin: 0;
   padding: 10px;
   background-color: #e9c46a;
@@ -11678,7 +11843,7 @@ main #mainPage #restaurants .restaurant_card {
   width: 200px;
 }
 
-main #mainPage #restaurants .restaurant_card h4 {
+main #mainPage #restaurants .restaurants_carousel .restaurant_card h4 {
   bottom: 0;
 }
 
@@ -11688,6 +11853,7 @@ main #mainPage #restaurants .restaurant_card h4 {
   }
 
   main #mainPage #myjumbotron {
+    height: auto;
     padding: 15px 0;
   }
 
@@ -11707,10 +11873,20 @@ main #mainPage #restaurants .restaurant_card h4 {
     background-size: 25px 25px;
   }
 
-  main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container li {
-    width: 40%;
-    margin: 3px;
-    font-size: 16px;
+  main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container ul {
+    margin: 0;
+  }
+
+  main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container ul li {
+    width: 110px;
+  }
+
+  main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container ul li .control {
+    font-size: 18px;
+  }
+
+  main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container ul li .control_indicator {
+    top: 5px;
   }
 
   main #mainPage #myjumbotron .mycontainer .jumbotron_container .picture {
@@ -11733,12 +11909,13 @@ main #mainPage #restaurants .restaurant_card h4 {
   }
 
   main #mainPage #filtered_restaurants {
-    padding: 0;
+    padding: 15px;
   }
 
   main #mainPage #filtered_restaurants ul li {
     margin: auto;
     width: 80%;
+    max-width: 300px;
   }
 
   main #mainPage #filtered_restaurants .restaurant_card {
@@ -11748,6 +11925,10 @@ main #mainPage #restaurants .restaurant_card h4 {
   main #mainPage #restaurants {
     padding: 15px 0;
   }
+
+  main #mainPage #restaurants .restaurant_card {
+    max-width: 300px;
+  }
 }
 
 @media all and (min-width: 577px) and (max-width: 767px) {
@@ -11756,17 +11937,29 @@ main #mainPage #restaurants .restaurant_card h4 {
   }
 
   main #mainPage #myjumbotron .mycontainer .jumbotron_container {
-    flex-wrap: wrap;
     flex-direction: column-reverse;
     height: auto;
   }
 
   main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search {
+    margin: 0;
     width: 100%;
   }
 
-  main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container li {
-    width: 30%;
+  main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container ul {
+    margin: 0;
+  }
+
+  main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container ul li {
+    width: 110px;
+  }
+
+  main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container ul li .control {
+    font-size: 18px;
+  }
+
+  main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search .chekbox_container ul li .control_indicator {
+    top: 5px;
   }
 
   main #mainPage #myjumbotron .mycontainer .jumbotron_container .picture {
@@ -11788,8 +11981,21 @@ main #mainPage #restaurants .restaurant_card h4 {
             animation: none;
   }
 
+  main #mainPage #filtered_restaurants ul {
+    justify-content: space-around;
+  }
+
   main #mainPage #filtered_restaurants ul li {
     width: calc(100% / 2);
+    max-width: 300px;
+  }
+
+  main #mainPage #restaurants {
+    padding: 15px 0;
+  }
+
+  main #mainPage #restaurants .restaurants_carousel {
+    width: 100%;
   }
 }
 
@@ -11798,13 +12004,18 @@ main #mainPage #restaurants .restaurant_card h4 {
     height: 170px;
   }
 
+  main #mainPage #myjumbotron {
+    height: auto;
+    padding: 15px 0;
+  }
+
   main #mainPage #myjumbotron .mycontainer .jumbotron_container {
-    flex-wrap: wrap;
     flex-direction: column-reverse;
     height: auto;
   }
 
   main #mainPage #myjumbotron .mycontainer .jumbotron_container .jumbotron_search {
+    margin: 0;
     width: 100%;
   }
 
