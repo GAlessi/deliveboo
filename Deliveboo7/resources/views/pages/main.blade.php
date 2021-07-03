@@ -38,13 +38,17 @@
               <div class="jumbotron_search flex_col align_cen">
 
                 {{-- ricerca per nome ristorante --}}
-                <input v-if="filter.length == 0" type="text" placeholder="Cerca un ristorante" type="text"
-                  @keyup='searchRestaurant' v-model='searchedRestaurantTxt'>
+                {{-- v-if="filter.length == 0" --}}
+                <input type="text" placeholder="Cerca un ristorante" type="text"
+                  @keyup='searchRestaurant' v-model='searchedRestaurantTxt'
+                  :disabled="filter > 0">
 
-                <h6 v-if='searchedRestaurantTxt == "" && filter == 0'>Oppure</h6>
+                {{-- <h6 v-if='searchedRestaurantTxt == "" && filter == 0'>Oppure</h6> --}}
+                <h6>Oppure</h6>
 
                 {{-- ricerca per tipologie --}}
-                <div class="chekbox_container" v-if="searchedRestaurantTxt == false">
+                {{-- v-if="searchedRestaurantTxt == false" --}}
+                <div class="chekbox_container">
 
                   <h4>
                     <label for="type_id[]">Seleziona una o più Tipologie di Cucina</label>
@@ -53,14 +57,17 @@
                   <ul class="flex_wrap">
 
                     @foreach ($types as $type)
-                      <label class="control control-checkbox">
-                        {{ $type->nome }}
-                        <input type="checkbox" v-model="filter" v-on:change="getFilteredRestaurant()" name="types_id"
-                          type="checkbox" value="{{ $type->id }}" />
-                        <div class="control_indicator"></div>
-                      </label>
+                      <li>
+                        <label class="control control-checkbox">
+                          {{ $type->nome }}
+                          <input type="checkbox" v-model="filter" v-on:change="getFilteredRestaurant()" name="types_id"
+                            type="checkbox" value="{{ $type->id }}"
+                            :disabled="searchedRestaurantTxt != 0"/>
+                          <div class="control_indicator"></div>
+                        </label>
+                      </li>
                     @endforeach
-                    
+
                   </ul>
                 </div>
 

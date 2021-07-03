@@ -52938,14 +52938,14 @@ $(document).ready(function () {
     // slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3500,
-    centerMode: true,
+    //centerMode: true,
     centerPadding: '60px',
     slidesToShow: 3,
     responsive: [{
       breakpoint: 768,
       settings: {
         arrows: false,
-        centerMode: true,
+        //centerMode: true,
         centerPadding: '40px',
         slidesToShow: 2
       }
@@ -52953,8 +52953,8 @@ $(document).ready(function () {
       breakpoint: 480,
       settings: {
         arrows: false,
-        centerMode: true,
-        centerPadding: '40px',
+        //centerMode: true,
+        centerPadding: '80px',
         slidesToShow: 1
       }
     }]
