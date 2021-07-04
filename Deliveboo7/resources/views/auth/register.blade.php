@@ -35,6 +35,10 @@
               </span>
             @enderror
 
+            {{-- cognome --}}
+            <label for="cognome">Cognome</label>
+            <input id="cognome" type="text" name="cognome" required>
+
             {{-- email --}}
             <label for="email">Email</label>
             <input id="email" type="email" name=" email" value="{{ old('email') }}" required autocomplete="email">
@@ -89,19 +93,6 @@
             <div class="checkbox_container">
 
               <ul class="flex_wrap">
-
-                {{-- @foreach ($types as $type)
-                  <li class="flex just_start align_cen">
-                    <input id="types_id[]" name="types_id[]" type="checkbox" value="{{ $type->id }}">
-                    {{ $type->nome }}
-                  </li>
-                @endforeach --}}
-
-                {{-- <label class="control control-checkbox">
-                  {{ $type->nome }}
-                  <input id="types_id[]" name="types_id[]" type="checkbox" value="{{ $type->id }}" />
-                  <div class="control_indicator"></div>
-                </label> --}}
 
                 @foreach ($types as $type)
                   <li class="flex just_start align_cen">

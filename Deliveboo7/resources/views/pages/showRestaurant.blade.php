@@ -54,9 +54,10 @@
             </ul>
 
             {{-- submit --}}
-            <form class="flex_center" :action="'/createOrder/' + carrelloIDs" method="post">
+            <form class="flex_center" :action="/createOrder/" method="post">
               @csrf
               <input type="hidden" name="totalPrice" :value="totalPrice.toFixed(2)">
+              <input type="hidden" name="carrelloIDs" :value="carrelloIDs">
               <button type="submit" class="btn-link">
                 Vai al Checkout <i class="fas fa-angle-double-right"></i>
               </button>
@@ -69,7 +70,7 @@
             {{-- HELPER USER PROPRIETARIO --}}
             <div class="helper_ristoratore relative">
 
-              <h2>Ciao {{ $user->name }} <i class="fas fa-info-circle animate__animated animate__bounceIn"
+              <h2>Ciao {{ $user->name }} {{ $user->cognome }} <i class="fas fa-info-circle animate__animated animate__bounceIn"
                   @click="showHelperInfo" title="Info Ristoratore"></i></h2>
 
               <h4>Questa è la pagina riservata al tuo ristorante "{{ $user->nome_attivita }}"</h4>

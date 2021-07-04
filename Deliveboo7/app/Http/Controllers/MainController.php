@@ -30,21 +30,23 @@ class MainController extends Controller
     return view('pages.showRestaurant', compact('user'));
   }
 
-  public function createOrder(Request $request, $carrello)
+  public function createOrder(Request $request)
   {
       // dd($request-> all(), $carrello );
       $totalPrice= $request->totalPrice;
-      // dd($totalPrice, $carrello);
-      return view('pages.createOrder', compact('totalPrice','carrello'));
+      $carrelloIDs= $request->carrelloIDs;
+      // dd($carrelloIDs);
+      return view('pages.createOrder', compact('totalPrice','carrelloIDs'));
   }
 
-  public function storeOrder(Request $request, $carrello) {
+  public function storeOrder(Request $request) {
       // dd($request->all(), $carrello);
-      $carrelloArray= explode(',', $carrello);
+      $carrelloArray= explode(',', $request ->carrelloIDs);
       $carrelloNum= [];
       foreach ($carrelloArray as $dish) {
           $carrelloNum[]= intval($dish);
       }
+      // dd($carrelloNum);
       // dd($carrelloNum);
       $validated = $request -> validate([
           'nome_cliente' => 'required|string|min:3',

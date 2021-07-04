@@ -47,6 +47,7 @@ class AuthController extends Controller
 
         request()->validate([
         'name' => 'required',
+        'cognome' => 'required',
         'email' => 'required|email|unique:users',
         'password' => 'required|min:6',
         'nome_attivita'=>'required','string','max:64',
@@ -82,16 +83,17 @@ class AuthController extends Controller
     public function create(array $data)
     {
         return User::create([
-          'name' => $data['name'],
-          'email' => $data['email'],
-          'password' => Hash::make($data['password']),
-          'nome_attivita'=>$data['nome_attivita'],
-          'via'=>$data['via'],
-          'n_civico'=>$data['n_civico'],
-          'citta'=>$data['citta'],
-          'cap'=>$data['cap'],
-          'p_iva'=>$data['p_iva'],
-          'file_path' =>$data['file']->hashName(),
+            'name' => $data['name'],
+            'cognome' => $data['cognome'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+            'nome_attivita'=>$data['nome_attivita'],
+            'via'=>$data['via'],
+            'n_civico'=>$data['n_civico'],
+            'citta'=>$data['citta'],
+            'cap'=>$data['cap'],
+            'p_iva'=>$data['p_iva'],
+            'file_path' =>$data['file']->hashName(),
         ]);
     }
 }
