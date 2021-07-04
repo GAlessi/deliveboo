@@ -45,9 +45,7 @@ header {
                     color: $blue;
 
                     ul.mynavbar {
-                        //flex-direction: row;
                         margin: 0;
-
 
                         li.nav-item {
                             margin-left: 15px;
@@ -63,6 +61,31 @@ header {
                                 }
                             }
                         }
+
+                        .dropdown-menu.dropdown-menu-right {
+                            top: 10px;
+                            padding: 10px;
+                            width: auto;
+                            min-width: 0;
+                            background-color: $yellow;
+                            border: solid 1px $blue;
+                            border-radius: 5px;
+                            
+                            a.dropdown-item {
+                                width: auto;
+                                color: $blue;
+                                
+                                &:hover {
+                                    color: $light;
+                                    background-color: inherit;
+                                }
+                            }
+
+                            &:hover {
+                                background-color: $red;
+                            }
+                        }
+
                     }
                 }
             } //fine nav_right
@@ -80,7 +103,6 @@ header {
                         .mynavbar {
                             li.nav-item {
                                 margin-left: 10px;
-                                
 
                                 a {
                                     padding: 0;
