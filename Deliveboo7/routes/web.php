@@ -47,10 +47,10 @@ Route::post('/post-registration', 'AuthController@postRegistration')
 -> name('postRegistration');
 
 //Creazione nuovo ordine
-Route::post('/createOrder/{carrello}', 'MainController@createOrder')
+Route::post('/createOrder', 'MainController@createOrder')
 ->name('createOrder');
 
-Route::post('/storeOrder/{carrello}', 'MainController@storeOrder')
+Route::post('/storeOrder', 'MainController@storeOrder')
 -> name('storeOrder');
 
 

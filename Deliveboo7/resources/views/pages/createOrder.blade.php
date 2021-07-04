@@ -13,11 +13,13 @@
                 <div class="order_container">
 
                     {{-- form --}}
-                    <form method="POST" action="{{ route('storeOrder', $carrello) }}" class="flex_col align_cen">
+                    <form method="POST" action="{{ route('storeOrder') }}" class="flex_col align_cen">
 
                         @csrf
                         @method('POST')
                         <input type="hidden" name="totalPrice" step=".01" value="{{round($totalPrice,2)}}">
+                        <input type="hidden" name="carrelloIDs" value="{{$carrelloIDs}}">
+
 
                         {{-- nome --}}
                         <label for="nome_cliente">Nome</label>
