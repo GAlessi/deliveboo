@@ -27,6 +27,7 @@ $factory->define(User::class, function (Faker $faker) {
       'cap' =>'00014',
       'p_iva'=>'0126641452',
       'name'=>'Guybrush',
+      'cognome' => 'Treepwood',
       'email'=>'guybrush@gmail.com',
       'password'=>'123456789',
       'file_path'=>'porchetta.jpg'
@@ -40,6 +41,7 @@ $factory->define(User::class, function (Faker $faker) {
       'cap' =>'00014',
       'p_iva'=>'0126641452',
       'name'=>'Gabbo',
+      'cognome' => 'Alessi',
       'email'=>'gabbo@gmail.com',
       'password'=>'123456789',
       'file_path'=>'pomodorini.jpg'
@@ -52,6 +54,7 @@ $factory->define(User::class, function (Faker $faker) {
       'cap' =>'00014',
       'p_iva'=>'0126641452',
       'name'=>'Mirko',
+      'cognome' => 'Sbaglia',
       'email'=>'mirko@gmail.com',
       'password'=>'123456789',
       'file_path'=>'carbonara.jpg'
@@ -64,6 +67,7 @@ $factory->define(User::class, function (Faker $faker) {
       'cap' =>'00014',
       'p_iva'=>'0126641452',
       'name'=>'Natale',
+      'cognome' => 'di Matteo',
       'email'=>'natale@gmail.com',
       'password'=>'123456789',
       'file_path'=>'greco.jpg'
@@ -76,6 +80,7 @@ $factory->define(User::class, function (Faker $faker) {
       'cap' =>'00014',
       'p_iva'=>'0126641452',
       'name'=>'Vale',
+      'cognome' => 'Tre Gambe',
       'email'=>'vale@gmail.com',
       'password'=>'123456789',
       'file_path'=>'pasta.jpg'
@@ -88,6 +93,7 @@ $factory->define(User::class, function (Faker $faker) {
       'cap' =>'00014',
       'p_iva'=>'0126641452',
       'name'=>'Totti',
+      'cognome' => 'Rossi',
       'email'=>'totti@gmail.com',
       'password'=>'123456789',
       'file_path'=>'pesce.jpg'
@@ -100,6 +106,7 @@ $factory->define(User::class, function (Faker $faker) {
       'cap' =>'00014',
       'p_iva'=>'0126641452',
       'name'=>'Mulan',
+      'cognome' => 'Fang',
       'email'=>'mulan@gmail.com',
       'password'=>'123456789',
       'file_path'=>'sushi.jpg'
@@ -112,6 +119,7 @@ $factory->define(User::class, function (Faker $faker) {
       'cap' =>'00014',
       'p_iva'=>'0126641452',
       'name'=>'Consuelo',
+      'cognome' => 'Rodrighez',
       'email'=>'consuelo@gmail.com',
       'password'=>'123456789',
       'file_path'=>'messicano.jpg'
@@ -124,6 +132,7 @@ $factory->define(User::class, function (Faker $faker) {
       'cap' =>'00014',
       'p_iva'=>'0126641452',
       'name'=>'Gennaro',
+      'cognome' => 'u Babbà',
       'email'=>'gennaro@gmail.com',
       'password'=>'123456789',
       'file_path'=>'pizza.jpg'
@@ -136,6 +145,7 @@ $factory->define(User::class, function (Faker $faker) {
       'cap' =>'00014',
       'p_iva'=>'0126641452',
       'name'=>'John',
+      'cognome' => 'Week',
       'email'=>'john@gmail.com',
       'password'=>'123456789',
       'file_path'=>'gelato.jpg'
@@ -149,6 +159,7 @@ $factory->define(User::class, function (Faker $faker) {
 
   return [
     'name' => $restaurant['name'],
+    'cognome' => $restaurant['cognome'],
     'email' => $restaurant['email'],
     'email_verified_at' => now(),
     'password' =>  Hash::make($restaurant['password']),

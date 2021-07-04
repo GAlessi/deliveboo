@@ -70,7 +70,7 @@
             {{-- HELPER USER PROPRIETARIO --}}
             <div class="helper_ristoratore relative">
 
-              <h2>Ciao {{ $user->name }} <i class="fas fa-info-circle animate__animated animate__bounceIn"
+              <h2>Ciao {{ $user->name }} {{ $user->cognome }} <i class="fas fa-info-circle animate__animated animate__bounceIn"
                   @click="showHelperInfo" title="Info Ristoratore"></i></h2>
 
               <h4>Questa è la pagina riservata al tuo ristorante "{{ $user->nome_attivita }}"</h4>
