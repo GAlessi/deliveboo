@@ -24,9 +24,11 @@
           {{-- carrello aperto --}}
           <div class="opened_cart flex_col animate__animated animate__fadeInRight" :hidden="cartHidden">
 
-            <div @click="showCart" class="riduci flex just_end align_cen">
-              <p>Riduci</p>
-              <h6><i class="fas fa-long-arrow-alt-right"></i></h6>
+            <div @click="showCart" class="riduci_row flex just_end align_cen">
+              <div class="riduci flex_center">
+                <p>Riduci</p>
+                <h6><i class="fas fa-long-arrow-alt-right"></i></h6>
+              </div>
             </div>
 
             <h3>Il tuo ordine</h3>
@@ -227,10 +229,12 @@
                     {{-- card piatto --}}
                     <div class="dish_card flex_col just_start {{ !$dish->visibilita ? 'chiaro' : '' }}"
                       title="Aggiungi {{ $dish->nome }} al carrello">
-                      <h5>{{ $dish->nome }}</h5>
+                      <div class="dish_title_price flex space_bet align_cen">
+                        <h5>{{ $dish->nome }}</h5>
+                        <h6>{{ round($dish->prezzo, 2) }} €</h6>
+                      </div>
                       <p><span>Ingredienti:</span> {{ $dish->ingredienti }}</p>
                       <p><span>Descrizione:</span> {{ $dish->descrizione }}</p>
-                      <h6>Prezzo: {{ round($dish->prezzo, 2) }} €</h6>
 
                       {{-- tasti ristoratore --}}
                       {{-- edit --}}
@@ -260,10 +264,12 @@
                     <li>
                       {{-- card piatto --}}
                       <div class="dish_card flex_col just_start" title="Aggiungi {{ $dish->nome }} al carrello">
-                        <h5>{{ $dish->nome }}</h5>
+                        <div class="dish_title_price flex_wrap space_bet align_cen">
+                          <h5>{{ $dish->nome }}</h5>
+                          <h6>{{ round($dish->prezzo, 2) }} €</h6>
+                        </div>
                         <p><span>Ingredienti:</span> {{ $dish->ingredienti }}</p>
                         <p><span>Descrizione:</span> {{ $dish->descrizione }}</p>
-                        <h6>Prezzo: {{ round($dish->prezzo, 2) }} €</h6>
 
                         @if (Auth::check() && Auth::user()->id == $user->id)
                         @else

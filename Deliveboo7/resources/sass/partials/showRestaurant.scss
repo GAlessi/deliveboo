@@ -18,6 +18,7 @@
             width: 30px;
         }
 
+        //bollino
         .cart_count {
             height: 253x;
             width: 23px;
@@ -29,6 +30,7 @@
             span {
                 font-size: $text_small;
                 font-weight: bold;
+                color: white;
             }
         }
     } // fine cart
@@ -40,7 +42,7 @@
         right: 0;
         padding: 15px;
         height: auto;
-        max-height: 70vh;
+        max-height: calc(100vh - 90px);
         overflow: auto;
         width: 25%;
         background-color: $light;
@@ -51,10 +53,19 @@
         box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
 
         .riduci {
+            padding: 3px;
+            border: solid 1px $blue;
+            border-radius: 5px;
             cursor: pointer;
 
             i {
                 margin: 5px;
+            }
+
+            &:hover {
+                -webkit-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+                -moz-box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
+                box-shadow: 2px 2px 2px 0px rgba(50, 50, 50, 0.91);
             }
         }
 
@@ -292,8 +303,12 @@
             -moz-box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
             box-shadow: 4px 4px 6px 0px rgba(50, 50, 50, 0.91);
 
-            h5 {
-                margin: 0;
+            .dish_title_price {
+                border-bottom: 1px solid $blue;
+
+                h5 {
+                    margin: 0;
+                }
             }
 
             span {
@@ -346,12 +361,18 @@
 
             &:hover {
                 background-color: $blue;
+
+                .dish_title_price {
+                    border-bottom: 1px solid $light;
+                }
+
+                .dish_title_price * {
+                    color: $light;
+                }
             }
 
             &:hover > p,
-            &:hover span,
-            &:hover > h5,
-            &:hover > h6 {
+            &:hover span {
                 color: $light;
             }
 
@@ -365,6 +386,7 @@
                 background-color: $red;
             }
         } // fine dish_card
+
         .dish_card.chiaro {
             background-color: rgb(240, 230, 204);
             &:hover {
