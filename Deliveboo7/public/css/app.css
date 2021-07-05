@@ -12395,6 +12395,7 @@ main #mainPage #restaurants .restaurants_carousel .restaurant_card h4 {
 #showRestaurant .menu_container .dish_card div[class*=row] {
   border: solid 1px #264653;
   border-radius: 5px;
+  box-shadow: 0px 2px 2px 0px rgba(50, 50, 50, 0.75);
 }
 
 #showRestaurant .menu_container .dish_card div[class*=row] a:hover {
