@@ -122,3 +122,15 @@ a {
 input:focus {
     outline: none;
 }
+
+// section myrestaurant
+#myrestaurant {
+    padding-top: 5px;
+    text-align: center;
+    background-color: $orange;
+    border-bottom: 2px solid $blue;
+
+    i {
+        font-size: inherit;
+    }
+}

@@ -11105,6 +11105,17 @@ input:focus {
   outline: none;
 }
 
+#myrestaurant {
+  padding-top: 5px;
+  text-align: center;
+  background-color: #f4a261;
+  border-bottom: 2px solid #264653;
+}
+
+#myrestaurant i {
+  font-size: inherit;
+}
+
 header {
   position: fixed;
   height: 85px;
@@ -11126,7 +11137,6 @@ header .mycontainer nav {
 
 header .mycontainer nav .nav_left .nav_logo a:hover,
 header .mycontainer nav .nav_left .nav_logo a:focus {
-  scale: 1.1;
   text-decoration: none;
 }
 
@@ -11134,6 +11144,10 @@ header .mycontainer nav .nav_left .nav_logo a h3 {
   color: #f4a261;
   font-family: "Dela Gothic One", cursive;
   text-shadow: 2px 2px 2px rgba(50, 50, 50, 0.91);
+}
+
+header .mycontainer nav .nav_left .nav_logo a h3:hover {
+  scale: 1.1;
 }
 
 header .mycontainer nav .nav_right h6 {
@@ -11220,6 +11234,10 @@ footer .column {
   width: 25%;
 }
 
+footer .column a:hover {
+  text-decoration: none;
+}
+
 footer .column .footer_list h3 {
   margin-bottom: 10px;
 }
@@ -11232,13 +11250,28 @@ footer .column .footer_list:last-of-type i:hover {
   color: #e9c46a;
 }
 
-@media all and (max-width: 576px) {
+footer .column h6 {
+  color: #f4a261;
+  font-family: "Dela Gothic One", cursive;
+  text-shadow: 2px 2px 2px rgba(50, 50, 50, 0.91);
+}
+
+footer .column h6:hover {
+  text-decoration: none;
+  scale: 1.1;
+}
+
+@media all and (max-width: 577px) {
   footer .mycontainer {
     flex-wrap: wrap;
+    justify-content: space-between;
   }
 
   footer .mycontainer .column {
-    width: 100%;
+    flex-grow: 1;
+    margin: 0;
+    padding: 10px;
+    width: 50%;
   }
 }
 
@@ -11591,16 +11624,6 @@ main #mainPage .restaurant_card h4 {
   border: solid 1px #264653;
   border-radius: 10px;
   box-shadow: 0px 2px 2px 0px rgba(50, 50, 50, 0.75);
-}
-
-main #mainPage #myrestaurant {
-  padding: 15x;
-  background-color: #f4a261;
-  border-bottom: 2px solid #264653;
-}
-
-main #mainPage #myrestaurant i {
-  font-size: inherit;
 }
 
 main #mainPage #myjumbotron {
@@ -12064,7 +12087,7 @@ main #mainPage #restaurants .restaurants_carousel .restaurant_card h4 {
 }
 
 #showRestaurant {
-  padding: 25px 0;
+  padding-bottom: 25px;
   background-color: #e76f51;
 }
 
@@ -12331,7 +12354,12 @@ main #mainPage #restaurants .restaurants_carousel .restaurant_card h4 {
 }
 
 #showRestaurant .menu_container .dish_card .dish_title_price h5 {
+  flex-shrink: 1;
   margin: 0;
+}
+
+#showRestaurant .menu_container .dish_card .dish_title_price h6 {
+  margin-left: 10px;
 }
 
 #showRestaurant .menu_container .dish_card span {
@@ -12366,6 +12394,7 @@ main #mainPage #restaurants .restaurants_carousel .restaurant_card h4 {
 }
 
 #showRestaurant .menu_container .dish_card div[class*=row] {
+  border: solid 1px #264653;
   border-radius: 5px;
 }
 
@@ -12409,23 +12438,28 @@ main #mainPage #restaurants .restaurants_carousel .restaurant_card h4 {
 }
 
 #showRestaurant .menu_container .dish_card.chiaro {
-  background-color: #f0e6cc;
+  background-color: #dcdcdc;
 }
 
 #showRestaurant .menu_container .dish_card.chiaro:hover {
-  background-color: #f0e6cc;
+  background-color: #dcdcdc;
 }
 
-#showRestaurant .menu_container .dish_card.chiaro:hover > p,
+#showRestaurant .menu_container .dish_card.chiaro:hover .dish_title_price {
+  border-bottom: 1px solid #264653;
+}
+
+#showRestaurant .menu_container .dish_card.chiaro:hover p,
 #showRestaurant .menu_container .dish_card.chiaro:hover span,
-#showRestaurant .menu_container .dish_card.chiaro:hover > h6,
-#showRestaurant .menu_container .dish_card.chiaro:hover > h6 {
+#showRestaurant .menu_container .dish_card.chiaro:hover h5,
+#showRestaurant .menu_container .dish_card.chiaro:hover h6,
+#showRestaurant .menu_container .dish_card.chiaro:hover i {
   color: #264653;
 }
 
 @media all and (max-width: 576px) {
   #showRestaurant {
-    padding: 15px 0;
+    padding-bottom: 15px;
   }
 
   #showRestaurant .restaurant_info .restaurant_info_card.ristoratore {
@@ -12472,7 +12506,7 @@ main #mainPage #restaurants .restaurants_carousel .restaurant_card h4 {
 
 @media all and (min-width: 577px) and (max-width: 767px) {
   #showRestaurant {
-    padding: 15px 0;
+    padding-bottom: 15px;
   }
 
   #showRestaurant .restaurant_info .restaurant_info_card.ristoratore {
@@ -12769,12 +12803,8 @@ main #mainPage #restaurants .restaurants_carousel .restaurant_card h4 {
 
 #showOrders {
   min-height: calc(100vh - 338px);
-  padding: 30px 0;
+  padding-bottom: 30px;
   background-color: #e76f51;
-}
-
-#showOrders #myrestaurant {
-  text-align: center;
 }
 
 #showOrders h2,
@@ -13089,7 +13119,7 @@ main #mainPage #restaurants .restaurants_carousel .restaurant_card h4 {
 
 #statistiche {
   background-color: #264653;
-  padding: 30px 0;
+  padding-bottom: 30px;
 }
 
 #statistiche .mycontainer h2 {
@@ -13331,9 +13361,10 @@ body {
 }
 
 .mycontainer {
+  margin: auto;
+  padding: 15px 0;
   width: 80%;
   max-width: 1100px;
-  margin: auto;
 }
 
 @media all and (max-width: 1099px) {

@@ -5,6 +5,22 @@
   <main>
     <div id="app" v-cloak>
       <div id="showRestaurant">
+
+        @if (Auth::check() && Auth::user()->id != $user->id)
+
+          {{-- sezione myrestaurant --}}
+          <section id="myrestaurant">
+
+            {{-- <h2>Ciao {{ Auth::user()->name }}</h2> --}}
+
+            {{-- link al mio ristorante --}}
+            <a href="{{ route('show', Auth::user()->id) }}">
+              <h3>Vai al tuo ristorante "{{ Auth::user()->nome_attivita }}" <i class="fas fa-angle-double-right"></i></h3>
+            </a>
+
+          </section>
+        @endif
+
         <div class="mycontainer relative">
 
           @if (Auth::check() && Auth::user()->id == $user->id)
@@ -231,7 +247,12 @@
                     <div class="dish_card flex_col just_start {{ !$dish->visibilita ? 'chiaro' : '' }}"
                       title="Aggiungi {{ $dish->nome }} al carrello">
                       <div class="dish_title_price flex space_bet align_cen">
-                        <h5>{{ $dish->nome }}</h5>
+                        <h5 class="flex_center">
+                          {{ $dish->nome }}
+                          @if (!$dish->visibilita)
+                             <i class="far fa-eye-slash"></i> 
+                          @endif
+                        </h5>
                         <h6>{{ round($dish->prezzo, 2) }} €</h6>
                       </div>
                       <p><span>Ingredienti:</span> {{ $dish->ingredienti }}</p>
@@ -253,6 +274,10 @@
                           <i class="far fa-trash-alt"></i>
                         </a>
                       </div>
+
+                      {{-- @if (!$dish->visibilità)
+                          <h6>Prodotto non visibile</h6>
+                      @endif --}}
                     </div>
                     {{-- FINE CARD PIATTO USER PROPRIETARIO --}}
                   </li>

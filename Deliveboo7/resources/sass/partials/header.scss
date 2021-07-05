@@ -21,7 +21,6 @@ header {
                     a {
                         &:hover,
                         &:focus {
-                            scale: 1.1;
                             text-decoration: none;
                         }
 
@@ -29,6 +28,10 @@ header {
                             color: $orange;
                             font-family: "Dela Gothic One", cursive;
                             text-shadow: 2px 2px 2px rgba(50, 50, 50, 0.91);
+
+                            &:hover {
+                                scale: 1.1;
+                            }
                         }
                     }
                 }
@@ -70,11 +73,11 @@ header {
                             background-color: $yellow;
                             border: solid 1px $blue;
                             border-radius: 5px;
-                            
+
                             a.dropdown-item {
                                 width: auto;
                                 color: $blue;
-                                
+
                                 &:hover {
                                     color: $light;
                                     background-color: inherit;
@@ -85,7 +88,6 @@ header {
                                 background-color: $red;
                             }
                         }
-
                     }
                 }
             } //fine nav_right
