@@ -121,7 +121,6 @@ class HomeController extends Controller
 
 
 
-
         //pusha in array i piatti di un ristorante
         foreach ($user -> dishes as $dish) {
             foreach ($dish -> orders as $order){
