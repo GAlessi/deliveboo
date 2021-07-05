@@ -94,7 +94,7 @@
               <h2>{{ $user->nome_attivita }}</h2>
 
               {{-- info card ristorante --}}
-              <div class="restaurant_info_card ristoratore flex">
+              <div class="restaurant_info_card ristoratore flex_col just_cen align_cen">
                 {{-- immagine ristorante --}}
                 <div class="restaurant_image">
                   <img src="{{ asset('/storage/restaurantImages/' . $user->file_path) }}" alt="immagine_ristorante"
@@ -155,7 +155,7 @@
                   <div class="info_card_row_container">
                     <div class="info_card_row flex align_cen">
                       <i class="fas fa-utensils"></i>
-                      <h6>Tipo di Cucina:
+                      <h6 class="flex_wrap">Tipo di Cucina:
 
                         @foreach ($user->types->sortBy('nome') as $type)
 
@@ -221,7 +221,7 @@
 
             <ul class="flex_wrap">
 
-              @foreach ($user->dishes->sortBy('nome') as $dish)
+              @foreach ($user->dishes->sortBy('created_at') as $dish)
 
                 @if (Auth::check() && Auth::user()->id == $user->id)
 
