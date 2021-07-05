@@ -34,12 +34,12 @@
         integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <title>My Layout Test - Blade</title>
+    <title>Deliveboo - Team 7</title>
 
     {{-- my style --}}
     <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
 
-    <!-- Scripts -->
+    <!-- my scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
 </head>

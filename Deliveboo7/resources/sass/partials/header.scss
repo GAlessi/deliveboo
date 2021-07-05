@@ -1,4 +1,4 @@
-header {
+#site-header {
     position: fixed;
     height: 85px;
     width: 100%;
@@ -8,6 +8,11 @@ header {
     -moz-box-shadow: 0px 2px 2px 0px rgba(50, 50, 50, 0.75);
     box-shadow: 0px 2px 2px 0px rgba(50, 50, 50, 0.75);
     z-index: 999;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
 
     .mycontainer {
         flex-direction: row;
@@ -94,6 +99,10 @@ header {
         } //fine nav
     } //fine mycontainer
 } //finer header
+
+#site-header.hide {
+    top: -85px;
+}
 
 // VERSIONE SMALL ED EXTRA SMALL DEVICES
 @media all and (max-width: 767px) {
