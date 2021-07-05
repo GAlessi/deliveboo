@@ -63,6 +63,10 @@
     #braintreePay {
         .payment_container {
             width: 90%;
+
+            button {
+                padding: 5px;
+            }
         }
     }
 }
