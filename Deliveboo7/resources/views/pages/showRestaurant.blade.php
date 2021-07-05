@@ -223,7 +223,7 @@
 
               @foreach ($user->dishes->sortBy('created_at') as $dish)
 
-                @if (Auth::check() && Auth::user()->id == $user->id)
+                @if (Auth::check() && Auth::user()->id == $user->id && !$dish->deleted)
 
                   {{-- CARD PIATTO USER PROPRIETARIO --}}
                   <li>
