@@ -61,6 +61,18 @@
     #login {
         .form_container {
             width: 90%;
+
+            label {
+                font-size: $text_medium;
+            }
+
+            input {
+                width: 98%;
+            }
+
+            button {
+                font-size: $text_medium;
+            }
         }
     }
 }

@@ -11116,7 +11116,7 @@ input:focus {
   font-size: inherit;
 }
 
-header {
+#site-header {
   position: fixed;
   height: 85px;
   width: 100%;
@@ -11124,62 +11124,63 @@ header {
   background-color: #2a9d8f;
   box-shadow: 0px 2px 2px 0px rgba(50, 50, 50, 0.75);
   z-index: 999;
+  transition: all 0.5s;
 }
 
-header .mycontainer {
+#site-header .mycontainer {
   flex-direction: row;
   height: 100%;
 }
 
-header .mycontainer nav {
+#site-header .mycontainer nav {
   width: 100%;
 }
 
-header .mycontainer nav .nav_left .nav_logo a:hover,
-header .mycontainer nav .nav_left .nav_logo a:focus {
+#site-header .mycontainer nav .nav_left .nav_logo a:hover,
+#site-header .mycontainer nav .nav_left .nav_logo a:focus {
   text-decoration: none;
 }
 
-header .mycontainer nav .nav_left .nav_logo a h3 {
+#site-header .mycontainer nav .nav_left .nav_logo a h3 {
   color: #f4a261;
   font-family: "Dela Gothic One", cursive;
   text-shadow: 2px 2px 2px rgba(50, 50, 50, 0.91);
 }
 
-header .mycontainer nav .nav_left .nav_logo a h3:hover {
+#site-header .mycontainer nav .nav_left .nav_logo a h3:hover {
   scale: 1.1;
 }
 
-header .mycontainer nav .nav_right h6 {
+#site-header .mycontainer nav .nav_right h6 {
   margin: 0;
   color: #dcdcdc;
 }
 
-header .mycontainer nav .nav_right .nav_buttons {
+#site-header .mycontainer nav .nav_right .nav_buttons {
   padding: 0;
   color: #264653;
 }
 
-header .mycontainer nav .nav_right .nav_buttons ul.mynavbar {
+#site-header .mycontainer nav .nav_right .nav_buttons ul.mynavbar {
   margin: 0;
 }
 
-header .mycontainer nav .nav_right .nav_buttons ul.mynavbar li.nav-item {
+#site-header .mycontainer nav .nav_right .nav_buttons ul.mynavbar li.nav-item {
   margin-left: 15px;
   padding: 0;
 }
 
-header .mycontainer nav .nav_right .nav_buttons ul.mynavbar li.nav-item a {
+#site-header .mycontainer nav .nav_right .nav_buttons ul.mynavbar li.nav-item a {
   padding: 0;
   line-height: 1;
   font-weight: bold;
 }
 
-header .mycontainer nav .nav_right .nav_buttons ul.mynavbar li.nav-item a:hover {
+#site-header .mycontainer nav .nav_right .nav_buttons ul.mynavbar li.nav-item a:hover {
   text-decoration: underline;
 }
 
-header .mycontainer nav .nav_right .nav_buttons ul.mynavbar .dropdown-menu.dropdown-menu-right {
+#site-header .mycontainer nav .nav_right .nav_buttons ul.mynavbar .dropdown-menu.dropdown-menu-right {
   top: 10px;
   padding: 10px;
   width: auto;
@@ -11189,18 +11190,22 @@ header .mycontainer nav .nav_right .nav_buttons ul.mynavbar .dropdown-menu.dropd
   border-radius: 5px;
 }
 
-header .mycontainer nav .nav_right .nav_buttons ul.mynavbar .dropdown-menu.dropdown-menu-right a.dropdown-item {
+#site-header .mycontainer nav .nav_right .nav_buttons ul.mynavbar .dropdown-menu.dropdown-menu-right a.dropdown-item {
   width: auto;
   color: #264653;
 }
 
-header .mycontainer nav .nav_right .nav_buttons ul.mynavbar .dropdown-menu.dropdown-menu-right a.dropdown-item:hover {
+#site-header .mycontainer nav .nav_right .nav_buttons ul.mynavbar .dropdown-menu.dropdown-menu-right a.dropdown-item:hover {
   color: #dcdcdc;
   background-color: inherit;
 }
 
-header .mycontainer nav .nav_right .nav_buttons ul.mynavbar .dropdown-menu.dropdown-menu-right:hover {
+#site-header .mycontainer nav .nav_right .nav_buttons ul.mynavbar .dropdown-menu.dropdown-menu-right:hover {
   background-color: #e76f51;
+}
+
+#site-header.hide {
+  top: -85px;
 }
 
 @media all and (max-width: 767px) {
@@ -11329,6 +11334,18 @@ footer .column h6:hover {
 @media all and (max-width: 767px) {
   #login .form_container {
     width: 90%;
+  }
+
+  #login .form_container label {
+    font-size: 18px;
+  }
+
+  #login .form_container input {
+    width: 98%;
+  }
+
+  #login .form_container button {
+    font-size: 18px;
   }
 }
 
@@ -11566,6 +11583,14 @@ footer .column h6:hover {
 @media all and (max-width: 767px) {
   #register .register_container {
     width: 90%;
+  }
+
+  #register .register_container label {
+    font-size: 18px;
+  }
+
+  #register .register_container input {
+    width: 98%;
   }
 
   #register .register_container .checkbox_container li {
@@ -12797,7 +12822,7 @@ main #mainPage #restaurants .restaurants_carousel .restaurant_card h4 {
   }
 
   #createOrder .order_container button {
-    padding: 3px;
+    padding: 5px;
   }
 }
 
@@ -13088,6 +13113,10 @@ main #mainPage #restaurants .restaurants_carousel .restaurant_card h4 {
 @media all and (max-width: 767px) {
   #braintreePay .payment_container {
     width: 90%;
+  }
+
+  #braintreePay .payment_container button {
+    padding: 5px;
   }
 }
 

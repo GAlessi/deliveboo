@@ -199,6 +199,14 @@
 @media all and (max-width: 767px) {
     #register {
         .register_container {
+            label {
+                font-size: $text_medium;
+            }
+
+            input {
+                width: 98%;
+            }
+
             width: 90%;
 
             .checkbox_container {

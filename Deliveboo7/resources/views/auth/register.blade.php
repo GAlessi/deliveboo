@@ -27,7 +27,7 @@
 
             {{-- nome --}}
             <label for="name">Nome</label>
-            <input id="name" type="text" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+            <input id="name" type="text" name="name" value="{{ old('name') }}" placeholder="Inserisci qui il tuo nome" required autocomplete="name" autofocus>
 
             @error('name')
               <span class="invalid-feedback" role="alert">
@@ -37,11 +37,17 @@
 
             {{-- cognome --}}
             <label for="cognome">Cognome</label>
-            <input id="cognome" type="text" name="cognome" required>
+            <input id="cognome" type="text" name="cognome" placeholder="Inserisci qui il tuo cognome" required>
+
+            @error('cognome')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+            @enderror
 
             {{-- email --}}
             <label for="email">Email</label>
-            <input id="email" type="email" name=" email" value="{{ old('email') }}" required autocomplete="email">
+            <input id="email" type="email" name=" email" value="{{ old('email') }}" placeholder="Inserisci qui il tuo indirizzo email" required autocomplete="email">
 
             @error('email')
               <span class="invalid-feedback" role="alert">
@@ -51,7 +57,7 @@
 
             {{-- password --}}
             <label for="password">Password</label>
-            <input id="password" type="password" name="password" required autocomplete="new-password">
+            <input id="password" type="password" name="password" placeholder="Inserisci qui la tua password" required autocomplete="new-password">
 
             @error('password')
               <span class="invalid-feedback" role="alert">
@@ -66,27 +72,63 @@
 
             {{-- nome attività --}}
             <label for="nome_attivita">Nome Attività</label>
-            <input id="nome_attivita" type="text" name="nome_attivita" required>
+            <input id="nome_attivita" type="text" name="nome_attivita" placeholder="Inserisci qui il nome della tua attività" required>
+
+            @error('nome_attivita')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+            @enderror
 
             {{-- via --}}
             <label for="via">Via</label>
-            <input id="via" type="text" name="via" required>
+            <input id="via" type="text" name="via" placeholder="Inserisci qui il nome della via della tua attività" required>
+
+            @error('via')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+            @enderror
 
             {{-- civico --}}
             <label for="n_civico">Numero Civico</label>
-            <input id="n_civico" type="integer" name="n_civico" required>
+            <input id="n_civico" type="integer" name="n_civico" placeholder="Inserisci qui il civico della tua attività" required>
 
-            {{-- città --}}
-            <label for="citta">Città</label>
-            <input id="citta" type="text" name="citta" required>
+            @error('n_civico')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+            @enderror
+
+            {{-- comune --}}
+            <label for="citta">Comune</label>
+            <input id="citta" type="text" name="citta" placeholder="Inserisci qui il Comune della tua attività" required>
+
+            @error('citta')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+            @enderror
 
             {{-- cap --}}
             <label for="cap">C.A.P.</label>
-            <input id="cap" type="text" name="cap" required>
+            <input id="cap" type="text" name="cap" placeholder="Inserisci qui il C.A.P. della tua attività" required>
+
+            @error('cap')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+            @enderror
 
             {{-- p iva --}}
             <label for="p_iva">Numero Partita IVA</label>
-            <input id="p_iva" type="text" name="p_iva" required>
+            <input id="p_iva" type="text" name="p_iva" placeholder="Inserisci qui il numero della tua partita iva" required>
+
+            @error('p_iva')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+            @enderror
 
             {{-- checkbox tipologia --}}
             <label for="type_id[]">Seleziona una o più Tipologie di Cucina</label>
@@ -106,9 +148,21 @@
               </ul>
             </div>
 
+            @error('type_id')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+            @enderror
+
             {{-- Aggiunta immagini --}}
             <label for="file_path">Scegli un immagine per il tuo Ristorante</label>
             <input type="file" name="file" class="file" required>
+
+            @error('file_path')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+            @enderror
 
             {{-- submit --}}
             <button type="submit">
