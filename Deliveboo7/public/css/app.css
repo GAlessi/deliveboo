@@ -11116,7 +11116,7 @@ input:focus {
   font-size: inherit;
 }
 
-#site-header {
+header {
   position: fixed;
   height: 85px;
   width: 100%;
@@ -11127,60 +11127,60 @@ input:focus {
   transition: all 0.5s;
 }
 
-#site-header .mycontainer {
+header .mycontainer {
   flex-direction: row;
   height: 100%;
 }
 
-#site-header .mycontainer nav {
+header .mycontainer nav {
   width: 100%;
 }
 
-#site-header .mycontainer nav .nav_left .nav_logo a:hover,
-#site-header .mycontainer nav .nav_left .nav_logo a:focus {
+header .mycontainer nav .nav_left .nav_logo a:hover,
+header .mycontainer nav .nav_left .nav_logo a:focus {
   text-decoration: none;
 }
 
-#site-header .mycontainer nav .nav_left .nav_logo a h3 {
+header .mycontainer nav .nav_left .nav_logo a h3 {
   color: #f4a261;
   font-family: "Dela Gothic One", cursive;
   text-shadow: 2px 2px 2px rgba(50, 50, 50, 0.91);
 }
 
-#site-header .mycontainer nav .nav_left .nav_logo a h3:hover {
+header .mycontainer nav .nav_left .nav_logo a h3:hover {
   scale: 1.1;
 }
 
-#site-header .mycontainer nav .nav_right h6 {
+header .mycontainer nav .nav_right h6 {
   margin: 0;
   color: #dcdcdc;
 }
 
-#site-header .mycontainer nav .nav_right .nav_buttons {
+header .mycontainer nav .nav_right .nav_buttons {
   padding: 0;
   color: #264653;
 }
 
-#site-header .mycontainer nav .nav_right .nav_buttons ul.mynavbar {
+header .mycontainer nav .nav_right .nav_buttons ul.mynavbar {
   margin: 0;
 }
 
-#site-header .mycontainer nav .nav_right .nav_buttons ul.mynavbar li.nav-item {
+header .mycontainer nav .nav_right .nav_buttons ul.mynavbar li.nav-item {
   margin-left: 15px;
   padding: 0;
 }
 
-#site-header .mycontainer nav .nav_right .nav_buttons ul.mynavbar li.nav-item a {
+header .mycontainer nav .nav_right .nav_buttons ul.mynavbar li.nav-item a {
   padding: 0;
   line-height: 1;
   font-weight: bold;
 }
 
-#site-header .mycontainer nav .nav_right .nav_buttons ul.mynavbar li.nav-item a:hover {
+header .mycontainer nav .nav_right .nav_buttons ul.mynavbar li.nav-item a:hover {
   text-decoration: underline;
 }
 
-#site-header .mycontainer nav .nav_right .nav_buttons ul.mynavbar .dropdown-menu.dropdown-menu-right {
+header .mycontainer nav .nav_right .nav_buttons ul.mynavbar .dropdown-menu.dropdown-menu-right {
   top: 10px;
   padding: 10px;
   width: auto;
@@ -11190,22 +11190,18 @@ input:focus {
   border-radius: 5px;
 }
 
-#site-header .mycontainer nav .nav_right .nav_buttons ul.mynavbar .dropdown-menu.dropdown-menu-right a.dropdown-item {
+header .mycontainer nav .nav_right .nav_buttons ul.mynavbar .dropdown-menu.dropdown-menu-right a.dropdown-item {
   width: auto;
   color: #264653;
 }
 
-#site-header .mycontainer nav .nav_right .nav_buttons ul.mynavbar .dropdown-menu.dropdown-menu-right a.dropdown-item:hover {
+header .mycontainer nav .nav_right .nav_buttons ul.mynavbar .dropdown-menu.dropdown-menu-right a.dropdown-item:hover {
   color: #dcdcdc;
   background-color: inherit;
 }
 
-#site-header .mycontainer nav .nav_right .nav_buttons ul.mynavbar .dropdown-menu.dropdown-menu-right:hover {
+header .mycontainer nav .nav_right .nav_buttons ul.mynavbar .dropdown-menu.dropdown-menu-right:hover {
   background-color: #e76f51;
-}
-
-#site-header.hide {
-  top: -85px;
 }
 
 @media all and (max-width: 767px) {

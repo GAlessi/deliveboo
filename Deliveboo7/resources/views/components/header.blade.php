@@ -1,4 +1,4 @@
-<header id="site-header">
+<header>
   <div class="mycontainer flex_center">
 
     {{-- nav --}}

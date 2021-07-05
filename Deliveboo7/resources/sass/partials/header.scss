@@ -1,4 +1,4 @@
-#site-header {
+header {
     position: fixed;
     height: 85px;
     width: 100%;
@@ -99,10 +99,6 @@
         } //fine nav
     } //fine mycontainer
 } //finer header
-
-#site-header.hide {
-    top: -85px;
-}
 
 // VERSIONE SMALL ED EXTRA SMALL DEVICES
 @media all and (max-width: 767px) {
