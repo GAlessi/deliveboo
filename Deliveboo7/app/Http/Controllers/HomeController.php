@@ -114,7 +114,11 @@ class HomeController extends Controller
     public function showOrders($id)
     {
         $user = User::findOrFail($id);
-        $orders = Order::all();
+        $orders = Order::orderBy('created_at', 'DESC')
+          ->get();
+        //dd($orders);
+
+
 
         $ordersId = array();
         $orderSel = array();
