@@ -42,7 +42,7 @@
                         </select>
 
                         <button type="submit">
-                            Salva il nuovo elemento
+                            Salva modifiche
                         </button>
 
                         {{-- gestione errors --}}
