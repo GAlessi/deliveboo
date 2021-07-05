@@ -200,6 +200,7 @@
             }
 
             .info_card_row_container {
+                max-width: 90%;
                 border: solid 1px $yellow;
                 border-top: none;
                 border-radius: 0 0 10px 10px;
@@ -209,6 +210,7 @@
 
                 .info_card_row {
                     padding: 5px;
+                    //max-width: 90%;
 
                     i {
                         margin: 5px;
@@ -216,30 +218,14 @@
                     }
 
                     h6 {
+                        flex-shrink: 1;
                         margin: 0;
                         display: inline-block;
+                        text-align: left;
                     }
                 }
             }
         } // fine restaurant_info_card
-
-        .restaurant_info_card.ristoratore {
-            max-width: 1000px;
-
-            .restaurant_image {
-                max-width: 400px;
-            }
-
-            .info_card_row_container {
-                border: solid 1px $yellow;
-                border-left: none;
-                border-radius: 0 10px 10px 0;
-
-                h5 {
-                    padding: 5px;
-                }
-            }
-        }
     }
 
     .menu_container {
