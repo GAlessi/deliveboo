@@ -94,7 +94,7 @@
               <h2>{{ $user->nome_attivita }}</h2>
 
               {{-- info card ristorante --}}
-              <div class="restaurant_info_card ristoratore flex">
+              <div class="restaurant_info_card ristoratore flex_col just_cen align_cen">
                 {{-- immagine ristorante --}}
                 <div class="restaurant_image">
                   <img src="{{ asset('/storage/restaurantImages/' . $user->file_path) }}" alt="immagine_ristorante"
