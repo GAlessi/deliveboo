@@ -1,65 +1,65 @@
 <footer>
 
-    <div class="mycontainer flex just_around">
+  <div class="mycontainer flex just_around">
 
-        {{-- prima colonna --}}
-        <div class="column">
+    {{-- prima colonna --}}
+    <div class="column">
 
-            <div class="footer_list">
+      <div class="footer_list">
 
-                <h3>DeliveBoo</h3>
+        <h3>DeliveBoo</h3>
 
-                <ul>
-                    {{-- link a registrazione --}}
-                    <li>
-                        <a href="{{ route('getRegistration') }}">Registra il tuo ristorante</a>
-                    </li>
-                    {{-- eventuali link a nostri linkedin/cv/github --}}
-                    <li>
-                        <a href="{{ route('chiSiamo') }}">Chi siamo</a>
-                    </li>
-                    <li>
-                        <a href="{{route('contattaci')}}"><i class="far fa-envelope">&#160;</i>Contattaci</a>
-                    </li>
-                    <li>
-                        <a href="{{route('faq')}}">Faq</a>
-                    </li>
-                </ul>
-            </div>
-            {{-- logo --}}
-            <div class="nav_logo">
-                <a href={{ route('main') }} title="Home">
-                    <h6>Deliveboo!</h6>
-                </a>
-            </div>
-        </div>
+        <ul>
+          {{-- link a registrazione --}}
+          <li>
+            <a href="{{ route('getRegistration') }}">Registra il tuo ristorante</a>
+          </li>
+          {{-- eventuali link a nostri linkedin/cv/github --}}
+          <li>
+            <a href="{{ route('chiSiamo') }}">Chi siamo</a>
+          </li>
+          <li>
+            <a href="{{ route('contattaci') }}"><i class="far fa-envelope">&#160;</i>Contattaci</a>
+          </li>
+          <li>
+            <a href="{{ route('faq') }}">Faq</a>
+          </li>
+        </ul>
+      </div>
+      {{-- logo --}}
 
-        {{-- seconda colonna --}}
-        <div class="column">
-
-            <div class="footer_list">
-
-                <h3>Social</h3>
-
-                <ul>
-                    <li>
-                        <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                    </li>
-                    <li>
-                        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
-                    </li>
-                    <li>
-                        <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
-                    </li>
-                    <li>
-                        <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
+      <a href={{ route('main') }} title="Home">
+        <h6>Deliveboo!</h6>
+      </a>
 
     </div>
+
+    {{-- seconda colonna --}}
+    <div class="column">
+
+      <div class="footer_list">
+
+        <h3>Social</h3>
+
+        <ul>
+          <li>
+            <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+          </li>
+          <li>
+            <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+  </div>
 </footer>
 
 {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"

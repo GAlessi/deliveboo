@@ -1,5 +1,5 @@
 #showRestaurant {
-    padding: 25px 0;
+    padding-bottom: 25px;
     background-color: $red;
 
     // carrello icona
@@ -293,7 +293,12 @@
                 border-bottom: 1px solid $blue;
 
                 h5 {
+                flex-shrink: 1;
                     margin: 0;
+                }
+
+                h6 {
+                    margin-left: 10px;
                 }
             }
 
@@ -331,7 +336,11 @@
             }
 
             div[class*="row"] {
+                border: solid 1px $blue;
                 border-radius: 5px;
+                -webkit-box-shadow: 0px 2px 2px 0px rgba(50, 50, 50, 0.75);
+                -moz-box-shadow: 0px 2px 2px 0px rgba(50, 50, 50, 0.75);
+                box-shadow: 0px 2px 2px 0px rgba(50, 50, 50, 0.75);
 
                 a:hover {
                     text-decoration: none;
@@ -373,17 +382,30 @@
             }
         } // fine dish_card
 
+        // dish non visibile al pubblico
         .dish_card.chiaro {
-            background-color: rgb(240, 230, 204);
+            background-color: $light;
+
+            // >h6 {
+            //     text-align: center;
+            // }
+
             &:hover {
-                background-color: rgb(240, 230, 204);
+                background-color: $light;
+
+                .dish_title_price {
+                    border-bottom: 1px solid $blue;
+                }
+
+                p,
+                span,
+                h5,
+                h6,
+                i {
+                    color: $blue;
+                }
             }
-            &:hover > p,
-            &:hover span,
-            &:hover > h6,
-            &:hover > h6 {
-                color: $blue;
-            }
+
         }
     } //fine menu_container
 } // fine #showRestaurant
@@ -391,7 +413,7 @@
 // VERSIONE EXTRA SMALL DEVICES
 @media all and (max-width: 576px) {
     #showRestaurant {
-        padding: 15px 0;
+        padding-bottom: 15px;
 
         .restaurant_info {
             .restaurant_info_card.ristoratore {
@@ -448,7 +470,7 @@
 // VERSIONE SMALL DEVICES
 @media all and (min-width: 577px) and (max-width: 767px) {
     #showRestaurant {
-        padding: 15px 0;
+        padding-bottom: 15px;
 
         .restaurant_info {
             .restaurant_info_card.ristoratore {

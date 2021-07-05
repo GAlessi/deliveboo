@@ -10,16 +10,17 @@
         @if (Auth::check())
 
           {{-- sezione myrestaurant --}}
-          <div id="myrestaurant">
+          <section id="myrestaurant">
 
             <h2>Ciao {{ $user->name }}</h2>
 
             {{-- link al mio ristorante --}}
-            <a href="{{ route('show', $user->id) }}">
-              <h3>Vai al tuo ristorante <i class="fas fa-angle-double-right"></i></h3>
+            <a href="{{ route('show', Auth::user()->id) }}">
+              <h3>Vai al tuo ristorante "{{ Auth::user()->nome_attivita }}" <i class="fas fa-angle-double-right"></i>
+              </h3>
             </a>
 
-          </div>
+          </section>
         @endif
 
         {{-- sezione jumbotron --}}
@@ -39,9 +40,8 @@
 
                 {{-- ricerca per nome ristorante --}}
                 {{-- v-if="filter.length == 0" --}}
-                <input type="text" placeholder="Cerca un ristorante" type="text"
-                  @keyup='searchRestaurant' v-model='searchedRestaurantTxt'
-                  :disabled="filter > 0">
+                <input type="text" placeholder="Cerca un ristorante" type="text" @keyup='searchRestaurant'
+                  v-model='searchedRestaurantTxt' :disabled="filter > 0">
 
                 {{-- <h6 v-if='searchedRestaurantTxt == "" && filter == 0'>Oppure</h6> --}}
                 <h6>Oppure</h6>
@@ -61,8 +61,7 @@
                         <label class="control control-checkbox">
                           {{ $type->nome }}
                           <input type="checkbox" v-model="filter" v-on:change="getFilteredRestaurant()" name="types_id"
-                            type="checkbox" value="{{ $type->id }}"
-                            :disabled="searchedRestaurantTxt != 0"/>
+                            type="checkbox" value="{{ $type->id }}" :disabled="searchedRestaurantTxt != 0" />
                           <div class="control_indicator"></div>
                         </label>
                       </li>
