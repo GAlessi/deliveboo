@@ -29,7 +29,19 @@
                 <div class="accepted_orders_container">
 
                   <div class="status_title flex space_bet align_cen">
-                    <h4>Ordini In Elaborazione</h4>
+                    <h4>
+                        Ordini In Elaborazione
+                        @php
+                            $orderCountArray = array();
+
+                            foreach ($orderSel as $order) {
+                                if ($order->status == 'accettato') {
+                                    array_push($orderCountArray, $order);
+                                }
+                            }
+                        @endphp
+                        ({{count($orderCountArray)}})
+                    </h4>
                     <div class="open_close flex align_cen">
                       <i class="fas fa-chevron-circle-up" :hidden="hiddenOrdersAccettati" @click="showOrdersAccettati"
                         title="Riduci ordini"></i>
@@ -42,9 +54,8 @@
 
                     <ul class="flex_wrap space_bet">
 
-                      @foreach ($orderSel as $restaurantOrder)
+                      @foreach ($orderCountArray as $restaurantOrder)
 
-                        @if ($restaurantOrder->status == 'accettato')
 
                           {{-- card ordine accettato --}}
                           <li>
@@ -158,7 +169,6 @@
 
                             </div>
                           </li>
-                        @endif
 
                       @endforeach
                     </ul>
@@ -433,6 +443,10 @@
                                     "{{ $restaurantOrder->note }}"</p>
                                 </div>
                               @endif
+                              <a class="flex_center" href="{{ route('revertStatus', $restaurantOrder->id) }}">
+                                <i class="fas fa-check-circle"></i>
+                                Riporta status "in elaborazione"
+                              </a>
                             </div>
                           </li>
                         @endif

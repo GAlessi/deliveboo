@@ -33,6 +33,20 @@ class HomeController extends Controller
         return redirect() -> back();
 
     }
+
+    public function revertStatus($id)
+    {
+        // dd($id);
+        $order = Order::findOrFail($id);
+        $order->status = 'accettato';
+        $order -> save();
+
+        // dd($order);
+
+        return redirect() -> back();
+
+    }
+
     //creazione nuovo piatto
     public function createDish()
     {
@@ -124,7 +138,6 @@ class HomeController extends Controller
         $orderSel = array();
 
 
-
         //pusha in array i piatti di un ristorante
         foreach ($user -> dishes as $dish) {
             foreach ($dish -> orders as $order){
@@ -139,6 +152,7 @@ class HomeController extends Controller
             array_push($orderSel, $selectedOrder);
         }
 
+        // dd($orderCount);
         return view('pages.showOrders', compact('user', 'orderSel'));
     }
 

@@ -72,6 +72,8 @@ Route::get('/statistiche/{id}', 'HomeController@statistiche')
 Route::get('/status/{id}', 'HomeController@editStatus')
 -> name('editStatus');
 
+Route::get('/revertStatus/{id}', 'HomeController@revertStatus')
+-> name('revertStatus');
 
 //Footer
 //chi siamo
