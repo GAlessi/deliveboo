@@ -13239,13 +13239,13 @@ main #mainPage #restaurants .restaurants_carousel .restaurant_card h4 {
 }
 
 @media all and (min-width: 577px) and (max-width: 767px) {
-  .mycontainer #profile .column {
+  .mycontainer #profile .profile_column {
     width: calc(100% / 2);
   }
 }
 
 @media all and (max-width: 576px) {
-  .mycontainer #profile .column {
+  .mycontainer #profile .profile_column {
     width: 100%;
   }
 }
