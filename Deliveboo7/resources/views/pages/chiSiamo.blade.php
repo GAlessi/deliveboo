@@ -27,7 +27,7 @@
                     Cognome: Sgura
                 </p>
                 <p>
-                    <a href="https://www.linkedin.com/in/valerio-sgura-4552b7213/">linkedIn</a>
+                    <a href="https://www.linkedin.com/in/valerio-sgura-4552b7213/">LinkedIn</a>
                 </p>
                 <p>
                     <a href="https://github.com/zuingo88">GitHub</a>
