@@ -239,7 +239,7 @@
 
               @foreach ($user->dishes->sortBy('created_at') as $dish)
 
-                @if (Auth::check() && Auth::user()->id == $user->id && !$dish->deleted)
+                @if (Auth::check() && Auth::user()->id == $user->id)
 
                   {{-- CARD PIATTO USER PROPRIETARIO --}}
                   <li>
@@ -250,7 +250,7 @@
                         <h5 class="flex_center">
                           {{ $dish->nome }}
                           @if (!$dish->visibilita)
-                             <i class="far fa-eye-slash"></i> 
+                             <i class="far fa-eye-slash"></i>
                           @endif
                         </h5>
                         <h6>{{ round($dish->prezzo, 2) }} €</h6>

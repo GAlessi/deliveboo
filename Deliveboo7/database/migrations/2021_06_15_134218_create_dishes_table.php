@@ -23,7 +23,7 @@ class CreateDishesTable extends Migration
             $table -> boolean('visibilita') -> nullable(false);
 
             //cancella piatto
-            $table -> boolean('deleted') -> default(false);
+            $table->softDeletes();
 
             //one to many   Restaurant to Dishes
             $table -> bigInteger('user_id') -> unsigned() -> index();

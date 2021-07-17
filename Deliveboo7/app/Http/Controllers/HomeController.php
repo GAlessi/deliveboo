@@ -116,8 +116,7 @@ class HomeController extends Controller
         //$dish -> delete();
 
         $user = $userid;
-        $dish -> deleted = true;
-        $dish -> save();
+        $dish -> delete();
 
 
         return redirect() -> route('show', $user);
