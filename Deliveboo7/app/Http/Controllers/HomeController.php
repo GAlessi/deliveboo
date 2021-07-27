@@ -111,13 +111,11 @@ class HomeController extends Controller
 
     //eliminazione Piatto
     public function destroy($id, $userid) {
-        // dd($id, $userid);
-        $dish = Dish::findOrFail($id);
-        //$dish -> delete();
 
         $user = $userid;
-        $dish -> delete();
 
+        $dish = Dish::findOrFail($id);
+        $dish -> delete();
 
         return redirect() -> route('show', $user);
     }
@@ -130,8 +128,6 @@ class HomeController extends Controller
         $orders = Order::orderBy('created_at', 'DESC')
           ->get();
         //dd($orders);
-
-
 
         $ordersId = array();
         $orderSel = array();
